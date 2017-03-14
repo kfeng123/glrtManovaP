@@ -1,0 +1,284 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Journal of \LaTeX\ Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}{\quad\quad Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{Condition}
+
+\theoremstyle{definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
+
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Elsevier \LaTeX\ template\tnoteref{mytitlenote}}
+\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+%% Group authors per affiliation:
+\author{Elsevier\fnref{myfootnote}}
+\address{Radarweg 29, Amsterdam}
+\fntext[myfootnote]{Since 1880.}
+
+%% or include affiliations in footnotes:
+\author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
+\ead[url]{www.elsevier.com}
+
+\author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
+\cortext[mycorrespondingauthor]{Corresponding author}
+\ead{support@elsevier.com}
+
+\address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
+\address[mysecondaryaddress]{360 Park Avenue South, New York}
+
+\begin{abstract}
+This template helps you to create a properly formatted \LaTeX\ manuscript.
+\end{abstract}
+
+\begin{keyword}
+\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
+\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+\section{GLRT}
+Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
+Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,k$.
+The $k$ samples are independent.
+$\mu_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
+\begin{equation}
+    H: \mu_1=\mu_2=\cdots=\mu_k\quad v.s.\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+\end{equation}
+Let $\mathbf{Z}=(X_1,\ldots,X_k)$.
+$$
+f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
+    (2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
+    \Big].
+$$
+Assume $n=\sum_{i=1}^p n_i<p$. Let $a\in \mathbb{R}^p$ be a vector satisfying $a^T a=1$. Then
+$$
+f_a(a^T Z;\mu_1,\ldots,\mu_k,\Sigma)=
+    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\mu_i)^2\Big)
+$$
+\begin{equation}
+    \begin{aligned}
+        \max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)
+        =
+        (2\pi)^{-n/2}\big(\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\bar{\mathbf{X}}_i)^2\big)^{-n/2}e^{-{n}/{2}}
+    \end{aligned}
+\end{equation}
+
+Let $S_i=\sum_{j=1}^{n_i}(x_{ij}-\bar{\mathbf{X}}_i)(x_{ij}-\bar{\mathbf{X}}_i)^T$ and $S=\sum_{i=1}^k S_i$.
+
+
+Under $H$, we have
+\begin{equation}
+    \begin{aligned}
+        \max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)
+        =
+        (2\pi)^{-n/2}\big(\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\bar{\mathbf{X}})^2\big)^{-n/2}e^{-{n}/{2}}
+    \end{aligned}
+\end{equation}
+
+The generalized likelihood ratio test statistic is defined as
+\begin{equation}
+    \begin{aligned}
+        T(Z)
+        =
+        \max_{a^T a=1, a^T S a=0} 
+        a^T \sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T a
+    \end{aligned}
+\end{equation}
+Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
+Then $S=Z(I_n-JJ^T)Z^T$ and
+\begin{equation}
+    \begin{aligned}
+        \sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
+        =Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T.
+    \end{aligned}
+\end{equation}
+The matrix $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are all projection matrix and pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
+
+Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfied $\tilde{J}\tilde{J}^T =I-JJ^T$.
+Then $S=Z\tilde{J}\tilde{J}^T Z^T$ and
+ Note that 
+$$
+Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
+=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T.
+$$
+Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a projection matrix with rank $k-1$.
+Let $C$ be a $k\times (k-1)$ matrix satisfied $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
+
+In Proposition~\ref{optProp}, letting $A=Z\tilde{J}$ and $B=ZJ C C^T J^TZ^T$ yields 
+$$
+T(Z)=\lambda_{max}\big((I_p-H_A)ZJCC^TJ^TZ^T (I_p-H_A)\big)
+=\lambda_{max}\big(C^TJ^TZ^T (I_p-H_A)ZJC\big),
+$$
+where $H_A=Z\tilde{J}{(\tilde{J}Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
+Note that
+\begin{equation}
+    \begin{aligned}
+        &\Big(
+        \begin{pmatrix}
+            J^T\\
+            \tilde{J}^T
+        \end{pmatrix}
+        Z^T Z
+        \begin{pmatrix}
+            J&\tilde{J}
+        \end{pmatrix}
+        \Big)^{-1}\\
+        &=
+        \begin{pmatrix}
+            J^T Z^T ZJ & J^T Z^T Z\tilde{J}\\
+            \tilde{J}^T Z^T ZJ & \tilde{J}^T Z^T Z \tilde{J}
+        \end{pmatrix}^{-1}
+        &=
+        \begin{pmatrix}
+            J^T {(Z^T Z)}^{-1}J & J^T {(Z^T Z)}^{-1}\tilde{J}\\
+            \tilde{J}^T {(Z^T Z)}^{-1}J & \tilde{J}^T {(Z^T Z)}^{-1} \tilde{J}
+        \end{pmatrix}.
+    \end{aligned}
+\end{equation}
+It follows that
+\begin{equation}
+    \begin{aligned}
+        &{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}\\
+        =&J^T Z^T ZJ - J^T Z^T Z\tilde{J}{(\tilde{J}^T Z^T Z \tilde{J})}^{-1}
+            \tilde{J}^T Z^T ZJ \\
+        =& J^T Z^T( I_p- Z\tilde{J}{(\tilde{J}^T Z^T Z \tilde{J})}^{-1}
+            \tilde{J}^T Z^T) ZJ 
+    \end{aligned}
+\end{equation}
+It follows that
+\begin{equation}
+    \begin{aligned}
+        T(Z)=
+        \lambda_{\max}\Big(C^T{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}C\Big)\\
+    \end{aligned}
+\end{equation}
+\begin{proposition}\label{optProp}
+    Suppose $A$ is a $p\times r$ matrix with rank $r$ and $B$ is a $p\times p$  non-zero semi-definite matrix.
+    Let $H_A=A{(A^TA)}^{-1}A^T$.
+    Then
+    \begin{equation}
+        \max_{a^T a=1, a^T A A^T a=0}a^T B a=
+        \lambda_{\max}\big((I_p-H_A)B(I_p-H_A)\big).
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Note that $a^T A A^T a=0$ is equivalent to $A^T a=0$ and is in turn equivalent to $H_A a=0$.
+    In this circumstance, $a= (I_p-H_A)a$.
+    Then
+    \begin{equation}\label{eq:prop1eq1}
+        \begin{aligned}
+        \max_{a^T a=1, a^T A A^T a=0}a^T B a
+            &=
+            \max_{a^T a=1, H_A a=0}a^T B a\\
+            &=
+        \max_{a^T a=1, H_A a=0}a^T(I_p-H_A) B (I_p-H_A)a.
+        \end{aligned}
+    \end{equation}
+    It's obvious that $\eqref{eq:prop1eq1}\leq\lambda_{\max}\big((I-H_A)B(I-H_A)\big)$.
+    On the other hand, let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(I-H_A)B(I-H_A)$.
+    Note that the row of $H_A$ are all eigenvetors of $(I-H_A)B(I-H_A)$ corresponding to eigenvalue $0$. It follows that $H_A\alpha_1=0$. Now that $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1},~\eqref{eq:prop1eq1} is maximized when $a=\alpha_1$.
+    
+\end{proof}
+
+
+
+\section{The Elsevier article class}
+
+\paragraph{Installation} If the document class \emph{elsarticle} is not available on your computer, you can download and install the system package \emph{texlive-publishers} (Linux) or install the \LaTeX\ package \emph{elsarticle} using the package manager of your \TeX\ installation, which is typically \TeX\ Live or Mik\TeX.
+
+\paragraph{Usage} Once the package is properly installed, you can use the document class \emph{elsarticle} to create a manuscript. Please make sure that your manuscript follows the guidelines in the Guide for Authors of the relevant journal. It is not necessary to typeset your manuscript in exactly the same way as an article, unless you are submitting to a camera-ready copy (CRC) journal.
+
+\paragraph{Functionality} The Elsevier article class is based on the standard article class and supports almost all of the functionality of that class. In addition, it features commands and options to format the
+\begin{itemize}
+\item document style
+\item baselineskip
+\item front matter
+\item keywords and MSC codes
+\item theorems, definitions and proofs
+\item lables of enumerations
+\item citation style and labeling.
+\end{itemize}
+
+\section{Front matter}
+
+The author names and affiliations could be formatted in two ways:
+\begin{enumerate}[(1)]
+\item Group the authors per affiliation.
+\item Use footnotes to indicate the affiliations.
+\end{enumerate}
+See the front matter of this document for examples. You are recommended to conform your choice to the journal you are submitting to.
+
+\section{Bibliography styles}
+
+There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
+
+Here are two sample references: \cite{Feynman1963118,Dirac1953888}.
+
+\section*{References}
+
+\bibliography{mybibfile}
+
+\end{document}
