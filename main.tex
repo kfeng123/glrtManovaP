@@ -48,6 +48,11 @@
 \usepackage{algorithmic}
 
 
+\DeclareMathOperator{\mytr}{tr}
+\DeclareMathOperator{\mydiag}{diag}
+\DeclareMathOperator{\myrank}{Rank}
+\DeclareMathOperator{\myE}{E}
+\DeclareMathOperator{\myVar}{Var}
 
 
 \theoremstyle{plain}
@@ -169,10 +174,19 @@ Let $C$ be a $k\times (k-1)$ matrix satisfied $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}
 
 In Proposition~\ref{optProp}, letting $A=Z\tilde{J}$ and $B=ZJ C C^T J^TZ^T$ yields 
 $$
-T(Z)=\lambda_{max}\big((I_p-H_A)ZJCC^TJ^TZ^T (I_p-H_A)\big)
-=\lambda_{max}\big(C^TJ^TZ^T (I_p-H_A)ZJC\big),
+\begin{aligned}
+    T(Z)&=\lambda_{max}\big((I_p-
+    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
+    )ZJCC^TJ^TZ^T (I_p-
+    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
+    )\big)
+\\
+    &=\lambda_{max}\big(C^TJ^TZ^T (I_p-
+    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
+    )ZJC\big).
+\end{aligned}
 $$
-where $H_A=Z\tilde{J}{(\tilde{J}Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
+%where $H_A=Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
 Note that
 \begin{equation}
     \begin{aligned}
@@ -243,39 +257,32 @@ It follows that
     
 \end{proof}
 
+\section{Schott's method}
+
+$$
+E=ZZ^T-\sum_{i=1}^k n_i \bar{X}_i \bar{X}_i^T.
+$$
+
+$$
+H=\sum_{i=1}^{k} n_i \bar{X}_i \bar{X}_i^T - n\bar{X}\bar{X}^T.
+$$
+
+$$
+\mytr E = \mytr Z^T Z - \mytr J^T Z^T Z J.
+$$
 
 
-\section{The Elsevier article class}
+$$
+\mytr H = \mytr J^T Z^T Z J - \frac{1}{n} 1_n^T Z^T Z 1_n
+$$
 
-\paragraph{Installation} If the document class \emph{elsarticle} is not available on your computer, you can download and install the system package \emph{texlive-publishers} (Linux) or install the \LaTeX\ package \emph{elsarticle} using the package manager of your \TeX\ installation, which is typically \TeX\ Live or Mik\TeX.
+$$
+T_{SC}=\frac{1}{\sqrt{n-1}}(
+\frac{1}{k-1}\mytr H-\frac{1}{n-k} \mytr E
+)
+$$
 
-\paragraph{Usage} Once the package is properly installed, you can use the document class \emph{elsarticle} to create a manuscript. Please make sure that your manuscript follows the guidelines in the Guide for Authors of the relevant journal. It is not necessary to typeset your manuscript in exactly the same way as an article, unless you are submitting to a camera-ready copy (CRC) journal.
 
-\paragraph{Functionality} The Elsevier article class is based on the standard article class and supports almost all of the functionality of that class. In addition, it features commands and options to format the
-\begin{itemize}
-\item document style
-\item baselineskip
-\item front matter
-\item keywords and MSC codes
-\item theorems, definitions and proofs
-\item lables of enumerations
-\item citation style and labeling.
-\end{itemize}
-
-\section{Front matter}
-
-The author names and affiliations could be formatted in two ways:
-\begin{enumerate}[(1)]
-\item Group the authors per affiliation.
-\item Use footnotes to indicate the affiliations.
-\end{enumerate}
-See the front matter of this document for examples. You are recommended to conform your choice to the journal you are submitting to.
-
-\section{Bibliography styles}
-
-There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
-
-Here are two sample references: \cite{Feynman1963118,Dirac1953888}.
 
 \section*{References}
 
