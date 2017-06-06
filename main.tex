@@ -283,6 +283,182 @@ T_{SC}=\frac{1}{\sqrt{n-1}}(
 $$
 
 
+\section{Theory}
+Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$. Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$.
+$T(Z) = \lambda_{\max}(C^T J^T Z^T (I_p-H_{Z\tilde{J}})ZJC)$.
+
+$ZJC$ is independent of $H_{Z\tilde{J}}$
+
+$$
+\myE (Z\tilde{J}) = O_{p\times (n-k)}
+$$
+Let $\Sigma = U\Lambda U^T$. Then
+$$
+Z\tilde{J} = U\Lambda^{1/2} G_1,
+$$
+where $G_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
+
+
+$$
+\myE (ZJ) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k)\overset{def}{=}\mu_{f}
+$$
+And
+$$
+ZJC = \mu_f C + U\Lambda_{1/2} G_2
+$$
+where $G_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
+
+Then 
+$$
+\begin{aligned}
+T(Z)\sim \lambda_{\max}(
+    G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
+\mu_f^T (I_p -H_{Z\tilde{J}})\mu_f+\\
+    \mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
+G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f)
+\end{aligned}
+$$
+We have
+$$
+    G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2\sim
+    \sum_{i=1}^p \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\xi_i \xi_i^T
+$$
+where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$.
+
+The eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$ equal to those of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
+
+Let $U=(U_1, U_2)$ and $\Sigma=\mydiag(\Lambda_1,\Lambda_2)$, where $U_1$ is $p\times r$ and $\Lambda_1$ is $r\times r$. Assume $c I_{p-r}\leq \Lambda_2\leq C I_{p-r}$.
+
+$$
+\begin{aligned}
+    &(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})
+    \\
+    =&
+    (I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})+(I_p-H_{Z\tilde{J}})U_2\Lambda_2 U_2^T (I_p-H_{Z\tilde{J}})
+    =R_1+R_2
+\end{aligned}
+$$
+
+
+$$
+\begin{aligned}
+    &\lambda_{\max}\big((I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})\big)
+    =
+    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-H_{Z\tilde{J}}) U_1 \Lambda_1^{1/2}\big)\\
+    &\leq 
+    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \Lambda_1^{1/2}\big)
+    \leq 
+    \lambda_1
+    \lambda_{\max}\big(U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \big)\\
+    &= 
+    \lambda_1
+    \lambda_{\max}\big(I_r - U_1^TU_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1 \big)\\
+\end{aligned}
+$$
+
+We need to investigate the behavior of $U_{Z\tilde{J}}$.
+
+$$
+G_1^T \Lambda G_1 = \tilde{J}^T Z^T Z\tilde{J} = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
+$$
+Note that 
+$$
+G_1^T \Lambda G_1=
+G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]}+
+G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]}
+$$
+For $i=1,\ldots, r$,
+$$
+\begin{aligned}
+    &\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
+    \geq
+\lambda_i(G_{1[1:r,]}^T \mydiag(\lambda_i I_{i},O_{(r-i)\times(r-i)}) G_{1[1:r,]})
+\\
+    = &
+    \lambda_i \lambda_i(G_{1[1:i,]}G_{1[1:i,]}^T)=\lambda_i n(1+o_P(1))
+\end{aligned}
+$$
+The last equality holds since $n^{-1}G_{1[1:i,]}G_{1[1:i,]}^T\xrightarrow{P}I_i$ by law of large numbers.
+On the other hand, for $i=1,\ldots, r$,
+$$
+\begin{aligned}
+    &\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
+    \\
+    =&\lambda_i\Big(
+    G_{1[1:r,]}^T \big(
+    \mydiag(\lambda_1,\ldots,\lambda_{i-1},O_{(r-i+1)\times(r-i+1)})+
+    \mydiag(O_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r)
+    \big)
+    G_{1[1:r,]}
+    \Big)\\
+    \leq&
+\lambda_1(G_{1[1:r,]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) G_{1[1:r,]})
+    \leq
+    \lambda_1(G_{1[1:r,]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i I_{r-i+1}) G_{1[1:r,]})
+\\
+    = &
+    \lambda_i \lambda_1(G_{1[i:r,]}G_{1[i:r,]}^T)=\lambda_i n(1+o_P(1))
+\end{aligned}
+$$
+where the first inequality holds by Weyl's inequality. It follows that 
+    $\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
+
+    Note that
+$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law, here we have assumed $n/p=O(1)$.
+Assume $p/(\lambda_r n)\to 0$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
+
+Note that
+$$
+\begin{aligned}
+U\Lambda^{1/2} G_1 G_1^T \Lambda^{1/2} U^T 
+    &=U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T\\
+\end{aligned}
+$$
+then
+$$
+\begin{aligned}
+G_1 G_1^T  
+    &=\Lambda^{-1/2} U^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^TU\Lambda^{-1/2}\\
+\end{aligned}
+$$
+and
+$$
+\begin{aligned}
+    G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T  
+    &=\Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
+    &\geq
+    \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]}D_{Z\tilde{J}[1:r,1:r]}^2 U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
+    &\geq
+    D_{Z\tilde{J}[r,r]}^2
+    \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
+\end{aligned}
+$$
+Thus,
+$$
+\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq 
+\frac{C}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
+    (G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T)
+=O_P(\frac{p}{\lambda_r n})
+$$
+
+Note that
+$$
+\begin{aligned}
+    &\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})
+=
+\lambda_{\max}( U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]})\\
+    =&
+    \lambda_{\max}( U_{Z\tilde{J}[,1:r]}^T (I_p- U_1 U_1^T) U_{Z\tilde{J}[,1:r]})=
+    \lambda_{\max}(I_r- U_{Z\tilde{J}[,1:r]}^T  U_1 U_1^T U_{Z\tilde{J}[,1:r]})\\
+    =&
+    1-\lambda_{\min}( U_{Z\tilde{J}[,1:r]}^T  U_1 U_1^T U_{Z\tilde{J}[,1:r]})
+    =
+    1-\lambda_{\min}(U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)\\
+    =&
+    \lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)
+\end{aligned}
+$$
+Therefore $\lambda_{\max}(R_1)=O_P(\frac{\lambda_1 p}{\lambda_r n})$
 
 \section*{References}
 
