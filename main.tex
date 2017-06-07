@@ -314,16 +314,20 @@ $$
 T(Z)\sim \lambda_{\max}(
     G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
 \mu_f^T (I_p -H_{Z\tilde{J}})\mu_f+\\
-    \mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
+    \mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
 G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f)
 \end{aligned}
 $$
 We have
 $$
-    G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2\sim
+    G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2\sim
     \sum_{i=1}^p \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\xi_i \xi_i^T
 $$
 where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$.
+
+
+
+
 
 The eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$ equal to those of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
 
@@ -459,6 +463,129 @@ $$
 \end{aligned}
 $$
 Therefore $\lambda_{\max}(R_1)=O_P(\frac{\lambda_1 p}{\lambda_r n})$
+
+Having this, we can deal with $R_1+R_2$
+
+For $i=1,\ldots, r$,
+$$
+\lambda_i(R_1+R_2)\leq
+\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)\leq O_P(\frac{\lambda_1 p}{\lambda_r n}) + C
+$$
+
+For $i=r+1,\ldots, p-r$,
+$$
+\begin{aligned}
+    &\lambda_i(R_1+R_2)\leq \lambda_{i-r}(R_2)
+    =
+     \lambda_{i-r}\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)
+    \leq
+    \lambda_{i-r}(\Lambda_2)
+    =\lambda_i
+\end{aligned}
+$$
+On the other hand,
+for $i=1,\ldots, p-r-n+k$,
+$$
+\begin{aligned}
+    &\lambda_i(R_1+R_2)\geq \lambda_i(R_2)
+    =
+     \lambda_i\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)\\
+    =&
+    \lambda_i\big( \Lambda_2- \Lambda_2^{1/2} U_2^T H_{Z\tilde{J}}U_2 \Lambda_2^{1/2}\big)
+    \geq 
+    \lambda_{i+n-k}
+\end{aligned}
+$$
+The last equality holds since $U_2^T H_{Z\tilde{J}}U_2$ is at most of rank $n-k$.
+
+
+$$
+    \sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+\sum_{i=r+1}^{p-r}\lambda_i^2
+$$
+Or
+$$
+    | \mytr [(R_1+R_2)^2]-\sum_{i=r+1}^{p}\lambda_{i}^2|\leq 
+\sum_{i=r+1}^{n-k}\lambda_{i}^2+
+\sum_{i=p-r+1}^{p}\lambda_{i}^2
++
+    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2
+$$
+
+Similarly,
+$$
+    | \mytr [(R_1+R_2)]-\sum_{i=r+1}^{p}\lambda_{i}|\leq 
+\sum_{i=r+1}^{n-k}\lambda_{i}+
+\sum_{i=p-r+1}^{p}\lambda_{i}
++
+    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)
+$$
+
+Therefore, assume $\lim p/n \to \infty$ and $\frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0$, we have
+$$
+     \mytr [(R_1+R_2)^2]=(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2
+$$
+and
+$$
+     \mytr [(R_1+R_2)]=\sum_{i=r+1}^{p}\lambda_{i}+O(n)+O_P(\frac{\lambda_1 p}{\lambda_r n}).
+$$
+
+Note that
+$$
+\frac{\lambda_1[(R_1+R_2)^2]}{
+    \mytr [(R_1+R_2)^2]
+}
+%\leq
+%\frac{
+    %\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
+%}{\sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2}
+%\leq
+%\frac{
+    %\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
+%}{c(p-r-n+k)}
+=
+\frac{
+    \big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
+}{
+(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2
+}
+\xrightarrow{P} 0.
+$$
+
+Apply Lyapunov central limit theorem conditioning on $H_{Z\tilde{J}}$, we have
+$$
+\begin{aligned}
+    \big(\mytr[(R_1+R_2)^2]\big)^{-1/2}
+    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\mytr(R_1+R_2) I_{k-1} \big)
+    \xrightarrow{\mathcal{L}} W_{k-1}
+\end{aligned}
+$$
+where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
+By Slutsky's theorem, we have
+$$
+\begin{aligned}
+    \big(\sum_{i=r+1}^p \lambda_i^2\big)^{-1/2}
+    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=r+1}^p \lambda_i^2 \big)
+    \xrightarrow{\mathcal{L}}W_{k-1}
+\end{aligned}
+$$
+
+
+And
+
+$$
+    \begin{aligned}
+        &\myE [\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2|Z\tilde{J}]\\
+        = &
+        (k-1)\mytr(\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\mu_f)\\
+        \leq &
+        (k-1)\lambda_1\big((I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\big)\|\mu_f\|^2_F\\
+        = &
+        (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n})  \|\mu_f\|^2_F\\
+        = &
+        (k-1) O_P(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}) \sqrt{p}  \|\mu_f\|^2_F=o_P(p)
+    \end{aligned}
+$$
+The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1)$. Hence $\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2=o_P(p)$.
 
 \section*{References}
 
