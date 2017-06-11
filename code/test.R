@@ -2,7 +2,34 @@ source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
 
 
+
+
 doit <- function() {
+    # J
+    tmp <- lapply(1:K,function(i){
+        tmp <- rep(0,n[i]*K)
+        dim(tmp) <- c(n[i],K)
+        tmp[,i] <- 1/sqrt(n[i])
+        tmp
+    })
+    NEW.J <- do.call(rbind,tmp)
+    # C
+    tmp <- t(NEW.J)%*%rep(1,sum(n))
+    C <- eigen(diag(K)-tmp%*%t(tmp)/sum(n))$vectors[,-K]
+    
+    tmpMu <- do.call(cbind,mu)
+    for(i in 1:K){
+        tmpMu[,i] <- tmpMu[,i]*sqrt(n[i])
+    }
+    tmpMuF <- tmpMu%*%C
+        
+    tmpCon <- sqrt(SNR*sqrt(sum(Sigma^2))/sum(tmpMuF^2))
+    for(i in 1:length(mu)){
+        mu[[i]] <- mu[[i]]*tmpCon
+    }
+    
+    
+
     pb <- txtProgressBar(style = 3)
     
     jCX <- rep(0, 500)
@@ -14,11 +41,11 @@ doit <- function() {
         })
         theCXstat <- CXstat(n, p, K, X)
         
-        tmp <- NEWstat(n, p, K, X)
+        tmp <- NEWstat(n, p, K, X,NEW.J=NEW.J,C=C)
         theNEWstat <- tmp$stat
         Zinv <- tmp$Zinv
         
-        tmp <- SCstat(n, p, K, X)
+        tmp <- SCstat(n, p, K, X,NEW.J=NEW.J)
         theSCstat <- tmp$stat
         myGram <- tmp$myGram
         
@@ -30,9 +57,9 @@ doit <- function() {
             thePer <- myPer(n, p, K, X, theOrder)
             tmpCXstat[xxx] <- CXstat(n, p, K, thePer)
             tmpNEWstat[xxx] <-
-                NEWstat(n, p, K, thePer, Zinv[theOrder, theOrder])
+                NEWstat(n, p, K, thePer, Zinv[theOrder, theOrder],NEW.J=NEW.J,C=C)
             tmpSCstat[xxx] <-
-                SCstat(n, p, K, thePer, myGram = myGram[theOrder, theOrder])
+                SCstat(n, p, K, thePer, myGram = myGram[theOrder, theOrder],NEW.J=NEW.J)
         }
         if ((sum(tmpCXstat >= theCXstat) + 1) / (B + 1) <= 0.05)
             jCX[myIterator] <- 1
@@ -53,20 +80,24 @@ doit <- function() {
     ))
 }
 
+######################################################
+B = 100
 # sample number
 K = 3
-
-B = 100
-
 n <- c(10, 10, 10)
 p = 80
 Sigma <- diag(p)
 Sigma[1,1]<-100
-mu <- list(rep(0.4, p), rep(0, p), rep(0, p), rep(0, p), rep(0, p))
+
+mu <- list(rep(1, p), rep(0, p), rep(0, p))
+SNR <- 0.0
+
 (doit())
 
-mu <- list(rep(0.2, p), rep(0, p), rep(0, p), rep(0, p), rep(0, p))
-(doit())
+#########################################################################
+
+
+#########################################################################
 ##### plot(ecdf(jjj))
 #
 # TheoryCDF <- function(x){

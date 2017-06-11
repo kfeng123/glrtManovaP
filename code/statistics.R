@@ -1,17 +1,4 @@
 
-# J
-tmp <- lapply(1:K,function(i){
-    tmp <- rep(0,n[i]*K)
-    dim(tmp) <- c(n[i],K)
-    tmp[,i] <- 1/sqrt(n[i])
-    tmp
-})
-NEW.J <- do.call(rbind,tmp)
-# C
-tmp <- t(NEW.J)%*%rep(1,sum(n))
-C <- eigen(diag(K)-tmp%*%t(tmp)/sum(n))$vectors[,-K]
-
-
 
 
 # Tony Cai and Yin Xia
@@ -39,7 +26,7 @@ CXstat <- function(n,p,K,X){
 }
 
 # Schott
-SCstat <- function(n,p,K,X,myGram=NULL){
+SCstat <- function(n,p,K,X,myGram=NULL,NEW.J){
     out <- list()
     if(is.null(myGram)){
         bindX <- do.call(rbind, X)
@@ -59,7 +46,7 @@ SCstat <- function(n,p,K,X,myGram=NULL){
 # the New stat
 
 
-NEWstat <- function(n,p,K,X,Zinv=NULL){
+NEWstat <- function(n,p,K,X,Zinv=NULL,NEW.J,C){
     out <- list()
     if(is.null(Zinv)){
         bindX <- do.call(rbind, X)

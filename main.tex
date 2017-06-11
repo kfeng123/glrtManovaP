@@ -46,6 +46,7 @@
 \usepackage{booktabs}
 \usepackage{algorithm}
 \usepackage{algorithmic}
+\usepackage{multirow}
 
 
 \DeclareMathOperator{\mytr}{tr}
@@ -284,107 +285,212 @@ $$
 
 
 \section{Theory}
+Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
+Let $U=(U_1,U_2)$ where $U_1$ is $p\times r$ and $U_2$ is $p\times (p-r)$. Let $\Lambda_1=\mydiag(\lambda_1,\ldots,\lambda_r)$ and $\Lambda_2=\mydiag(\lambda_{r+1},\ldots,\lambda_p)$.
+Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
+
 Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$. Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$.
+Then
 $T(Z) = \lambda_{\max}(C^T J^T Z^T (I_p-H_{Z\tilde{J}})ZJC)$.
+Note that
+$$
+\myE (ZJC) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k) C\overset{def}{=}\mu_{f}.
+$$
 
-$ZJC$ is independent of $H_{Z\tilde{J}}$
+
+\begin{assumption}\label{assumpEigen}
+    Assume $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
+\end{assumption}
+
+
+
+
+
+
+
+\begin{theorem}\label{thm1}
+    Suppose Assumption~\eqref{assumpEigen} holds. Suppose 
+    \begin{equation}
+    p/n\to \infty,\quad\textrm{and}\quad \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
+    \end{equation}
+    Suppose
+    \begin{equation}
+        \frac{\lambda_r n}{p}\to \infty.
+    \end{equation}
+    Suppose
+    \begin{equation}
+        \frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1).
+    \end{equation}
+    Then
+    \begin{equation}
+        (\mytr \Lambda_2^2)^{-1/2}\big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-(\mytr \Lambda_2) I_{k-1} -\mu_f^T(I_p-H_{Z\tilde Z})\mu_f\big)\xrightarrow{\mathcal{L}} W_{k-1},
+    \end{equation}
+where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
+\end{theorem}
+
+\section{Simulation Results}
 
 $$
+SNR=\frac{\|\mu_f\|_F^2}{\sqrt{\mytr (\Sigma^2)}}
+$$
+\begin{table}[!hbp]
+    \caption[short]{$n_1=n_2=n_3=10$, non-sparse, $\Sigma=\mydiag()$}
+    \centering
+    \begin{tabular}{*{10}{c}}
+    \toprule
+    \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=50$}&\multicolumn{3}{c}{$p=75$}&\multicolumn{3}{c}{$p=100$} \\
+        \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+    \midrule
+        0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
+    0.1\\
+    0.2\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!hbp]
+    \caption[short]{$n_1=n_2=n_3=25$, non-sparse}
+    \centering
+    \begin{tabular}{*{10}{c}}
+    \toprule
+    \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+        \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+    \midrule
+        0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
+    0.1\\
+    0.2\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!hbp]
+    \caption[short]{$n_1=n_2=n_3=10$, sparse}
+    \centering
+    \begin{tabular}{*{10}{c}}
+    \toprule
+    \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=50$}&\multicolumn{3}{c}{$p=75$}&\multicolumn{3}{c}{$p=100$} \\
+        \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+    \midrule
+        0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
+    0.1\\
+    0.2\\
+    \bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!hbp]
+    \caption[short]{$n_1=n_2=n_3=25$, sparse}
+\begin{center}
+    \begin{tabular}{*{10}{c}}
+    \toprule
+    \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+        \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+    \midrule
+        0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
+    0.1\\
+    0.2\\
+    \bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+\section{Appendix}
+
+\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
+It can be seen that $ZJC$ is independent of ${Z\tilde{J}}$.
+Since
+$
 \myE (Z\tilde{J}) = O_{p\times (n-k)}
-$$
-Let $\Sigma = U\Lambda U^T$. Then
-$$
-Z\tilde{J} = U\Lambda^{1/2} G_1,
-$$
+$,
+we can write
+$
+Z\tilde{J} = U\Lambda^{1/2} G_1
+$,
 where $G_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
-
-
-$$
-\myE (ZJ) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k)\overset{def}{=}\mu_{f}
-$$
-And
-$$
-ZJC = \mu_f C + U\Lambda_{1/2} G_2
-$$
+We write
+$
+ZJC = \mu_f + U\Lambda^{1/2} G_2
+$, 
 where $G_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
 
 Then 
-$$
+\begin{equation}\label{eq:maindec}
 \begin{aligned}
-T(Z)\sim \lambda_{\max}(
+C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC
+    =&
     G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
 \mu_f^T (I_p -H_{Z\tilde{J}})\mu_f+\\
-    \mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
-G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f)
+    &\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
+G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f.
 \end{aligned}
-$$
-We have
+\end{equation}
+To deal the first term, we note that
 $$
     G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2\sim
-    \sum_{i=1}^p \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\xi_i \xi_i^T
+    \sum_{i=1}^p \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\xi_i \xi_i^T,
 $$
-where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$.
-
-
-
-
-
-The eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$ equal to those of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
-
-Let $U=(U_1, U_2)$ and $\Sigma=\mydiag(\Lambda_1,\Lambda_2)$, where $U_1$ is $p\times r$ and $\Lambda_1$ is $r\times r$. Assume $c I_{p-r}\leq \Lambda_2\leq C I_{p-r}$.
-
+where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$. The key to its asymptotic behavior is the positive eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$, which in turn equal to the eigenvalues of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
+Write $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$ as the sum of two terms
 $$
 \begin{aligned}
     &(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})
     \\
     =&
     (I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})+(I_p-H_{Z\tilde{J}})U_2\Lambda_2 U_2^T (I_p-H_{Z\tilde{J}})
-    =R_1+R_2
+    \overset{def}{=}R_1+R_2.
 \end{aligned}
 $$
 
-
+Note that
 $$
 \begin{aligned}
-    &\lambda_{\max}\big((I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})\big)
+    &\lambda_{\max}\big( R_1 \big)
     =
-    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-H_{Z\tilde{J}}) U_1 \Lambda_1^{1/2}\big)\\
-    &\leq 
-    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \Lambda_1^{1/2}\big)
+    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-H_{Z\tilde{J}}) U_1 \Lambda_1^{1/2}\big)
     \leq 
+    \lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \Lambda_1^{1/2}\big)\\
+    \leq &
     \lambda_1
-    \lambda_{\max}\big(U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \big)\\
-    &= 
+    \lambda_{\max}\big(U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \big)
+    = 
     \lambda_1
-    \lambda_{\max}\big(I_r - U_1^TU_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1 \big)\\
+    \lambda_{\max}\big(I_r - U_1^TU_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1 \big).
 \end{aligned}
 $$
 
-We need to investigate the behavior of $U_{Z\tilde{J}}$.
-
-$$
-G_1^T \Lambda G_1 = \tilde{J}^T Z^T Z\tilde{J} = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
-$$
+To investigate the behavior of $U_{Z\tilde{J}}$, we need to investigate the behavior of $D_{Z\tilde{J}}$ first.
 Note that 
-$$
+$
+G_1^T \Lambda G_1 = \tilde{J}^T Z^T Z\tilde{J} = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
+$, and 
+$
 G_1^T \Lambda G_1=
 G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]}+
 G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]}
+$. We have
+$$
+V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T=
+G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]}+
+G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]}.
 $$
 For $i=1,\ldots, r$,
-$$
+\begin{equation}\label{eq:DLower}
 \begin{aligned}
     &\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
     \geq
 \lambda_i(G_{1[1:r,]}^T \mydiag(\lambda_i I_{i},O_{(r-i)\times(r-i)}) G_{1[1:r,]})
 \\
     = &
-    \lambda_i \lambda_i(G_{1[1:i,]}G_{1[1:i,]}^T)=\lambda_i n(1+o_P(1))
+    \lambda_i \lambda_i(G_{1[1:i,]}G_{1[1:i,]}^T)=\lambda_i n(1+o_P(1)),
 \end{aligned}
-$$
-The last equality holds since $n^{-1}G_{1[1:i,]}G_{1[1:i,]}^T\xrightarrow{P}I_i$ by law of large numbers.
+\end{equation}
+where the last equality holds since $n^{-1}G_{1[1:i,]}G_{1[1:i,]}^T\xrightarrow{P}I_i$ by law of large numbers.
 On the other hand, for $i=1,\ldots, r$,
-$$
+\begin{equation}\label{eq:DUpper}
 \begin{aligned}
     &\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
     \\
@@ -403,38 +509,34 @@ $$
     = &
     \lambda_i \lambda_1(G_{1[i:r,]}G_{1[i:r,]}^T)=\lambda_i n(1+o_P(1))
 \end{aligned}
-$$
-where the first inequality holds by Weyl's inequality. It follows that 
+\end{equation}
+where the first inequality holds by Weyl's inequality. It follows from~\eqref{eq:DLower} and~\eqref{eq:DUpper} that 
     $\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
 
     Note that
-$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law, here we have assumed $n/p=O(1)$.
-Assume $p/(\lambda_r n)\to 0$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
+$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
+By assumption $\lambda_r n/p\to \infty$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
 
-Note that
-$$
-\begin{aligned}
+Now we are ready to investigate the behavior of $U_{Z\tilde{J}}$.
+Since
+$
 U\Lambda^{1/2} G_1 G_1^T \Lambda^{1/2} U^T 
-    &=U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T\\
-\end{aligned}
-$$
-then
-$$
-\begin{aligned}
+    =U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T
+$,
+we have
+$
 G_1 G_1^T  
-    &=\Lambda^{-1/2} U^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^TU\Lambda^{-1/2}\\
-\end{aligned}
-$$
-and
+    =\Lambda^{-1/2} U^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^TU\Lambda^{-1/2}
+$, which further indicates
 $$
 \begin{aligned}
-    G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T  
-    &=\Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
-    &\geq
+    &G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T  
+    =\Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
+    \geq&
     \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]}D_{Z\tilde{J}[1:r,1:r]}^2 U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
-    &\geq
+    \geq&
     D_{Z\tilde{J}[r,r]}^2
-    \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
+    \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}.
 \end{aligned}
 $$
 Thus,
@@ -442,10 +544,10 @@ $$
 \lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq 
 \frac{C}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
     (G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T)
-=O_P(\frac{p}{\lambda_r n})
+=O_P(\frac{p}{\lambda_r n}).
 $$
 
-Note that
+Note that we have the simple relationship
 $$
 \begin{aligned}
     &\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})
@@ -459,19 +561,22 @@ $$
     =
     1-\lambda_{\min}(U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)\\
     =&
-    \lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)
+    \lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1).
 \end{aligned}
 $$
-Therefore $\lambda_{\max}(R_1)=O_P(\frac{\lambda_1 p}{\lambda_r n})$
+Therefore 
+    $
+    \lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)
+=O_P(\frac{ p}{\lambda_r n})
+    $, and we can conclude
+$\lambda_{\max}(R_1)=O_P(\frac{\lambda_1 p}{\lambda_r n})$.
 
-Having this, we can deal with $R_1+R_2$
-
+We now deal with $R_1+R_2$.
 For $i=1,\ldots, r$,
 $$
 \lambda_i(R_1+R_2)\leq
-\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)\leq O_P(\frac{\lambda_1 p}{\lambda_r n}) + C
+\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)\leq O_P(\frac{\lambda_1 p}{\lambda_r n}) + C.
 $$
-
 For $i=r+1,\ldots, p-r$,
 $$
 \begin{aligned}
@@ -480,7 +585,7 @@ $$
      \lambda_{i-r}\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)
     \leq
     \lambda_{i-r}(\Lambda_2)
-    =\lambda_i
+    =\lambda_i.
 \end{aligned}
 $$
 On the other hand,
@@ -493,43 +598,41 @@ $$
     =&
     \lambda_i\big( \Lambda_2- \Lambda_2^{1/2} U_2^T H_{Z\tilde{J}}U_2 \Lambda_2^{1/2}\big)
     \geq 
-    \lambda_{i+n-k}
+    \lambda_{i+n-k}.
 \end{aligned}
 $$
 The last equality holds since $U_2^T H_{Z\tilde{J}}U_2$ is at most of rank $n-k$.
 
-
+As a consequence of these bounds, we have
 $$
-    \sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+\sum_{i=r+1}^{p-r}\lambda_i^2
+    \sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+\sum_{i=r+1}^{p-r}\lambda_i^2,
 $$
-Or
+or
 $$
     | \mytr [(R_1+R_2)^2]-\sum_{i=r+1}^{p}\lambda_{i}^2|\leq 
 \sum_{i=r+1}^{n-k}\lambda_{i}^2+
 \sum_{i=p-r+1}^{p}\lambda_{i}^2
 +
-    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2
+    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2.
 $$
-
 Similarly,
 $$
     | \mytr [(R_1+R_2)]-\sum_{i=r+1}^{p}\lambda_{i}|\leq 
 \sum_{i=r+1}^{n-k}\lambda_{i}+
 \sum_{i=p-r+1}^{p}\lambda_{i}
 +
-    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)
+    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C).
 $$
-
-Therefore, assume $\lim p/n \to \infty$ and $\frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0$, we have
+These, conbined with the assumptions, yield
 $$
-     \mytr [(R_1+R_2)^2]=(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2
+     \mytr [(R_1+R_2)^2]=(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2,
 $$
 and
 $$
      \mytr [(R_1+R_2)]=\sum_{i=r+1}^{p}\lambda_{i}+O(n)+O_P(\frac{\lambda_1 p}{\lambda_r n}).
 $$
 
-Note that
+Now we have the Lyapunov condition
 $$
 \frac{\lambda_1[(R_1+R_2)^2]}{
     \mytr [(R_1+R_2)^2]
@@ -550,7 +653,6 @@ $$
 }
 \xrightarrow{P} 0.
 $$
-
 Apply Lyapunov central limit theorem conditioning on $H_{Z\tilde{J}}$, we have
 $$
 \begin{aligned}
@@ -564,14 +666,13 @@ By Slutsky's theorem, we have
 $$
 \begin{aligned}
     \big(\sum_{i=r+1}^p \lambda_i^2\big)^{-1/2}
-    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=r+1}^p \lambda_i^2 \big)
+    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-(\sum_{i=r+1}^p \lambda_i)I_{k-1} \big)
     \xrightarrow{\mathcal{L}}W_{k-1}
 \end{aligned}
 $$
 
 
-And
-
+As for the cross term of~\eqref{eq:maindec}, we have
 $$
     \begin{aligned}
         &\myE [\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2|Z\tilde{J}]\\
@@ -586,6 +687,14 @@ $$
     \end{aligned}
 $$
 The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1)$. Hence $\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2=o_P(p)$.
+This completes the proof of the theorem.
+
+\end{proof}
+
+
+
+
+
 
 \section*{References}
 
