@@ -1,0 +1,61 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{Tsai2009}
+C.-A. Tsai, J.~J. Chen, \href{+
+  http://dx.doi.org/10.1093/bioinformatics/btp098}{Multivariate analysis of
+  variance test for gene set analysis}, Bioinformatics 25~(7) (2009) 897.
+\newblock \href
+  {http://arxiv.org/abs//oup/backfile/content_public/journal/bioinformatics/25/7/10.1093_bioinformatics_btp098/1/btp098.pdf}
+  {\path{arXiv:/oup/backfile/content_public/journal/bioinformatics/25/7/10.1093_bioinformatics_btp098/1/btp098.pdf}},
+  \href {http://dx.doi.org/10.1093/bioinformatics/btp098}
+  {\path{doi:10.1093/bioinformatics/btp098}}.
+\newline\urlprefix\url{+ http://dx.doi.org/10.1093/bioinformatics/btp098}
+
+\bibitem{Bai1996Efiect}
+Z.~Bai, H.~Saranadasa, Effect of high dimension: by an example of a two sample
+  problem, Statistica Sinica 6~(2) (1996) 311--329.
+
+\bibitem{Chen2010A}
+S.~X. Chen, Y.~L. Qin, A two-sample test for high-dimensional data with
+  applications to gene-set testing, Annals of Statistics 38~(2) (2010)
+  808--835.
+
+\bibitem{Srivastava2009A}
+M.~S. Srivastava, A test for the mean vector with fewer observations than the
+  dimension under non-normality, Journal of Multivariate Analysis 100~(3)
+  (2009) 518--532As the access to this document is restricted, you may want to
+  look for a different version under "Related research" (further below) orfor a
+  different version of it.
+
+\bibitem{Feng2015Multivariate}
+L.~Feng, C.~Zou, Z.~Wang, Multivariate-sign-based high-dimensional tests for
+  the two-sample location problem, Journal of the American Statistical
+  Association.
+
+\bibitem{Tony2013}
+C.~T. Tony, W.~Liu, Y.~Xia, P.~Fryzlewicz, I.~V. Keilegom, Two-sample test of
+  high dimensional means under dependence, Journal of the Royal Statistical
+  Society 76~(2) (2013) 349--372.
+
+\bibitem{Schott2007Some}
+J.~R. Schott, Some high-dimensional tests for a one-way manova, Journal of
+  Multivariate Analysis 98~(9) (2007) 1825--1839.
+\newblock \href {http://dx.doi.org/10.1016/j.jmva.2006.11.007}
+  {\path{doi:10.1016/j.jmva.2006.11.007}}.
+
+\bibitem{Cai2014High}
+T.~T. Cai, Y.~Xia, High-dimensional sparse manova, Journal of Multivariate
+  Analysis 131~(4) (2014) 174--196.
+\newblock \href {http://dx.doi.org/10.1016/j.jmva.2014.07.002}
+  {\path{doi:10.1016/j.jmva.2014.07.002}}.
+
+\bibitem{Zhao2016A}
+J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
+  greater than n, Computational Statistics \& Data Analysis.
+
+\end{thebibliography}

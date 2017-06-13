@@ -74,7 +74,7 @@
 
 \begin{frontmatter}
 
-\title{Elsevier \LaTeX\ template\tnoteref{mytitlenote}}
+\title{A generalized likelihood ratio test for multivariate analysis of variance in high dimension}
 \tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
 
 %% Group authors per affiliation:
@@ -110,16 +110,47 @@
 
 \linenumbers
 \section{Introduction}
-   In high dimensional setting, it is known that the likelihood ratio test, which has a dominated position in classical multivariate analysis, is not well defined for many testing problems.
-    It remains a problem how to construct likelihood-based tests in high dimensional setting.
-\section{GLRT}
-Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
-Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,k$.
-The $k$ samples are independent.
-$\mu_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
-\begin{equation}
-    H: \mu_1=\mu_2=\cdots=\mu_k\quad v.s.\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+Suppose we have independent observations $X_{ij}\in \mathbb{R}^p$ ($j=1,\ldots,n_k$; $i=1,\ldots, K$) with distribution $N_p(\mu_i,\Sigma)$, where $\mu_i$, $i=1,\ldots,K$, and $\Sigma>0$ are unknown. We would like to test
+\begin{equation}\label{hypothesis}
+    H: \mu_1=\mu_2=\cdots=\mu_k\quad \textrm{v.s.}\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
 \end{equation}
+The problem is known as one-way multivariate analysis of variance (MANOVA).
+A commonly used test for hypothesis~\eqref{hypothesis} is the so-called Wilks' Lambda which is also the LRT. 
+
+
+In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n=\sum_{i=1}^{K}n_i$. See, for example,~\cite{Tsai2009}.
+However, when $p>n-K$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
+  Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
+ Sor far, most tests in the literature are designed for two sample case, i.e. $K=2$.
+  See, for example,~\cite{Bai1996Efiect},~\cite{Chen2010A},~\cite{Srivastava2009A},~\cite{Feng2015Multivariate} and~\cite{Tony2013}.
+  For the multiple sample case,~\cite{Schott2007Some} modified the Dempster's trace test and proposed a test statistic
+  $$
+  T_{SC}=\frac{1}{\sqrt{n-1}}\big(
+  \frac{1}{K-1}\mytr\big(\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T-n\bar{X}\bar{X}^T\big)-\frac{1}{n-K}\mytr\big(\sum_{i=1}^K \sum_{j=1}^{n_i}X_{ij}X_{ij}^T-\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T\big)
+  \big),
+  $$
+  where $\bar{X}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{X}=n^{-1}\sum_{i=1}^K\sum_{j=1}^{n_i}X_{ij}$. In another work,~\cite{Cai2014High} proposed a test statistic
+  $$
+  T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq K}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{X}_j-\bar{X}_l))_i^2}{\omega_{ii}},
+  $$
+  Where $\Omega=(\omega)_{ij}=\Sigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
+
+  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
+Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
+%The $k$ samples are independent.
+%%$\mu_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
+%\begin{equation}
+    %H: \mu_1=\mu_2=\cdots=\mu_k\quad v.s.\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+%\end{equation}
+
+%The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
+   However, most of existing high dimensional tests are not likelihood-based.
+    A natural question is how to construct likelihood-based tests in high dimensional setting.
+    In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample test for mean vector.
+    Their simulation results showed that their test has particular good power performance when the variables are dependent.
+    The goal of this paper is to generalize their methodology to MANOVA problem.
+    
+\section{GLRT}
 Let $\mathbf{Z}=(X_1,\ldots,X_k)$.
 $$
 f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
@@ -382,7 +413,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \end{table}
 
 \begin{table}[!hbp]
-\caption[short]{$n_1=n_2=n_3=25$, non-sparse}
+    \caption{Empirical powers of tests under non-sparse alternative with $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. Based on $1000$ replications.}
 \centering
 \begin{tabular}{*{10}{c}}
 \toprule
@@ -390,9 +421,17 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
     &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
 \midrule
-    0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
-0.1\\
-0.2\\
+0 & 0.050 & 0.043 & 0.050 & 0.056 & 0.066 & 0.048 & 0.062 & 0.045 & 0.054 \\ 
+1 & 0.069 & 0.048 & 0.063 & 0.046 & 0.052 & 0.091 & 0.068 & 0.048 & 0.095 \\ 
+2 & 0.097 & 0.046 & 0.131 & 0.086 & 0.053 & 0.164 & 0.068 & 0.057 & 0.173 \\ 
+3 & 0.113 & 0.061 & 0.200 & 0.117 & 0.057 & 0.270 & 0.101 & 0.045 & 0.313 \\ 
+4 & 0.135 & 0.053 & 0.247 & 0.130 & 0.054 & 0.402 & 0.118 & 0.066 & 0.485 \\ 
+5 & 0.158 & 0.065 & 0.357 & 0.134 & 0.066 & 0.526 & 0.134 & 0.073 & 0.616 \\ 
+6 & 0.198 & 0.081 & 0.433 & 0.161 & 0.052 & 0.668 & 0.138 & 0.067 & 0.765 \\ 
+7 & 0.217 & 0.068 & 0.514 & 0.191 & 0.067 & 0.759 & 0.174 & 0.068 & 0.862 \\ 
+8 & 0.229 & 0.063 & 0.582 & 0.223 & 0.075 & 0.853 & 0.187 & 0.060 & 0.927 \\ 
+9 & 0.264 & 0.094 & 0.680 & 0.218 & 0.080 & 0.918 & 0.227 & 0.067 & 0.966 \\ 
+10 & 0.298 & 0.091 & 0.758 & 0.245 & 0.076 & 0.934 & 0.228 & 0.052 & 0.982 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
