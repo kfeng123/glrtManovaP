@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
@@ -57,5 +57,14 @@ T.~T. Cai, Y.~Xia, High-dimensional sparse manova, Journal of Multivariate
 \bibitem{Zhao2016A}
 J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
   greater than n, Computational Statistics \& Data Analysis.
+
+\bibitem{Cai2012Sparse}
+T.~T. Cai, Z.~Ma, Y.~Wu, Sparse pca: Optimal rates and adaptive estimation,
+  Annals of Statistics 41~(6) (2013) 3074--3110.
+
+\bibitem{Shen2013Consistency}
+D.~Shen, H.~Shen, J.~S. Marron, Consistency of sparse pca in high dimension,
+  low sample size contexts, Journal of Multivariate Analysis 115~(1) (2013)
+  317--333.
 
 \end{thebibliography}

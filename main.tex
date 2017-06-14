@@ -129,12 +129,16 @@ However, when $p>n-K$, the LRT for hypothesis~\eqref{hypothesis} is not well def
   \frac{1}{K-1}\mytr\big(\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T-n\bar{X}\bar{X}^T\big)-\frac{1}{n-K}\mytr\big(\sum_{i=1}^K \sum_{j=1}^{n_i}X_{ij}X_{ij}^T-\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T\big)
   \big),
   $$
-  where $\bar{X}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{X}=n^{-1}\sum_{i=1}^K\sum_{j=1}^{n_i}X_{ij}$. In another work,~\cite{Cai2014High} proposed a test statistic
+  where $\bar{X}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{X}=n^{-1}\sum_{i=1}^K\sum_{j=1}^{n_i}X_{ij}$.
+  In another work,~\cite{Cai2014High} proposed a test statistic
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq K}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{X}_j-\bar{X}_l))_i^2}{\omega_{ii}},
   $$
   Where $\Omega=(\omega)_{ij}=\Sigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
-
+  Stitistics $T_{SC}$ and $T_{CX}$ are the representatives of two popular methodologies for high dimensional tests.
+  $T_{SC}$ is a so-called sum-of-squares type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^K n_i\|\mu_i-\bar{\mu}\|^2$, where $\bar{\mu}=n^{-1}\sum_{i=1}^K n_i \mu_i$.
+  $T_{CX}$ is an extreme value type statistic.
+  
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
 Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
 %The $k$ samples are independent.
@@ -142,13 +146,24 @@ Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
 %\begin{equation}
     %H: \mu_1=\mu_2=\cdots=\mu_k\quad v.s.\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
 %\end{equation}
-
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
-   However, most of existing high dimensional tests are not likelihood-based.
-    A natural question is how to construct likelihood-based tests in high dimensional setting.
-    In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample test for mean vector.
+   Note that both sum-of-squares type statistic and extreme value type statistic are not based on likelihood function.
+    It remains a problem how to construct likelihood-based tests in high dimensional setting.
+    In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
+    They write the null hypothesis as the intersection of simpler hypotheses for which the likelihood ratio test statistics exist.
+    Inspired by Roy's union-intersection tests (UIT), they proposed a procedure to combine the obtained test statistics to a single statistic.
     Their simulation results showed that their test has particular good power performance when the variables are dependent.
-    The goal of this paper is to generalize their methodology to MANOVA problem.
+
+    Following~\cite{Zhao2016A}'s methodology, we proposed a generalized likelihood ratio test for hypothesis~\eqref{hypothesis}.
+    Most existing tests for hypothesis~\eqref{hypothesis} imposed conditions which prevent from large leading eigenvalues of $\Sigma$.
+    However, when the correlations between variables are determined by a small number of factors, $\Sigma$ is spiked in the sense that a few leading eigenvalues are much larger than the others. See, for example~\cite{Cai2012Sparse} and~\cite{Shen2013Consistency}.
+    We derive the asymptotic distribution of the test statistic under both spiked and non-spiked covariance.
+    Our theoretical results imply that the new test is particularly powerful under spiked covariance.
+    We conduct a simulation study to examine the numerical performance of the test.
+
+    The rest of the paper is organized  as follows.
+
+    Higher criticism CX are special case of UIT.
     
 \section{GLRT}
 Let $\mathbf{Z}=(X_1,\ldots,X_k)$.
@@ -437,7 +452,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \end{table}
 
 \begin{table}[!hbp]
-\caption[short]{$n_1=n_2=n_3=10$, sparse}
+    \caption{Empirical powers of tests under sparse alternative with $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=10$. Based on $1000$ replications.}
 \centering
 \begin{tabular}{*{10}{c}}
 \toprule
@@ -445,28 +460,43 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
     &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
 \midrule
-    0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
-0.1\\
-0.2\\
+0 & 0.063 & 0.056 & 0.052 & 0.048 & 0.049 & 0.048 & 0.057 & 0.047 & 0.042 \\ 
+1 & 0.087 & 0.058 & 0.071 & 0.069 & 0.044 & 0.096 & 0.076 & 0.051 & 0.080 \\ 
+2 & 0.091 & 0.066 & 0.116 & 0.113 & 0.037 & 0.133 & 0.080 & 0.058 & 0.139 \\ 
+3 & 0.155 & 0.065 & 0.177 & 0.131 & 0.062 & 0.228 & 0.113 & 0.058 & 0.218 \\ 
+4 & 0.184 & 0.065 & 0.246 & 0.174 & 0.076 & 0.308 & 0.144 & 0.061 & 0.310 \\ 
+5 & 0.225 & 0.081 & 0.337 & 0.214 & 0.075 & 0.386 & 0.176 & 0.083 & 0.417 \\ 
+6 & 0.270 & 0.088 & 0.425 & 0.266 & 0.085 & 0.507 & 0.228 & 0.071 & 0.508 \\ 
+7 & 0.364 & 0.080 & 0.501 & 0.307 & 0.078 & 0.571 & 0.302 & 0.087 & 0.629 \\ 
+8 & 0.405 & 0.105 & 0.549 & 0.381 & 0.080 & 0.698 & 0.362 & 0.089 & 0.721 \\ 
+9 & 0.470 & 0.121 & 0.634 & 0.408 & 0.078 & 0.774 & 0.391 & 0.070 & 0.797 \\ 
+10 & 0.547 & 0.128 & 0.702 & 0.484 & 0.109 & 0.819 & 0.415 & 0.088 & 0.877 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[!hbp]
-\caption[short]{$n_1=n_2=n_3=25$, sparse}
-\begin{center}
+    \caption{Empirical powers of tests under sparse alternative with $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. Based on $1000$ replications.}
+    \centering
 \begin{tabular}{*{10}{c}}
 \toprule
 \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
     &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
 \midrule
-    0& 2.000&3.000&4.000&5.000&6.000&7.000&8.000&9.000&10.000\\
-0.1\\
-0.2\\
+0 & 0.048 & 0.045 & 0.046 & 0.053 & 0.046 & 0.043 & 0.051 & 0.034 & 0.046 \\ 
+1 & 0.079 & 0.055 & 0.082 & 0.066 & 0.063 & 0.079 & 0.063 & 0.059 & 0.100 \\ 
+2 & 0.097 & 0.054 & 0.119 & 0.088 & 0.055 & 0.138 & 0.085 & 0.055 & 0.160 \\ 
+3 & 0.133 & 0.069 & 0.167 & 0.113 & 0.066 & 0.223 & 0.114 & 0.054 & 0.235 \\ 
+4 & 0.149 & 0.062 & 0.212 & 0.126 & 0.084 & 0.298 & 0.132 & 0.057 & 0.344 \\ 
+5 & 0.204 & 0.060 & 0.281 & 0.169 & 0.066 & 0.427 & 0.154 & 0.057 & 0.469 \\ 
+6 & 0.252 & 0.060 & 0.352 & 0.227 & 0.070 & 0.548 & 0.195 & 0.072 & 0.641 \\ 
+7 & 0.310 & 0.072 & 0.429 & 0.252 & 0.059 & 0.614 & 0.220 & 0.061 & 0.711 \\ 
+8 & 0.372 & 0.088 & 0.529 & 0.314 & 0.085 & 0.719 & 0.297 & 0.060 & 0.800 \\ 
+9 & 0.427 & 0.083 & 0.547 & 0.362 & 0.085 & 0.794 & 0.300 & 0.057 & 0.881 \\ 
+10 & 0.449 & 0.093 & 0.619 & 0.396 & 0.072 & 0.853 & 0.340 & 0.076 & 0.911 \\ 
 \bottomrule
 \end{tabular}
-\end{center}
 \end{table}
 
 \section{Appendix}
