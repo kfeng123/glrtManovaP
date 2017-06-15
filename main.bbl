@@ -58,6 +58,14 @@ T.~T. Cai, Y.~Xia, High-dimensional sparse manova, Journal of Multivariate
 J.~Zhao, X.~Xu, A generalized likelihood ratio test for normal mean when p is
   greater than n, Computational Statistics \& Data Analysis.
 
+\bibitem{Roy1953}
+S.~N. Roy, \href{https://doi.org/10.1214/aoms/1177729029}{On a heuristic method
+  of test construction and its use in multivariate analysis}, The Annals of
+  Mathematical Statistics 24~(2) (1953) 220--238.
+\newblock \href {http://dx.doi.org/10.1214/aoms/1177729029}
+  {\path{doi:10.1214/aoms/1177729029}}.
+\newline\urlprefix\url{https://doi.org/10.1214/aoms/1177729029}
+
 \bibitem{Cai2012Sparse}
 T.~T. Cai, Z.~Ma, Y.~Wu, Sparse pca: Optimal rates and adaptive estimation,
   Annals of Statistics 41~(6) (2013) 3074--3110.

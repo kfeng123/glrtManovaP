@@ -95,8 +95,8 @@ for(SNR in seq(0,10)){
     #Sigma[1,1]<- p
     Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
     
-    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     #SNR <- 0
     
     (tmpFram<-doit())
@@ -104,7 +104,7 @@ for(SNR in seq(0,10)){
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"5p100.csv",row.names=FALSE)
+write.csv(theOut,"6p100.csv",row.names=FALSE)
  
 #########################################################################
 tmpList<-NULL
@@ -118,8 +118,8 @@ for(SNR in seq(0,10)){
     #Sigma[1,1]<- p
     Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
     
-    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     #SNR <- 0
     
     (tmpFram<-doit())
@@ -127,7 +127,7 @@ for(SNR in seq(0,10)){
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"5p150.csv",row.names=FALSE)
+write.csv(theOut,"6p150.csv",row.names=FALSE)
  
 #########################################################################
 tmpList<-NULL
@@ -141,8 +141,8 @@ for(SNR in seq(0,10)){
     #Sigma[1,1]<- p
     Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
     
-    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     #SNR <- 0
     
     (tmpFram<-doit())
@@ -150,13 +150,13 @@ for(SNR in seq(0,10)){
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"5p200.csv",row.names=FALSE)
+write.csv(theOut,"6p200.csv",row.names=FALSE)
  
 #########################################################################
 
-a<-read.csv("5p100.csv")
-b<-read.csv("5p150.csv")
-c<-read.csv("5p200.csv")
+a<-read.csv("6p100.csv")
+b<-read.csv("6p150.csv")
+c<-read.csv("6p200.csv")
 
 tmp<-merge(a,b,by.x="SNR",by.y="SNR")
 tmp<-merge(tmp,c,by.x="SNR",by.y="SNR")

@@ -55,6 +55,10 @@
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
 
+\newcommand{\bZ}{\mathbf{Z}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\ud}{\mathbf{d}}
+
 
 \theoremstyle{plain}
 \newtheorem{theorem}{\quad\quad Theorem}
@@ -112,10 +116,10 @@
 \section{Introduction}
 Suppose we have independent observations $X_{ij}\in \mathbb{R}^p$ ($j=1,\ldots,n_k$; $i=1,\ldots, K$) with distribution $N_p(\mu_i,\Sigma)$, where $\mu_i$, $i=1,\ldots,K$, and $\Sigma>0$ are unknown. We would like to test
 \begin{equation}\label{hypothesis}
-    H: \mu_1=\mu_2=\cdots=\mu_k\quad \textrm{v.s.}\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+    H: \mu_1=\mu_2=\cdots=\mu_k\quad \text{v.s.}\quad K: \text{$\mu_i\neq \mu_j$ for some $i\neq j$}.
 \end{equation}
 The problem is known as one-way multivariate analysis of variance (MANOVA).
-A commonly used test for hypothesis~\eqref{hypothesis} is the so-called Wilks' Lambda which is also the LRT. 
+There are four classical tests for hypothesis~\eqref{hypothesis}: Wilks' Lambda (which is also the LRT), Hotelling-Lawley trace, Pillai Trace and Roy's maximum root.
 
 
 In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n=\sum_{i=1}^{K}n_i$. See, for example,~\cite{Tsai2009}.
@@ -140,7 +144,6 @@ However, when $p>n-K$, the LRT for hypothesis~\eqref{hypothesis} is not well def
   $T_{CX}$ is an extreme value type statistic.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
-Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
 %The $k$ samples are independent.
 %%$\mu_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
 %\begin{equation}
@@ -150,8 +153,8 @@ Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
    Note that both sum-of-squares type statistic and extreme value type statistic are not based on likelihood function.
     It remains a problem how to construct likelihood-based tests in high dimensional setting.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
-    They write the null hypothesis as the intersection of simpler hypotheses for which the likelihood ratio test statistics exist.
-    Inspired by Roy's union-intersection tests (UIT), they proposed a procedure to combine the obtained test statistics to a single statistic.
+Inspired by Roy's union-intersection tests (\cite{Roy1953}),
+    they write the null hypothesis as the intersection of a class of component hypotheses. For each component hypotheses, the likelihood ratio test is constructed. Using a least favorable argument, they construct a test statistics based on these tests.
     Their simulation results showed that their test has particular good power performance when the variables are dependent.
 
     Following~\cite{Zhao2016A}'s methodology, we proposed a generalized likelihood ratio test for hypothesis~\eqref{hypothesis}.
@@ -165,52 +168,72 @@ Let $\mathbf{X}_i=(X_{i1},\ldots,X_{in_i})$ for $i=1,\ldots,K$.
 
     Higher criticism CX are special case of UIT.
     
-\section{GLRT}
-Let $\mathbf{Z}=(X_1,\ldots,X_k)$.
+\section{Methodology}
+\subsection{Roy's maximum root}
+Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
+The idea of Roy's union intersection principle is to reduce testing problem to a class of pseudo-univariate problems.
+For $a\in \mathbb{R}^p$ and $a^T a=1$, define the hypothesis $H_a$ and $K_a$ as
 $$
-f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
-    (2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
-    \Big].
+H_a: a^T\mu_1=a^T\mu_2=\cdots=a^T\mu_k\quad \text{v.s.}\quad K: \text{$a^T\mu_i\neq a^T\mu_j$ for some $i\neq j$}.
 $$
-Assume $n=\sum_{i=1}^p n_i<p$. Let $a\in \mathbb{R}^p$ be a vector satisfying $a^T a=1$. Then
+Then the hypothesis~\eqref{hypothesis} $H=\cap_{a}H_a$.
+The union-intersection principle tells that $H$ is rejected if and only of any one of $H_a$ is rejected.
+Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,K$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pool sample.
+Note that the likelihood function based on $a^T \bZ$ is 
 $$
-f_a(a^T Z;\mu_1,\ldots,\mu_k,\Sigma)=
-    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\mu_i)^2\Big)
+f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)=
+    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^K\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\mu_i)^2\Big).
 $$
-\begin{equation}
+
+The likelihood ratio test statistic for $H_a$ v.s. $K_a$ (which is also uniformly most powerful unbiased test) is
+%Note that
+%\begin{equation*}
+    %\begin{aligned}
+        %\max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)
+        %=
+        %(2\pi)^{-n/2}\big(\frac{1}{n} a^T G a\big)^{-n/2}e^{-{n}/{2}},
+    %\end{aligned}
+%\end{equation*}
+%%Let $S_i=\sum_{j=1}^{n_i}(x_{ij}-\bar{\mathbf{X}}_i)(x_{ij}-\bar{\mathbf{X}}_i)^T$ and $S=\sum_{i=1}^k S_i$.
+%\begin{equation*}
+    %\begin{aligned}
+        %\max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)
+        %=
+        %(2\pi)^{-n/2}\big(\frac{1}{n}a^T (G+F)a\big)^{-n/2}e^{-{n}/{2}},
+    %\end{aligned}
+%\end{equation*}
+\begin{equation*}
     \begin{aligned}
-        \max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)
+        \text{LRT}_{a}=\frac{\max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)}{\max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)}
         =
-        (2\pi)^{-n/2}\big(\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\bar{\mathbf{X}}_i)^2\big)^{-n/2}e^{-{n}/{2}}
+        \Big(1+\frac{a^T Fa}{a^T G a}\Big)^{n/2},
     \end{aligned}
-\end{equation}
-
-Let $S_i=\sum_{j=1}^{n_i}(x_{ij}-\bar{\mathbf{X}}_i)(x_{ij}-\bar{\mathbf{X}}_i)^T$ and $S=\sum_{i=1}^k S_i$.
-
-
-Under $H$, we have
-\begin{equation}
-    \begin{aligned}
-        \max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)
-        =
-        (2\pi)^{-n/2}\big(\sum_{i=1}^k\sum_{j=1}^{n_i}(a^Tx_{ij}-a^T\bar{\mathbf{X}})^2\big)^{-n/2}e^{-{n}/{2}}
-    \end{aligned}
-\end{equation}
+\end{equation*}
+where $G=\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-\bar{\mathbf{X}}_i)(X_{ij}-\bar{\mathbf{X}}_i)^T$ and $F=\sum_{i=1}^K n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T$.
+Follow the type II method of~\cite{Roy1953}, the union intersection test statistic is $\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$ which is an increase function of $\lambda_{\max}(FG^{-1}))$, Roy's maximum root test statistic.
+Note that here we need to assume $p\leq n-K$, or else $G$ is singular.
+%%$$
+%f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
+    %(2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
+    %\Big].
+%$$
+\subsection{The new test statistic}
+When $p> n-K$, Roy's maximum root test is not defined. Here we follow the strategy in~\cite{Zhao2016A}.
 
 The generalized likelihood ratio test statistic is defined as
 \begin{equation}
     \begin{aligned}
         T(Z)
         =
-        \max_{a^T a=1, a^T S a=0} 
-        a^T \sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T a
+        \max_{a^T a=1, a^T G a=0} 
+        a^T F a
     \end{aligned}
 \end{equation}
 Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
-Then $S=Z(I_n-JJ^T)Z^T$ and
+Then $G=Z(I_n-JJ^T)Z^T$ and
 \begin{equation}
     \begin{aligned}
-        \sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
+        F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
         =Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T.
     \end{aligned}
 \end{equation}
@@ -364,7 +387,7 @@ $$
 \begin{theorem}\label{thm1}
     Suppose Assumption~\eqref{assumpEigen} holds. Suppose 
     \begin{equation}
-    p/n\to \infty,\quad\textrm{and}\quad \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
+    p/n\to \infty,\quad\text{and}\quad \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
     \end{equation}
     Suppose
     \begin{equation}
@@ -410,7 +433,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
     \toprule
     \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=50$}&\multicolumn{3}{c}{$p=75$}&\multicolumn{3}{c}{$p=100$} \\
         \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-        &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
     \midrule
 0 & 0.035 & 0.048 & 0.052 & 0.057 & 0.052 & 0.057 & 0.053 & 0.048 & 0.045 \\ 
 1 & 0.060 & 0.049 & 0.096 & 0.081 & 0.050 & 0.092 & 0.063 & 0.062 & 0.085 \\ 
@@ -434,7 +457,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \toprule
 \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-    &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
 0 & 0.050 & 0.043 & 0.050 & 0.056 & 0.066 & 0.048 & 0.062 & 0.045 & 0.054 \\ 
 1 & 0.069 & 0.048 & 0.063 & 0.046 & 0.052 & 0.091 & 0.068 & 0.048 & 0.095 \\ 
@@ -458,7 +481,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \toprule
 \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=50$}&\multicolumn{3}{c}{$p=75$}&\multicolumn{3}{c}{$p=100$} \\
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-    &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
 0 & 0.063 & 0.056 & 0.052 & 0.048 & 0.049 & 0.048 & 0.057 & 0.047 & 0.042 \\ 
 1 & 0.087 & 0.058 & 0.071 & 0.069 & 0.044 & 0.096 & 0.076 & 0.051 & 0.080 \\ 
@@ -482,7 +505,7 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \toprule
 \multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-    &SC & CX & NEW& SC & CX & NEW &SC & CX & NEW\\
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
 0 & 0.048 & 0.045 & 0.046 & 0.053 & 0.046 & 0.043 & 0.051 & 0.034 & 0.046 \\ 
 1 & 0.079 & 0.055 & 0.082 & 0.066 & 0.063 & 0.079 & 0.063 & 0.059 & 0.100 \\ 
@@ -498,6 +521,56 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}[!hbp]
+    \caption{Empirical powers of tests under non-sparse alternative with $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. The diagonal elements of $\Sigma$ are generated from sort(Unif(1,100)). Based on $1000$ replications.}
+    \centering
+\begin{tabular}{*{10}{c}}
+\toprule
+\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
+\midrule
+0 & 0.063 & 0.054 & 0.058 & 0.052 & 0.040 & 0.042 & 0.045 & 0.049 & 0.070 \\ 
+1 & 0.141 & 0.120 & 0.115 & 0.126 & 0.120 & 0.112 & 0.103 & 0.110 & 0.102 \\ 
+2 & 0.181 & 0.209 & 0.169 & 0.330 & 0.260 & 0.210 & 0.200 & 0.227 & 0.201 \\ 
+3 & 0.692 & 0.367 & 0.244 & 0.759 & 0.385 & 0.341 & 0.468 & 0.413 & 0.394 \\ 
+4 & 0.753 & 0.539 & 0.420 & 0.744 & 0.573 & 0.515 & 0.516 & 0.554 & 0.561 \\ 
+5 & 0.828 & 0.690 & 0.509 & 0.871 & 0.697 & 0.693 & 0.556 & 0.724 & 0.727 \\ 
+6 & 0.809 & 0.812 & 0.622 & 0.822 & 0.824 & 0.766 & 0.959 & 0.838 & 0.859 \\ 
+7 & 1.000 & 0.882 & 0.780 & 0.979 & 0.916 & 0.903 & 0.990 & 0.923 & 0.947 \\ 
+8 & 0.993 & 0.955 & 0.789 & 1.000 & 0.965 & 0.954 & 0.999 & 0.972 & 0.971 \\ 
+9 & 1.000 & 0.979 & 0.911 & 0.999 & 0.981 & 0.979 & 0.964 & 0.986 & 0.987 \\ 
+10 & 1.000 & 0.991 & 0.877 & 0.989 & 0.996 & 0.988 & 0.996 & 0.996 & 0.997 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[!hbp]
+    \caption{Empirical powers of tests under sparse alternative with $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. The diagonal elements of $\Sigma$ are generated from sort(Unif(1,100)). Based on $1000$ replications.}
+    \centering
+\begin{tabular}{*{10}{c}}
+\toprule
+\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
+\midrule
+0 & 0.052 & 0.055 & 0.047 & 0.055 & 0.057 & 0.053 & 0.044 & 0.055 & 0.057 \\ 
+1 & 0.068 & 0.124 & 0.065 & 0.070 & 0.130 & 0.085 & 0.049 & 0.116 & 0.087 \\ 
+2 & 0.085 & 0.233 & 0.112 & 0.076 & 0.239 & 0.149 & 0.067 & 0.241 & 0.161 \\ 
+3 & 0.110 & 0.388 & 0.161 & 0.090 & 0.408 & 0.215 & 0.097 & 0.417 & 0.227 \\ 
+4 & 0.120 & 0.530 & 0.184 & 0.112 & 0.552 & 0.282 & 0.103 & 0.556 & 0.309 \\ 
+5 & 0.167 & 0.708 & 0.238 & 0.142 & 0.699 & 0.387 & 0.140 & 0.687 & 0.394 \\ 
+6 & 0.196 & 0.807 & 0.261 & 0.168 & 0.820 & 0.472 & 0.162 & 0.823 & 0.547 \\ 
+7 & 0.217 & 0.875 & 0.318 & 0.177 & 0.892 & 0.505 & 0.173 & 0.896 & 0.646 \\ 
+8 & 0.234 & 0.935 & 0.378 & 0.220 & 0.951 & 0.625 & 0.195 & 0.948 & 0.749 \\ 
+9 & 0.312 & 0.965 & 0.407 & 0.222 & 0.970 & 0.672 & 0.224 & 0.979 & 0.809 \\ 
+10 & 0.334 & 0.976 & 0.505 & 0.292 & 0.987 & 0.773 & 0.254 & 0.989 & 0.881 \\ 
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 
 \section{Appendix}
 
