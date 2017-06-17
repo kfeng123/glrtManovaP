@@ -54,6 +54,7 @@
 \DeclareMathOperator{\myrank}{Rank}
 \DeclareMathOperator{\myE}{E}
 \DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
 
 \newcommand{\bZ}{\mathbf{Z}}
 \newcommand{\bX}{\mathbf{X}}
@@ -99,9 +100,10 @@
 
 \begin{abstract}
     This paper considers in the high dimensional setting a canonical testing problem, namely testing the equality of multiple mean vectors of normal distribution.
-    By a strategy similar to Roy's union-intersection test, we propose a generalized likelihood ratio test.
-    The critical value is determined by permutation method, which produces an exact test.
-    The limiting distribution of the test statistic is analysed under non-spiked and spiked covariance.
+    Motivated by Roy's union-intersection principal, we propose a generalized likelihood ratio test.
+    The critical value is determined by permutation method.
+    We introduce an algorthm for permuting procedure, whose complexity does not depend on data dimension.
+    The limiting distribution of the test statistic is derived in two different setting: non-spiked covariance and spiked covariance.
     Theoretical results and simulation studies show that the test is particularly powerful under spiked covariance.
 \end{abstract}
 
@@ -177,7 +179,7 @@ $$
 H_a: a^T\mu_1=a^T\mu_2=\cdots=a^T\mu_k\quad \text{v.s.}\quad K: \text{$a^T\mu_i\neq a^T\mu_j$ for some $i\neq j$}.
 $$
 Then the hypothesis~\eqref{hypothesis} $H=\cap_{a}H_a$.
-The union-intersection principle tells that $H$ is rejected if and only of any one of $H_a$ is rejected.
+The union-intersection principle tells that $H$ is rejected if and only if any one of $H_a$ is rejected.
 Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,K$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pool sample.
 Note that the likelihood function based on $a^T \bZ$ is 
 $$
@@ -211,63 +213,87 @@ The likelihood ratio test statistic for $H_a$ v.s. $K_a$ (which is also uniforml
 \end{equation*}
 where $G=\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-\bar{\mathbf{X}}_i)(X_{ij}-\bar{\mathbf{X}}_i)^T$ and $F=\sum_{i=1}^K n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T$.
 Follow the type II method of~\cite{Roy1953}, the union intersection test statistic is $\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$ which is an increase function of $\lambda_{\max}(FG^{-1}))$, Roy's maximum root test statistic.
-Note that here we need to assume $p\leq n-K$, or else $G$ is singular.
+Note that here we need the assumption $p\leq n-K$, or else $G$ is not invertible.
 %%$$
 %f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
     %(2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
     %\Big].
 %$$
 \subsection{The new test statistic}
-When $p> n-K$, Roy's maximum root test is not defined. Here we follow the strategy in~\cite{Zhao2016A}.
-
-The generalized likelihood ratio test statistic is defined as
-\begin{equation}
+We are interested in the case when $p> n-K$.
+In this setting, $\max_{a^T a=1}\text{LRT}_a=+\infty$ and Roy's maximum root test is not defined. 
+In another viewpoint, union intersection principal finds an direction $a$ along which the evidence against null hypothesis is maximized.
+Such an $a$ is data dependent.
+In the classical setting, the evidence of direction $a$ is $\text{LRT}_a$.
+In the current context, there are a class of $a$ such that $\text{LRT}_a$ achieve the infinity, the largest evidence in classical sense.
+We need to further choose a single $a$ from $\{a\,|\,\text{LRT}_a=+\infty\text{ and }a^T a =1\}$.
+ From the expression of $\text{LRT}_a$, we would like to make the largest discrepancy between $a^T F a$ and $a^T G a$.
+Note that if $\text{LRT}_{\alpha}=+\infty$, then $a^T G a=0$.
+Hence it's natural to choose $a$ as
+$$
+        a^{*}=
+        \argmax_{a^T a=1, a^T G a=0} 
+        a^T F a.
+$$
+Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
+\begin{equation*}
     \begin{aligned}
-        T(Z)
+        T=a^{*T} F a^*
         =
         \max_{a^T a=1, a^T G a=0} 
-        a^T F a
+        a^T F a.
     \end{aligned}
-\end{equation}
+\end{equation*}
+When $T$ is large enough, we reject $H$.
+The above strategy is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
+
+
+Next we derive the explicit forms of the test statistic. 
 Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
-Then $G=Z(I_n-JJ^T)Z^T$ and
-\begin{equation}
+Then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
+Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^T =I-JJ^T$.
+Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a $k\times k$ projection matrix with rank $k-1$.
+Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
+Then 
+$$
+G=Z(I_n-JJ^T)Z^T=
+Z\tilde{J}\tilde{J}^T Z^T.
+$$
+and
+\begin{equation*}
     \begin{aligned}
         F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
-        =Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T.
+        =Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
+=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T
+=ZJC C^T J^T Z^T.
     \end{aligned}
-\end{equation}
-The matrix $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are all projection matrix and pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
+\end{equation*}
 
-Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfied $\tilde{J}\tilde{J}^T =I-JJ^T$.
-Then $S=Z\tilde{J}\tilde{J}^T Z^T$ and
- Note that 
-$$
-Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
-=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T.
-$$
-Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a projection matrix with rank $k-1$.
-Let $C$ be a $k\times (k-1)$ matrix satisfied $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
-
-In Proposition~\ref{optProp}, letting $A=Z\tilde{J}$ and $B=ZJ C C^T J^TZ^T$ yields 
-$$
+Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$, where $U_{Z\tilde{J}}$ and $V_{Z\tilde{J}}$ are $p\times (n-K)$ and $(n-K)\times(n-K)$ column orthogonal matrices respectively, $D_{Z\tilde{J}}$ is $(n-K)\times (n-K)$ diagonal matrix.
+Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$ be the projection on the column space of $A$.
+Then by Proposition~\ref{optProp}, 
+\begin{equation}\label{statisticForm1}
 \begin{aligned}
-    T(Z)&=\lambda_{max}\big((I_p-
-    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
-    )ZJCC^TJ^TZ^T (I_p-
-    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
-    )\big)
-\\
-    &=\lambda_{max}\big(C^TJ^TZ^T (I_p-
-    Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T
+    T&=\lambda_{\max}\big(ZJCC^TJ^TZ^T (I_p-
+    H_{Z\tilde{J}})
+    \big)
+    =\lambda_{max}\big(C^TJ^TZ^T (I_p-
+    H_{Z\tilde{J}}
     )ZJC\big).
 \end{aligned}
-$$
+\end{equation}
+
+Next we introduce another form of $T$.
 %where $H_A=Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
-Note that
-\begin{equation}
+By the relationship
+\begin{equation*}
     \begin{aligned}
-        &\Big(
+        \begin{pmatrix}
+            J^T Z^T ZJ & J^T Z^T Z\tilde{J}\\
+            \tilde{J}^T Z^T ZJ & \tilde{J}^T Z^T Z \tilde{J}
+        \end{pmatrix}^{-1}
+        =
+        \Big(
         \begin{pmatrix}
             J^T\\
             \tilde{J}^T
@@ -276,88 +302,71 @@ Note that
         \begin{pmatrix}
             J&\tilde{J}
         \end{pmatrix}
-        \Big)^{-1}\\
-        &=
-        \begin{pmatrix}
-            J^T Z^T ZJ & J^T Z^T Z\tilde{J}\\
-            \tilde{J}^T Z^T ZJ & \tilde{J}^T Z^T Z \tilde{J}
-        \end{pmatrix}^{-1}
-        &=
+        \Big)^{-1}
+        =
         \begin{pmatrix}
             J^T {(Z^T Z)}^{-1}J & J^T {(Z^T Z)}^{-1}\tilde{J}\\
             \tilde{J}^T {(Z^T Z)}^{-1}J & \tilde{J}^T {(Z^T Z)}^{-1} \tilde{J}
-        \end{pmatrix}.
+        \end{pmatrix}
     \end{aligned}
-\end{equation}
-It follows that
-\begin{equation}
+\end{equation*}
+and matrix inverse formula, we have that
+\begin{equation*}
     \begin{aligned}
-        &{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}\\
-        =&J^T Z^T ZJ - J^T Z^T Z\tilde{J}{(\tilde{J}^T Z^T Z \tilde{J})}^{-1}
-            \tilde{J}^T Z^T ZJ \\
-        =& J^T Z^T( I_p- Z\tilde{J}{(\tilde{J}^T Z^T Z \tilde{J})}^{-1}
-            \tilde{J}^T Z^T) ZJ 
+        &{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}
+        =J^T Z^T ZJ - J^T Z^T Z\tilde{J}{(\tilde{J}^T Z^T Z \tilde{J})}^{-1}
+            \tilde{J}^T Z^T ZJ 
+        = J^T Z^T( I_p- H_{Z\tilde{J}}) ZJ.
     \end{aligned}
-\end{equation}
-It follows that
-\begin{equation}
+\end{equation*}
+Thus, 
+\begin{equation}\label{statisticForm2}
     \begin{aligned}
         T(Z)=
-        \lambda_{\max}\Big(C^T{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}C\Big)\\
+        \lambda_{\max}\Big(C^T{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}C\Big).
     \end{aligned}
 \end{equation}
-\begin{proposition}\label{optProp}
-    Suppose $A$ is a $p\times r$ matrix with rank $r$ and $B$ is a $p\times p$  non-zero semi-definite matrix.
-    Let $H_A=A{(A^TA)}^{-1}A^T$.
-    Then
-    \begin{equation}
-        \max_{a^T a=1, a^T A A^T a=0}a^T B a=
-        \lambda_{\max}\big((I_p-H_A)B(I_p-H_A)\big).
-    \end{equation}
-\end{proposition}
-\begin{proof}
-    Note that $a^T A A^T a=0$ is equivalent to $A^T a=0$ and is in turn equivalent to $H_A a=0$.
-    In this circumstance, $a= (I_p-H_A)a$.
-    Then
-    \begin{equation}\label{eq:prop1eq1}
-        \begin{aligned}
-        \max_{a^T a=1, a^T A A^T a=0}a^T B a
-            &=
-            \max_{a^T a=1, H_A a=0}a^T B a\\
-            &=
-        \max_{a^T a=1, H_A a=0}a^T(I_p-H_A) B (I_p-H_A)a.
-        \end{aligned}
-    \end{equation}
-    It's obvious that $\eqref{eq:prop1eq1}\leq\lambda_{\max}\big((I-H_A)B(I-H_A)\big)$.
-    On the other hand, let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(I-H_A)B(I-H_A)$.
-    Note that the row of $H_A$ are all eigenvetors of $(I-H_A)B(I-H_A)$ corresponding to eigenvalue $0$. It follows that $H_A\alpha_1=0$. Now that $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1},~\eqref{eq:prop1eq1} is maximized when $a=\alpha_1$.
-    
-\end{proof}
 
-\section{Schott's method}
-
-$$
-E=ZZ^T-\sum_{i=1}^k n_i \bar{X}_i \bar{X}_i^T.
-$$
-
-$$
-H=\sum_{i=1}^{k} n_i \bar{X}_i \bar{X}_i^T - n\bar{X}\bar{X}^T.
-$$
-
-$$
-\mytr E = \mytr Z^T Z - \mytr J^T Z^T Z J.
-$$
+While the form~\eqref{statisticForm1} is used for theoretical analysis, the form~\eqref{statisticForm2} is well suited for computation, as we shall see.
+\subsection{Permutation method}
+Permutation method is a powerful tool to determine the critical value of a test statistic.
+   The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable. See, for example,~\cite{Romano1990On}.
+   The major down-side to permutation method is that it can be computationally intensive.
+   Fortunately, the computational issue can be overcomed for our statistic.
+   Note that a permutation for our statistic can be written by 
+   ...
+   for a random permutation matrix $K$.
 
 
-$$
-\mytr H = \mytr J^T Z^T Z J - \frac{1}{n} 1_n^T Z^T Z 1_n
-$$
+   
+   
+   
 
-$$
-T_{SC}=\frac{1}{\sqrt{n-1}}(
-\frac{1}{k-1}\mytr H-\frac{1}{n-k} \mytr E
-)
-$$
+
+%\section{Schott's method}
+
+%$$
+%E=ZZ^T-\sum_{i=1}^k n_i \bar{X}_i \bar{X}_i^T.
+%$$
+
+%$$
+%H=\sum_{i=1}^{k} n_i \bar{X}_i \bar{X}_i^T - n\bar{X}\bar{X}^T.
+%$$
+
+%$$
+%\mytr E = \mytr Z^T Z - \mytr J^T Z^T Z J.
+%$$
+
+
+%$$
+%\mytr H = \mytr J^T Z^T Z J - \frac{1}{n} 1_n^T Z^T Z 1_n
+%$$
+
+%$$
+%T_{SC}=\frac{1}{\sqrt{n-1}}(
+%\frac{1}{k-1}\mytr H-\frac{1}{n-k} \mytr E
+%)
+%$$
 
 
 \section{Theory}
@@ -573,6 +582,36 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 
 
 \section{Appendix}
+
+\begin{proposition}\label{optProp}
+    Suppose $A$ is a $p\times r$ matrix with rank $r$ and $B$ is a $p\times p$  non-zero semi-definite matrix.
+    Denote by $A=U_A D_A V_A^T$ the singular value decomposition of $A$, where $U_A$ and $V_A$ are $p\times r$ and $r\times r$ column orthogonal matrix, $D_A$ is a $r\times r$ diagonal matrix.
+    Let $H_A=U_A U_A^T$ be the projection on the column space of $A$.
+    Then
+    \begin{equation}
+        \max_{a^T a=1, a^T A A^T a=0}a^T B a=
+        \lambda_{\max}\big(B(I_p-H_A)\big).
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    Note that $a^T A A^T a=0$ is equivalent to $H_A a=0$ which in turn is equivalent to $a= (I_p-H_A)a$.
+    Then
+    \begin{equation}\label{eq:prop1eq1}
+        \begin{aligned}
+        \max_{a^T a=1, a^T A A^T a=0}a^T B a
+            &=
+        \max_{a^T a=1, H_A a=0}a^T(I_p-H_A) B (I_p-H_A)a,
+        \end{aligned}
+    \end{equation}
+    which is obviously no greater than $\lambda_{\max}\big((I-H_A)B(I-H_A)\big)$.
+    To prove that they are equal,  without loss of generality, we can assume $\lambda_{\max}\big((I-H_A)B(I-H_A)\big)>0$.
+    Let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(I-H_A)B(I-H_A)$.
+    Since $(I-H_A)B(I-H_A)H_A=(I-H_A)B(H_A-H_A)=O_{p\times p}$ and $H_A$ is symmetric, the rows of $H_A$ are eigenvetors of $(I-H_A)B(I-H_A)$ corresponding to eigenvalue $0$.
+    It follows that $H_A\alpha_1=0$.
+    Therefore, $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1} and~\eqref{eq:prop1eq1} is no less than $\lambda_{\max}\big((I-H_A)B(I-H_A)\big)$.
+    The conclusion now follows by noting that $\lambda_{\max}\big((I-H_A)B(I-H_A)\big)=\lambda_{\max}\big( B(I-H_A)\big)$.
+    
+\end{proof}
 
 \begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
 It can be seen that $ZJC$ is independent of ${Z\tilde{J}}$.

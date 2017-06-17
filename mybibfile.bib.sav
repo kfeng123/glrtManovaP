@@ -254,4 +254,18 @@
   url       = {https://doi.org/10.1214/aoms/1177729029},
 }
 
+@Article{Romano1990On,
+  author    = {Romano, Joseph P.},
+  title     = {On the Behavior of Randomization Tests Without a Group Invariance Assumption},
+  journal   = {Journal of the American Statistical Association},
+  year      = {1990},
+  volume    = {85},
+  number    = {411},
+  pages     = {686-692},
+  file      = {Romano1990On.pdf:Romano1990On.pdf:PDF},
+  groups    = {randomization test},
+  owner     = {kfeng123},
+  timestamp = {2017.06.17},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
