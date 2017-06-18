@@ -332,10 +332,32 @@ While the form~\eqref{statisticForm1} is used for theoretical analysis, the form
 Permutation method is a powerful tool to determine the critical value of a test statistic.
    The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable. See, for example,~\cite{Romano1990On}.
    The major down-side to permutation method is that it can be computationally intensive.
-   Fortunately, the computational issue can be overcomed for our statistic.
-   Note that a permutation for our statistic can be written by 
-   ...
-   for a random permutation matrix $K$.
+   Fortunately, for our statistic, there is a fast implementation of the permutation method.
+   Infact, using expression~\eqref{statisticForm2}, a permutation for our statistic can be written by
+    \begin{equation}\label{permutedStatistic}
+        T^{*}=\lambda_{\max}\Big(C^T{\big( J^T K^T {(Z^T Z)}^{-1} K J \big)}^{-1}  C\Big).
+    \end{equation}
+   for a random $n\times n$ permutation matrix $K$.
+   Note that ${(Z^T Z)}^{-1}$, the most time-consuming component, can be calculated aforehand.
+   The permutation procedure for our statistic can be summarized as:
+   \begin{enumerate}[(I)]
+       \item Calculate $T(Z)$ according to~\eqref{statisticForm2}, hold intermediate result ${(Z^T Z)}^{-1}$.
+       \item Generate a random $n\times n$ permutation matrix $K$ and calculate $T^*(Z)$ according to~\eqref{permutedStatistic}. Repeat $M$ times to obtain $T^*_1(Z),\ldots,T^*_M(Z)$.
+       \item Calculate the $p$-value by
+           $
+           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^B I\{T^*_i(Z)\geq T(Z)\}\big]
+           $.
+   \end{enumerate}
+
+Here $M$ is the permutation times. 
+   It can be shown that for any integer $M>0$, the resulting test controls the Type I error, more precisely, $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
+   Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
+   See, for example,~\cite{Lehmann}, Chapter $15$.
+
+   It can be seen that the time complexities of step (I) and step (II) are $O(n^2 p +n^3)$ and $O(n^2 M)$, respectively.
+   In large sample or high dimensional setting, $M/(p+n)$ is small. In this case, the permutation procedure has negligible effect on total time complexity.
+
+
 
 
    
@@ -370,43 +392,48 @@ Permutation method is a powerful tool to determine the critical value of a test 
 
 
 \section{Theory}
+In this section, we investigate the asymptotic behavior of our test statistic when $p$ is much larger than $n$.
+More precisely, we shall assume $p/n\to\infty$.
+In high dimensional setting, it is a common phenomenon that the asymptotic distribution of statistic relies on the covariance structure.
+See, for example,~\cite{Ma2015A} and Rui Wang's paper.
+We shall investigate the asymptotics of our statistic under two different covariance structures: non-spiked covariance and spiked covariance.
+
+
+
+
 Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
-Let $U=(U_1,U_2)$ where $U_1$ is $p\times r$ and $U_2$ is $p\times (p-r)$. Let $\Lambda_1=\mydiag(\lambda_1,\ldots,\lambda_r)$ and $\Lambda_2=\mydiag(\lambda_{r+1},\ldots,\lambda_p)$.
-Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
 
-Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$. Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$.
-Then
-$T(Z) = \lambda_{\max}(C^T J^T Z^T (I_p-H_{Z\tilde{J}})ZJC)$.
-Note that
-$$
-\myE (ZJC) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k) C\overset{def}{=}\mu_{f}.
-$$
 
+The spiked covariance model assumes that a few eigenvalues of $\Sigma$ are significantly larger than the others. This model is a standard model in many problems and takes factor model as a special case.
+See, for example,.
 
 \begin{assumption}\label{assumpEigen}
-    Assume $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
+    Let $r$ be a fixed integer.
+    Assume ${\lambda_r n}/{p}\to \infty$ and $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
 \end{assumption}
-
-
-
+Let $U=(U_1,U_2)$ where $U_1$ is $p\times r$ and $U_2$ is $p\times (p-r)$. Let $\Lambda_1=\mydiag(\lambda_1,\ldots,\lambda_r)$ and $\Lambda_2=\mydiag(\lambda_{r+1},\ldots,\lambda_p)$.
+Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
+Let
+$$
+\mu_{f}\overset{def}{=}
+\myE (ZJC) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k) C.
+$$
 
 
 
 
 \begin{theorem}\label{thm1}
-    Suppose Assumption~\eqref{assumpEigen} holds. Suppose 
+    Suppose $p/n\to \infty$.
+    Assume Assumption~\eqref{assumpEigen} holds.
+    Further more, assume
+\begin{equation}
+    \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
+\end{equation}
+    Then under local alternative
     \begin{equation}
-    p/n\to \infty,\quad\text{and}\quad \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
+        \frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1),
     \end{equation}
-    Suppose
-    \begin{equation}
-        \frac{\lambda_r n}{p}\to \infty.
-    \end{equation}
-    Suppose
-    \begin{equation}
-        \frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1).
-    \end{equation}
-    Then
+    we have
     \begin{equation}
         (\mytr \Lambda_2^2)^{-1/2}\big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-(\mytr \Lambda_2) I_{k-1} -\mu_f^T(I_p-H_{Z\tilde Z})\mu_f\big)\xrightarrow{\mathcal{L}} W_{k-1},
     \end{equation}

@@ -75,4 +75,20 @@ D.~Shen, H.~Shen, J.~S. Marron, Consistency of sparse pca in high dimension,
   low sample size contexts, Journal of Multivariate Analysis 115~(1) (2013)
   317--333.
 
+\bibitem{Romano1990On}
+J.~P. Romano, On the behavior of randomization tests without a group invariance
+  assumption, Journal of the American Statistical Association 85~(411) (1990)
+  686--692.
+
+\bibitem{Lehmann}
+J.~P.~R. E.~L.~Lehmann, Testing Statistical Hypotheses, Springer New York,
+  2005.
+\newblock \href {http://dx.doi.org/10.1007/0-387-27605-X}
+  {\path{doi:10.1007/0-387-27605-X}}.
+
+\bibitem{Ma2015A}
+Y.~Ma, W.~Lan, H.~Wang, A high dimensional two-sample test under a low
+  dimensional factor structure, Journal of Multivariate Analysis 140 (2015)
+  162--170.
+
 \end{thebibliography}
