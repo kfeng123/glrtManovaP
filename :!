@@ -404,20 +404,6 @@ We shall investigate the asymptotics of our statistic under two different covari
 Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
 
 
-\begin{theorem}\label{nonSpiked}
-    Assume $p/n\to \infty$, $c\leq \lambda_p(\Lambda)\leq \cdots\leq \lambda_1(\Lambda)\leq C$ and
-    $$
-    \frac{p}{n^2}\to \infty.
-    $$
-   Under local alternative 
-    $$\frac{1}{p}\|\mu_f\|_F^2\to 0,$$
-    we have
-    $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-\mytr(\Lambda)I_{k-1}-\mu_f^T (I_p-H_{Z\tilde{J}})\mu_f}\Big)
-    \xrightarrow{\mathcal{L}}W_{k-1}.
-    $$
-\end{theorem}
-
 The spiked covariance model assumes that a few eigenvalues of $\Sigma$ are significantly larger than the others. This model is a standard model in many problems and takes factor model as a special case.
 See, for example,.
 
@@ -449,12 +435,21 @@ $$
     \end{equation}
     we have
     \begin{equation}
-        \big(2c^2(p-r-n+k)\big)^{-1/2}\big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-c(p-r-n+k) I_{k-1} -\mu_f^T(I_p-H_{Z\tilde J})\mu_f\big)\xrightarrow{\mathcal{L}} W_{k-1},
+        (2\mytr \Lambda_2^2)^{-1/2}\big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-(\mytr \Lambda_2) I_{k-1} -\mu_f^T(I_p-H_{Z\tilde Z})\mu_f\big)\xrightarrow{\mathcal{L}} W_{k-1},
     \end{equation}
 where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
 \end{theorem}
 
 
+\begin{theorem}\label{nonSpiked}
+    Assume $p/n\to \infty$, $c\leq \lambda_p(\Lambda)\leq \cdots\leq \lambda_1(\Lambda)\leq C$ and
+    $$
+    \frac{p}{n^2}\to \infty.
+    $$
+   Under local alternative 
+    $$\frac{1}{p}\|\mu_f\|_F^2\to 0,$$
+    we have
+\end{theorem}
 
 
 \section{Simulation Results}
@@ -720,11 +715,8 @@ Then we have
     $$
     Apply Lyapunov central limit theorem conditioning on $Z\tilde{J}$, we have
     $$
-    \begin{aligned}
-        &\Big( 2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
-        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}
+    \frac{G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}}{\sqrt{2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})}}
     \xrightarrow{\mathcal{L}} W_{k-1}.
-    \end{aligned}
     $$
 
     Also by~\eqref{eq:EigU} and~\eqref{eq:EigL}, we have
@@ -749,18 +741,17 @@ Then we have
     It follows that
     $$
     \begin{aligned}
-        &\Big(2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
-        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}\\
+        &\frac{G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}}{\sqrt{2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})}}\\
         =&
-        {\Big( 2(1+O_P(\frac{n}{p}))\mytr (\Lambda^2)\Big) }^{-1/2} {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
-        \big(\mytr(\Lambda)+O_P(n)\big)I_{k-1}
-        \Big)}
+    \frac{G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
+        \mytr(\Lambda)I_{k-1}+O_P(n)
+        }{\sqrt{2(1+O_P(\frac{n}{p}))\mytr \Lambda^2}}
     \end{aligned}
     $$
     By Slutsky's theorem and the assumption $p/n^2\to \infty$, we have that
     $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
-        \mytr(\Lambda)I_{k-1}\Big)}
+    \frac{G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
+        \mytr(\Lambda)I_{k-1}}{\sqrt{2\mytr \Lambda^2}}
     \xrightarrow{\mathcal{L}}W_{k-1}
     $$
 
@@ -869,7 +860,7 @@ where the first inequality holds by Weyl's inequality. It follows from~\eqref{eq
 $\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
 
 Note that
-$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})= c\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
+$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
 By assumption $\lambda_r n/p\to \infty$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
 
 Now we are ready to investigate the behavior of $U_{Z\tilde{J}}$.
@@ -896,8 +887,8 @@ D_{Z\tilde{J}[r,r]}^2
 $$
 Thus,
 $$
-\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq
-\frac{c}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
+\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq 
+\frac{C}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
 (G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T)
 =O_P(\frac{p}{\lambda_r n}).
 $$
@@ -930,7 +921,7 @@ We now deal with $R_1+R_2$.
 For $i=1,\ldots, r$,
 $$
 \lambda_i(R_1+R_2)\leq
-\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)= O_P(\frac{\lambda_1 p}{\lambda_r n}) + c.
+\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)\leq O_P(\frac{\lambda_1 p}{\lambda_r n}) + C.
 $$
 For $i=r+1,\ldots, p-r$,
 $$
@@ -938,44 +929,53 @@ $$
 &\lambda_i(R_1+R_2)\leq \lambda_{i-r}(R_2)
 =
  \lambda_{i-r}\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)
-    =c\lambda_{i-r}\big( I_{p-r}-U_2^T H_{Z\tilde{J}} U_2\big).
+\leq
+\lambda_{i-r}(\Lambda_2)
+=\lambda_i.
 \end{aligned}
 $$
-Since $U_2^T H_{Z\tilde{J}} U_2$ has rank $n-k$, we have $\lambda_i (R_1+R_2)\leq c$ for $r+1\leq i \leq p-n+k$ and $\lambda_i (R_1+R_2)=0$ for $p-n+k+1\leq i \leq p-r$.
-On the other hand, for $i=1,\ldots, p-r-n+k$,
+On the other hand,
+for $i=1,\ldots, p-r-n+k$,
 $$
 \begin{aligned}
 &\lambda_i(R_1+R_2)\geq \lambda_i(R_2)
 =
  \lambda_i\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)\\
 =&
-    c\lambda_i\big( I_{p-r}-  U_2^T H_{Z\tilde{J}}U_2 \big)
-    =c.
+\lambda_i\big( \Lambda_2- \Lambda_2^{1/2} U_2^T H_{Z\tilde{J}}U_2 \Lambda_2^{1/2}\big)
+\geq 
+\lambda_{i+n-k}.
 \end{aligned}
 $$
-The last equality holds since $U_2^T H_{Z\tilde{J}}U_2$ has rank $n-k$.
+The last equality holds since $U_2^T H_{Z\tilde{J}}U_2$ is at most of rank $n-k$.
 
 As a consequence of these bounds, we have
 $$
-c^2(p-r-n+k)\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c)^2+c^2(p-r-n+k),
+\sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+\sum_{i=r+1}^{p-r}\lambda_i^2,
 $$
 or
 $$
-\big| \mytr [(R_1+R_2)^2]- c^2(p-r-n+k) \big|\leq 
-r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c)^2.
+| \mytr [(R_1+R_2)^2]-\sum_{i=r+1}^{p}\lambda_{i}^2|\leq 
+\sum_{i=r+1}^{n-k}\lambda_{i}^2+
+\sum_{i=p-r+1}^{p}\lambda_{i}^2
++
+r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2.
 $$
 Similarly,
 $$
-\big| \mytr [(R_1+R_2)]-c(p-r-n+k)\big|\leq 
-r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c).
+| \mytr [(R_1+R_2)]-\sum_{i=r+1}^{p}\lambda_{i}|\leq 
+\sum_{i=r+1}^{n-k}\lambda_{i}+
+\sum_{i=p-r+1}^{p}\lambda_{i}
++
+r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C).
 $$
 These, conbined with the assumptions, yield
 $$
- \mytr [(R_1+R_2)^2]=(1+o_P(1))c^2(p-r-n+k),
+ \mytr [(R_1+R_2)^2]=(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2,
 $$
 and
 $$
- \mytr [(R_1+R_2)]=c(p-r-n+k)+O_P(\frac{\lambda_1 p}{\lambda_r n}).
+ \mytr [(R_1+R_2)]=\sum_{i=r+1}^{p}\lambda_{i}+O(n)+O_P(\frac{\lambda_1 p}{\lambda_r n}).
 $$
 
 Now we have the Lyapunov condition
@@ -993,9 +993,9 @@ $$
 %}{c(p-r-n+k)}
 =
 \frac{
-\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+c\big)^2
+\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
 }{
-(1+o_P(1))c^2(p-r-n+k)
+(1+o_P(1))\sum_{i=r+1}^{p}\lambda_{i}^2
 }
 \xrightarrow{P} 0.
 $$
@@ -1003,7 +1003,7 @@ Apply Lyapunov central limit theorem conditioning on $H_{Z\tilde{J}}$, we have
 $$
 \begin{aligned}
 \big(2\mytr[(R_1+R_2)^2]\big)^{-1/2}
-\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\mytr(R_1+R_2) I_{k-1} \big)
+\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\mytr(R_1+R_2) I_{k-1} \big)
 \xrightarrow{\mathcal{L}} W_{k-1}
 \end{aligned}
 $$
@@ -1011,8 +1011,8 @@ where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries ab
 By Slutsky's theorem, we have
 $$
 \begin{aligned}
-    \big(2c^2(p-r-n+k)\big)^{-1/2}
-    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-c(p-r-n+k)I_{k-1} \big)
+\big(2\sum_{i=r+1}^p \lambda_i^2\big)^{-1/2}
+\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-(\sum_{i=r+1}^p \lambda_i)I_{k-1} \big)
 \xrightarrow{\mathcal{L}}W_{k-1}
 \end{aligned}
 $$
