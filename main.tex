@@ -116,7 +116,14 @@
 
 \linenumbers
 \section{Introduction}
-Suppose we have independent observations $X_{ij}\in \mathbb{R}^p$ ($j=1,\ldots,n_k$; $i=1,\ldots, K$) with distribution $N_p(\mu_i,\Sigma)$, where $\mu_i$, $i=1,\ldots,K$, and $\Sigma>0$ are unknown. We would like to test
+
+
+
+
+
+Suppose we observe $k$ independent random samples, each from the distribution $N_p(\mu_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\mu_i$ and $\Sigma$ are unknown parameters.
+Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
+We would like to test
 \begin{equation}\label{hypothesis}
     H: \mu_1=\mu_2=\cdots=\mu_k\quad \text{v.s.}\quad K: \text{$\mu_i\neq \mu_j$ for some $i\neq j$}.
 \end{equation}
@@ -124,25 +131,25 @@ The problem is known as one-way multivariate analysis of variance (MANOVA).
 There are four classical tests for hypothesis~\eqref{hypothesis}: Wilks' Lambda (which is also the LRT), Hotelling-Lawley trace, Pillai Trace and Roy's maximum root.
 
 
-In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n=\sum_{i=1}^{K}n_i$. See, for example,~\cite{Tsai2009}.
-However, when $p>n-K$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
+In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n=\sum_{i=1}^{k}n_i$. See, for example,~\cite{Tsai2009}.
+However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
- Sor far, most tests in the literature are designed for two sample case, i.e. $K=2$.
+ Sor far, most tests in the literature are designed for two sample case, i.e. $k=2$.
   See, for example,~\cite{Bai1996Efiect},~\cite{Chen2010A},~\cite{Srivastava2009A},~\cite{Feng2015Multivariate} and~\cite{Tony2013}.
-  For the multiple sample case,~\cite{Schott2007Some} modified the Dempster's trace test and proposed a test statistic
+  For the multiple sample case,~\cite{Schott2007Some} modified the Dempster's trace test and proposed the test statistic
   $$
   T_{SC}=\frac{1}{\sqrt{n-1}}\big(
-  \frac{1}{K-1}\mytr\big(\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T-n\bar{X}\bar{X}^T\big)-\frac{1}{n-K}\mytr\big(\sum_{i=1}^K \sum_{j=1}^{n_i}X_{ij}X_{ij}^T-\sum_{i=1}^K n_i\bar{X}_i\bar{X}_i^T\big)
+  \frac{1}{k-1}\mytr\big(\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^T-n\bar{X}\bar{X}^T\big)-\frac{1}{n-k}\mytr\big(\sum_{i=1}^k \sum_{j=1}^{n_i}X_{ij}X_{ij}^T-\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^T\big)
   \big),
   $$
-  where $\bar{X}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{X}=n^{-1}\sum_{i=1}^K\sum_{j=1}^{n_i}X_{ij}$.
+  where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$.
   In another work,~\cite{Cai2014High} proposed a test statistic
   $$
-  T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq K}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{X}_j-\bar{X}_l))_i^2}{\omega_{ii}},
+  T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{X}_j-\bar{X}_l))_i^2}{\omega_{ii}},
   $$
   Where $\Omega=(\omega)_{ij}=\Sigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
   Stitistics $T_{SC}$ and $T_{CX}$ are the representatives of two popular methodologies for high dimensional tests.
-  $T_{SC}$ is a so-called sum-of-squares type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^K n_i\|\mu_i-\bar{\mu}\|^2$, where $\bar{\mu}=n^{-1}\sum_{i=1}^K n_i \mu_i$.
+  $T_{SC}$ is a so-called sum-of-squares type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\mu_i-\bar{\mu}\|^2$, where $\bar{\mu}=n^{-1}\sum_{i=1}^k n_i \mu_i$.
   $T_{CX}$ is an extreme value type statistic.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
@@ -176,15 +183,16 @@ Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of 
 The idea of Roy's union intersection principle is to reduce testing problem to a class of pseudo-univariate problems.
 For $a\in \mathbb{R}^p$ and $a^T a=1$, define the hypothesis $H_a$ and $K_a$ as
 $$
-H_a: a^T\mu_1=a^T\mu_2=\cdots=a^T\mu_k\quad \text{v.s.}\quad K: \text{$a^T\mu_i\neq a^T\mu_j$ for some $i\neq j$}.
+H_a: a^T\mu_1=a^T\mu_2=\cdots=a^T\mu_k\quad \text{v.s.}\quad K_a: \text{$a^T\mu_i\neq a^T\mu_j$ for some $i\neq j$}.
 $$
-Then the hypothesis~\eqref{hypothesis} $H=\cap_{a}H_a$.
+Then the hypothesis~\eqref{hypothesis} can be written as 
+$$H=\bigcap_{a^T a =1}H_a\quad \text{v.s.}\quad K=\bigcup_{a^T a=1} K_a.$$
 The union-intersection principle tells that $H$ is rejected if and only if any one of $H_a$ is rejected.
-Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,K$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pool sample.
+Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,k$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pool sample.
 Note that the likelihood function based on $a^T \bZ$ is 
 $$
 f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)=
-    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^K\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\mu_i)^2\Big).
+    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\mu_i)^2\Big).
 $$
 
 The likelihood ratio test statistic for $H_a$ v.s. $K_a$ (which is also uniformly most powerful unbiased test) is
@@ -206,21 +214,21 @@ The likelihood ratio test statistic for $H_a$ v.s. $K_a$ (which is also uniforml
 %\end{equation*}
 \begin{equation*}
     \begin{aligned}
-        \text{LRT}_{a}=\frac{\max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)}{\max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)}
+        \text{LRT}_{a}=\frac{\sup\limits_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)}{\sup\limits_{\mu,\Sigma}f_a(a^T \bZ;\mu,\ldots,\mu,\Sigma)}
         =
         \Big(1+\frac{a^T Fa}{a^T G a}\Big)^{n/2},
     \end{aligned}
 \end{equation*}
-where $G=\sum_{i=1}^K\sum_{j=1}^{n_i}(X_{ij}-\bar{\mathbf{X}}_i)(X_{ij}-\bar{\mathbf{X}}_i)^T$ and $F=\sum_{i=1}^K n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T$.
+where $G=\sum_{i=1}^k\sum_{j=1}^{n_i}(X_{ij}-\bar{\mathbf{X}}_i)(X_{ij}-\bar{\mathbf{X}}_i)^T$ and $F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T$.
 Follow the type II method of~\cite{Roy1953}, the union intersection test statistic is $\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$ which is an increase function of $\lambda_{\max}(FG^{-1}))$, Roy's maximum root test statistic.
-Note that here we need the assumption $p\leq n-K$, or else $G$ is not invertible.
+Note that here we need the assumption $p\leq n-k$, or else $G$ is not invertible.
 %%$$
 %f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
     %(2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
     %\Big].
 %$$
 \subsection{The new test statistic}
-We are interested in the case when $p> n-K$.
+We are interested in the case when $p> n-k$.
 In this setting, $\max_{a^T a=1}\text{LRT}_a=+\infty$ and Roy's maximum root test is not defined. 
 In another viewpoint, union intersection principal finds an direction $a$ along which the evidence against null hypothesis is maximized.
 Such an $a$ is data dependent.
@@ -269,15 +277,15 @@ and
     \end{aligned}
 \end{equation*}
 
-Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$, where $U_{Z\tilde{J}}$ and $V_{Z\tilde{J}}$ are $p\times (n-K)$ and $(n-K)\times(n-K)$ column orthogonal matrices respectively, $D_{Z\tilde{J}}$ is $(n-K)\times (n-K)$ diagonal matrix.
+Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$, where $U_{Z\tilde{J}}$ and $V_{Z\tilde{J}}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ column orthogonal matrices respectively, $D_{Z\tilde{J}}$ is $(n-k)\times (n-k)$ diagonal matrix.
 Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$ be the projection on the column space of $A$.
 Then by Proposition~\ref{optProp}, 
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
-    T&=\lambda_{\max}\big(ZJCC^TJ^TZ^T (I_p-
+    T(Z)&=\lambda_{\max}\big(ZJCC^TJ^TZ^T (I_p-
     H_{Z\tilde{J}})
     \big)
-    =\lambda_{max}\big(C^TJ^TZ^T (I_p-
+    =\lambda_{\max}\big(C^TJ^TZ^T (I_p-
     H_{Z\tilde{J}}
     )ZJC\big).
 \end{aligned}
@@ -323,7 +331,7 @@ Thus,
 \begin{equation}\label{statisticForm2}
     \begin{aligned}
         T(Z)=
-        \lambda_{\max}\Big(C^T{\big( J^T {(Z^T Z)}^{-1}J \big)}^{-1}C\Big).
+        \lambda_{\max}\Big(C^T\big( J^T (Z^T Z)^{-1}J \big)^{-1}C\Big).
     \end{aligned}
 \end{equation}
 
@@ -333,24 +341,25 @@ Permutation method is a powerful tool to determine the critical value of a test 
    The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable. See, for example,~\cite{Romano1990On}.
    The major down-side to permutation method is that it can be computationally intensive.
    Fortunately, for our statistic, there is a fast implementation of the permutation method.
-   Infact, using expression~\eqref{statisticForm2}, a permutation for our statistic can be written by
+   Using expression~\eqref{statisticForm2}, a permuted statistic can be written as
     \begin{equation}\label{permutedStatistic}
-        T^{*}=\lambda_{\max}\Big(C^T{\big( J^T K^T {(Z^T Z)}^{-1} K J \big)}^{-1}  C\Big).
+        T(Z\Gamma)=\lambda_{\max}\Big(C^T{\big( J^T \Gamma^T {(Z^T Z)}^{-1} \Gamma J \big)}^{-1}  C\Big),
     \end{equation}
-   for a random $n\times n$ permutation matrix $K$.
+where $\Gamma$ is an $n\times n$ permutation matrix.
    Note that ${(Z^T Z)}^{-1}$, the most time-consuming component, can be calculated aforehand.
    The permutation procedure for our statistic can be summarized as:
    \begin{enumerate}[(I)]
        \item Calculate $T(Z)$ according to~\eqref{statisticForm2}, hold intermediate result ${(Z^T Z)}^{-1}$.
-       \item Generate a random $n\times n$ permutation matrix $K$ and calculate $T^*(Z)$ according to~\eqref{permutedStatistic}. Repeat $M$ times to obtain $T^*_1(Z),\ldots,T^*_M(Z)$.
+       \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(Z\Gamma_1),\ldots,T(Z\Gamma_M)$ according to~\eqref{permutedStatistic}. 
        \item Calculate the $p$-value by
            $
-           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^B I\{T^*_i(Z)\geq T(Z)\}\big]
+           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^M I\{T(Z\Gamma_i)\geq T(Z)\}\big]
            $.
+           Reject the null hypothesis if $\tilde{p}\leq \alpha$.
    \end{enumerate}
 
 Here $M$ is the permutation times. 
-   It can be shown that for any integer $M>0$, the resulting test controls the Type I error, more precisely, $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
+   It can be shown that for any integer $M>0$, the resulting test controls the Type I error. More precisely, we have $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
    Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
    See, for example,~\cite{Lehmann}, Chapter $15$.
 
@@ -392,6 +401,55 @@ Here $M$ is the permutation times.
 
 
 \section{Theory}
+Let
+$$
+\Xi\overset{def}{=}(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k).
+$$
+Then $\myE Z=\Xi J^T$.
+
+$H: \Xi C=O_{p\times (k-1)}$
+
+The uniformly minimum variance unbiased estimator of $\Xi$ is $ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
+
+Suppose $M$ is a $(k-1)\times p$ matrix.
+
+$H_{M}: \mytr (M \Xi C)=0$, $K_{M}: \mytr (M \Xi C)\geq 0$.
+$$
+\mytr \big(MZJC\big)
+=
+\mytr \big(CMZJ\big)
+$$
+Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\mu_i,CM\Sigma M^T C^T)$.
+Hence under $H_M$, we have that
+$$
+\mytr \big(CMZJ\big)
+\sim
+N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
+\sim
+N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
+$$
+Hence define
+$$
+T_M = \frac{
+\mytr \big(MZJC\big)
+}{
+    \sqrt{\mytr(M G M^T)}
+}.
+$$
+
+
+By Cauchy inequality $\max_B \mytr(AB^T)/\mytr^{1/2}(BB^T)=\mytr^{1/2}(AA^T)$, we have
+$$
+\begin{aligned}
+    \max_M T_M &=\max_M \frac{\mytr \big(MG^{1/2}G^{-1/2}ZJC\big)
+}{\sqrt{\mytr(M G^{1/2} (M G^{1/2})^T)}
+}\\
+    &=\mytr^{1/2}((ZJC)^T G^{-1}ZJC)\\
+    &=\mytr^{1/2}( ZJC(ZJC)^T G^{-1})\\
+    &=\mytr^{1/2}(F G^{-1}).
+\end{aligned}
+$$
+
 In this section, we investigate the asymptotic behavior of our test statistic when $p$ is much larger than $n$.
 More precisely, we shall assume $p/n\to\infty$.
 In high dimensional setting, it is a common phenomenon that the asymptotic distribution of statistic relies on the covariance structure.
@@ -407,13 +465,13 @@ Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\
 \begin{theorem}\label{nonSpiked}
     Assume $p/n\to \infty$, $c\leq \lambda_p(\Lambda)\leq \cdots\leq \lambda_1(\Lambda)\leq C$ and
     $$
-    \frac{p}{n^2}\to \infty.
+    \mytr\Big(\Lambda-\frac{1}{p}(\mytr\Lambda)I_p\Big)^2=o\big(\frac{p}{n}\big)
     $$
    Under local alternative 
-    $$\frac{1}{p}\|\mu_f\|_F^2\to 0,$$
+    $$\frac{1}{p}\|\Xi C\|_F^2\to 0,$$
     we have
     $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-\mytr(\Lambda)I_{k-1}-\mu_f^T (I_p-H_{Z\tilde{J}})\mu_f}\Big)
+    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Lambda)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
     \xrightarrow{\mathcal{L}}W_{k-1}.
     $$
 \end{theorem}
@@ -684,7 +742,7 @@ Then
 \begin{aligned}
 C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC
 =&
-G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda_{1/2}G_2+
+G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
 \mu_f^T (I_p -H_{Z\tilde{J}})\mu_f+\\
 &\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
 G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f.
@@ -692,7 +750,7 @@ G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f.
 \end{equation}
     The first term of~\eqref{eq:maindec} can be represented as
 \begin{equation}\label{eq:firstTerm}
-G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2=
+G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2=
 \sum_{i=1}^p \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\xi_i \xi_i^T,
 \end{equation}
 where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$.
@@ -722,7 +780,7 @@ Then we have
     $$
     \begin{aligned}
         &\Big( 2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
-        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}
+        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}
     \xrightarrow{\mathcal{L}} W_{k-1}.
     \end{aligned}
     $$
@@ -738,49 +796,78 @@ Then we have
     $$
     \mytr\big[(\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})^2\big]
     =
-    \mytr(\Lambda^2)+O_P(n).
+    \mytr(\Lambda^2)+O_P(n)
+    =
+    \big(1+O_P(\frac{n}{p})\big)\mytr(\Lambda^2).
     $$ 
-    Similarly, we have
+
+Note that
     $$
     \mytr(\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})
     =
-    \mytr(\Lambda)+O_P(n).
+    \mytr(\Lambda)-\mytr(H_{Z\tilde{J}}U\Lambda U^T).
     $$ 
+and
+    $$
+    \begin{aligned}
+        &
+        \big|
+    \mytr(H_{Z\tilde{J}}U\Lambda U^T)
+    -\frac{n-k}{p}\mytr(\Lambda)
+    \big|
+    =
+    \big|
+    \mytr\Big(H_{Z\tilde{J}} U \big(\Lambda-\frac{1}{p} (\mytr \Lambda) I_p \big) U^T\Big)
+    \big|
+        \\
+        \leq &
+        \sqrt{\mytr \big(H_{Z\tilde{J}}^2\big)}
+        \sqrt{\mytr \Big(\Lambda-\frac{1}{p}\big(\mytr \Lambda\big) I_p\Big)^2}
+        =\sqrt{(n-k)\mytr \Big(\Lambda-\frac{1}{p}\big(\mytr \Lambda\big) I_p\Big)^2}
+        =o(\sqrt{p}).
+    \end{aligned}
+    $$
+    Hence 
+    $$
+    \mytr(\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})
+    =
+    \frac{p-n+k}{p}\mytr(\Lambda)+o(\sqrt{p}).
+    $$
     It follows that
     $$
     \begin{aligned}
         &\Big(2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
-        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}\\
+        &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}\\
         =&
-        {\Big( 2(1+O_P(\frac{n}{p}))\mytr (\Lambda^2)\Big) }^{-1/2} {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
-        \big(\mytr(\Lambda)+O_P(n)\big)I_{k-1}
+        {\Big( 2(1+O_P(\frac{n}{p}))\mytr (\Lambda^2)\Big) }^{-1/2} {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
+        \big(\frac{p-n+k}{p}\mytr(\Lambda)+O_P(\sqrt{p})\big)I_{k-1}
         \Big)}
     \end{aligned}
     $$
-    By Slutsky's theorem and the assumption $p/n^2\to \infty$, we have that
+    By Slutsky's theorem, we have that
     $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda_{1/2}G_2-
-        \mytr(\Lambda)I_{k-1}\Big)}
+    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
+        \frac{p-n+k}{p}\mytr(\Lambda)I_{k-1}\Big)}
     \xrightarrow{\mathcal{L}}W_{k-1}
     $$
 
     Note that
     $$
     \begin{aligned}
-        &\myE\big[\|\mu_f^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2\big]\\
+        &\myE\big[\| C^T \Xi^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2\big]\\
         = &
         (k-1)\myE \big[\mytr\big(
-        \mu_f^T (I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\mu_f
+        C^T \Xi^T (I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\Xi C
         \big)\big]\\
         \leq &
         (k-1)\myE \big[\lambda_1\big(
          (I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})
         \big)\big]
-        \|\mu_f\|_F^2\\
+        \|\Xi C\|_F^2\\
         \leq &
-        (k-1)\lambda_1(\Lambda)\|\mu_f\|_F^2
+        (k-1)\lambda_1(\Lambda)\|\Xi C\|_F^2
         \leq 
-        (k-1)C\|\mu_f\|_F^2=o(p).
+        (k-1)C\|\Xi C\|_F^2=o(p).
     \end{aligned}
     $$
     The conclusion follows.
