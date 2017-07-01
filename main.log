@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  29 JUN 2017 19:52
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  1 JUL 2017 21:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1343,7 +1343,7 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
 
 ]
-Overfull \hbox (48.88466pt too wide) detected at line 144
+Overfull \hbox (48.88466pt too wide) detected at line 145
 \OML/cmm/m/it/10 T[] \OT1/cmr/m/n/10 = [][][] [] [] [] \OML/cmm/m/it/10 n[][][]
  \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n[][][] \OMS/cmsy/m/n/10 ^^@ [] [] [] []
  [] \OML/cmm/m/it/10 X[]X[] \OMS/cmsy/m/n/10 ^^@ [] \OML/cmm/m/it/10 n[][][][][
@@ -1351,7 +1351,7 @@ Overfull \hbox (48.88466pt too wide) detected at line 144
  []
 
 [2] [3]
-Overfull \hbox (24.79207pt too wide) detected at line 196
+Overfull \hbox (24.79207pt too wide) detected at line 197
 \OML/cmm/m/it/10 f[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a[][]\OT1/cmr/m/n/10 ; \O
 ML/cmm/m/it/10 ^^V[]; [] ; ^^V[]; \OT1/cmr/m/n/10 ^^F) = (2\OML/cmm/m/it/10 ^^Y
 \OT1/cmr/m/n/10 )[]\OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 ^^F\OM
@@ -1361,105 +1361,99 @@ L/cmm/m/it/10 a\OMS/cmsy/m/n/10 j[] [] [] ^^@ [] [] []\OT1/cmr/m/n/10 (\OML/cmm
  []
 
 
-Overfull \hbox (7.7172pt too wide) in paragraph at lines 231--241
+Overfull \hbox (7.7172pt too wide) in paragraph at lines 232--242
 []\EU1/lmr/m/n/10 We are interested in the case when $\OML/cmm/m/it/10 p > n \O
 MS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 k$\EU1/lmr/m/n/10 . In this setting, $[][] 
 [][] \OT1/cmr/m/n/10 =
  []
 
 [4]
-Overfull \hbox (66.0524pt too wide) in paragraph at lines 259--266
+Overfull \hbox (66.0524pt too wide) in paragraph at lines 260--267
 []\EU1/lmr/m/n/10 Next we derive the explicit forms of the test statistic. Let 
 $\OML/cmm/m/it/10 J \OT1/cmr/m/n/10 = [](\OML/cmm/m/it/10 n[][][]; [] ; n[][][]
 \OT1/cmr/m/n/10 )$\EU1/lmr/m/n/10 .
  []
 
 
-Overfull \hbox (109.7919pt too wide) detected at line 278
+Overfull \hbox (109.7919pt too wide) detected at line 279
 [] []
  []
 
 
-Overfull \hbox (2.32591pt too wide) detected at line 292
+Overfull \hbox (2.32591pt too wide) detected at line 293
 [] []
  []
 
 
-Overfull \hbox (64.87837pt too wide) detected at line 320
+Overfull \hbox (64.87837pt too wide) detected at line 321
 [] []
  []
 
 
-Overfull \hbox (57.18605pt too wide) detected at line 329
+Overfull \hbox (57.18605pt too wide) detected at line 330
 [] []
  []
 
 [5] [6]
-Overfull \hbox (52.50241pt too wide) in paragraph at lines 412--413
+Overfull \hbox (52.50241pt too wide) in paragraph at lines 413--414
 []\EU1/lmr/m/n/10 The uniformly minimum variance unbiased estimator of $\OT1/cm
 r/m/n/10 ^^D$ \EU1/lmr/m/n/10 is $\OML/cmm/m/it/10 ZJ \OT1/cmr/m/n/10 = ([][]\O
 ML/cmm/m/it/10 ; [] ; [][]\OT1/cmr/m/n/10 )$\EU1/lmr/m/n/10 . 
  []
 
-
-Overfull \hbox (21.40256pt too wide) in paragraph at lines 462--463
+[7]
+Overfull \hbox (21.40256pt too wide) in paragraph at lines 464--465
 []\EU1/lmr/m/n/10 Let $\OT1/cmr/m/n/10 ^^F = \OML/cmm/m/it/10 U\OT1/cmr/m/n/10 
 ^^C\OML/cmm/m/it/10 U[]$ \EU1/lmr/m/n/10 be the eigenvalue decomposition of $\O
 T1/cmr/m/n/10 ^^F$\EU1/lmr/m/n/10 , where $\OT1/cmr/m/n/10 ^^C = [](\OML/cmm/m/
 it/10 ^^U[]; [] ; ^^U[]\OT1/cmr/m/n/10 )$\EU1/lmr/m/n/10 . 
  []
 
-[7]
-Overfull \hbox (89.813pt too wide) detected at line 476
-[][][][] [] \OML/cmm/m/it/10 W[]:
+
+Overfull \hbox (6.42508pt too wide) detected at line 482
+[] \OMS/cmsy/m/n/10 ^^X \OML/cmm/m/it/10 ^^U[][]W[] \OT1/cmr/m/n/10 + []2 [](^^
+F[])[][]\OML/cmm/m/it/10 C[]\OT1/cmr/m/n/10 ^^D[](\OML/cmm/m/it/10 I[] \OMS/cms
+y/m/n/10 ^^@ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 )^^D\OML/cmm/m/it/10 C[] \OT1/
+cmr/m/n/10 + \OML/cmm/m/it/10 o[]\OT1/cmr/m/n/10 (1)\OML/cmm/m/it/10 :
  []
 
 
-Overfull \hbox (70.12593pt too wide) detected at line 511
-[]\OT1/cmr/m/n/10 2\OML/cmm/m/it/10 c[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p \OMS
-/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 r \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n \OT
-1/cmr/m/n/10 + \OML/cmm/m/it/10 k\OT1/cmr/m/n/10 )[][][]\OML/cmm/m/it/10 C[]J[]
-Z[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 
-H[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ZJC \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 
-c\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 p \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 r \O
-MS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 n \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 k\OT1/
-cmr/m/n/10 )\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^V[]\OT
-1/cmr/m/n/10 (\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 H[]\OT
-1/cmr/m/n/10 )\OML/cmm/m/it/10 ^^V[][] [] W[];
+Overfull \hbox (35.53354pt too wide) detected at line 514
+[] []
  []
 
 [8]
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 543--562
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 545--564
  [][] 
  []
 
 
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 567--586
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 569--588
  [][] 
  []
 
 
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 591--610
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 593--612
  [][] 
  []
 
 
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 615--634
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 617--636
  [][] 
  []
 
 
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 639--658
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 641--660
  [][] 
  []
 
 
-Overfull \hbox (5.86998pt too wide) in paragraph at lines 663--682
+Overfull \hbox (5.86998pt too wide) in paragraph at lines 665--684
  [][] 
  []
 
 [9] [10] [11] [12] [13] [14] [15]
-Overfull \hbox (9.53813pt too wide) detected at line 750
+Overfull \hbox (9.53813pt too wide) detected at line 752
 [] []
  []
 
@@ -1479,56 +1473,91 @@ Overfull \hbox (9.03217pt too wide) detected at line 852
  []
 
 [17]
-Overfull \hbox (3.36227pt too wide) detected at line 888
-[] []
+Overfull \hbox (90.36858pt too wide) detected at line 877
+[][][][] [] \OML/cmm/m/it/10 W[]:
  []
 
 
-Overfull \hbox (71.3699pt too wide) detected at line 905
-[] []
+Overfull \hbox (32.8419pt too wide) in paragraph at lines 899--909
+[]\EU1/lmr/m/n/10 Note that $[]\OML/cmm/m/it/10 Z[]Z[] \OT1/cmr/m/n/10 = \OML/c
+mm/m/it/10 G[]\OT1/cmr/m/n/10 ^^C\OML/cmm/m/it/10 G[] \OT1/cmr/m/n/10 = \OML/cm
+m/m/it/10 V[]D[]V[]$\EU1/lmr/m/n/10 , and $\OML/cmm/m/it/10 G[]\OT1/cmr/m/n/10 
+^^C\OML/cmm/m/it/10 G[] \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 G[]\OT1/cmr/m/n/10 ^
+^C[]\OML/cmm/m/it/10 G[] \OT1/cmr/m/n/10 +
  []
 
 
-Overfull \hbox (79.28128pt too wide) detected at line 954
+Overfull \hbox (79.28128pt too wide) detected at line 946
 [] []
  []
 
 [18]
-Overfull \hbox (21.38905pt too wide) in paragraph at lines 962--973
-[]\EU1/lmr/m/n/10 Now we are ready to investigate the behavior of $\OML/cmm/m/i
-t/10 U[]$\EU1/lmr/m/n/10 . Since $\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 ^^C[]\OML/c
-mm/m/it/10 G[]G[]\OT1/cmr/m/n/10 ^^C[]\OML/cmm/m/it/10 U[] \OT1/cmr/m/n/10 =
+Overfull \hbox (100.5736pt too wide) in paragraph at lines 967--977
+[]\EU1/lmr/m/n/10 Note that $\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 ^^C[]\OML/cmm/m/
+it/10 G[]G[]\OT1/cmr/m/n/10 ^^C[]\OML/cmm/m/it/10 U[] \OT1/cmr/m/n/10 = \OML/cm
+m/m/it/10 U[]D[]U[]$\EU1/lmr/m/n/10 , we have $\OML/cmm/m/it/10 G[]G[] \OT1/cmr
+/m/n/10 = ^^C[]\OML/cmm/m/it/10 U[]U[]D[]U[]U\OT1/cmr/m/n/10 ^^C[]$\EU1/lmr/m/n
+/10 .
  []
 
 
-Overfull \hbox (53.26463pt too wide) detected at line 990
+Overfull \hbox (53.26463pt too wide) detected at line 994
 \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 U[]U[]U[]U[]\OT1/cmr/m/
 n/10 ) \OMS/cmsy/m/n/10 ^^T []\OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m
 /it/10 G[]G[]\OT1/cmr/m/n/10 ) = \OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 ([])\OML/c
-mm/m/it/10 :
+mm/m/it/10 ;
  []
 
 
-Overfull \hbox (40.92242pt too wide) detected at line 1008
+Overfull \hbox (40.92242pt too wide) detected at line 1013
 [] []
  []
 
 [19]
-Overfull \hbox (53.28304pt too wide) detected at line 1030
+Overfull \hbox (3.36227pt too wide) detected at line 1039
 [] []
  []
 
 
-Overfull \hbox (24.50504pt too wide) detected at line 1096
+Overfull \hbox (71.3699pt too wide) detected at line 1056
 [] []
  []
 
 
-Overfull \hbox (53.57803pt too wide) detected at line 1105
+Overfull \hbox (70.20181pt too wide) detected at line 1064
+\OML/cmm/m/it/10 ^^U[][]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 
+^^@ \OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 U\OT1/cmr/m/n/10 ^^C\
+OML/cmm/m/it/10 U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 I[] \OMS/cmsy/m/n/10 ^^@ \
+OML/cmm/m/it/10 H[]\OT1/cmr/m/n/10 )[] = \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 
+(\OML/cmm/m/it/10 R[] \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 ) \
+OMS/cmsy/m/n/10 ^^T \OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R[]
+ \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T \
+OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 ) + \
+OML/cmm/m/it/10 ^^U[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R[]\OT1/cmr/m/n/10 ) = \
+OML/cmm/m/it/10 O[]\OT1/cmr/m/n/10 ([]) + \OML/cmm/m/it/10 C:
+ []
+
+[20]
+Overfull \hbox (71.42688pt too wide) detected at line 1101
 [] []
  []
 
-[20] (./main.bbl
+
+Overfull \hbox (24.19534pt too wide) detected at line 1152
+[] []
+ []
+
+
+Overfull \hbox (10.23929pt too wide) detected at line 1162
+[] []
+ []
+
+[21]
+Overfull \hbox (88.24234pt too wide) detected at line 1189
+[] []
+ []
+
+(./main.bbl
 Underfull \hbox (badness 5519) in paragraph at lines 9--18
 []\EU1/lmr/m/n/10 C.-A. Tsai, J. J. Chen, []Multivariate analysis of variance t
 est
@@ -1552,22 +1581,22 @@ Underfull \hbox (badness 10000) in paragraph at lines 9--18
 ][][][] [] [][][]$[]\EU1/lmr/m/n/10 , []$[][][] [] [][] [] [][][][] []
  []
 
-[21] [22])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1136.
- [23]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1136.
+[22] [23])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1213.
+ [24]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1213.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1136.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1136.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1136.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1213.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1213.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1213.
  ) 
 Here is how much of TeX's memory you used:
- 25396 strings out of 493638
- 460867 string characters out of 6146796
- 526606 words of memory out of 5000000
- 28548 multiletter control sequences out of 15000+600000
+ 25400 strings out of 493638
+ 460921 string characters out of 6146796
+ 526752 words of memory out of 5000000
+ 28552 multiletter control sequences out of 15000+600000
  14655 words of font info for 78 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  45i,17n,78p,10426b,504s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (23 pages).
+Output written on main.pdf (24 pages).

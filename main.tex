@@ -119,10 +119,11 @@
 
 
 
-
-
-Suppose we observe $k$ independent random samples, each from the distribution $N_p(\mu_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\mu_i$ and $\Sigma$ are unknown parameters.
-Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
+Suppose there are $k$ groups of $p$ dimensional data.
+Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\mu_i,\Sigma)$, the $p$ dimensional normal distribution with mean vector $\mu_i$ and variance matrix $\Sigma$.
+%Suppose there are $k$ normal populations with possibly different means $\mu_1,\ldots,\mu_k$, but all with the same variance $\Sigma$.
+%Suppose we observe $k$ independent random samples, each from the distribution $N_p(\mu_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\mu_i$ and $\Sigma$ are unknown parameters.
+%Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
 We would like to test
 \begin{equation}\label{hypothesis}
     H: \mu_1=\mu_2=\cdots=\mu_k\quad \text{v.s.}\quad K: \text{$\mu_i\neq \mu_j$ for some $i\neq j$}.
@@ -457,22 +458,27 @@ See, for example,~\cite{Ma2015A} and Rui Wang's paper.
 We shall investigate the asymptotics of our statistic under two different covariance structures: non-spiked covariance and spiked covariance.
 
 
+Let $W_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
 
 
 Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
 
 
 \begin{theorem}\label{nonSpiked}
-    Assume $p/n\to \infty$, $c\leq \lambda_p(\Lambda)\leq \cdots\leq \lambda_1(\Lambda)\leq C$ and
+    Suppose $p/n\to \infty$, $c\leq \lambda_p(\Sigma)\leq \cdots\leq \lambda_1(\Sigma)\leq C$ and
     $$
-    \mytr\Big(\Lambda-\frac{1}{p}(\mytr\Lambda)I_p\Big)^2=o\big(\frac{p}{n}\big)
+    \mytr\Big(\Sigma-\frac{1}{p}(\mytr\Sigma)I_p\Big)^2=o\big(\frac{p}{n}\big).
     $$
-   Under local alternative 
-    $$\frac{1}{p}\|\Xi C\|_F^2\to 0,$$
+    Under local alternative $p^{-1}\|\Xi C\|_F^2\to 0$,
     we have
+    %$$
+    %{\Big(2\mytr (\Sigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
+    %\xrightarrow{\mathcal{L}}W_{k-1}.
+    %$$
     $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Lambda)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
-    \xrightarrow{\mathcal{L}}W_{k-1}.
+    \frac{T(Z)-\frac{p-n+k}{p}\mytr(\Sigma)}{\sqrt{2\mytr(\Sigma^2)}}
+    \sim
+    \lambda_{\max}\Big( W_{k-1} +\big(2\mytr(\Sigma^2)\big)^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)+o_P(1).
     $$
 \end{theorem}
 
@@ -481,35 +487,31 @@ See, for example,.
 
 \begin{assumption}\label{assumpEigen}
     Let $r$ be a fixed integer.
-    Assume ${\lambda_r n}/{p}\to \infty$ and $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
+    Suppose ${\lambda_r n}/{p}\to \infty$ and $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
 \end{assumption}
 Let $U=(U_1,U_2)$ where $U_1$ is $p\times r$ and $U_2$ is $p\times (p-r)$. Let $\Lambda_1=\mydiag(\lambda_1,\ldots,\lambda_r)$ and $\Lambda_2=\mydiag(\lambda_{r+1},\ldots,\lambda_p)$.
 Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
-Let
-$$
-\mu_{f}\overset{def}{=}
-\myE (ZJC) =(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k) C.
-$$
-
-
 
 
 \begin{theorem}\label{thm1}
-    Suppose $p/n\to \infty$.
-    Assume Assumption~\eqref{assumpEigen} holds.
-    Further more, assume
-\begin{equation}
-    \frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0.
-\end{equation}
+    Under Assumption~\eqref{assumpEigen}, suppose $p/n\to \infty$,
+    $\frac{\lambda_1^2 p}{\lambda_r^2 n^2}\to 0$ and
+    $$
+    \mytr\Big(\Lambda_2-\frac{1}{p-r}(\mytr \Lambda_2)I_{p-r}\Big)^2=o\big(\frac{p}{n}\big).
+    $$
     Then under local alternative
-    \begin{equation}
-        \frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1),
-    \end{equation}
+    \begin{equation*}
+        \frac{1}{\sqrt{p}}\|\Xi C\|_F^2=O(1),
+    \end{equation*}
     we have
-    \begin{equation}
-        \big(2c^2(p-r-n+k)\big)^{-1/2}\big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC-c(p-r-n+k) I_{k-1} -\mu_f^T(I_p-H_{Z\tilde J})\mu_f\big)\xrightarrow{\mathcal{L}} W_{k-1},
-    \end{equation}
-where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
+    $$
+    \begin{aligned}
+        \frac{T(Z)-\frac{p-r-n+k}{p-r}\mytr(\Lambda_2)}{\sqrt{2\mytr (\Lambda_2^2)}}
+        \sim
+        \lambda_{\max}\Big(W_{k-1}+{\big(2\mytr (\Lambda_2^2)\big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)
+        +o_P(1).
+    \end{aligned}
+    $$
 \end{theorem}
 
 
@@ -759,21 +761,19 @@ where $\xi_i\overset{i.i.d.}{\sim} N(0,I_{k-1})$.
     Note that for $i=1,\ldots, p$, we have 
     \begin{equation}\label{eq:EigU}
     \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\leq
-    \lambda_i (\Lambda)\leq
-    C.
+    \lambda_i (\Lambda).
     \end{equation}
-    For $i=1,\ldots, p-n$, by Weyl's inequality, we have
+    Note that $H_{Z\tilde{J}}$ has rank $n-k$. For $i=1,\ldots, p-n+k$, by Weyl's inequality, we have
     \begin{equation}\label{eq:EigL}
     \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\geq
-    \lambda_{i+n} (\Lambda)
-    \geq c.
+    \lambda_{i+n-k} (\Lambda).
     \end{equation}
 Then we have
     $$
     \begin{aligned}
     \frac{\lambda_1^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})}{\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})}
     \leq
-        \frac{C}{c(p-n)}\to 0.
+        \frac{C}{c(p-n+k)}\to 0.
     \end{aligned}
     $$
     Apply Lyapunov central limit theorem conditioning on $Z\tilde{J}$, we have
@@ -787,7 +787,7 @@ Then we have
 
     Also by~\eqref{eq:EigU} and~\eqref{eq:EigL}, we have
     $$
-    \sum_{i=n+1}^p \lambda_i^2
+    \sum_{i=n-k+1}^p \lambda_i^2
     \leq
     \mytr\big[(\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})^2\big]\leq
     \mytr(\Lambda^2).
@@ -867,47 +867,39 @@ and
         \leq &
         (k-1)\lambda_1(\Lambda)\|\Xi C\|_F^2
         \leq 
-        (k-1)C\|\Xi C\|_F^2=o(p).
+        (k-1)C\|\Xi C\|_F^2=o(p),
     \end{aligned}
     $$
-    The conclusion follows.
+    we have
+    $$
+    {\Big(2\mytr (\Sigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
+    \xrightarrow{\mathcal{L}}W_{k-1}.
+    $$
+    Equivalently, we have
+    $$
+    \begin{aligned}
+        &{\Big(2\mytr (\Sigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}}\Big)\\
+        \sim&
+        {\Big(2\mytr (\Sigma^2)\Big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
+        +W_{k-1}+o_P(1).
+    \end{aligned}
+    $$
+    Then the conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
 
-\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
-    The asymptotic behavior of the first term of~\eqref{eq:maindec} relies on the positive eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$, which are equal to the eigenvalues of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
-Write $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$ as the sum of two terms
-$$
-\begin{aligned}
-&(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})
-\\
-=&
-(I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})+(I_p-H_{Z\tilde{J}})U_2\Lambda_2 U_2^T (I_p-H_{Z\tilde{J}})
-\overset{def}{=}R_1+R_2.
-\end{aligned}
-$$
 
-Note that
-$$
-\begin{aligned}
-&\lambda_{\max}\big( R_1 \big)
-=
-\lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-H_{Z\tilde{J}}) U_1 \Lambda_1^{1/2}\big)
-\leq 
-\lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \Lambda_1^{1/2}\big)\\
-\leq &
-\lambda_1
-\lambda_{\max}\big(U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \big)
-= 
-\lambda_1
-\lambda_{\max}\big(I_r - U_1^TU_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1 \big).
-\end{aligned}
-$$
 
-To investigate the behavior of $U_{Z\tilde{J}}$, we need to investigate the behavior of $D_{Z\tilde{J}}$ first.
+The following lemma gives the asympototics of $\lambda_{i}(\tilde{J}^T Z^T Z \tilde{J})$, $i=1,\ldots, r$.
+\begin{lemma}\label{PCAlemma1}
+    Under the Assumptions of Theorem~\ref{thm1}, we have
+    $\lambda_{i}(\tilde{J}^T Z^T Z \tilde{J})=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
+\end{lemma}
+\begin{proof}
 Note that 
 $
-G_1^T \Lambda G_1 = \tilde{J}^T Z^T Z\tilde{J} = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
+\tilde{J}^T Z^T Z\tilde{J}=
+G_1^T \Lambda G_1   = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
 $, and 
 $
 G_1^T \Lambda G_1=
@@ -956,11 +948,23 @@ where the first inequality holds by Weyl's inequality. It follows from~\eqref{eq
 $\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
 
 Note that
-$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})= c\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
+$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
 By assumption $\lambda_r n/p\to \infty$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
 
-Now we are ready to investigate the behavior of $U_{Z\tilde{J}}$.
-Since
+
+\end{proof}
+
+
+The next lemma gives the asymptotics of $U_{Z\tilde{J}[,1:r]}$.
+\begin{lemma}\label{PCAlemma2}
+    Under the Assumptions of Theorem~\ref{thm1}, we have
+$$
+\lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)
+=O_P(\frac{ p}{\lambda_r n}).
+$$
+\end{lemma}
+\begin{proof}
+    Note that
 $
 U\Lambda^{1/2} G_1 G_1^T \Lambda^{1/2} U^T 
 =U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T
@@ -969,7 +973,7 @@ we have
 $
 G_1 G_1^T  
 =\Lambda^{-1/2} U^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^TU\Lambda^{-1/2}
-$, which further indicates
+$. Thus,
 $$
 \begin{aligned}
 &G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T  
@@ -981,15 +985,16 @@ D_{Z\tilde{J}[r,r]}^2
 \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}.
 \end{aligned}
 $$
-Thus,
+It follows that
 $$
 \lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq
-\frac{c}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
+\frac{C}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
 (G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T)
-=O_P(\frac{p}{\lambda_r n}).
+=O_P(\frac{p}{\lambda_r n}),
 $$
+    where the last equality follows by Lemma~\ref{PCAlemma1} and Weyl's inequality.
 
-Note that we have the simple relationship
+ The conclusion follows by the following simple relationship
 $$
 \begin{aligned}
 &\lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})
@@ -1006,70 +1011,119 @@ $$
 \lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1).
 \end{aligned}
 $$
-Therefore 
-$
-\lambda_{\max}(I_r-U_1^T U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1)
-=O_P(\frac{ p}{\lambda_r n})
-$, and we can conclude
-$\lambda_{\max}(R_1)=O_P(\frac{\lambda_1 p}{\lambda_r n})$.
+\end{proof}
 
-We now deal with $R_1+R_2$.
-For $i=1,\ldots, r$,
-$$
-\lambda_i(R_1+R_2)\leq
-\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)= O_P(\frac{\lambda_1 p}{\lambda_r n}) + c.
-$$
-For $i=r+1,\ldots, p-r$,
-$$
-\begin{aligned}
-&\lambda_i(R_1+R_2)\leq \lambda_{i-r}(R_2)
-=
- \lambda_{i-r}\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)
-    =c\lambda_{i-r}\big( I_{p-r}-U_2^T H_{Z\tilde{J}} U_2\big).
-\end{aligned}
-$$
-Since $U_2^T H_{Z\tilde{J}} U_2$ has rank $n-k$, we have $\lambda_i (R_1+R_2)\leq c$ for $r+1\leq i \leq p-n+k$ and $\lambda_i (R_1+R_2)=0$ for $p-n+k+1\leq i \leq p-r$.
-On the other hand, for $i=1,\ldots, p-r-n+k$,
+\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
+    As in the proof of Theorem~\ref{nonSpiked}, for $i=r+1,\ldots, p$, we have  that
+    \begin{equation}
+    \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\leq
+    \lambda_i (\Lambda).
+    \end{equation}
+     And for $i=1,\ldots, p-n+k$, we have
+    \begin{equation}
+    \lambda_i (\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})\geq
+    \lambda_{i+n-k} (\Lambda).
+    \end{equation}
+
+    Next, we need to give an upper bound for $\lambda_i(\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2})$, $i=1,\ldots,r$.
+    Note that the positive eigenvalues of $\Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}$ are equal to the eigenvalues of $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$.
+Write $(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})$ as the sum of two terms
 $$
 \begin{aligned}
-&\lambda_i(R_1+R_2)\geq \lambda_i(R_2)
-=
- \lambda_i\big( \Lambda_2^{1/2} U_2^T (I_p-H_{Z\tilde{J}})U_2\Lambda_2^{1/2}\big)\\
+&(I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})
+\\
 =&
-    c\lambda_i\big( I_{p-r}-  U_2^T H_{Z\tilde{J}}U_2 \big)
-    =c.
+(I_p-H_{Z\tilde{J}})U_1\Lambda_1 U_1^T(I_p-H_{Z\tilde{J}})+(I_p-H_{Z\tilde{J}})U_2\Lambda_2 U_2^T (I_p-H_{Z\tilde{J}})
+\overset{def}{=}R_1+R_2.
 \end{aligned}
 $$
-The last equality holds since $U_2^T H_{Z\tilde{J}}U_2$ has rank $n-k$.
+
+Note that
+$$
+\begin{aligned}
+&\lambda_{\max}\big( R_1 \big)
+=
+\lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-H_{Z\tilde{J}}) U_1 \Lambda_1^{1/2}\big)
+\leq 
+\lambda_{\max}\big(\Lambda_1^{1/2} U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \Lambda_1^{1/2}\big)\\
+\leq &
+\lambda_1
+\lambda_{\max}\big(U_1^T(I_p-U_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T) U_1 \big)
+= 
+\lambda_1
+\lambda_{\max}\big(I_r - U_1^TU_{Z\tilde{J}[,1:r]}U_{Z\tilde{J}[,1:r]}^T U_1 \big)=O_P(\frac{\lambda_1 p}{\lambda_r n}).
+\end{aligned}
+$$
+    The last equality follows by Lemma~\ref{PCAlemma2}.
+
+Thus, for $i=1,\ldots, r$, we have
+$$
+    \lambda_i\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)=
+\lambda_i(R_1+R_2)\leq
+\lambda_1(R_1+R_2)\leq \lambda_1(R_1)+\lambda_1(R_2)= O_P(\frac{\lambda_1 p}{\lambda_r n}) + C.
+$$
 
 As a consequence of these bounds, we have
 $$
-c^2(p-r-n+k)\leq \mytr [(R_1+R_2)^2]\leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c)^2+c^2(p-r-n+k),
+    \sum_{i=n-k+1}^p \lambda_i^2\leq \mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2 \leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+\sum_{i=r+1}^p \lambda_i^2,
 $$
 or
+    \begin{equation}\label{eq:spiketrace1}
+    \big|\mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2 - \sum_{i=r+1}^p \lambda_i^2 \big|\leq 
+    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+C)^2+O(n).
+    \end{equation}
+
+Note that
+    $$
+    \mytr(R_2)
+    =
+    \mytr(\Lambda_2)-\mytr(H_{Z\tilde{J}}U_2\Lambda_2 U_2^T).
+    $$ 
+and
+    $$
+    \begin{aligned}
+        &
+        \big|
+    \mytr(H_{Z\tilde{J}}U_2\Lambda_2 U_2^T)
+    -\frac{n-k}{p-r}\mytr(\Lambda_2)
+    \big|
+    =
+    \big|
+        \mytr\Big(H_{Z\tilde{J}} U \big(\Lambda_2-\frac{1}{p-r} (\mytr \Lambda_2) I_{p-r} \big) U^T\Big)
+    \big|
+        \\
+        \leq &
+        \sqrt{\mytr \big(H_{Z\tilde{J}}^2\big)}
+        \sqrt{\mytr \Big(\Lambda_2-\frac{1}{p-r}\big(\mytr \Lambda_2\big) I_{p-r}\Big)^2}
+        =\sqrt{(n-k)\mytr \Big(\Lambda_2-\frac{1}{p-r}\big(\mytr \Lambda_2\big) I_{p-r}\Big)^2}
+        =o(\sqrt{p}).
+    \end{aligned}
+    $$
+    Hence 
+    $$
+    \mytr(R_2)
+    =
+    \frac{p-r-n+k}{p-r}\mytr(\Lambda_2)+o(\sqrt{p}).
+    $$
+    Then
+\begin{equation}\label{eq:spiketrace2}
+\big| \mytr [(R_1+R_2)]-\frac{p-r-n+k}{p-r}\mytr(\Lambda_2)\big|\leq 
+rO_P\big(\frac{\lambda_1 p}{\lambda_r n}\big)+o(\sqrt{p}).
+\end{equation}
+Equation~\eqref{eq:spiketrace1} and~\eqref{eq:spiketrace2}, conbined with the assumptions, yield
 $$
-\big| \mytr [(R_1+R_2)^2]- c^2(p-r-n+k) \big|\leq 
-r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c)^2.
-$$
-Similarly,
-$$
-\big| \mytr [(R_1+R_2)]-c(p-r-n+k)\big|\leq 
-r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c).
-$$
-These, conbined with the assumptions, yield
-$$
- \mytr [(R_1+R_2)^2]=(1+o_P(1))c^2(p-r-n+k),
+    \mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2 
+ =(1+o_P(1))\mytr(\Lambda_2),
 $$
 and
 $$
- \mytr [(R_1+R_2)]=c(p-r-n+k)+O_P(\frac{\lambda_1 p}{\lambda_r n}).
+\mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)
+= \frac{p-r-n+k}{p-r}\mytr(\Lambda_2)+o_P(\sqrt{p}).
 $$
 
 Now we have the Lyapunov condition
 $$
-\frac{\lambda_1[(R_1+R_2)^2]}{
-\mytr [(R_1+R_2)^2]
-}
+\frac{\lambda_1\Big(\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2\Big)}{\mytr \Big( \big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2\Big)}
 %\leq
 %\frac{
 %\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
@@ -1080,48 +1134,71 @@ $$
 %}{c(p-r-n+k)}
 =
 \frac{
-\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+c\big)^2
+\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
 }{
-(1+o_P(1))c^2(p-r-n+k)
+    (1+o_P(1))\mytr(\Lambda_2)
 }
 \xrightarrow{P} 0.
 $$
 Apply Lyapunov central limit theorem conditioning on $H_{Z\tilde{J}}$, we have
 $$
 \begin{aligned}
-\big(2\mytr[(R_1+R_2)^2]\big)^{-1/2}
-\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\mytr(R_1+R_2) I_{k-1} \big)
-\xrightarrow{\mathcal{L}} W_{k-1}
+    &\Big(2\mytr \Big( \big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2\Big) \Big)^{-1/2}\\
+    &\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2
+    -\mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)
+     I_{k-1} \big)
+\xrightarrow{\mathcal{L}} W_{k-1},
 \end{aligned}
 $$
 where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
 By Slutsky's theorem, we have
 $$
 \begin{aligned}
-    \big(2c^2(p-r-n+k)\big)^{-1/2}
-    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-c(p-r-n+k)I_{k-1} \big)
-\xrightarrow{\mathcal{L}}W_{k-1}
+    \Big(2 \mytr(\Lambda_2) \Big)^{-1/2}
+    \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2
+    -\tfrac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1} \big)
+\xrightarrow{\mathcal{L}} W_{k-1}.
 \end{aligned}
 $$
+
 
 
 As for the cross term of~\eqref{eq:maindec}, we have
 $$
 \begin{aligned}
-    &\myE [\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2|Z\tilde{J}]\\
+    &\myE [\|C^T \Xi^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2|Z\tilde{J}]\\
     = &
-    (k-1)\mytr(\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\mu_f)\\
+    (k-1)\mytr(C^T \Xi^T (I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\Xi C)\\
     \leq &
-    (k-1)\lambda_1\big((I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\big)\|\mu_f\|^2_F\\
+    (k-1)\lambda_1\big((I_p -H_{Z\tilde{J}})U\Lambda U^T (I_p -H_{Z\tilde{J}})\big)\|\Xi C\|^2_F\\
     = &
-    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n})  \|\mu_f\|^2_F\\
+    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n})  \|\Xi C\|^2_F\\
     = &
-    (k-1) O_P(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}) \sqrt{p}  \|\mu_f\|^2_F=o_P(p)
+    (k-1) O_P(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}) \sqrt{p}  \|\Xi C\|^2_F=o_P(p)
 \end{aligned}
 $$
-The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\mu_f\|_F^2=O(1)$. Hence $\|\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2=o_P(p)$.
-This completes the proof of the theorem.
+The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\Xi C\|_F^2=O(1)$. Hence $\|C^T \Xi^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2\|_F^2=o_P(p)$, and we have
 
+$$
+\begin{aligned}
+    \Big(2 \mytr(\Lambda_2) \Big)^{-1/2}
+    \big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC
+    -\tfrac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1} -C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\big)
+\xrightarrow{\mathcal{L}} W_{k-1}.
+\end{aligned}
+$$
+
+    Equivalently, we have
+    $$
+    \begin{aligned}
+        &{\Big(2\mytr (\Lambda_2^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1}}\Big)\\
+        \sim&
+        {\Big(2\mytr (\Lambda_2^2)\Big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
+        +W_{k-1}+o_P(1).
+    \end{aligned}
+    $$
+
+    Then the conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
 
