@@ -75,6 +75,15 @@ D.~Shen, H.~Shen, J.~S. Marron, Consistency of sparse pca in high dimension,
   low sample size contexts, Journal of Multivariate Analysis 115~(1) (2013)
   317--333.
 
+\bibitem{Mudholkar1974}
+G.~S. Mudholkar, M.~L. Davidson, P.~Subbaiah,
+  \href{https://doi.org/10.1016/0047-259x(74)90027-x}{A note on the
+  union-intersection character of some {MANOVA} procedures}, Journal of
+  Multivariate Analysis 4~(4) (1974) 486--493.
+\newblock \href {http://dx.doi.org/10.1016/0047-259x(74)90027-x}
+  {\path{doi:10.1016/0047-259x(74)90027-x}}.
+\newline\urlprefix\url{https://doi.org/10.1016/0047-259x(74)90027-x}
+
 \bibitem{Romano1990On}
 J.~P. Romano, On the behavior of randomization tests without a group invariance
   assumption, Journal of the American Statistical Association 85~(411) (1990)

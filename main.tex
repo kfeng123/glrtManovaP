@@ -239,27 +239,43 @@ More precisely, Roy's union intersection principle can be decomposed into $3$ ma
 
  Roy's union intersection principle is a powerful tool when $H$ or $K$ are complicated.
  In fact, the Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
+
  For convenience, now we introduce some notations.
  Let
  $$\bZ=(X_{11},\ldots,X_{1n_1},\ldots,X_{k1},\ldots,X_{kn_k})$$
  be the pool sample.
- Define $\Xi=(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k)$ and
+ Define
  $$
  J=\begin{pmatrix}
      \frac{1}{\sqrt{n_1}}\mathbf{1}_{n_1}&\mathbf{0} & \mathbf{0}\\
      \mathbf{0}&\frac{1}{\sqrt{n_2}} \mathbf{1}_{n_2}& \mathbf{0}\\
      \vdots &\vdots &\vdots \\
      \mathbf{0}&\mathbf{0}&\frac{1}{\sqrt{n_k}}\mathbf{1}_{n_k}
- \end{pmatrix}.
+ \end{pmatrix},
  $$
- Let $C$ be a $k\times (k-1)$ column orthogonal matrix satisfying $CC^T=I_{k}-n^{-1} J^T \mathbf{1}_n \mathbf{1}_n^T J$.
- Then it can be seen that and $
- H:\Xi C=O_{p\times (k-1)}
- $.
+then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$ respectively.
+Let $\tilde{J}$ be an $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^T =I-JJ^T$.
+Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a $k\times k$ projection matrix with rank $k-1$.
+Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
+Then we have
+$$
+G=Z(I_n-JJ^T)Z^T=
+Z\tilde{J}\tilde{J}^T Z^T,
+$$
+and
+\begin{equation*}
+    \begin{aligned}
+        F=Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
+=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T
+=ZJC C^T J^T Z^T.
+    \end{aligned}
+\end{equation*}
+ Define $\Xi=(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k)$
+ and the null hypothesis $H$ is equivalent to $\Xi C=O_{p\times (k-1)}$.
 
  Note that there is a one-to-one mappting between the data $\bZ$ and the set of data $\{a^T \bZ\, |\, a\in\mathbb{R}^p, a^T a=1\}$.
  This transformation naturally induces the decomposition  
- $$H=\bigcap_{a\in \mathbb{R}^p, \a^T a=1}H_a \quad\text{and}\quad \bigcup_{a\in \mathbb{R}^p,a^T a=1}K_a ,$$
+ $$H=\bigcap_{a\in \mathbb{R}^p, \a^T a=1}H_a \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}K_a ,$$
  where
 %The decomposition in step $1$ is often induced by data transformation.
 %For $a\in \mathbb{R}^p$ and $a^T a=1$, define the hypothesis $H_a$ and $K_a$ as
@@ -310,26 +326,32 @@ $\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$, which is an incr
     %\Big].
 %$$
 
-In fact, Hotelling-Lawley trace, another classical test statistic, can also be derived by Roy's union intersection principle. This is shown by~\cite{Mudholkarl1974}.
- In that paper, they consider the transformed data $\{M^T \bZ\, |\, M is \text{$(k-1)\times p$ matrix}\}$ and the decomposition of data:
- $$H=\bigcap_{M}H_M \quad\text{and}\quad \bigcup_{M}K_M ,$$
+Another classical test statistic, Hotelling-Lawley trace,  can also be derived by Roy's union intersection principle. This is shown by~\cite{Mudholkar1974}.
+ In that paper, they consider the transformed data $\{M^T \bZ\, |\, M is \text{$(k-1)\times p$ matrix}\}$ and the decomposition of hypotheses:
+ $$H=\bigcap_{M}H_M \quad\text{and}\quad K=\bigcup_{M}K_M ,$$
  where
  $$
  H_M: \mytr( M \Xi C) = 0\quad \text{and}\quad K_M : \mytr( M \Xi C )> 0.
  $$
 
-Since $\myE Z=\Xi J^T$,
+Note that $\myE Z=\Xi J^T$, hence
 the uniformly minimum variance unbiased estimator of $\mytr(M\Xi C)$ is $\mytr(MZJ C)$.
+It can be seen that
+$
+\mytr \big(MZJ C\big)
+\sim
+N\big(\mytr(M\Xi C),\mytr(M\Sigma M^T )\big)
+$.
 
-
-
+=====================
 $$
 \mytr \big(MZJC\big)
 =
 \mytr \big(CMZJ\big)
 $$
+$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
 Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\mu_i,CM\Sigma M^T C^T)$.
-Hence under $H_M$, we have that
+Hence we have that
 $$
 \mytr \big(CMZJ\big)
 \sim
@@ -337,14 +359,18 @@ N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
 \sim
 N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
 $$
-Hence define
+==================
+
+Hence it's natural to use one side $t$ type statistic
 $$
 T_M = \frac{
 \mytr \big(MZJC\big)
 }{
     \sqrt{\mytr(M G M^T)}
-}.
+}
 $$
+to test $H_M$ against $K_M$.
+
 
 
 By Cauchy inequality $\max_B \mytr(AB^T)/\mytr^{1/2}(BB^T)=\mytr^{1/2}(AA^T)$, we have
@@ -352,12 +378,21 @@ $$
 \begin{aligned}
     \max_M T_M &=\max_M \frac{\mytr \big(MG^{1/2}G^{-1/2}ZJC\big)
 }{\sqrt{\mytr(M G^{1/2} (M G^{1/2})^T)}
-}\\
-    &=\mytr^{1/2}((ZJC)^T G^{-1}ZJC)\\
-    &=\mytr^{1/2}( ZJC(ZJC)^T G^{-1})\\
-    &=\mytr^{1/2}(F G^{-1}).
+}
+    =\mytr^{1/2}((ZJC)^T G^{-1}ZJC)\\
+    &=\mytr^{1/2}( ZJC(ZJC)^T G^{-1})
+    =\mytr^{1/2}(F G^{-1}).
 \end{aligned}
 $$
+
+====================
+In fact, $T_{CX}$ can also be derived by Roy's union intersection principle.
+Suppose $\Omega$ is known,.
+===================
+
+Note that $T_{CX}$ is designed for high dimensional data, which implies that Roy's union intersection principle may be useful in high dimensional setting.
+In fact, Roy's union intersection principle can be used to decompose high dimensional problem into univariate problems which are easy to deal with.
+
 
 \subsection{The new test statistic}
 We are interested in the case when $p> n-k$.
