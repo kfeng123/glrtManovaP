@@ -594,9 +594,9 @@ Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\
     %\xrightarrow{\mathcal{L}}W_{k-1}.
     %$$
     $$
-    \frac{T(Z)-\frac{p-n+k}{p}\mytr(\Sigma)}{\sqrt{2\mytr(\Sigma^2)}}
+    \frac{T(Z)-\frac{p-n+k}{p}\mytr(\Sigma)}{\sqrt{\mytr(\Sigma^2)}}
     \sim
-    \lambda_{\max}\Big( W_{k-1} +\big(2\mytr(\Sigma^2)\big)^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)+o_P(1).
+    \lambda_{\max}\Big( W_{k-1} +\frac{1}{\sqrt{\mytr(\Sigma^2)}} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)+o_P(1).
     $$
 \end{theorem}
 
@@ -624,9 +624,9 @@ Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
     we have
     $$
     \begin{aligned}
-        \frac{T(Z)-\frac{p-r-n+k}{p-r}\mytr(\Lambda_2)}{\sqrt{2\mytr (\Lambda_2^2)}}
+        \frac{T(Z)-\frac{p-r-n+k}{p-r}\mytr(\Lambda_2)}{\sqrt{\mytr (\Lambda_2^2)}}
         \sim
-        \lambda_{\max}\Big(W_{k-1}+{\big(2\mytr (\Lambda_2^2)\big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)
+        \lambda_{\max}\Big(W_{k-1}+\tfrac{1}{\sqrt{\mytr(\Lambda_2^2)}} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\Big)
         +o_P(1).
     \end{aligned}
     $$
@@ -897,7 +897,7 @@ Then we have
     Apply Lyapunov central limit theorem conditioning on $Z\tilde{J}$, we have
     $$
     \begin{aligned}
-        &\Big( 2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
+        &\Big( \sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
         &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}
     \xrightarrow{\mathcal{L}} W_{k-1}.
     \end{aligned}
@@ -954,17 +954,18 @@ and
     It follows that
     $$
     \begin{aligned}
-        &\Big(2\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
+        &\Big(\sum_{i=1}^p \lambda_i^2(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})\Big)^{-1/2}\\
         &{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-\sum_{i=1}^p \lambda_i(\Lambda^{1/2}U^T(I_p-H_{Z\tilde{Z}})U\Lambda^{1/2})I_{k-1}\Big)}\\
         =&
-        {\Big( 2(1+O_P(\frac{n}{p}))\mytr (\Lambda^2)\Big) }^{-1/2} {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
+        {\Big( (1+O_P(\frac{n}{p}))\mytr (\Lambda^2)\Big) }^{-1/2} {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
         \big(\frac{p-n+k}{p}\mytr(\Lambda)+O_P(\sqrt{p})\big)I_{k-1}
         \Big)}
     \end{aligned}
     $$
     By Slutsky's theorem, we have that
     $$
-    {\Big(2\mytr (\Lambda^2)\Big)}^{-1/2}{\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
+    \frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
+    {\Big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2-
         \frac{p-n+k}{p}\mytr(\Lambda)I_{k-1}\Big)}
     \xrightarrow{\mathcal{L}}W_{k-1}
     $$
@@ -990,15 +991,19 @@ and
     $$
     we have
     $$
-    {\Big(2\mytr (\Sigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
+    \frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
+    {\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}-C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C}\Big)
     \xrightarrow{\mathcal{L}}W_{k-1}.
     $$
     Equivalently, we have
     $$
     \begin{aligned}
-        &{\Big(2\mytr (\Sigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}}\Big)\\
+        &
+    \frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
+        {\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\Sigma)I_{k-1}}\Big)\\
         \sim&
-        {\Big(2\mytr (\Sigma^2)\Big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
+    \frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
+         C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
         +W_{k-1}+o_P(1).
     \end{aligned}
     $$
@@ -1261,7 +1266,7 @@ $$
 Apply Lyapunov central limit theorem conditioning on $H_{Z\tilde{J}}$, we have
 $$
 \begin{aligned}
-    &\Big(2\mytr \Big( \big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2\Big) \Big)^{-1/2}\\
+    &\Big(\mytr \Big( \big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)^2\Big) \Big)^{-1/2}\\
     &\big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2
     -\mytr\big((I_p-H_{Z\tilde{J}})U\Lambda U^T (I_p-H_{Z\tilde{J}})\big)
      I_{k-1} \big)
@@ -1272,7 +1277,7 @@ where $W_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries ab
 By Slutsky's theorem, we have
 $$
 \begin{aligned}
-    \Big(2 \mytr(\Lambda_2) \Big)^{-1/2}
+    \frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
     \big( G_2^T \Lambda^{1/2}U^T (I_p-H_{Z\tilde{J}})U\Lambda^{1/2}G_2
     -\tfrac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1} \big)
 \xrightarrow{\mathcal{L}} W_{k-1}.
@@ -1299,7 +1304,7 @@ The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\Xi C\|_F^2=O(1)$. H
 
 $$
 \begin{aligned}
-    \Big(2 \mytr(\Lambda_2) \Big)^{-1/2}
+\frac{1}{\sqrt{\mytr(\Lambda_2^2)}}
     \big( C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC
     -\tfrac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1} -C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C\big)
 \xrightarrow{\mathcal{L}} W_{k-1}.
@@ -1309,9 +1314,9 @@ $$
     Equivalently, we have
     $$
     \begin{aligned}
-        &{\Big(2\mytr (\Lambda_2^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1}}\Big)\\
+        &\frac{1}{\sqrt{\mytr(\Lambda_2^2)}} {\Big(C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC- \frac{p-r-n+k}{p-r}\mytr(\Lambda_2)I_{k-1}}\Big)\\
         \sim&
-        {\Big(2\mytr (\Lambda_2^2)\Big)}^{-1/2} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
+\frac{1}{\sqrt{\mytr(\Lambda_2^2)}} C^T \Xi^T (I_p-H_{Z\tilde{J}})\Xi C
         +W_{k-1}+o_P(1).
     \end{aligned}
     $$
