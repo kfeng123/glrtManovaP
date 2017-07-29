@@ -1,53 +1,39 @@
-\documentclass[review]{elsarticle}
+\documentclass[12pt]{article} %***
+\usepackage[sectionbib]{natbib}
+\usepackage{array,epsfig,fancyheadings,rotating}
+\usepackage[]{hyperref}  %<----modified by Ivan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{sectsty, secdot}
+%\sectionfont{\fontsize{12}{15}\selectfont}
+\sectionfont{\fontsize{12}{14pt plus.8pt minus .6pt}\selectfont}
+\renewcommand{\theequation}{\thesection\arabic{equation}}
+\subsectionfont{\fontsize{12}{14pt plus.8pt minus .6pt}\selectfont}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\usepackage{lineno,hyperref}
-\modulolinenumbers[5]
+\textwidth=31.9pc
+\textheight=46.5pc
+\oddsidemargin=1pc
+\evensidemargin=1pc
+\headsep=15pt
+%\headheight=.2cm
+\topmargin=.6cm
+\parindent=1.7pc
+\parskip=0pt
 
-\journal{Journal of \LaTeX\ Templates}
-
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-%\bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num}
-%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{xeCJK}
-\usepackage{bm}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{multirow}
 \usepackage{amsthm}
+
+\usepackage{bm}
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{booktabs}
 \usepackage{algorithm}
 \usepackage{algorithmic}
-\usepackage{multirow}
 \usepackage{IEEEtrantools}
+
 
 
 \DeclareMathOperator{\mytr}{tr}
@@ -62,74 +48,104 @@
 \newcommand{\ud}{\mathbf{d}}
 
 
-\theoremstyle{plain}
-\newtheorem{theorem}{\quad\quad Theorem}
-\newtheorem{proposition}{\quad\quad Proposition}
-\newtheorem{corollary}{\quad\quad Corollary}
+
+
+
+\newtheorem{assumption}{Assumption}
+
+\setcounter{page}{1}
+\newtheorem{theorem}{Theorem}
 \newtheorem{lemma}{Lemma}
-\newtheorem{example}{Example}
-\newtheorem{assumption}{\quad\quad Assumption}
-\newtheorem{condition}{Condition}
-
+\newtheorem{corollary}{Corollary}
+\newtheorem{proposition}{Proposition}
 \theoremstyle{definition}
-\newtheorem{remark}{\quad\quad Remark}
-\theoremstyle{remark}
+\newtheorem{definition}{Definition}
+%\newtheorem{proof}{Proof}
+\newtheorem{example}{Example}
+\newtheorem{remark}{Remark}
+\pagestyle{fancy}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\def\n{\noindent}
+\lhead[\fancyplain{} \leftmark]{}
+\chead[]{}
+\rhead[]{\fancyplain{}\rightmark}
+\cfoot{}
+%\headrulewidth=0pt  %<-modified by Ivan
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
-\begin{frontmatter}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\title{A generalized likelihood ratio test for multivariate analysis of variance in high dimension}
-\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+\renewcommand{\baselinestretch}{2}
 
-%% Group authors per affiliation:
-\author{Elsevier\fnref{myfootnote}}
-\address{Radarweg 29, Amsterdam}
-\fntext[myfootnote]{Since 1880.}
+\markright{ \hbox{\footnotesize\rm Statistica Sinica
+%{\footnotesize\bf 24} (201?), 000-000
+}\hfill\\[-13pt]
+\hbox{\footnotesize\rm
+%\href{http://dx.doi.org/10.5705/ss.20??.???}{doi:http://dx.doi.org/10.5705/ss.20??.???}
+}\hfill }
 
-%% or include affiliations in footnotes:
-\author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
-\ead[url]{www.elsevier.com}
+\markboth{\hfill{\footnotesize\rm Rui Wang AND Xingzhong Xu} \hfill}
+{\hfill {\footnotesize\rm FILL IN A SHORT RUNNING TITLE} \hfill}
 
-\author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
-\cortext[mycorrespondingauthor]{Corresponding author}
-\ead{support@elsevier.com}
+\renewcommand{\thefootnote}{}
+$\ $\par
 
-\address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
-\address[mysecondaryaddress]{360 Park Avenue South, New York}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{abstract}
-    This paper considers in the high dimensional setting a canonical testing problem, namely testing the equality of multiple mean vectors of normal distribution.
+\fontsize{12}{14pt plus.8pt minus .6pt}\selectfont \vspace{0.8pc}
+\centerline{\large\bf A generalized likelihood ratio test for multivariate }
+\vspace{2pt} \centerline{\large\bf analysis of variance in high dimension}
+\vspace{.4cm} \centerline{Author(s)} \vspace{.4cm} \centerline{\it
+Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
+.6pt}\selectfont
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{quotation}
+\noindent {\it Abstract:}
+This paper considers in the high dimensional setting a canonical testing problem, namely testing the equality of multiple mean vectors of normal distribution.
     Motivated by Roy's union-intersection principal, we propose a generalized likelihood ratio test.
     The critical value is determined by permutation method.
     We introduce an algorthm for permuting procedure, whose complexity does not depend on data dimension.
     The limiting distribution of the test statistic is derived in two different setting: non-spiked covariance and spiked covariance.
     Theoretical results and simulation studies show that the test is particularly powerful under spiked covariance.
-\end{abstract}
 
-\begin{keyword}
-\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
-\MSC[2010] 00-01\sep  99-00
-\end{keyword}
-
-\end{frontmatter}
-
-\linenumbers
-\section{Introduction}
+\vspace{9pt}
+\noindent {\it Key words and phrases:}
+Balanced incomplete block design, Hadamard matrix, nearly balanced incomplete block design, orthogonal array.
+\par
+\end{quotation}\par
 
 
 
+\def\thefigure{\arabic{figure}}
+\def\thetable{\arabic{table}}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+
+\fontsize{12}{14pt plus.8pt minus .6pt}\selectfont
+
+\setcounter{section}{1} %***
+\setcounter{equation}{0} %-1
+\noindent {\bf 1. Introduction}
 Suppose there are $k$ ($k\geq 2$) groups of $p$ dimensional data.
 Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\mu_i,\Sigma)$, the $p$ dimensional normal distribution with mean vector $\mu_i$ and variance matrix $\Sigma$.
 %Suppose there are $k$ normal populations with possibly different means $\mu_1,\ldots,\mu_k$, but all with the same variance $\Sigma$.
 %Suppose we observe $k$ independent random samples, each from the distribution $N_p(\mu_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\mu_i$ and $\Sigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
-We would like to test
+We would like to test the hypotheses
 \begin{equation}\label{hypothesis}
     H: \mu_1=\mu_2=\cdots=\mu_k\quad \text{v.s.}\quad K: \text{$\mu_i\neq \mu_j$ for some $i\neq j$}.
 \end{equation}
-This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied in the classical setting, i.e. $p$ is small compared to $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
+This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied in the classical setting, i.e., $p$ is small compared to $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
 
 Let $F=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be the sum-of-squares between groups and $G=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^T$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
    There are four classical test statistics for hypothesis~\eqref{hypothesis}, which are all based on the eigenvalues of $FG^{-1}$. 
@@ -157,10 +173,10 @@ Let $F=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be the
 
 In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$. See, for example,~\cite{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
-However, when $p\geq n$, the four classic test statistics can not be defined.
+However, when $p\geq n$, the four classical test statistics can not be defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
- Sor far, most tests in the literature are designed for two sample case, i.e. $k=2$.
-  See, for example,~\cite{Bai1996Efiect},~\cite{Chen2010A},~\cite{Srivastava2009A},~\cite{Feng2015Multivariate} and~\cite{Tony2013}.
+ So far, most tests in the literature are designed for two sample case, i.e. $k=2$.
+  See, for example,~\citet{Bai1996Efiect,Chen2010A,Srivastava2009A,Feng2015Multivariate,Tony2013}.
   For multiple sample case,~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
@@ -190,12 +206,12 @@ In another work,~\cite{Cai2014High} proposed a test statistic
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
    Note that both sum-of-squares type statistic and extreme value type statistic are not based on likelihood function.
-    While the likelihood ration test (LRT), i.e. Wilks' Lambda, is not defined if $p>n-k$,
+    While the likelihood ration test (LRT), i.e., Wilks' Lambda, is not defined if $p>n-k$,
     It remains a problem how to construct likelihood-based tests in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
 Inspired by Roy's union-intersection principle (\cite{Roy1953}),
-    they write the null hypothesis as the intersection of a class of component hypotheses.
+    they wrote the null hypothesis as the intersection of a class of component hypotheses.
     For each component hypotheses, the likelihood ratio test is constructed.
     They use a least favorable argument to construct test statistic based on component tests.
     Their simulation results showed that their test has good power performance, especially when the variables are dependent.
@@ -213,7 +229,14 @@ Inspired by Roy's union-intersection principle (\cite{Roy1953}),
     The rest of the paper is organized  as follows.
 
     %Higher criticism CX are special case of UIT.
-    
+
+
+
+%\setcounter{section}{2} %***
+%\setcounter{equation}{0} %-1
+%\noindent {\bf 2. The Second Section}
+
+ 
 \section{Methodology}
 The Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
 In this section, first we shall revisit Roy's union intersection principle.
@@ -243,7 +266,7 @@ More precisely, Roy's union intersection principle can be decomposed into $3$ ma
  For convenience, now we introduce some notations.
  Let
  $$\bZ=(X_{11},\ldots,X_{1n_1},\ldots,X_{k1},\ldots,X_{kn_k})$$
- be the pool sample.
+ be the pooled sample matrix.
  Define
  $$
  J=\begin{pmatrix}
@@ -251,9 +274,9 @@ More precisely, Roy's union intersection principle can be decomposed into $3$ ma
      \mathbf{0}&\frac{1}{\sqrt{n_2}} \mathbf{1}_{n_2}& \mathbf{0}\\
      \vdots &\vdots &\vdots \\
      \mathbf{0}&\mathbf{0}&\frac{1}{\sqrt{n_k}}\mathbf{1}_{n_k}
- \end{pmatrix},
+ \end{pmatrix}.
  $$
-then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$ respectively.
+Then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$ respectively.
 Let $\tilde{J}$ be an $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^T =I-JJ^T$.
 Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a $k\times k$ projection matrix with rank $k-1$.
 Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
@@ -275,7 +298,7 @@ and
 
  Note that there is a one-to-one mappting between the data $\bZ$ and the set of data $\{a^T \bZ\, |\, a\in\mathbb{R}^p, a^T a=1\}$.
  This transformation naturally induces the decomposition  
- $$H=\bigcap_{a\in \mathbb{R}^p, \a^T a=1}H_a \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}K_a ,$$
+ $$H=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_a \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}K_a ,$$
  where
 %The decomposition in step $1$ is often induced by data transformation.
 %For $a\in \mathbb{R}^p$ and $a^T a=1$, define the hypothesis $H_a$ and $K_a$ as
@@ -286,7 +309,7 @@ and
  H_a: a^T \Xi C = O_{1\times (k-1)}\quad \text{and}\quad K_a : a^T \Xi C \neq O_{1\times (k-1)}.
  $$
 %The union-intersection principle tells that $H$ is rejected if and only if any one of $H_a$ is rejected.
-%Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,k$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pool sample.
+%Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,k$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pooled sample.
 Note that the likelihood function of $a^T \bZ$ is 
 $$
 f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)=
@@ -515,8 +538,9 @@ Permutation method is a powerful tool to determine the critical value of a test 
 where $\Gamma$ is an $n\times n$ permutation matrix.
    Note that ${(Z^T Z)}^{-1}$, the most time-consuming component, can be calculated aforehand.
    The permutation procedure for our statistic can be summarized as:
-   \begin{enumerate}[(I)]
-       \item Calculate $T(Z)$ according to~\eqref{statisticForm2}, hold intermediate result ${(Z^T Z)}^{-1}$.
+   \begin{enumerate}
+       \item
+           Calculate $T(Z)$ according to~\eqref{statisticForm2}, hold intermediate result ${(Z^T Z)}^{-1}$.
        \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(Z\Gamma_1),\ldots,T(Z\Gamma_M)$ according to~\eqref{permutedStatistic}. 
        \item Calculate the $p$-value by
            $
@@ -801,9 +825,14 @@ In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kapp
 \end{tabular}
 \end{table}
 
+\section{Conclusion remarks}
 
 
-\section{Appendix}
+
+
+
+
+\section*{Appendix}
 
 \begin{proposition}\label{optProp}
     Suppose $A$ is a $p\times r$ matrix with rank $r$ and $B$ is a $p\times p$  non-zero semi-definite matrix.
@@ -1324,13 +1353,53 @@ $$
     Then the conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 14pt
+\noindent {\large\bf Supplementary Materials}
 
+Contain
+the brief description of the online supplementary materials.
+\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 14pt
+\noindent {\large\bf Acknowledgements}
 
+Write the acknowledgements here.
+\par
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\markboth{\hfill{\footnotesize\rm FIRSTNAME1 LASTNAME1 AND FIRSTNAME2 LASTNAME2} \hfill}
+{\hfill {\footnotesize\rm FILL IN A SHORT RUNNING TITLE} \hfill}
 
+%\iffalse
+\bibhang=1.7pc
+\bibsep=2pt
+\fontsize{9}{14pt plus.8pt minus .6pt}\selectfont
+\renewcommand\bibname{\large \bf References}
+%\begin{thebibliography}{11}
+\expandafter\ifx\csname
+natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL}\fi
+%\fi
 
-\section*{References}
+\bibliographystyle{chicago}      % Chicago style, author-year citations
+\bibliography{mybibfile}   % name your BibTeX data base
 
-\bibliography{mybibfile}
+%-------------------------------------------
+\vskip .65cm
+\noindent
+first author affiliation
+\vskip 2pt
+\noindent
+E-mail: (first author email)
+\vskip 2pt
+
+\noindent
+second author affiliation
+\vskip 2pt
+\noindent
+E-mail: (second author email)
 
 \end{document}
