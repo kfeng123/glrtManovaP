@@ -137,15 +137,15 @@ Balanced incomplete block design, Hadamard matrix, nearly balanced incomplete bl
 \setcounter{equation}{0} %-1
 \noindent {\bf 1. Introduction}
 Suppose there are $k$ ($k\geq 2$) groups of $p$ dimensional data.
-Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\mu_i,\Sigma)$, the $p$ dimensional normal distribution with mean vector $\mu_i$ and variance matrix $\Sigma$.
-%Suppose there are $k$ normal populations with possibly different means $\mu_1,\ldots,\mu_k$, but all with the same variance $\Sigma$.
-%Suppose we observe $k$ independent random samples, each from the distribution $N_p(\mu_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\mu_i$ and $\Sigma$ are unknown parameters.
+Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\xi_i,\Sigma)$, the $p$ dimensional normal distribution with mean vector $\xi_i$ and variance matrix $\Sigma$.
+%Suppose there are $k$ normal populations with possibly different means $\xi_1,\ldots,\xi_k$, but all with the same variance $\Sigma$.
+%Suppose we observe $k$ independent random samples, each from the distribution $N_p(\xi_i,\Sigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\xi_i$ and $\Sigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
 We would like to test the hypotheses
 \begin{equation}\label{hypothesis}
-    H: \mu_1=\mu_2=\cdots=\mu_k\quad \text{v.s.}\quad K: \text{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+    H_0: \xi_1=\xi_2=\cdots=\xi_k\quad \text{v.s.}\quad　H_1: \text{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 \end{equation}
-This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied in the classical setting, i.e., $p$ is small compared to $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
+This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared to $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
 
 Let $F=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be the sum-of-squares between groups and $G=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^T$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
    There are four classical test statistics for hypothesis~\eqref{hypothesis}, which are all based on the eigenvalues of $FG^{-1}$. 
@@ -171,12 +171,14 @@ Let $F=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be the
 %There are four classical tests for hypothesis~\eqref{hypothesis}: Wilks' Lambda (which is also the LRT), Hotelling-Lawley trace, Pillai Trace and Roy's maximum root.
 
 
-In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$. See, for example,~\cite{Tsai2009}.
+In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$.
+See, for example,~\cite{Tsai2009}.
+\textcolor{red}{Some references}
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
 However, when $p\geq n$, the four classical test statistics can not be defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
  So far, most tests in the literature are designed for two sample case, i.e. $k=2$.
-  See, for example,~\citet{Bai1996Efiect,Chen2010A,Srivastava2009A,Feng2015Multivariate,Tony2013}.
+  See, for example,~\citet{Bai1996Efiect,Chen2010A,Srivastava2009A,Tony2013,Feng2015Multivariate}.
   For multiple sample case,~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
@@ -195,14 +197,14 @@ In another work,~\cite{Cai2014High} proposed a test statistic
   $$
   Where $\Omega=(\omega)_{ij}=\Sigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
   Stitistics $T_{SC}$ and $T_{CX}$ are the representatives of two popular methodologies for high dimensional tests.
-  $T_{SC}$ is a so-called sum-of-squares type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\mu_i-\bar{\mu}\|^2$, where $\bar{\mu}=n^{-1}\sum_{i=1}^k n_i \mu_i$.
+  $T_{SC}$ is a so-called sum-of-squares type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
   $T_{CX}$ is an extreme value type statistic.
   
-  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\mu_i,\Sigma)$ for $1\leq i\leq K$.
+  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\xi_i,\Sigma)$ for $1\leq i\leq K$.
 %The $k$ samples are independent.
-%%$\mu_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
+%%$\xi_i$, $i=1\ldots, k$ and $\Sigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
 %\begin{equation}
-    %H: \mu_1=\mu_2=\cdots=\mu_k\quad v.s.\quad K: \textrm{$\mu_i\neq \mu_j$ for some $i\neq j$}.
+    %H: \xi_1=\xi_2=\cdots=\xi_k\quad v.s.\quad K: \textrm{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
    Note that both sum-of-squares type statistic and extreme value type statistic are not based on likelihood function.
@@ -210,7 +212,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     It remains a problem how to construct likelihood-based tests in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
-Inspired by Roy's union-intersection principle (\cite{Roy1953}),
+Inspired by Roy's union-intersection principle \citep{Roy1953},
     they wrote the null hypothesis as the intersection of a class of component hypotheses.
     For each component hypotheses, the likelihood ratio test is constructed.
     They use a least favorable argument to construct test statistic based on component tests.
@@ -221,13 +223,13 @@ Inspired by Roy's union-intersection principle (\cite{Roy1953}),
     In first setting, we assume the eigenvalues of $\Sigma$ are bounded.
     It's a common assumption in high dimensional statistics.
     In fact, most existing tests for hypothesis~\eqref{hypothesis} imposed conditions which prevent from large leading eigenvalues of $\Sigma$.
-    However, when the correlations between variables are determined by a small number of factors, $\Sigma$ is spiked in the sense that a few leading eigenvalues are much larger than the others. See, for example~\cite{Cai2012Sparse} and~\cite{Shen2013Consistency}.
+    However, when the correlations between variables are determined by a small number of factors, $\Sigma$ is spiked in the sense that a few leading eigenvalues are much larger than the others. See, for example~\cite{Cai2012Sparse} and~\cite{Shen2013Consistency}.\textcolor{red}{References}
     We then derive the asymptotic distribution of the test statistic under spiked covariance.
     From the theoretical results we give, it can be seen that the new test is particularly powerful under spiked covariance.
     We also conduct a simulation study to examine the numerical performance of the test.
 
     The rest of the paper is organized  as follows.
-
+\textcolor{red}{here}
     %Higher criticism CX are special case of UIT.
 
 
@@ -238,30 +240,32 @@ Inspired by Roy's union-intersection principle (\cite{Roy1953}),
 
  
 \section{Methodology}
-The Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
-In this section, first we shall revisit Roy's union intersection principle.
- It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
- Then we will deal with the problem in high dimensions and propose a new test statistic.
+ %We deal with the problem in high dimensions and propose a new test statistic.
 \subsection{Roy's union intersection principle}
-Roy's union intersection principle is proposed by~\cite{Roy1953}.
-The idea of Roy's union intersection principle is to reduce testing problem to a class of pseudo-univariate problems and the null hypothesis is accepted if all component null hypotheses are aceepted.
-More precisely, Roy's union intersection principle can be decomposed into $3$ main steps:
+%Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
+In this section, we revisit Roy's union intersection principle~\citep{Roy1953}, which is a powerful methodology to construct test statistics.
+ It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
+Roy's union intersection principle can be decomposed into $3$ main steps:
 \begin{enumerate}
     \item
-        Decompose the hypothesis $H$ and $K$ into component hypohteses
+        Decompose the hypothesis $H_0$ and $H_1$ into component hypotheses
         $$
-        H=\bigcap_{\gamma\in\Gamma} H_\gamma \quad \text{v.s.} \quad 
-        K=\bigcup_{\gamma\in \Gamma} K_{\gamma},
+        H_0=\bigcap_{\gamma\in\Gamma} H_{0\gamma} \quad \text{v.s.} \quad 
+        H_1=\bigcup_{\gamma\in \Gamma} H_{1\gamma},
         $$
         where $\Gamma$ is an index set.
     \item
-        Construct a test for $H_{\gamma}$ against $H_{\gamma}$.
+        For each $\gamma$, construct a component test for $H_{0\gamma}$ against $H_{1\gamma}$.
     \item
-        Accept $H$ if all component tests accept the null hypotheses. Or equivalently, reject $H$ if any component test reject the null hypothesis.
+        Accept $H_0$ if all component tests accept the null hypotheses.
+        Or equivalently, reject $H_0$ if any component test reject the null hypothesis.
 \end{enumerate}
+Roy's union intersection principle is particularly useful when $H_0$ and $H_1$ themselves are complicated but can be decomposed into a class of simple hypotheses. \textcolor{red}{Refereces}.
 
- Roy's union intersection principle is a powerful tool when $H$ or $K$ are complicated.
  In fact, the Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
+
+ In another point view, Roy's union intersection principle is data transformation.
+ The idea of Roy's union intersection principle reduce a multivariate problem a class of univariate problems.  
 
  For convenience, now we introduce some notations.
  Let
@@ -293,34 +297,34 @@ and
 =ZJC C^T J^T Z^T.
     \end{aligned}
 \end{equation*}
- Define $\Xi=(\sqrt{n_1}\mu_1,\ldots,\sqrt{n_k}\mu_k)$
+ Define $\Xi=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
  and the null hypothesis $H$ is equivalent to $\Xi C=O_{p\times (k-1)}$.
 
- Note that there is a one-to-one mappting between the data $\bZ$ and the set of data $\{a^T \bZ\, |\, a\in\mathbb{R}^p, a^T a=1\}$.
+ For $a\in \mathbb{R}$ and $a^T a=1$, let $\bZ_a=a^T \bZ$ be the univariate data obtained by projecting $\bZ$ on direction $a$.
+ Note that there is a one-to-one mapping between the data $\bZ$ and the set of univariate data $\{\bZ_a: a\in\mathbb{R}^p, a^T a=1\}$.
  This transformation naturally induces the decomposition  
- $$H=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_a \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}K_a ,$$
+ $$H_0=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_{0a} \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}H_{1a} ,$$
  where
 %The decomposition in step $1$ is often induced by data transformation.
 %For $a\in \mathbb{R}^p$ and $a^T a=1$, define the hypothesis $H_a$ and $K_a$ as
 %$$
-%H_a: a^T\mu_1=a^T\mu_2=\cdots=a^T\mu_k\quad \text{v.s.}\quad K_a: \text{$a^T\mu_i\neq a^T\mu_j$ for some $i\neq j$}.
+%H_a: a^T\xi_1=a^T\xi_2=\cdots=a^T\xi_k\quad \text{v.s.}\quad K_a: \text{$a^T\xi_i\neq a^T\xi_j$ for some $i\neq j$}.
 %$$
  $$
- H_a: a^T \Xi C = O_{1\times (k-1)}\quad \text{and}\quad K_a : a^T \Xi C \neq O_{1\times (k-1)}.
+ H_{0a}: a^T \Xi C = O_{1\times (k-1)}\quad \text{and}\quad H_{1a} : a^T \Xi C \neq O_{1\times (k-1)}.
  $$
 %The union-intersection principle tells that $H$ is rejected if and only if any one of $H_a$ is rejected.
 %Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,k$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pooled sample.
-Note that the likelihood function of $a^T \bZ$ is 
+Note that the density function of $\bZ_a$ is 
 $$
-f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)=
-    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\mu_i)^2\Big).
+f_a(\bZ_a;\xi_1,\ldots,\xi_k,\Sigma)=
+    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\xi_i)^2\Big).
 $$
-The likelihood ratio test statistic for $H_a$ against $K_a$% (which is also the uniformly most powerful unbiased test) 
-is
+Then the likelihood ratio test statistic for $H_a$ against $K_a$ is % (which is also the uniformly most powerful unbiased test) 
 %Note that
 %\begin{equation*}
     %\begin{aligned}
-        %\max_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T Z,\mu_1,\ldots,\mu_k,\Sigma)
+        %\max_{\xi_1,\ldots,\xi_k,\Sigma}f_a(a^T Z,\xi_1,\ldots,\xi_k,\Sigma)
         %=
         %(2\pi)^{-n/2}\big(\frac{1}{n} a^T G a\big)^{-n/2}e^{-{n}/{2}},
     %\end{aligned}
@@ -328,33 +332,40 @@ is
 %%Let $S_i=\sum_{j=1}^{n_i}(x_{ij}-\bar{\mathbf{X}}_i)(x_{ij}-\bar{\mathbf{X}}_i)^T$ and $S=\sum_{i=1}^k S_i$.
 %\begin{equation*}
     %\begin{aligned}
-        %\max_{\mu,\Sigma}f_a(a^T Z,\mu,\ldots,\mu,\Sigma)
+        %\max_{\xi,\Sigma}f_a(a^T Z,\xi,\ldots,\xi,\Sigma)
         %=
         %(2\pi)^{-n/2}\big(\frac{1}{n}a^T (G+F)a\big)^{-n/2}e^{-{n}/{2}},
     %\end{aligned}
 %\end{equation*}
 \begin{equation*}
     \begin{aligned}
-        \text{LRT}_{a}=\frac{\sup\limits_{\mu_1,\ldots,\mu_k,\Sigma}f_a(a^T \bZ;\mu_1,\ldots,\mu_k,\Sigma)}{\sup\limits_{\mu,\Sigma}f_a(a^T \bZ;\mu,\ldots,\mu,\Sigma)}
+        \text{LRT}_{a}=\frac{\sup\limits_{\xi_1,\ldots,\xi_k,\Sigma}f_a(a^T \bZ;\xi_1,\ldots,\xi_k,\Sigma)}{\sup\limits_{\xi,\Sigma}f_a(a^T \bZ;\xi,\ldots,\xi,\Sigma)}
         =
         \Big(1+\frac{a^T Fa}{a^T G a}\Big)^{n/2}.
     \end{aligned}
 \end{equation*}
 By Roy's union intersection principle, $H$ is rejected when $\max_{a^T a=1}\text{LRT}_a$ is large.
 If $p\leq n-k$, $G$ is invertible and
-$\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$, which is an increase function of Roy's maximum root test statistic.
+$\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$, which is an increasing function of Roy's maximum root test statistic.
+We shall call 
+Note that $\max_{a^T a=1}\text{LRT}_a=\text{LRT}_{a^*}$, where 
+$a^*=\argmax_{a^T a=1}\text{LRT}_a$
+is the direction achieving the maximum discrepancy between the null hypothesis and alternative hypothesis.
+We shall call $a^*$ the rejection direction.
+
+
 %%$$
-%f(Z;\mu_1,\ldots,\mu_k,\Sigma)=\prod_{i=1}^k\Big[
-    %(2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\mu_i)(x_{ij}-\mu_i)^T)
+%f(Z;\xi_1,\ldots,\xi_k,\Sigma)=\prod_{i=1}^k\Big[
+    %(2\pi)^{-n_i p/2}|\Sigma|^{-n_i/2}\exp(-\frac{1}{2}\mathrm{tr}\Sigma^{-1}\sum_{j=1}^{n_i}(x_{ij}-\xi_i)(x_{ij}-\xi_i)^T)
     %\Big].
 %$$
 
 Another classical test statistic, Hotelling-Lawley trace,  can also be derived by Roy's union intersection principle. This is shown by~\cite{Mudholkar1974}.
- In that paper, they consider the transformed data $\{M^T \bZ\, |\, M is \text{$(k-1)\times p$ matrix}\}$ and the decomposition of hypotheses:
- $$H=\bigcap_{M}H_M \quad\text{and}\quad K=\bigcup_{M}K_M ,$$
+ In that paper, they consider the transformed data $\{M^T \bZ: M \textrm{ is } \text{$(k-1)\times p$ matrix}\}$ and the decomposition of hypotheses:
+ $$H_{0}=\bigcap_{M}H_{0M} \quad\text{and}\quad H_1=\bigcup_{M}H_{1M} ,$$
  where
  $$
- H_M: \mytr( M \Xi C) = 0\quad \text{and}\quad K_M : \mytr( M \Xi C )> 0.
+ H_{0M}: \mytr( M \Xi C) = 0\quad \text{and}\quad H_{1M} : \mytr( M \Xi C )> 0.
  $$
 
 Note that $\myE Z=\Xi J^T$, hence
@@ -366,23 +377,23 @@ $
 N\big(\mytr(M\Xi C),\mytr(M\Sigma M^T )\big)
 $.
 
-=====================
-$$
-\mytr \big(MZJC\big)
-=
-\mytr \big(CMZJ\big)
-$$
-$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
-Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\mu_i,CM\Sigma M^T C^T)$.
-Hence we have that
-$$
-\mytr \big(CMZJ\big)
-\sim
-N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
-\sim
-N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
-$$
-==================
+%=====================
+%$$
+%\mytr \big(MZJC\big)
+%=
+%\mytr \big(CMZJ\big)
+%$$
+%$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
+%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\xi_i,CM\Sigma M^T C^T)$.
+%Hence we have that
+%$$
+%\mytr \big(CMZJ\big)
+%\sim
+%N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
+%\sim
+%N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
+%$$
+%==================
 
 Hence it's natural to use one side $t$ type statistic
 $$
@@ -409,31 +420,59 @@ $$
 $$
 
 ====================
+
 In fact, $T_{CX}$ can also be derived by Roy's union intersection principle.
 Suppose $\Omega$ is known,.
+
+$T_{SC}$ can also be derived by a generalized UIT.
+
+We consider two decomposition method, direction projection and coordinate projection, and two summary method, integrating and maximizing.
+
 ===================
 
 Note that $T_{CX}$ is designed for high dimensional data, which implies that Roy's union intersection principle may be useful in high dimensional setting.
-In fact, Roy's union intersection principle can be used to decompose high dimensional problem into univariate problems which are easy to deal with.
+
+These examples use Roy's union intersection principle in the same way.
+By a data transformation, a high dimensional problem can be decomposed into univariate problems which are easy to deal with.
+For each univariate problem we construct a LRT.
+Last but not least, we summarize the component LRTs to obtain a global test.
 
 
 \subsection{The new test statistic}
-We are interested in the case when $p> n-k$.
-In this setting, $\max_{a^T a=1}\text{LRT}_a=+\infty$ and Roy's maximum root test is not defined. 
-In another viewpoint, union intersection principal finds an direction $a$ along which the evidence against null hypothesis is maximized.
-Such an $a$ is data dependent.
-In the classical setting, the evidence of direction $a$ is $\text{LRT}_a$.
-In the current context, there are a class of $a$ such that $\text{LRT}_a$ achieve the infinity, the largest evidence in classical sense.
-We need to further choose a single $a$ from $\{a\,|\,\text{LRT}_a=+\infty\text{ and }a^T a =1\}$.
- From the expression of $\text{LRT}_a$, we would like to make the largest discrepancy between $a^T F a$ and $a^T G a$.
-Note that if $\text{LRT}_{\alpha}=+\infty$, then $a^T G a=0$.
-Hence it's natural to choose $a$ as
+Throughout, we consider the case of $p> n-k$.
+In the derivation of Roy's maximum root, we have
 $$
-        a^{*}=
-        \argmax_{a^T a=1, a^T G a=0} 
-        a^T F a.
+\text{LRT}_a=\Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}.
 $$
-Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
+Roy's maximum root test is not defined since $G$ is not invertible and $\max_{a^T a=1}\text{LRT}_a=+\infty$. 
+%In another viewpoint, union intersection principle finds an direction $a$ along which the evidence against null hypothesis is maximized.
+%Such an $a$ is data dependent.
+%In the classical setting, the evidence of direction $a$ is $\text{LRT}_a$.
+%In the current context, there are a class of $a$ such that $\text{LRT}_a$ achieve the infinity, the largest evidence in classical sense.
+%We need to further choose a single $a$ from $\{a\,|\,\text{LRT}_a=+\infty\text{ and }a^T a =1\}$.
+ %From the expression of $\text{LRT}_a$, we would like to make the largest discrepancy between $a^T F a$ and $a^T G a$.
+%Note that if $\text{LRT}_{\alpha}=+\infty$, then $a^T G a=0$.
+%Hence it's natural to choose $a$ as
+%$$
+        %a^{*}=
+        %\argmax_{a^T a=1, a^T G a=0} 
+        %a^T F a.
+%$$
+%Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
+
+
+The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
+Based on this idea, we have the following heuristic argument to propose a new test statistic.
+Note that $\{a:\text{LRT}_a=+\infty\}=\{a:a^T G a=0\}$ with probability $1$. Then formally, we have
+$$
+\begin{aligned}
+    a^*&=\argmax_{a^T a=1} \text{LRT}_{a}\\
+    &=\argmax_{a^T a=1,\text{LRT}_a=+\infty} \Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}\\
+    &=\argmax_{a^T a=1,a^T Ga=0} \Big(1+\frac{a^T F a}{0}\Big)^{n/2}\\
+    &=\argmax_{a^T a=1,a^T Ga=0} {a^T F a}.
+\end{aligned}
+$$
+This motivates us to propose the test statistic
 \begin{equation*}
     \begin{aligned}
         T=a^{*T} F a^*
@@ -442,7 +481,7 @@ Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
         a^T F a.
     \end{aligned}
 \end{equation*}
-When $T$ is large enough, we reject $H$.
+We reject the null hypothesis when $T$ is large enough.
 The above strategy is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 
 
@@ -591,19 +630,18 @@ Here $M$ is the permutation times.
 %$$
 
 
-\section{Theory}
+\section{Theoretical results}
 
 In this section, we investigate the asymptotic behavior of our test statistic when $p$ is much larger than $n$.
 More precisely, we shall assume $p/n\to\infty$.
 In high dimensional setting, it is a common phenomenon that the asymptotic distribution of statistic relies on the covariance structure.
-See, for example,~\cite{Ma2015A} and Rui Wang's paper.
+See, for example,~\cite{Ma2015A}.
 We shall investigate the asymptotics of our statistic under two different covariance structures: non-spiked covariance and spiked covariance.
 
 
 Let $W_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
 
 
-Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
 
 
 \begin{theorem}\label{nonSpiked}
@@ -624,6 +662,7 @@ Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\
     $$
 \end{theorem}
 
+
 The spiked covariance model assumes that a few eigenvalues of $\Sigma$ are significantly larger than the others. This model is a standard model in many problems and takes factor model as a special case.
 See, for example,.
 
@@ -631,6 +670,8 @@ See, for example,.
     Let $r$ be a fixed integer.
     Suppose ${\lambda_r n}/{p}\to \infty$ and $C \geq \lambda_{r+1} \geq \ldots \geq \lambda_{p} \geq c$, where $c$ and $C$ are absolute constant.
 \end{assumption}
+
+Let $\Sigma= U\Lambda U^T$ be the eigenvalue decomposition of $\Sigma$, where $\Lambda =\mydiag (\lambda_1,\ldots,\lambda_p)$.
 Let $U=(U_1,U_2)$ where $U_1$ is $p\times r$ and $U_2$ is $p\times (p-r)$. Let $\Lambda_1=\mydiag(\lambda_1,\ldots,\lambda_r)$ and $\Lambda_2=\mydiag(\lambda_{r+1},\ldots,\lambda_p)$.
 Then $\Sigma=U_1\Lambda_1 U_1^T+U_2\Lambda_2 U_2^T$.
 
@@ -669,15 +710,15 @@ Without loss of generality, we only consider diagonal $\Sigma$.
 We set $\Sigma=\mydiag(p,1,\ldots,1)$.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\mu_f\|_F^2}{\sqrt{\sum_{i=2}^{p}\lambda_i(\Sigma)^2}}.
+\textrm{SNR}=\frac{\|\xi_f\|_F^2}{\sqrt{\sum_{i=2}^{p}\lambda_i(\Sigma)^2}}.
 $$
 We use SNR to characterize the signal strength.
 We consider two alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we set $\mu_1=\kappa 1_p$, $\mu_2=-\kappa 1_p$ and $\mu_3=0_p$, where $\kappa$ is selected to make the SNR equal to the given value.
-In the sparse case, we set $\mu_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\mu_2=\kappa (0_{p/5}^T, 1_{p/5}^T,0_{3p/5}^T)^T$ and $\mu_3=0_p$. Again, $\kappa$ is selected to make the SNR equal to the given value.
+In the non-sparse case, we set $\xi_1=\kappa 1_p$, $\xi_2=-\kappa 1_p$ and $\xi_3=0_p$, where $\kappa$ is selected to make the SNR equal to the given value.
+In the sparse case, we set $\xi_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\xi_2=\kappa (0_{p/5}^T, 1_{p/5}^T,0_{3p/5}^T)^T$ and $\xi_3=0_p$. Again, $\kappa$ is selected to make the SNR equal to the given value.
 
 %$$
-%SNR=\frac{\|\mu_f\|_F^2}{\sqrt{\mytr (\Sigma^2)}}
+%SNR=\frac{\|\xi_f\|_F^2}{\sqrt{\mytr (\Sigma^2)}}
 %$$
 
 
@@ -882,7 +923,7 @@ $,
 where $G_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
 We write
 $
-ZJC = \mu_f + U\Lambda^{1/2} G_2
+ZJC = \xi_f + U\Lambda^{1/2} G_2
 $, 
 where $G_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
 
@@ -892,9 +933,9 @@ Then
 C^TJ^T Z^T(I_p-H_{Z\tilde J}) ZJC
 =&
 G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
-\mu_f^T (I_p -H_{Z\tilde{J}})\mu_f+\\
-&\mu_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
-G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\mu_f.
+\xi_f^T (I_p -H_{Z\tilde{J}})\xi_f+\\
+&\xi_f^T (I_p -H_{Z\tilde{J}})U\Lambda^{1/2}G_2+
+G_2^T \Lambda^{1/2}U^T (I_P-H_{Z\tilde{J}})\xi_f.
 \end{aligned}
 \end{equation}
     The first term of~\eqref{eq:maindec} can be represented as
