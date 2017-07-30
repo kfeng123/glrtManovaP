@@ -240,34 +240,8 @@ Inspired by Roy's union-intersection principle \citep{Roy1953},
 
  
 \section{Methodology}
- %We deal with the problem in high dimensions and propose a new test statistic.
-\subsection{Roy's union intersection principle}
-%Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
-In this section, we revisit Roy's union intersection principle~\citep{Roy1953}, which is a powerful methodology to construct test statistics.
- It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
-Roy's union intersection principle can be decomposed into $3$ main steps:
-\begin{enumerate}
-    \item
-        Decompose the hypothesis $H_0$ and $H_1$ into component hypotheses
-        $$
-        H_0=\bigcap_{\gamma\in\Gamma} H_{0\gamma} \quad \text{v.s.} \quad 
-        H_1=\bigcup_{\gamma\in \Gamma} H_{1\gamma},
-        $$
-        where $\Gamma$ is an index set.
-    \item
-        For each $\gamma$, construct a component test for $H_{0\gamma}$ against $H_{1\gamma}$.
-    \item
-        Accept $H_0$ if all component tests accept the null hypotheses.
-        Or equivalently, reject $H_0$ if any component test reject the null hypothesis.
-\end{enumerate}
-Roy's union intersection principle is particularly useful when $H_0$ and $H_1$ themselves are complicated but can be decomposed into a class of simple hypotheses. \textcolor{red}{Refereces}.
 
- In fact, the Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
-
- In another point view, Roy's union intersection principle is data transformation.
- The idea of Roy's union intersection principle reduce a multivariate problem a class of univariate problems.  
-
- For convenience, now we introduce some notations.
+ We deal with the problem in high dimensions and propose a new test statistic. For convenience, we introduce some notations.
  Let
  $$\bZ=(X_{11},\ldots,X_{1n_1},\ldots,X_{k1},\ldots,X_{kn_k})$$
  be the pooled sample matrix.
@@ -298,7 +272,38 @@ and
     \end{aligned}
 \end{equation*}
  Define $\Xi=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
- and the null hypothesis $H$ is equivalent to $\Xi C=O_{p\times (k-1)}$.
+ and the null hypothesis $H_0$ is equivalent to $\Xi C=O_{p\times (k-1)}$.
+\subsection{Roy's union intersection principle}
+%Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
+In this section, we revisit Roy's union intersection principle~\citep{Roy1953}, which is a powerful methodology to construct test statistics.
+ It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
+Roy's union intersection principle can be decomposed into $3$ main steps:
+\begin{enumerate}
+    \item
+        Decompose the hypothesis $H_0$ and $H_1$ into component hypotheses
+        $$
+        H_0=\bigcap_{\gamma\in\Gamma} H_{0\gamma} \quad \text{v.s.} \quad 
+        H_1=\bigcup_{\gamma\in \Gamma} H_{1\gamma},
+        $$
+        where $\Gamma$ is an index set.
+    \item
+        For each $\gamma$, construct a component test for $H_{0\gamma}$ against $H_{1\gamma}$.
+    \item
+        Accept $H_0$ if all component tests accept the null hypotheses.
+        Or equivalently, reject $H_0$ if any component test reject the null hypothesis.
+\end{enumerate}
+Roy's union intersection principle is particularly useful when $H_0$ and $H_1$ themselves are complicated but can be decomposed into a class of simple hypotheses. \textcolor{red}{Refereces}.
+
+
+It gives a framework for solving a multivariate problem.
+The first step is to reduce multivariate problem into a set of univariate problems. The second step is to solve the univaraite problems. The third step is to summarize component tests into a global test.
+
+This framework contains many important methods.
+
+
+ In fact, the Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
+
+
 
  For $a\in \mathbb{R}$ and $a^T a=1$, let $\bZ_a=a^T \bZ$ be the univariate data obtained by projecting $\bZ$ on direction $a$.
  Note that there is a one-to-one mapping between the data $\bZ$ and the set of univariate data $\{\bZ_a: a\in\mathbb{R}^p, a^T a=1\}$.
@@ -437,6 +442,8 @@ By a data transformation, a high dimensional problem can be decomposed into univ
 For each univariate problem we construct a LRT.
 Last but not least, we summarize the component LRTs to obtain a global test.
 
+ In another point view, Roy's union intersection principle is data transformation.
+ The idea of Roy's union intersection principle reduce a multivariate problem a class of univariate problems.  
 
 \subsection{The new test statistic}
 Throughout, we consider the case of $p> n-k$.
