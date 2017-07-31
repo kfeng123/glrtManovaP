@@ -241,7 +241,6 @@ Inspired by Roy's union-intersection principle \citep{Roy1953},
  
 \section{Methodology}
 
- We deal with the problem in high dimensions and propose a new test statistic. For convenience, we introduce some notations.
  Let
  $$\bZ=(X_{11},\ldots,X_{1n_1},\ldots,X_{k1},\ldots,X_{kn_k})$$
  be the pooled sample matrix.
@@ -273,10 +272,9 @@ and
 \end{equation*}
  Define $\Xi=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
  and the null hypothesis $H_0$ is equivalent to $\Xi C=O_{p\times (k-1)}$.
-\subsection{Roy's union intersection principle}
+\subsection{Roy's maximum root}
 %Roy's union intersection principle plays an important role in the methodology of~\cite{Zhao2016A}.
-In this section, we revisit Roy's union intersection principle~\citep{Roy1953}, which is a powerful methodology to construct test statistics.
- It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
+Roy's maximum root test statistic is derived in~\cite{Roy1953} as an application of his union intersection principle.
 Roy's union intersection principle can be decomposed into $3$ main steps:
 \begin{enumerate}
     \item
@@ -294,20 +292,11 @@ Roy's union intersection principle can be decomposed into $3$ main steps:
 \end{enumerate}
 Roy's union intersection principle is particularly useful when $H_0$ and $H_1$ themselves are complicated but can be decomposed into a class of simple hypotheses. \textcolor{red}{Refereces}.
 
-
-It gives a framework for solving a multivariate problem.
-The first step is to reduce multivariate problem into a set of univariate problems. The second step is to solve the univaraite problems. The third step is to summarize component tests into a global test.
-
-This framework contains many important methods.
-
-
- In fact, the Roy's maximum root test statistic is derived in~\cite{Roy1953} as an example of Roy's union intersection principle.
-
-
-
- For $a\in \mathbb{R}$ and $a^T a=1$, let $\bZ_a=a^T \bZ$ be the univariate data obtained by projecting $\bZ$ on direction $a$.
- Note that there is a one-to-one mapping between the data $\bZ$ and the set of univariate data $\{\bZ_a: a\in\mathbb{R}^p, a^T a=1\}$.
- This transformation naturally induces the decomposition  
+The decomposition in step 1 of union intersection principle is often induced by a data transformation.
+The data matrix $\bZ$ is not easy to deal with since it is multivariate. 
+ Note that there is a one-to-one mapping between the data $\bZ$ and the set $\{\bZ_a: a\in\mathbb{R}^p, a^T a=1\}$, where $\bZ_a=a^T \bZ$ is the univariate data obtained by projecting $\bZ$ on direction $a$.
+ %For $a\in \mathbb{R}$ and $a^T a=1$, let $\bZ_a=a^T \bZ$ be the univariate data obtained by projecting $\bZ$ on direction $a$.
+ This naturally induces the decomposition  
  $$H_0=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_{0a} \quad\text{and}\quad K=\bigcup_{a\in \mathbb{R}^p,a^T a=1}H_{1a} ,$$
  where
 %The decomposition in step $1$ is often induced by data transformation.
@@ -320,12 +309,14 @@ This framework contains many important methods.
  $$
 %The union-intersection principle tells that $H$ is rejected if and only if any one of $H_a$ is rejected.
 %Let $\bX_i=(X_{i1},\ldots,X_{in_i})$ be the $i$th sample, $i=1,\ldots,k$. Let $\bZ=(\bX_1,\ldots,\bX_k)$ be the pooled sample.
-Note that the density function of $\bZ_a$ is 
-$$
-f_a(\bZ_a;\xi_1,\ldots,\xi_k,\Sigma)=
-    (2\pi)^{-n/2}|a^T \Sigma a|^{-n/2}\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\xi_i)^2\Big).
-$$
-Then the likelihood ratio test statistic for $H_a$ against $K_a$ is % (which is also the uniformly most powerful unbiased test) 
+Based on $\bZ_a$, the likelihood ratio test statistic for $H_{0a}$ against $H_{1a}$ is
+%The density function of $\bZ_a$ is 
+%$$
+%f_a(\bZ_a;\xi_1,\ldots,\xi_k,\Sigma)=
+    %\frac{1}{(2\pi)^{n/2}|a^T \Sigma a|^{n/2}}
+    %\exp\Big(-\frac{1}{2 a^T \Sigma a}\sum_{i=1}^k\sum_{j=1}^{n_i}(a^T X_{ij}-a^T\xi_i)^2\Big).
+%$$
+%Then the likelihood ratio test statistic for $H_a$ against $K_a$ is 
 %Note that
 %\begin{equation*}
     %\begin{aligned}
@@ -344,19 +335,14 @@ Then the likelihood ratio test statistic for $H_a$ against $K_a$ is % (which is 
 %\end{equation*}
 \begin{equation*}
     \begin{aligned}
-        \text{LRT}_{a}=\frac{\sup\limits_{\xi_1,\ldots,\xi_k,\Sigma}f_a(a^T \bZ;\xi_1,\ldots,\xi_k,\Sigma)}{\sup\limits_{\xi,\Sigma}f_a(a^T \bZ;\xi,\ldots,\xi,\Sigma)}
+        \text{LR}_{a}%=\frac{\sup\limits_{\xi_1,\ldots,\xi_k,\Sigma}f_a(a^T \bZ;\xi_1,\ldots,\xi_k,\Sigma)}{\sup\limits_{\xi,\Sigma}f_a(a^T \bZ;\xi,\ldots,\xi,\Sigma)}
         =
         \Big(1+\frac{a^T Fa}{a^T G a}\Big)^{n/2}.
     \end{aligned}
 \end{equation*}
-By Roy's union intersection principle, $H$ is rejected when $\max_{a^T a=1}\text{LRT}_a$ is large.
+By Roy's union intersection principle, $H_0$ is rejected when $\max_{a^T a=1}\text{LR}_a$ is large.
 If $p\leq n-k$, $G$ is invertible and
-$\max_{a^T a=1}\text{LRT}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$, which is an increasing function of Roy's maximum root test statistic.
-We shall call 
-Note that $\max_{a^T a=1}\text{LRT}_a=\text{LRT}_{a^*}$, where 
-$a^*=\argmax_{a^T a=1}\text{LRT}_a$
-is the direction achieving the maximum discrepancy between the null hypothesis and alternative hypothesis.
-We shall call $a^*$ the rejection direction.
+$\max_{a^T a=1}\text{LR}_a=(1+\lambda_{\max}(FG^{-1}))^{n/2}$, which is an increasing function of Roy's maximum root test statistic.
 
 
 %%$$
@@ -365,93 +351,25 @@ We shall call $a^*$ the rejection direction.
     %\Big].
 %$$
 
-Another classical test statistic, Hotelling-Lawley trace,  can also be derived by Roy's union intersection principle. This is shown by~\cite{Mudholkar1974}.
- In that paper, they consider the transformed data $\{M^T \bZ: M \textrm{ is } \text{$(k-1)\times p$ matrix}\}$ and the decomposition of hypotheses:
- $$H_{0}=\bigcap_{M}H_{0M} \quad\text{and}\quad H_1=\bigcup_{M}H_{1M} ,$$
- where
- $$
- H_{0M}: \mytr( M \Xi C) = 0\quad \text{and}\quad H_{1M} : \mytr( M \Xi C )> 0.
- $$
-
-Note that $\myE Z=\Xi J^T$, hence
-the uniformly minimum variance unbiased estimator of $\mytr(M\Xi C)$ is $\mytr(MZJ C)$.
-It can be seen that
-$
-\mytr \big(MZJ C\big)
-\sim
-N\big(\mytr(M\Xi C),\mytr(M\Sigma M^T )\big)
-$.
-
-%=====================
-%$$
-%\mytr \big(MZJC\big)
-%=
-%\mytr \big(CMZJ\big)
-%$$
-%$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
-%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\xi_i,CM\Sigma M^T C^T)$.
-%Hence we have that
-%$$
-%\mytr \big(CMZJ\big)
-%\sim
-%N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
-%\sim
-%N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
-%$$
-%==================
-
-Hence it's natural to use one side $t$ type statistic
-$$
-T_M = \frac{
-\mytr \big(MZJC\big)
-}{
-    \sqrt{\mytr(M G M^T)}
-}
-$$
-to test $H_M$ against $K_M$.
-
-
-
-By Cauchy inequality $\max_B \mytr(AB^T)/\mytr^{1/2}(BB^T)=\mytr^{1/2}(AA^T)$, we have
-$$
-\begin{aligned}
-    \max_M T_M &=\max_M \frac{\mytr \big(MG^{1/2}G^{-1/2}ZJC\big)
-}{\sqrt{\mytr(M G^{1/2} (M G^{1/2})^T)}
-}
-    =\mytr^{1/2}((ZJC)^T G^{-1}ZJC)\\
-    &=\mytr^{1/2}( ZJC(ZJC)^T G^{-1})
-    =\mytr^{1/2}(F G^{-1}).
-\end{aligned}
-$$
-
-====================
-
-In fact, $T_{CX}$ can also be derived by Roy's union intersection principle.
-Suppose $\Omega$ is known,.
-
-$T_{SC}$ can also be derived by a generalized UIT.
-
-We consider two decomposition method, direction projection and coordinate projection, and two summary method, integrating and maximizing.
-
-===================
-
-Note that $T_{CX}$ is designed for high dimensional data, which implies that Roy's union intersection principle may be useful in high dimensional setting.
-
-These examples use Roy's union intersection principle in the same way.
-By a data transformation, a high dimensional problem can be decomposed into univariate problems which are easy to deal with.
-For each univariate problem we construct a LRT.
-Last but not least, we summarize the component LRTs to obtain a global test.
-
- In another point view, Roy's union intersection principle is data transformation.
- The idea of Roy's union intersection principle reduce a multivariate problem a class of univariate problems.  
 
 \subsection{The new test statistic}
-Throughout, we consider the case of $p> n-k$.
-In the derivation of Roy's maximum root, we have
-$$
-\text{LRT}_a=\Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}.
-$$
-Roy's maximum root test is not defined since $G$ is not invertible and $\max_{a^T a=1}\text{LRT}_a=+\infty$. 
+Despite the wide use of Roy's maximum root, it is not defined for $p> n-k$.
+In fact, if $p>n-k$, $G$ is not invertible and $\max_{a^T a=1}\text{LR}_a=+\infty$. 
+
+The derivation of Roy's maximum root implies that it is based on the likelihood ratio of projected data $\bZ_a$.
+From a likelihood point view, log likelihood ratio is an estimator of the KL divergence between the alternative distribution and the null distribution.
+Thus, by maximizing $\text{LR}_a$, one obtains
+the direction $a^*=\argmax_{a^T a=1}\text{LR}_a$ which hopefully distinct the null distribution and the alternative distribution of $\bZ_a$. 
+
+
+%Note that $\max_{a^T a=1}\text{LRT}_a=\text{LRT}_{a^*}$, where 
+%$a^*=\argmax_{a^T a=1}\text{LRT}_a$
+%is the direction achieving the maximum discrepancy between the null hypothesis and alternative hypothesis.
+%We shall call $a^*$ the rejection direction.
+%In the derivation of Roy's maximum root, we have
+%$$
+%\text{LRT}_a=\Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}.
+%$$
 %In another viewpoint, union intersection principle finds an direction $a$ along which the evidence against null hypothesis is maximized.
 %Such an $a$ is data dependent.
 %In the classical setting, the evidence of direction $a$ is $\text{LRT}_a$.
@@ -468,13 +386,14 @@ Roy's maximum root test is not defined since $G$ is not invertible and $\max_{a^
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
-Based on this idea, we have the following heuristic argument to propose a new test statistic.
-Note that $\{a:\text{LRT}_a=+\infty\}=\{a:a^T G a=0\}$ with probability $1$. Then formally, we have
+While it is hard to generalize Roy's maximum root to high dimensional setting, $a^*$ can be formally generalized to high dimensional setting.
+%The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
+%Based on this idea, we have the following heuristic argument to propose a new test statistic.
+Note that with probability $1$, we have $\{a:\text{LR}_a=+\infty\}=\{a:a^T G a=0\}$. When $p>n-k$, we have the following formal argument
 $$
 \begin{aligned}
-    a^*&=\argmax_{a^T a=1} \text{LRT}_{a}\\
-    &=\argmax_{a^T a=1,\text{LRT}_a=+\infty} \Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}\\
+    a^*&=\argmax_{a^T a=1} \text{LR}_{a}\\
+    &=\argmax_{a^T a=1,\text{LR}_a=+\infty} \Big(1+\frac{a^T F a}{a^T G a}\Big)^{n/2}\\
     &=\argmax_{a^T a=1,a^T Ga=0} \Big(1+\frac{a^T F a}{0}\Big)^{n/2}\\
     &=\argmax_{a^T a=1,a^T Ga=0} {a^T F a}.
 \end{aligned}
@@ -489,29 +408,29 @@ This motivates us to propose the test statistic
     \end{aligned}
 \end{equation*}
 We reject the null hypothesis when $T$ is large enough.
-The above strategy is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
+%The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 
 
 Next we derive the explicit forms of the test statistic. 
-Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
-Then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
-Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^T =I-JJ^T$.
-Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a $k\times k$ projection matrix with rank $k-1$.
-Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
-Then 
-$$
-G=Z(I_n-JJ^T)Z^T=
-Z\tilde{J}\tilde{J}^T Z^T.
-$$
-and
-\begin{equation*}
-    \begin{aligned}
-        F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
-        =Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
-=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T
-=ZJC C^T J^T Z^T.
-    \end{aligned}
-\end{equation*}
+%Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
+%Then the matrices $I_n-JJ^T$, $JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
+%Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^T =I-JJ^T$.
+%Note that $I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$ is a $k\times k$ projection matrix with rank $k-1$.
+%Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^T=I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J$.
+%Then 
+%$$
+%G=Z(I_n-JJ^T)Z^T=
+%Z\tilde{J}\tilde{J}^T Z^T.
+%$$
+%and
+%\begin{equation*}
+    %\begin{aligned}
+        %F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^T 
+        %=Z(JJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)Z^T
+%=ZJ(I_k-\frac{1}{n}J^T\mathbf{1}_n \mathbf{1}_n^T J)J^T Z^T
+%=ZJC C^T J^T Z^T.
+    %\end{aligned}
+%\end{equation*}
 
 Let $Z\tilde{J}=U_{Z\tilde{J}}D_{Z\tilde{J}}V_{Z\tilde{J}}^T$ be the singular value decomposition of $Z\tilde{J}$, where $U_{Z\tilde{J}}$ and $V_{Z\tilde{J}}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ column orthogonal matrices respectively, $D_{Z\tilde{J}}$ is $(n-k)\times (n-k)$ diagonal matrix.
 Let $H_{Z\tilde{J}}=U_{Z\tilde{J}}U_{Z\tilde{J}}^T$ be the projection on the column space of $A$.
@@ -875,7 +794,91 @@ In the sparse case, we set $\xi_1=\kappa (1_{p/5}^T,0_{4p/5}^T)^T$, $\xi_2=\kapp
 
 \section{Conclusion remarks}
 
+ It turns out that some existing tests for~\eqref{hypothesis} can be derived by Roy's union intersection principle.
+It gives a framework for solving a multivariate problem.
+The first step is to reduce multivariate problem into a set of univariate problems. The second step is to solve the univaraite problems. The third step is to summarize component tests into a global test.
 
+This framework contains many important methods.
+
+Another classical test statistic, Hotelling-Lawley trace,  can also be derived by Roy's union intersection principle. This is shown by~\cite{Mudholkar1974}.
+ In that paper, they consider the transformed data $\{M^T \bZ: M \textrm{ is } \text{$(k-1)\times p$ matrix}\}$ and the decomposition of hypotheses:
+ $$H_{0}=\bigcap_{M}H_{0M} \quad\text{and}\quad H_1=\bigcup_{M}H_{1M} ,$$
+ where
+ $$
+ H_{0M}: \mytr( M \Xi C) = 0\quad \text{and}\quad H_{1M} : \mytr( M \Xi C )> 0.
+ $$
+
+Note that $\myE Z=\Xi J^T$, hence
+the uniformly minimum variance unbiased estimator of $\mytr(M\Xi C)$ is $\mytr(MZJ C)$.
+It can be seen that
+$
+\mytr \big(MZJ C\big)
+\sim
+N\big(\mytr(M\Xi C),\mytr(M\Sigma M^T )\big)
+$.
+
+%=====================
+%$$
+%\mytr \big(MZJC\big)
+%=
+%\mytr \big(CMZJ\big)
+%$$
+%$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
+%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\xi_i,CM\Sigma M^T C^T)$.
+%Hence we have that
+%$$
+%\mytr \big(CMZJ\big)
+%\sim
+%N(\mytr(CM\Xi),\mytr(CM\Sigma M^T C^T))
+%\sim
+%N(\mytr(M\Xi C),\mytr(M\Sigma M^T )).
+%$$
+%==================
+
+Hence it's natural to use one side $t$ type statistic
+$$
+T_M = \frac{
+\mytr \big(MZJC\big)
+}{
+    \sqrt{\mytr(M G M^T)}
+}
+$$
+to test $H_M$ against $K_M$.
+
+
+
+By Cauchy inequality $\max_B \mytr(AB^T)/\mytr^{1/2}(BB^T)=\mytr^{1/2}(AA^T)$, we have
+$$
+\begin{aligned}
+    \max_M T_M &=\max_M \frac{\mytr \big(MG^{1/2}G^{-1/2}ZJC\big)
+}{\sqrt{\mytr(M G^{1/2} (M G^{1/2})^T)}
+}
+    =\mytr^{1/2}((ZJC)^T G^{-1}ZJC)\\
+    &=\mytr^{1/2}( ZJC(ZJC)^T G^{-1})
+    =\mytr^{1/2}(F G^{-1}).
+\end{aligned}
+$$
+
+====================
+
+In fact, $T_{CX}$ can also be derived by Roy's union intersection principle.
+Suppose $\Omega$ is known,.
+
+$T_{SC}$ can also be derived by a generalized UIT.
+
+We consider two decomposition method, direction projection and coordinate projection, and two summary method, integrating and maximizing.
+
+===================
+
+Note that $T_{CX}$ is designed for high dimensional data, which implies that Roy's union intersection principle may be useful in high dimensional setting.
+
+These examples use Roy's union intersection principle in the same way.
+By a data transformation, a high dimensional problem can be decomposed into univariate problems which are easy to deal with.
+For each univariate problem we construct a LRT.
+Last but not least, we summarize the component LRTs to obtain a global test.
+
+ In another point view, Roy's union intersection principle is data transformation.
+ The idea of Roy's union intersection principle reduce a multivariate problem a class of univariate problems.  
 
 
 
