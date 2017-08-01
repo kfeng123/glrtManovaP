@@ -23,11 +23,6 @@ Chen, S.~X. and Y.~L. Qin (2010).
   gene-set testing.
 \newblock {\em Annals of Statistics\/}~{\em 38\/}(2), 808--835.
 
-\bibitem[\protect\citeauthoryear{E.~L.~Lehmann}{E.~L.~Lehmann}{2005}]{Lehmann}
-E.~L.~Lehmann, J. P.~R. (2005).
-\newblock {\em Testing Statistical Hypotheses}.
-\newblock Springer New York.
-
 \bibitem[\protect\citeauthoryear{Feng, Zou, and Wang}{Feng
   et~al.}{2016}]{Feng2015Multivariate}
 Feng, L., C.~Zou, and Z.~Wang (2016).
@@ -35,18 +30,18 @@ Feng, L., C.~Zou, and Z.~Wang (2016).
   location problem.
 \newblock {\em Journal of the American Statistical Association\/}.
 
+\bibitem[\protect\citeauthoryear{Lopes, Jacob, and Wainwright}{Lopes
+  et~al.}{2015}]{Lopes2015A}
+Lopes, M.~E., L.~J. Jacob, and M.~J. Wainwright (2015).
+\newblock A more powerful two-sample test in high dimensions using random
+  projection.
+\newblock {\em Statistics\/}, 1206--1214.
+
 \bibitem[\protect\citeauthoryear{Ma, Lan, and Wang}{Ma et~al.}{2015}]{Ma2015A}
 Ma, Y., W.~Lan, and H.~Wang (2015).
 \newblock A high dimensional two-sample test under a low dimensional factor
   structure.
 \newblock {\em Journal of Multivariate Analysis\/}~{\em 140}, 162--170.
-
-\bibitem[\protect\citeauthoryear{Mudholkar, Davidson, and Subbaiah}{Mudholkar
-  et~al.}{1974}]{Mudholkar1974}
-Mudholkar, G.~S., M.~L. Davidson, and P.~Subbaiah (1974, dec).
-\newblock A note on the union-intersection character of some {MANOVA}
-  procedures.
-\newblock {\em Journal of Multivariate Analysis\/}~{\em 4\/}(4), 486--493.
 
 \bibitem[\protect\citeauthoryear{Romano}{Romano}{1990}]{Romano1990On}
 Romano, J.~P. (1990).

@@ -361,16 +361,4 @@
   url           = {https://doi.org/10.1016/0047-259x(74)90027-x},
 }
 
-@Article{Lopes2015A,
-  author    = {Lopes, Miles E. and Jacob, Laurent J. and Wainwright, Martin J.},
-  title     = {A More Powerful Two-Sample Test in High Dimensions using Random Projection},
-  journal   = {Statistics},
-  year      = {2015},
-  pages     = {1206-1214},
-  file      = {Lopes2015A.pdf:Lopes2015A.pdf:PDF},
-  groups    = {mean test},
-  owner     = {kfeng123},
-  timestamp = {2017.08.01},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
