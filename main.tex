@@ -632,6 +632,17 @@ The following theorem establishes the asymptotic distribution of $T(Z)$ under sp
     $$
 \end{theorem}
 
+
+\subsection{Variance estimation}
+Under the assumptions of Theorem~\ref{nonSpiked}, we can use 
+Let $W=\tilde{J}^T Z^T Z \tilde{J}$ be the dual covariance matrix. 
+Let $w_{ij}$ be the $(i,j)$th element of $W$.
+We use
+$$\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n}w_{ij}^2$$
+to estimate $\mytr(\Sigma^2)$.
+
+
+
 \section{Comparison with existing tests}
 \label{sc:compare}
 In this section, we revist some existing high dimensional tests in the point of view of union intersection principle.
@@ -1191,6 +1202,7 @@ The following lemma gives the asympototics of $\lambda_{i}(\tilde{J}^T Z^T Z \ti
     $\lambda_{i}(\tilde{J}^T Z^T Z \tilde{J})=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
 \end{lemma}
 \begin{proof}
+    For a matrix $A$, we denote by  $A_{[a:b,c:d]}$ the $a$-to-$b$-th row, $c$-to-$d$-th column of matrix $A$, by $A_{[a:b,:]}$ and $A_{[:,c:d]}$ the $a$-to-$b$-th full rows and $c$-to-$d$-th full columns of $A$ respectively.
 Note that 
 $
 \tilde{J}^T Z^T Z\tilde{J}=
@@ -1198,52 +1210,52 @@ G_1^T \Lambda G_1   = V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T
 $, and 
 $
 G_1^T \Lambda G_1=
-G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]}+
-G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]}
+G_{1[1:r,:]}^T \Lambda_1 G_{1[1:r,:]}+
+G_{1[(r+1):p,:]}^T \Lambda_2 G_{1[(r+1):p,:]}
 $. We have
 $$
 V_{Z\tilde{J}} D_{Z\tilde{J}}^2 V_{Z\tilde{J}}^T=
-G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]}+
-G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]}.
+G_{1[1:r,:]}^T \Lambda_1 G_{1[1:r,:]}+
+G_{1[(r+1):p,:]}^T \Lambda_2 G_{1[(r+1):p,:]}.
 $$
 For $i=1,\ldots, r$,
 \begin{equation}\label{eq:DLower}
 \begin{aligned}
-&\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
+&\lambda_i(G_{1[1:r,:]}^T \Lambda_1 G_{1[1:r,:]})
 \geq
-\lambda_i(G_{1[1:r,]}^T \mydiag(\lambda_i I_{i},O_{(r-i)\times(r-i)}) G_{1[1:r,]})
+\lambda_i(G_{1[1:r,:]}^T \mydiag(\lambda_i I_{i},O_{(r-i)\times(r-i)}) G_{1[1:r,:]})
 \\
 = &
-\lambda_i \lambda_i(G_{1[1:i,]}G_{1[1:i,]}^T)=\lambda_i n(1+o_P(1)),
+\lambda_i \lambda_i(G_{1[1:i,:]}G_{1[1:i,:]}^T)=\lambda_i n(1+o_P(1)),
 \end{aligned}
 \end{equation}
-where the last equality holds since $n^{-1}G_{1[1:i,]}G_{1[1:i,]}^T\xrightarrow{P}I_i$ by law of large numbers.
+where the last equality holds since $n^{-1}G_{1[1:i,:]}G_{1[1:i,:]}^T\xrightarrow{P}I_i$ by law of large numbers.
 On the other hand, for $i=1,\ldots, r$,
 \begin{equation}\label{eq:DUpper}
 \begin{aligned}
-&\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})
+&\lambda_i(G_{1[1:r,:]}^T \Lambda_1 G_{1[1:r,:]})
 \\
 =&\lambda_i\Big(
-G_{1[1:r,]}^T \big(
+G_{1[1:r,:]}^T \big(
 \mydiag(\lambda_1,\ldots,\lambda_{i-1},O_{(r-i+1)\times(r-i+1)})+
 \mydiag(O_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r)
 \big)
-G_{1[1:r,]}
+G_{1[1:r,:]}
 \Big)\\
 \leq&
-\lambda_1(G_{1[1:r,]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) G_{1[1:r,]})
+\lambda_1(G_{1[1:r,:]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) G_{1[1:r,:]})
 \leq
-\lambda_1(G_{1[1:r,]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i I_{r-i+1}) G_{1[1:r,]})
+\lambda_1(G_{1[1:r,:]}^T \mydiag(O_{(i-1)\times(i-1)},\lambda_i I_{r-i+1}) G_{1[1:r,:]})
 \\
 = &
-\lambda_i \lambda_1(G_{1[i:r,]}G_{1[i:r,]}^T)=\lambda_i n(1+o_P(1))
+\lambda_i \lambda_1(G_{1[i:r,:]}G_{1[i:r,:]}^T)=\lambda_i n(1+o_P(1))
 \end{aligned}
 \end{equation}
 where the first inequality holds by Weyl's inequality. It follows from~\eqref{eq:DLower} and~\eqref{eq:DUpper} that 
-$\lambda_i(G_{1[1:r,]}^T \Lambda_1 G_{1[1:r,]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
+$\lambda_i(G_{1[1:r,:]}^T \Lambda_1 G_{1[1:r,:]})=\lambda_i n(1+o_P(1))$ for $i=1,\ldots, r$.
 
 Note that
-$\lambda_{\max}(G_{1[(r+1):p,]}^T \Lambda_2 G_{1[(r+1):p,]})\leq C\lambda_{\max}(G_{1[(r+1):p,]}^T G_{1[(r+1):p,]})=O_P(p)$ by Bai-Yin's law.
+$\lambda_{\max}(G_{1[(r+1):p,:]}^T \Lambda_2 G_{1[(r+1):p,:]})\leq c_1\lambda_{\max}(G_{1[(r+1):p,:]}^T G_{1[(r+1):p,:]})=O_P(p)$ by Bai-Yin's law.
 By assumption $\lambda_r n/p\to \infty$, we can deduce that $D_{Z\tilde{J}[i,i]}^2=\lambda_i(G_1^T \Lambda G_1)=\lambda_i n(1+o_P(1))$, $i=1,\ldots, r$.
 
 
@@ -1271,7 +1283,7 @@ G_1 G_1^T
 $. Thus,
 $$
 \begin{aligned}
-&G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T  
+&G_{1[(r+1):p,:]} G_{1[(r+1):p,:]}^T  
 =\Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}}D_{Z\tilde{J}}^2 U_{Z\tilde{J}}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
 \geq&
 \Lambda_{2}^{-1/2} U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]}D_{Z\tilde{J}[1:r,1:r]}^2 U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]}\Lambda_{2}^{-1/2}\\
@@ -1284,7 +1296,7 @@ It follows that
 $$
 \lambda_{\max}(U_{[,(r+1):p]}^T U_{Z\tilde{J}[,1:r]} U_{Z\tilde{J}[,1:r]}^T U_{[,(r+1):p]})\leq
 \frac{C}{D^2_{Z\tilde{J}[r,r]}} \lambda_{1}
-(G_{1[(r+1):p,]} G_{1[(r+1):p,]}^T)
+(G_{1[(r+1):p,:]} G_{1[(r+1):p,:]}^T)
 =O_P(\frac{p}{\lambda_r n}),
 $$
     where the last equality follows by Lemma~\ref{PCAlemma1} and Weyl's inequality.
