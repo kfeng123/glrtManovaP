@@ -8,45 +8,45 @@ Warning--page numbers missing in Feng2015Multivariate
 Warning--no number and no volume in Lopes2015A
 Warning--no number and no volume in Zhao2016A
 Warning--page numbers missing in Zhao2016A
-You've used 15 entries,
+You've used 16 entries,
             2861 wiz_defined-function locations,
-            720 strings with 7369 characters,
-and the built_in function-call counts, 11973 in all, are:
-= -- 1039
-> -- 764
-< -- 0
-+ -- 234
-- -- 260
-* -- 1148
-:= -- 2067
-add.period$ -- 45
-call.type$ -- 15
-change.case$ -- 109
-chr.to.int$ -- 15
-cite$ -- 20
-duplicate$ -- 264
-empty$ -- 805
-format.name$ -- 304
-if$ -- 2282
+            728 strings with 7518 characters,
+and the built_in function-call counts, 12627 in all, are:
+= -- 1091
+> -- 816
+< -- 1
++ -- 250
+- -- 280
+* -- 1202
+:= -- 2194
+add.period$ -- 49
+call.type$ -- 16
+change.case$ -- 115
+chr.to.int$ -- 16
+cite$ -- 21
+duplicate$ -- 282
+empty$ -- 841
+format.name$ -- 328
+if$ -- 2399
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 78
-num.names$ -- 150
-pop$ -- 64
+missing$ -- 17
+newline$ -- 84
+num.names$ -- 160
+pop$ -- 69
 preamble$ -- 1
-purify$ -- 199
+purify$ -- 212
 quote$ -- 0
-skip$ -- 281
+skip$ -- 305
 stack$ -- 0
-substring$ -- 1085
-swap$ -- 86
-text.length$ -- 0
+substring$ -- 1105
+swap$ -- 92
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 300
+type$ -- 310
 warning$ -- 5
-while$ -- 140
+while$ -- 150
 width$ -- 0
-write$ -- 197
+write$ -- 214
 (There were 5 warnings)

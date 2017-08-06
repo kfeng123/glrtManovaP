@@ -373,4 +373,22 @@
   timestamp = {2017.08.01},
 }
 
+@Book{DAVIDSON2001317,
+  title     = {Handbook of the Geometry of Banach Spaces},
+  publisher = {North-Holland},
+  year      = {2001},
+  author    = {Kenneth R. Davidson and Stanislaw J. Szarek},
+  volume    = {1},
+  address   = {Amsterdam},
+  note      = {Handbook of the Geometry of Banach Spaces},
+  doi       = {http://dx.doi.org/10.1016/S1874-5849(01)80010-3},
+  file      = {DAVIDSON2001317.pdf:DAVIDSON2001317.pdf:PDF},
+  issn      = {1874-5849},
+  journal   = {Handbook of the Geometry of Banach Spaces},
+  owner     = {kfeng123},
+  pages     = {317 - 366},
+  timestamp = {2017.08.06},
+  url       = {http://www.sciencedirect.com/science/article/pii/S1874584901800103},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
