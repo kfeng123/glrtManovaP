@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.24)  8 AUG 2017 21:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.6.24)  9 AUG 2017 21:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,57 +560,42 @@ Overfull \hbox (16.14622pt too wide) detected at line 650
 [] []
  []
 
-[13]
-Overfull \hbox (21.52072pt too wide) detected at line 701
-\OML/cmm/m/it/12 Y[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 U[]U[] \OMS/cmsy/m/n/12 ^
-^@ \OT1/cmr/bx/n/12 U[]U[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 Y[] \OMS/cmsy/m/n/1
-2 ^^T k\OT1/cmr/bx/n/12 U[]U[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 U[]U[]\OMS
-/cmsy/m/n/12 k\OML/cmm/m/it/12 Y[]Y[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[]\OT
-1/cmr/m/n/12 ([])\OML/cmm/m/it/12 O[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 ^^U[]r \
-OT1/cmr/m/n/12 + \OML/cmm/m/it/12 p\OT1/cmr/m/n/12 )
- []
-
-
-Overfull \hbox (63.0717pt too wide) detected at line 718
-[] []
- []
-
-[14] [15] [16] [17] [18]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 885.
+[13] [14] [15] [16] [17] [18]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 880.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 885.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 880.
  [19]
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 912--931
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 907--926
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 937--956
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 932--951
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 962--981
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 957--976
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 987--1006
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 982--1001
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1012--1031
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 1007--1026
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1037--1056
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 1032--1051
  [][] 
  []
 
@@ -619,69 +604,69 @@ Overfull \hbox (8.38896pt too wide) in paragraph at lines 1037--1056
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [22pdfTeX warning (ext4): destination with the sam
 e identifier (name{table.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [23pdfTeX warning (ext4): destination with the sam
 e identifier (name{table.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [24pdfTeX warning (ext4): destination with the sam
 e identifier (name{table.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [25pdfTeX warning (ext4): destination with the sam
 e identifier (name{table.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [26pdfTeX warning (ext4): destination with the sam
 e identifier (name{table.6}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1078     \begin{equation}
+l.1073     \begin{equation}
                            ] [27]
-Overfull \hbox (7.60544pt too wide) detected at line 1143
+Overfull \hbox (7.60544pt too wide) detected at line 1138
 [] []
  []
 
 [28]
-Overfull \hbox (35.17683pt too wide) detected at line 1177
+Overfull \hbox (35.17683pt too wide) detected at line 1172
 [] []
  []
 
 
-Overfull \hbox (15.794pt too wide) detected at line 1220
+Overfull \hbox (15.794pt too wide) detected at line 1215
 [] []
  []
 
 [29]
-Overfull \hbox (109.53506pt too wide) detected at line 1237
+Overfull \hbox (109.53506pt too wide) detected at line 1232
 [] []
  []
 
 
-Overfull \hbox (83.59691pt too wide) detected at line 1270
+Overfull \hbox (83.59691pt too wide) detected at line 1265
 [][][] [] \OT1/cmr/bx/n/12 W[]\OML/cmm/m/it/12 :
  []
 
 [30] [31]
-Overfull \hbox (40.61479pt too wide) detected at line 1353
+Overfull \hbox (40.61479pt too wide) detected at line 1348
 [] []
  []
 
 
-Overfull \hbox (53.54626pt too wide) detected at line 1358
+Overfull \hbox (53.54626pt too wide) detected at line 1353
 [] [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[] \OMS/cmsy/m/n/12 ^^T [] [][][]
  ^^@ \OT1/cmr/m/n/12 1[]\OML/cmm/m/it/12 ; [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 1[][] + []\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 G[]G[]\
@@ -689,17 +674,17 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (78.95969pt too wide) detected at line 1367
+Overfull \hbox (78.95969pt too wide) detected at line 1362
 [] []
  []
 
 [32]
-Overfull \hbox (17.31229pt too wide) detected at line 1418
+Overfull \hbox (17.31229pt too wide) detected at line 1413
 [] \OT1/cmr/m/n/12 = []
  []
 
 
-Overfull \hbox (80.19566pt too wide) detected at line 1439
+Overfull \hbox (80.19566pt too wide) detected at line 1434
 [] [][]\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ [] ^^@ \OML/cmm/m/it/12 t\OT1/c
 mr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^T [][] ^^T []\OT1/cmr/m/n/12 ([] + [] + \OML/c
 mm/m/it/12 t\OT1/cmr/m/n/12 )[][] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/c
@@ -708,27 +693,27 @@ msy/m/n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML
  []
 
 [33] [34]
-Overfull \hbox (4.03224pt too wide) detected at line 1491
+Overfull \hbox (4.03224pt too wide) detected at line 1486
 [] []
  []
 
 
-Overfull \hbox (62.34804pt too wide) detected at line 1508
+Overfull \hbox (62.34804pt too wide) detected at line 1503
 [] []
  []
 
 
-Overfull \hbox (96.73645pt too wide) detected at line 1551
+Overfull \hbox (96.73645pt too wide) detected at line 1546
 [] []
  []
 
 [35]
-Overfull \hbox (31.56332pt too wide) detected at line 1602
+Overfull \hbox (31.56332pt too wide) detected at line 1597
 [] []
  []
 
 [36]
-Overfull \hbox (11.2605pt too wide) in paragraph at lines 1629--1632
+Overfull \hbox (11.2605pt too wide) in paragraph at lines 1624--1627
 \OT1/cmr/m/n/12 The last equal-ity holds when we as-sume $[]\OMS/cmsy/m/n/12 k\
 OT1/cmr/m/n/12 ^^D\OT1/cmr/bx/n/12 C\OMS/cmsy/m/n/12 k[] \OT1/cmr/m/n/12 = \OML
 /cmm/m/it/12 O\OT1/cmr/m/n/12 (1)$. Hence $\OMS/cmsy/m/n/12 k\OT1/cmr/bx/n/12 C
@@ -736,21 +721,25 @@ OT1/cmr/m/n/12 ^^D\OT1/cmr/bx/n/12 C\OMS/cmsy/m/n/12 k[] \OT1/cmr/m/n/12 = \OML
  []
 
 
-Overfull \hbox (55.86398pt too wide) detected at line 1639
+Overfull \hbox (55.86398pt too wide) detected at line 1634
 [] []
  []
 
 [37] (./main.bbl [38] [39])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1702.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1697.
  [40]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1702.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1697.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1702.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1702.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1697.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1697.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 27A8FC7FD9A61AF5268DA7E619BF3E69;532.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1702.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1697.
  ) 
 Here is how much of TeX's memory you used:
  7881 strings out of 493029
@@ -776,7 +765,7 @@ re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texl
 ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dis
 t/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (40 pages, 301071 bytes).
+Output written on main.pdf (40 pages, 300518 bytes).
 PDF statistics:
  485 PDF objects out of 1000 (max. 8388607)
  421 compressed objects within 5 object streams

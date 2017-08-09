@@ -653,7 +653,7 @@ The following theorem establishes the asymptotic distribution of $T(\bX)$ under 
 
 \subsection{Variance estimation}
 %Under the assumptions of Theorem~\ref{nonSpiked}.
-Let $w_{ij}$ be the $(i,j)$th element of $\bY^T \bU_{\bY,2} \bU_{\bY,2}^T \bY$.
+Let $w_{ij}$ be the $(i,j)$th element of $\bY^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bY$.
 We use
 $$\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}w_{ij}^2$$
 to estimate $\mytr(\Lambda_2^2)$.
@@ -662,64 +662,59 @@ to estimate $\mytr(\Lambda_2^2)$.
 
 \end{proposition}
 \begin{proof}
-    $$
-    \begin{aligned}
-    \sum_{1\leq i < j\leq n-k} w_{ij}^2=
-        \frac{1}{2}(\sum_{i=1}^{n-k}\sum_{j=1}^{n-k} w_{ij}^2-\sum_{i=1}^{n-k}w_{ii}^2)
-    \end{aligned}
-    $$
-    Note that
-    $$
-    \begin{aligned}
-\sum_{i=1}^{n-k}\sum_{j=1}^{n-k} w_{ij}^2
-        &=\mytr(\bY^T \bU_{\bY,2} \bU_{\bY,2}^T \bY)^2\\
-        &=\mytr(\bU_{\bY,2}^T \bY\bY^T \bU_{\bY,2} )^2\\
-        &=\sum_{i=r+1}^{p}\lambda_i^2(\bY\bY^T)\\
-        &=\sum_{i=r+1}^{n-k}\lambda_i^2(\bY^T\bY).
-    \end{aligned}
-    $$
-    Note that $\bY^T\bY=\bG_{1A}^T \Lambda_1 \bG_{1A}+\bG_{1B}^T \Lambda_2 \bG_{1B}$. For $r+1\leq i\leq n-k$,
-    $$
-    \lambda_i (\bG_{1B}^T \Lambda_2 \bG_{1B})\leq \lambda_i(\bY^T \bY)\leq \lambda_{i-r}(\bG_{1B}^T \Lambda_2 \bG_{1B}).
-    $$
-    Then
-    $$
-    \Big|\sum_{i=r+1}^{n-k}\lambda_i^2(\bY^T \bY)-\sum_{i=1}^{n-k}\lambda_i^2 (\bG_{1B}^T \Lambda_2 \bG_{1B})\Big|\leq
-    r\lambda_{1}^2(\bG_{1B}^T \Lambda_2 \bG_{1B})=O_P(r p^2).
-    $$
-
-    For $w_{ii}$, we have
-    $$
-    w_{ii} = Y_i^T \bU_{\bY,2}\bU_{\bY,2}Y_i
-     = Y_i^T (\bU_{\bY,2}\bU_{\bY,2}^T-\bU_2 \bU_2^T)Y_i
-     + Y_i^T \bU_2 \bU_2^T Y_i.
-    $$
-Since
+For $1\leq i<j\leq n-k$, we have
 $$
-      Y_i^T (\bU_{\bY,2}\bU_{\bY,2}^T-\bU_2 \bU_2^T)Y_i\leq
-     \|\bU_{\bY,2}\bU_{\bY,2}^T-\bU_2 \bU_2^T\| Y_i^T Y_i=O_P(\sqrt{\frac{p}{n\lambda_r}})O_P(\lambda_1 r+p)
+    \begin{aligned}
+        w_{ij}-Y_i^T \bU_{2} \bU_{2}^T Y_j
+        =&Y_i^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2 \bU_2^T) Y_j\\
+        =&Y_i^T \bU_2 \bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_2 \bU_2^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j
+    \end{aligned}
+$$
+But 
+$$
+        \begin{aligned}
+        &Y_i^T \bU_2 \bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bU_2^T Y_j\\
+        =&O_P(1)\sqrt{p}
+            \lambda_1(\Lambda_2^{1/2}\bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \Lambda_2^{1/2})\\
+        =&O_P(1)\sqrt{p}
+            \lambda_1(\bU_2^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T\bU_2-\bI_{p-r})
+            =O_P(\sqrt{p}\frac{p}{\lambda_r n})
+        \end{aligned}
     $$
-    and $ Y_i^T \bU_2 \bU_2^T Y_i\asymp p$, we have 
-    $$w_{ii}^2=(Y_i^T \bU_2 \bU_2^T Y_i)^2+O_P(\sqrt{\frac{p}{n\lambda_r}}(\lambda_1 r+p)p)+O_P(\frac{p}{n\lambda_r}(\lambda_1 r +p)^2)$$
 
-
-    Hence
+    and
     $$
     \begin{aligned}
-        &\sum_{1\leq i < j\leq n-k} w_{ij}^2=
-        \frac{1}{2}(\sum_{i=1}^{n-k}\sum_{j=1}^{n-k} w_{ij}^2-\sum_{i=1}^{n-k}w_{ii}^2)\\
+        &Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_2 \bU_2^T Y_j\\
         =&
-        \sum_{1\leq i < j\leq n-k} (\bY^T \bU_2 \bU_2^T \bY)_{ij}^2
-        +O_P(rp^2)+n(O_P(\sqrt{\frac{p}{n\lambda_r}}(\lambda_1 r+p)p)+O_P(\frac{p}{n\lambda_r}(\lambda_1 r +p)^2))\\
+        O_P(1)\sqrt{r}\|\Lambda_1^{1/2}\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_2 \Lambda_2^{1/2}\|\\
         =&
-        \sum_{1\leq i < j\leq n-k} (\bY^T \bU_2 \bU_2^T \bY)_{ij}^2
-        +o_P(n^2 p)
+        O_P(1)\sqrt{r\lambda_1}\|\bU_1^T \bU_{\bY,2;(i,j)}\|\\
+        =&
+        O_P(1)\sqrt{r\lambda_1}\sqrt{\frac{p}{\lambda_r n}}\\
+        =&
+        O_P(\sqrt{\frac{pr \lambda_1}{\lambda_r n}})\\
     \end{aligned}
     $$
-    provided
-    $$
-    \frac{rp}{n^2} \to 0.
-    $$
+    and
+$$
+\begin{aligned}
+&Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+=
+    &O_P(1)\sqrt{r}\|\Lambda_1^{1/2}\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_1 \Lambda_1^{1/2}\|\\
+    =
+    &O_P(1)\sqrt{r}\lambda_1\|\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_1\|\\
+    =
+    &O_P(1)\sqrt{r}\lambda_1 \frac{p}{\lambda_r n}
+\end{aligned}
+$$
+
+    Hence $w_{ij}=Y_i^T \bU_2 \bU_2^T Y_j+o_P(\sqrt{p})$
+
+    Hence $w_{ij}=(Y_i^T \bU_2 \bU_2^T Y_j)^2+o_P(p)$
 
 \end{proof}
 
