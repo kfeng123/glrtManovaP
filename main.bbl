@@ -30,6 +30,12 @@ Davidson, K.~R. and S.~J. Szarek (2001).
 \newblock Amsterdam: North-Holland.
 \newblock Handbook of the Geometry of Banach Spaces.
 
+\bibitem[\protect\citeauthoryear{Davis and Kahan}{Davis and
+  Kahan}{1970}]{Davis1970The}
+Davis, C. and W.~M. Kahan (1970).
+\newblock The rotation of eigenvectors by a perturbation. iii.
+\newblock {\em Siam Journal on Numerical Analysis\/}~{\em 7\/}(1), 1--46.
+
 \bibitem[\protect\citeauthoryear{Feng, Zou, and Wang}{Feng
   et~al.}{2016}]{Feng2015Multivariate}
 Feng, L., C.~Zou, and Z.~Wang (2016).
