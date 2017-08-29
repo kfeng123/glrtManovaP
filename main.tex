@@ -625,24 +625,6 @@ Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries ab
 The random matrix $\bW_{k-1}$ will appear in the asymptotic distribution of $T(\bX)$.
 Let $\bSigma= \bU\bLambda \bU^T$ be the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
 
-The following theorem establishes the asymptotic distribution of $T(\bX)$ under non-spiked covariance.
-\begin{theorem}\label{nonSpiked}
-    Suppose $p/n\to \infty$, $c_1\geq \blambda_1\geq \cdots\geq \blambda_p\geq c_2$ and
-    $$
-    \mytr\Big(\bSigma-\frac{1}{p}(\mytr\bSigma)\bI_p\Big)^2=o\big(\frac{p}{n}\big).
-    $$
-    Under local alternative $p^{-1}\|\Xi \bC\|_F^2\to 0$,
-    we have
-    %$$
-    %{\Big(2\mytr (\bSigma^2)\Big)}^{-1/2}{\Big(C^TJ^T Z^T(\bI_p-\bP_{Z\tilde J}) ZJC- \frac{p-n+k}{p}\mytr(\bSigma)\bI_{k-1}-C^T \Xi^T (\bI_p-\bP_{Z\tilde{J}})\Xi C}\Big)
-    %\xrightarrow{\mathcal{L}}\bW_{k-1}.
-    %$$
-    $$
-    \frac{T(\bX)-\frac{p-n+k}{p}\mytr(\bSigma)}{\sqrt{\mytr(\bSigma^2)}}
-    \sim
-    \lambda_{\max}\Big( \bW_{k-1} +\frac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\Big)+o_P(1).
-    $$
-\end{theorem}
 
 
 
@@ -650,13 +632,13 @@ For some real world problems, variables are heavily correlated with common facto
 To characterize this correlation, we make the following assumption for the eigenvalues of $\bSigma$.
 
 \begin{assumption}\label{assumpEigen}
-    Let $r$ be a fixed integer.
+    Suppose $r=o(n)$.
     We assume
  $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some absolute constants $c_1$ and $c_2$.
     For large eigenvalues $\blambda_1,\ldots,\blambda_r$,
     we assume 
-    $$\frac{\lambda_r(\bSigma) n}{p}\to \infty,\quad
-    \frac{\lambda_1(\bSigma)^2 p}{\lambda_r(\bSigma)^2 n^2}\to 0.$$
+    $$\frac{\blambda_r n}{p}\to \infty,\quad
+    \frac{\blambda_1^2 pr}{\blambda_r^2 n^2}\to 0.$$
 \end{assumption}
 
 
@@ -1334,141 +1316,6 @@ Then
 \sum_{i=1}^p \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\xi_i \xi_i^T,
 \end{equation}
 where $\xi_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$.
-\begin{proof}[\textrm{Proof of Theorem~\ref{nonSpiked}}]
-    We deal with the three terms of~\eqref{eq:maindec} separately.
-    The first term of~\eqref{eq:maindec} relies on the eigenvalues of $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$.
-    Trivially, the eigenvalues of $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$ have  upper bound
-    \begin{equation}\label{eq:EigU}
-    \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\leq
-        \blambda_i,\quad \text{$i=1,\ldots, p$.}
-    \end{equation}
-    On the other hand, we note that $\bP_{\bY}$ has rank $n-k$.  By Weyl's inequality, we have lower bound
-    \begin{equation}\label{eq:EigL}
-    \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\geq
-        \blambda_{i+n-k},\quad \text{$i=1,\ldots, p-n+k$}.
-    \end{equation}
-    Inequality~\eqref{eq:EigU} and~\eqref{eq:EigL} imply that
-    $$
-    \begin{aligned}
-        \frac{\lambda_1^2(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2})}{\sum_{i=1}^p \lambda_i^2(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2})}
-    \leq
-        \frac{c_1}{c_2(p-n+k)}\to 0.
-    \end{aligned}
-    $$
-    Apply Lyapunov central limit theorem conditioning on $\bY$, we have
-    \begin{equation}\label{eq:haipa1}
-    \begin{aligned}
-        &\Big( \mytr\big(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\big)^2\Big)^{-1/2}\\
-        &{\Big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2-\mytr\big(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\big)\bI_{k-1}\Big)}
-    \xrightarrow{\mathcal{L}} \bW_{k-1}.
-    \end{aligned}
-    \end{equation}
-
-    Another implication of~\eqref{eq:EigU} and~\eqref{eq:EigL} is that
-    $$
-    \sum_{i=n-k+1}^p \blambda_i^2
-    \leq
-    \mytr\Big((\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})^2\Big)\leq
-    \mytr(\bLambda^2).
-    $$ 
-    It follows that
-    \begin{equation}\label{eq:haipa2}
-    \mytr\Big((\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})^2\Big)
-    =
-    \mytr(\bSigma^2)+O_P(n)
-    =
-    \big(1+O_P(\frac{n}{p})\big)\mytr(\bSigma^2).
-    \end{equation}
-    To deal with
-    $
-    \mytr(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})
-    =
-    \mytr(\bSigma)-\mytr(\bP_{\bY}\bU\bLambda \bU^T)
-    $,
-    we note that
-    $$
-    \begin{aligned}
-        &
-        \big|
-    \mytr(\bP_{\bY}\bU\bLambda \bU^T)
-    -\frac{n-k}{p}\mytr(\bLambda)
-    \big|
-    =
-    \big|
-    \mytr\Big(\bP_{\bY} \bU \big(\bLambda-\frac{1}{p} (\mytr \bLambda) \bI_p \big) \bU^T\Big)
-    \big|
-        \\
-        \leq &
-        \sqrt{\mytr \big(\bP_{\bY}^2\big)}
-        \sqrt{\mytr \Big(\bLambda-\frac{1}{p}\big(\mytr \bLambda\big) \bI_p\Big)^2}
-        =\sqrt{(n-k)\mytr \Big(\bLambda-\frac{1}{p}\big(\mytr \bLambda\big) \bI_p\Big)^2}
-        =o(\sqrt{p}).
-    \end{aligned}
-    $$
-    Hence 
-    \begin{equation}\label{eq:haipa3}
-    \mytr(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})
-    =
-    \frac{p-n+k}{p}\mytr(\bSigma)+o(\sqrt{p}).
-    \end{equation}
-    It follows from~\eqref{eq:haipa1},~\eqref{eq:haipa2} and~\eqref{eq:haipa3} that
-    $$
-    \begin{aligned}
-        &\Big(\sum_{i=1}^p \lambda_i^2(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\Big)^{-1/2}\\
-        &{\Big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2-\sum_{i=1}^p \lambda_i(\bLambda^{1/2}\bU^T(\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\bI_{k-1}\Big)}\\
-        =&
-        {\Big( (1+O_P(\frac{n}{p}))\mytr (\bSigma^2)\Big) }^{-1/2} {\Big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2-
-        \big(\frac{p-n+k}{p}\mytr(\bSigma)+O_P(\sqrt{p})\big)\bI_{k-1}
-        \Big)}
-    \end{aligned}
-    $$
-    By Slutsky's theorem, we have that
-    $$
-    \frac{1}{\sqrt{\mytr(\bSigma^2)}}
-    {\Big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2-
-        \frac{p-n+k}{p}\mytr(\bSigma)\bI_{k-1}\Big)}
-    \xrightarrow{\mathcal{L}}\bW_{k-1}
-    $$
-
-    Note that
-    $$
-    \begin{aligned}
-        &\myE\Big(\| \bC^T \Xi^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2\Big)\\
-        = &
-        (k-1)\myE \Big(\mytr\big(
-        \bC^T \Xi^T (\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\Xi \bC
-        \big)\Big)\\
-        \leq &
-        (k-1)\myE \Big(\lambda_1\big(
-         (\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})
-        \big)\Big)
-        \|\Xi \bC\|_F^2\\
-        \leq &
-        (k-1)\blambda_1\|\Xi \bC\|_F^2
-        \leq 
-        (k-1)c_1 \|\Xi \bC\|_F^2=o(p),
-    \end{aligned}
-    $$
-    we have
-    $$
-    \frac{1}{\sqrt{\mytr(\bSigma^2)}}
-    {\Big(\bC^T\bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX \bJ\bC- \frac{p-n+k}{p}\mytr(\bSigma)\bI_{k-1}-\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC}\Big)
-    \xrightarrow{\mathcal{L}}\bW_{k-1}.
-    $$
-    Equivalently, we have
-    $$
-    \begin{aligned}
-        &
-    \frac{1}{\sqrt{\mytr(\bSigma^2)}}
-        {\Big(\bC^T \bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX \bJ\bC- \frac{p-n+k}{p}\mytr(\bSigma)\bI_{k-1}}\Big)\\
-        \sim&
-    \frac{1}{\sqrt{\mytr(\bSigma^2)}}
-         \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC
-        +\bW_{k-1}+o_P(1).
-    \end{aligned}
-    $$
-    Then the conclusion follows by taking the maximum eigenvalue.
-\end{proof}
 
 
 
@@ -1652,21 +1499,26 @@ $$
 $$
 \end{proof}
 
-\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
-    As in the proof of Theorem~\ref{nonSpiked}, for $i=r+1,\ldots, p$, we have
-    \begin{equation}\label{eq:mybound1}
-    \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\leq
-    \lambda_i (\bLambda).
-    \end{equation}
-     And for $i=1,\ldots, p-n+k$, we have
-    \begin{equation}\label{eq:mybound2}
-    \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\geq
-    \lambda_{i+n-k} (\bLambda).
-    \end{equation}
-
-    Next, we need to give an upper bound for $\lambda_i(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})$, $i=1,\ldots,r$.
-    Note that the positive eigenvalues of $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$  equal to the positive eigenvalues of $(\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})$.
-Write $(\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})$ as the sum of two terms
+\begin{lemma}\label{gg:Lemma1}
+    Under Assumption xxx,
+    we have the following upper and lower bound for $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$.
+    \begin{align}
+        &\lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\geq
+        \blambda_{i+n-k},\quad 
+        \text{$i=1,\ldots, p-n+k$},
+        \label{eq:mybound2}\\
+        &\lambda_i\big(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\big)= O_P(\frac{\blambda_1 p}{\blambda_r n}) + c_1,\quad
+        \text{$i=1,\ldots, r$},\label{eq:mybound3}\\
+        &\lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\leq
+        \blambda_i, \quad 
+        \text{$i=r+1,\ldots, p$}.\label{eq:mybound1}
+    \end{align}
+\end{lemma}
+\begin{proof}
+    The inequality~\eqref{eq:mybound1} follows from the fact $\bI_p-\bP_{\bY}\leq \bI_p$.
+    The inequality~\eqref{eq:mybound2} follows from the fact that $\myrank(\bP_{\bY})\leq n-k$ and Weyl's inequality.
+    As for inequality~\eqref{eq:mybound3}, note that the positive eigenvalues of $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$  equal to the positive eigenvalues of $(\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})$.
+We write $(\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})$ as the sum of two terms
 $$
 \begin{aligned}
 &(\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})
@@ -1676,47 +1528,75 @@ $$
 \overset{def}{=}\bR_1+\bR_2.
 \end{aligned}
 $$
-
-Note that
+Lemma~\ref{PCAlemma2} can be applied to control the largest eigenvalue of $\bR_1$:
 $$
 \begin{aligned}
-&\lambda_{\max}\big( \bR_1 \big)
+&\lambda_{1}\big( \bR_1 \big)
 =
-\lambda_{\max}\big(\bLambda_1^{1/2} \bU_1^T(\bI_p-\bP_{\bY}) \bU_1 \bLambda_1^{1/2}\big)
+\lambda_{1}\big(\bLambda_1^{1/2} \bU_1^T(\bI_p-\bP_{\bY}) \bU_1 \bLambda_1^{1/2}\big)
 \leq 
-\lambda_{\max}\big(\bLambda_1^{1/2} \bU_1^T(\bI_p-\bU_{\bY,1}\bU_{\bY,1}^T) \bU_1 \bLambda_1^{1/2}\big)\\
+\lambda_{1}\big(\bLambda_1^{1/2} \bU_1^T(\bI_p-\bU_{\bY,1}\bU_{\bY,1}^T) \bU_1 \bLambda_1^{1/2}\big)\\
 \leq &
-\lambda_1
-\lambda_{\max}\big(\bU_1^T(\bI_p-\bU_{\bY,1}\bU_{\bY,1}^T) \bU_1 \big)
+\blambda_1
+\lambda_{1}\big(\bU_1^T(\bI_p-\bU_{\bY,1}\bU_{\bY,1}^T) \bU_1 \big)
 = 
-\lambda_1
-\lambda_{\max}\big(\bI_r - \bU_1^T\bU_{\bY,1}\bU_{\bY,1}^T \bU_1 \big)=O_P(\frac{\lambda_1 p}{\lambda_r n}).
+\blambda_1
+\lambda_{1}\big(\bI_r - \bU_1^T\bU_{\bY,1}\bU_{\bY,1}^T \bU_1 \big)
+=
+O_P(\frac{\blambda_1 p}{\blambda_r n}).
 \end{aligned}
 $$
-    The last equality follows by Lemma~\ref{PCAlemma2}.
 Thus, for $i=1,\ldots, r$, we have
-    \begin{equation}\label{eq:mybound3}
-\lambda_i\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)\leq
-\lambda_1(\bR_1)+\lambda_1(\bR_2)= O_P(\frac{\lambda_1 p}{\lambda_r n}) + c_1.
+    $$\lambda_i(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})
+        \leq \lambda_1(\bR_1)+\lambda_1(\bR_2)= O_P(\frac{\blambda_1 p}{\blambda_r n}) + c_1.
+    $$
+\end{proof}
+\begin{lemma}\label{gg:Lemma2}
+Under Assumption xxx, we have
+    \begin{equation}\label{eq:spiketrace2}
+        \mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
+= \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)+o_P(\sqrt{p}),
 \end{equation}
-
-    As a consequence of the bound~\eqref{eq:mybound1},~\eqref{eq:mybound2} and~\eqref{eq:mybound3}, we have
+and
+    \begin{equation}\label{eq:spiketrace1}
+    \mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2 
+ =(1+o_P(1))\mytr(\bLambda_2^2).
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    By Lemma~\ref{gg:Lemma1}, we have
 $$
-    \sum_{i=n-k+1}^p \lambda_i^2\leq \mytr\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2 \leq  r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c_1)^2+\sum_{i=r+1}^p \lambda_i^2.
+    \sum_{i=n-k+1}^p \blambda_i^2\leq \mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2 \leq  r(O_P(\frac{\blambda_1 p}{\blambda_r n})+c_1)^2+\sum_{i=r+1}^p \blambda_i^2.
 $$
     Hence
-    \begin{equation}\label{eq:spiketrace1}
-    \big|\mytr\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2 - \sum_{i=r+1}^p \lambda_i^2 \big|\leq 
-    r(O_P(\frac{\lambda_1 p}{\lambda_r n})+c_1)^2+O(n).
-    \end{equation}
+    \begin{equation*}
+        \begin{aligned}
+        &\big|\mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2 - \sum_{i=r+1}^p \blambda_i^2 \big|\\
+        \leq &
+            \max\Big(\sum_{i=r+1}^{n-k} \blambda_i^2 , r(O_P(\frac{\blambda_1 p}{\blambda_r n})+c_1)^2\Big)\\
+        \leq &
+            r(O_P(\frac{\blambda_1 p}{\blambda_r n})+c_1)^2+O(n)=o_P(p).
+        \end{aligned}
+    \end{equation*}
+    Then~\eqref{eq:spiketrace1} holds.
 
-Note that
+    Now we prove~\eqref{eq:spiketrace2}. Note that
     $$
-    \mytr(\bR_2)
+\mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
+=
+\mytr\big(\bLambda_1^{1/2} \bU_1^T (\bI_p-\bP_{\bY})\bU_1 \bLambda_1^{1/2}\big)
++
+\mytr\big(\bLambda_2^{1/2} \bU_2^T (\bI_p-\bP_{\bY})\bU_2 \bLambda_2^{1/2}\big).
+    $$
+    By Lemma~\ref{gg:Lemma1}, we have 
+    $$\mytr\big(\bLambda_1^{1/2} \bU_1^T (\bI_p-\bP_{\bY})\bU_1 \bLambda_1^{1/2}\big)=O_P(\frac{\blambda_1 p r}{\blambda_r n})=o_P(\sqrt{p}).$$
+    The second term can be written as
+    $
+    \mytr\big(\bLambda_2^{1/2} \bU_2^T (\bI_p-\bP_{\bY})\bU_2 \bLambda_2^{1/2}\big)
     =
-    \mytr(\bLambda_2)-\mytr(\bP_{\bY}\bU_2\bLambda_2 \bU_2^T).
-    $$ 
-and
+    \mytr(\bLambda_2)-\mytr(\bP_{\bY}\bU_2\bLambda_2 \bU_2^T)
+    $.
+    For $\mytr(\bP_{\bY}\bU_2\bLambda_2 \bU_2^T)$, we have
     $$
     \begin{aligned}
         &
@@ -1738,29 +1618,19 @@ and
     $$
     Hence 
     $$
-    \mytr(\bR_2)
+    \mytr\big(\bLambda_2^{1/2} \bU_2^T (\bI_p-\bP_{\bY})\bU_2 \bLambda_2^{1/2}\big)
     =
     \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)+o(\sqrt{p}).
     $$
-    Then
-\begin{equation}\label{eq:spiketrace2}
-\big| \mytr [(\bR_1+\bR_2)]-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\big|\leq 
-rO_P\big(\frac{\lambda_1 p}{\lambda_r n}\big)+o(\sqrt{p}).
-\end{equation}
-Equation~\eqref{eq:spiketrace1} and~\eqref{eq:spiketrace2}, combined with the assumptions, yield
-$$
-    \mytr\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2 
- =(1+o_P(1))\mytr(\bLambda_2),
-$$
-and
-$$
-\mytr\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)
-= \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)+o_P(\sqrt{p}).
-$$
+    Then~\eqref{eq:spiketrace2} holds.
+\end{proof}
 
-Now we have the Lyapunov condition
+\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
+
+    We deal with the three terms of~\eqref{eq:maindec} separately.
+    Lemma~\eqref{gg:Lemma1} implies that the first term satisfies the Lyapunov condition
 $$
-\frac{\lambda_1\Big(\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2\Big)}{\mytr \Big( \big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2\Big)}
+    \frac{\lambda_1\Big(\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}{\mytr \Big( \big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}
 %\leq
 %\frac{
 %\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
@@ -1771,7 +1641,7 @@ $$
 %}{c(p-r-n+k)}
 =
 \frac{
-\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+c_1\big)^2
+\big( O_P(\frac{\blambda_1 p}{\blambda_r n})+c_1\big)^2
 }{
     (1+o_P(1))\mytr(\bLambda_2)
 }
@@ -1780,15 +1650,15 @@ $$
 Apply Lyapunov central limit theorem conditioning on $\bP_{\bY}$, we have
 $$
 \begin{aligned}
-    &\Big(\mytr \Big( \big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)^2\Big) \Big)^{-1/2}\\
+    &\Big(\mytr \Big(\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big) \Big)^{-1/2}\\
     &\big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2
-    -\mytr\big((\bI_p-\bP_{\bY})\bU\bLambda \bU^T (\bI_p-\bP_{\bY})\big)
+    -\mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
      \bI_{k-1} \big)
 \xrightarrow{\mathcal{L}} \bW_{k-1},
 \end{aligned}
 $$
 where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
-By Slutsky's theorem, we have
+    This, combined with Lemma~\ref{gg:Lemma2} and Slutsky's theorem, yields
 $$
 \begin{aligned}
     \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
@@ -1798,9 +1668,7 @@ $$
 \end{aligned}
 $$
 
-
-
-As for the cross term of~\eqref{eq:maindec}, we have
+Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
 $$
 \begin{aligned}
     &\myE [\|\bC^T \Xi^T (\bI_p -\bP_{Z\tilde{J}})\bU\bLambda^{1/2}\bG_2\|_F^2|\bY]\\
@@ -1808,14 +1676,16 @@ $$
     (k-1)\mytr(\bC^T \Xi^T (\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\Xi \bC)\\
     \leq &
     (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\big)\|\Xi \bC\|^2_F\\
+    \leq &
+    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^T (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\Xi \bC\|^2_F\\
     = &
-    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n})  \|\Xi \bC\|^2_F\\
+    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n}+c_1)  \|\Xi \bC\|^2_F\\
     = &
-    (k-1) O_P(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}) \sqrt{p}  \|\Xi \bC\|^2_F=o_P(p)
+    (k-1) O_P\big(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}+\frac{c_1}{\sqrt{p}}\big) \sqrt{p}  \|\Xi \bC\|^2_F=o_P(p),
 \end{aligned}
 $$
-The last equality holds when we assume $\frac{1}{\sqrt{p}}\|\Xi \bC\|_F^2=O(1)$.
-Hence $\|\bC^T \Xi^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2=o_P(p)$, and we have
+where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\Xi \bC\|_F^2=O(1)$.
+Hence $\|\bC^T \Xi^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2=o_P(p)$. Now,
 $$
 \begin{aligned}
 \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
@@ -1824,7 +1694,7 @@ $$
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{aligned}
 $$
-    Equivalently, we have
+    Equivalently,
     $$
     \begin{aligned}
         &\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} {\Big(\bC^T\bY^T(\bI_p-\bP_{\bY}) \bY \bC- \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1}}\Big)\\
@@ -1833,8 +1703,7 @@ $$
         +\bW_{k-1}+o_P(1).
     \end{aligned}
     $$
-
-    Then the conclusion follows by taking the maximum eigenvalue.
+    The conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
