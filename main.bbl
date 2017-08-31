@@ -30,11 +30,11 @@ Davidson, K.~R. and S.~J. Szarek (2001).
 \newblock Amsterdam: North-Holland.
 \newblock Handbook of the Geometry of Banach Spaces.
 
-\bibitem[\protect\citeauthoryear{Davis and Kahan}{Davis and
-  Kahan}{1970}]{Davis1970The}
-Davis, C. and W.~M. Kahan (1970).
-\newblock The rotation of eigenvectors by a perturbation. iii.
-\newblock {\em Siam Journal on Numerical Analysis\/}~{\em 7\/}(1), 1--46.
+\bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
+  et~al.}{2008}]{Fan2008High}
+Fan, J., Y.~Fan, and J.~Lv (2008).
+\newblock High dimensional covariance matrix estimation using a factor model.
+\newblock {\em Journal of Econometrics\/}~{\em 147\/}(1), 186--197.
 
 \bibitem[\protect\citeauthoryear{Feng, Zou, and Wang}{Feng
   et~al.}{2016}]{Feng2015Multivariate}

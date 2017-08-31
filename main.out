@@ -1,9 +1,9 @@
 \BOOKMARK [1][-]{section.2}{Methodology}{}% 1
-\BOOKMARK [2][-]{subsection.2.1}{Roy's maximum root}{section.2}% 2
-\BOOKMARK [2][-]{subsection.2.2}{A new test}{section.2}% 3
-\BOOKMARK [2][-]{subsection.2.3}{Permutation method}{section.2}% 4
-\BOOKMARK [1][-]{section.3}{Theoretical results}{}% 5
-\BOOKMARK [2][-]{subsection.3.1}{Variance estimation}{section.3}% 6
-\BOOKMARK [1][-]{section.4}{Comparison with existing tests}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{Discussion about existing methods}{section.2}% 2
+\BOOKMARK [2][-]{subsection.2.2}{A new test statistic}{section.2}% 3
+\BOOKMARK [1][-]{section.3}{Main results}{}% 4
+\BOOKMARK [2][-]{subsection.3.1}{Variance estimation}{section.3}% 5
+\BOOKMARK [1][-]{section.4}{Comparison with existing tests}{}% 6
+\BOOKMARK [2][-]{subsection.4.1}{Permutation method}{section.4}% 7
 \BOOKMARK [1][-]{section.5}{Simulation Results}{}% 8
 \BOOKMARK [1][-]{section.6}{Concluding remarks}{}% 9
