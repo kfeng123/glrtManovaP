@@ -582,8 +582,7 @@ To characterize this correlation, we make the following assumption for the eigen
     We assume $r=o(n)$.
     We assume
  $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some absolute constants $c_1$ and $c_2$.
-    For large eigenvalues $\blambda_1,\ldots,\blambda_r$,
-    we assume 
+    If $r\neq 0$, we assume 
     $$\frac{\blambda_r n}{p}\to \infty,\quad
     \frac{\blambda_1^2 pr^2}{\blambda_r^2 n^2}\to 0.$$
 \end{assumption}
@@ -596,7 +595,7 @@ Most existing work assumed $r$ is fixed.
     The most harsh condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
     If $\blambda_1$ and $\blambda_r$ are of same order and $r$ is fixed, this condition is equivalent to $p/n^2\to 0$.
     We require this condition since the PCA consistency results are not valid when $p$ is too large. See, for example,~\citep{Cai2012Sparse}.
-    This condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
+    If $r>0$, this condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
 \end{remark}
 
 
@@ -608,13 +607,13 @@ Let $\bU=(\bU_1,\bU_2)$ where $\bU_1$ is $p\times r$ and $\bU_2$ is $p\times (p-
 Let $\bLambda_1=\mydiag(\blambda_1,\ldots,\blambda_r)$ and $\bLambda_2=\mydiag(\blambda_{r+1},\ldots,\blambda_p)$.
 Then $\bSigma=\bU_1\bLambda_1 \bU_1^T+\bU_2\bLambda_2 \bU_2^T$.
 
-The following theorem establishes the asymptotic distribution of $T(\bX)$ under spiked covariance.
+The following theorem establishes the asymptotic distribution of $T(\bX)$.
 \begin{theorem}\label{thm1}
-    Under Assumption~\eqref{assumpEigen}, suppose $p/n\to \infty$ and
+    Under Assumption~\ref{assumpEigen}, suppose $p/n\to \infty$ and
     $$
-    \mytr\Big(\bLambda_2-\frac{1}{p-r}(\mytr \bLambda_2)\bI_{p-r}\Big)^2=o\big(\frac{p}{n}\big).
+    \mytr\Big(\bLambda_2-\frac{1}{p-r}\mytr (\bLambda_2)\bI_{p-r}\Big)^2=o\big(\frac{p}{n}\big).
     $$
-    Then under local alternative
+    Then under local alternative hypothesis
     \begin{equation*}
         \frac{1}{\sqrt{p}}\|\Xi \bC\|_F^2=O(1),
     \end{equation*}
@@ -624,177 +623,127 @@ The following theorem establishes the asymptotic distribution of $T(\bX)$ under 
         \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{\mytr (\bLambda_2^2)}}
         \sim
         \lambda_{\max}\Big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\Big)
-        +o_P(1).
+        +o_P(1),
     \end{aligned}
     $$
+    where $\sim$ means they have same distribution.
 \end{theorem}
+To gain some insight into the asymptotic behavior of $T(\bX)$, suppose null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
+$$
+        \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}N(0,1).
+$$
+The asymptotic variance of $T(\bX)$ is ${2\mytr (\bLambda_2^2)}$.
+If $r=0$, this equals to ${2\mytr (\bSigma^2)}$ which is the asymptotic variance of~\citet{Bai1996Efiect} and~\citet{Chen2010A}'s statistic.
+While for $r>0$, ${2\mytr (\bLambda_2^2)}$ can be smaller than $2\mytr(\bSigma^2)$.
+In fact, if $\liminf_{n\to \infty} \blambda_1/p \in (0,+\infty]$, we have
+$$
+\liminf_{n\to \infty}\frac{2\mytr(\bSigma^2)}{2\mytr(\bLambda_2^2)}\in (1,+\infty].
+$$
+The reason for this is because the projection $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance term of $\bX\bJ \bC$.
 
-
-\subsection{Variance estimation}
-We use the following statistic to estimate $r$:
-    $$\hat{r}=\argmax_{0\leq i\leq n-k} \frac{\lambda_i(\bY^T \bY)}{\lambda_{i+1}(\bY^T \bY)}\geq \gamma_n,$$
-    where $\gamma_n$ slowly tends to $+\infty$ as $n\to \infty$.
+To formulate a test procedure with asymptotic correct level, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
+Since they relies on the unknown parameter $r$, we use the following statistic to estimate $r$:
+    $$
+    \begin{aligned}
+    \hat{r}=
+            \begin{cases}
+                \argmax_{1\leq i\leq n-k-1} \frac{\lambda_i(\bY^T \bY)}{\lambda_{i+1}(\bY^T \bY)}\geq \gamma_n\quad& \text{if } \max_{1\leq i\leq n-k-1}\frac{\lambda_i(\bY^T \bY)}{\lambda_{i+1}(\bY^T \bY)}\geq \gamma_n\\
+                0\quad&\text{otherwise}\\
+            \end{cases}
+    \end{aligned}
+    $$
+where $\gamma_n$ is slowly tends to $+\infty$ as $n\to \infty$.
+The following proposition establishes the consistency of $\hat{r}$.
+\begin{proposition}\label{numberConsistency}
+    Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. If $\gamma_n\to \infty$ and $\gamma_n = o(n\blambda_r/p)$, then
+ $\Pr(\hat{r}=r)\to 1$.
+\end{proposition}
+\begin{remark}
+    For the factor model adopted by~\cite{Ma2015A}, $\gamma$ is of order $p$. Then we can set $\gamma_n=\sqrt{n}$.
+\end{remark}
     We use the following statistic to estimate $\mytr(\bLambda_2)$:
     $$\widehat{\mytr(\bLambda_2)}=\frac{1}{n-k}\sum_{i=\hat{r}+1}^{n-k}\lambda_i(\bY^T \bY).$$
-\begin{proposition}
-    Under Assumption~\ref{assumpEigen}, suppose $p/n\to \infty$, $\gamma_n\to \infty$ and $\gamma_n=o({n\blambda_r}/{p})$, then
-    $$\widehat{\mytr(\bLambda_2)}=\mytr(\Lambda_2)+o_P(\sqrt{p}).$$
+\begin{proposition}\label{traceProp1}
+    Under the assumptions of Theorem~\ref{thm1}, suppose $\gamma_n\to \infty$ and $\gamma_n=o({n\blambda_r}/{p})$, then
+    $$\widehat{\mytr(\bLambda_2)}=\mytr(\bLambda_2)+o_P(\sqrt{p}).$$
 \end{proposition}
-\begin{proof}
-    Lemma~\ref{PCAlemma1} and Assumption~\ref{assumpEigen} imply that
-    $$
-    \frac{1}{n-k}\sum_{i=r+1}^{n-k}\lambda_i (\bY^T \bY)= \mytr(\bLambda_2)+O_P\big(\frac{rp}{n}\big)=\mytr(\bLambda_2)+o_P(\sqrt{p}).
-    $$
-    It only remains to prove $\hat{r}$ is a consistent estimator of $r$. $\Pr(\hat{r}=r)\to 1$.
-    Note that 
-    $$
-    \{\hat{r}=r\}\supseteq 
-    \{\frac{\lambda_{r}(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq \gamma_n\}
-    \cap
-    \{\frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq \gamma_n\}.
-    $$
-    Suppose $0<\epsilon< 1$ is a fixed number.
-    By assumption, there exists an $n_0^*$, for $n\geq n_0^*$, $\gamma_n\leq (1-\epsilon)n\blambda_r/(c_1 p)$ and $\gamma_n\geq (1+\epsilon) c_1/c_2 $. Thus
-    $$
-    \{\hat{r}=r\}\supseteq 
-    \{\frac{\lambda_{r}(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p}\}
-    \cap
-    \{\frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq (1+\epsilon) \frac{c_1}{c_2} \}.
-    $$
-     Lemma~\ref{PCAlemma1} implies that almost surely, there exists an $n_0$, for $n\geq n_0$, we have
-    $$\frac{\lambda_r(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p},
-    \quad
-    \frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq (1+\epsilon)\frac{c_1}{c_2}.
-    $$
-    This yields $\Pr(\hat{r}=r)\to 1$, which completes the proof.
-\end{proof}
 
 
 
-Under non-spiked covariance, an unbiased estimator of $\mytr(\bSigma^2)$ is
-$$
-\widehat{\mytr(\bSigma^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T Y_j)^2.
-$$
-\begin{proposition}\label{prop:nonSpiked}
-As $n\to \infty$,
-$$
-\frac{\widehat{\mytr(\bSigma^2)}}{\mytr(\bSigma^2)}\xrightarrow{P} 1.
-$$
-\end{proposition}
-\begin{proof}
-    Since $\myE (Y_i^T Y_j)^2=\mytr(\bSigma^2)$, $i\leq j$, we have
-$$
-    \myE\big(\widehat{\mytr(\bSigma^2)}\big)=\mytr(\bSigma^2).
-    $$
-    To prove the proposition, we only need to show that 
-    $$
-    \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =o(\mytr^2(\bSigma^2)).
-    $$
-     Note that
-     $$
-    \begin{aligned}
-        &\myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 =
-        \frac{4}{(n-k)^2(n-k-1)^2}\Big(\sum_{1\leq i < j\leq n-k}(Y_i^T Y_j)^2\Big)^2\\
-        =&
-        \frac{4}{(n-k)^2(n-k-1)^2}\myE\Big( \sum_{i<j}(Y_i^T Y_j)^4+
-        \sum_{i<j,k<l:\{i,j\}\{k,l\}=\emptyset}(Y_i^T Y_j)^2 (Y_k^T Y_l)^2\\
-        &+2\sum_{i<j<k}\big((Y_i^T Y_j)^2(Y_i Y_k)^2+(Y_i^T Y_j)^2(Y_j Y_k)^2+(Y_i^T Y_k)^2(Y_j Y_k)^2\big) \Big)\\
-        =&
-\frac{4}{(n-k)^2(n-k-1)^2}\Big(
-        \frac{(n-k)(n-k-1)}{2}\big(6\mytr(\bSigma^4)+3\mytr^2(\bSigma^2)\big)\\
-        &+\frac{(n-k)(n-k-1)(n-k-2)(n-k-3)}{4}\mytr^2(\bSigma^2)\\
-        &+(n-k)(n-k-1)(n-k-2)\big(2\mytr(\bSigma^4)
-        +\mytr^2(\bSigma^2)\big)
-        \Big)\\
-        =&
-        \mytr^2(\bSigma^2)(1+o(1)).
-    \end{aligned}
-     $$
-     Then
-    $$
-    \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =
-        \myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 - 
-        \big(\myE\big(\widehat{\mytr(\bSigma^2)}\big)\big)^2=
-        o(\mytr^2(\bSigma^2)).
-    $$
-    This completes the proof.
-\end{proof}
-%Under the assumptions of Theorem~\ref{nonSpiked}.
-We use a leave-two-out estimator to estimate $\mytr(\bLambda_2^2)$.
-Let $w_{ij}$ be the $(i,j)$th element of $\bY^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bY$.
-We use
-$$
-\widehat{\mytr(\bLambda_2^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}w_{ij}^2
-$$
-to estimate $\mytr(\bLambda_2^2)$.
+%    Under non-spiked covariance, an unbiased estimator of $\mytr(\bSigma^2)$ is
+%    $$
+%    \widehat{\mytr(\bSigma^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T Y_j)^2.
+%    $$
+%    \begin{proposition}\label{prop:nonSpiked}
+%    As $n\to \infty$,
+%    $$
+%    \frac{\widehat{\mytr(\bSigma^2)}}{\mytr(\bSigma^2)}\xrightarrow{P} 1.
+%    $$
+%    \end{proposition}
+   % \begin{proof}
+   %     Since $\myE (Y_i^T Y_j)^2=\mytr(\bSigma^2)$, $i\leq j$, we have
+   % $$
+   %     \myE\big(\widehat{\mytr(\bSigma^2)}\big)=\mytr(\bSigma^2).
+   %     $$
+   %     To prove the proposition, we only need to show that 
+   %     $$
+   %     \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =o(\mytr^2(\bSigma^2)).
+   %     $$
+   %      Note that
+   %      $$
+   %     \begin{aligned}
+   %         &\myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 =
+   %         \frac{4}{(n-k)^2(n-k-1)^2}\Big(\sum_{1\leq i < j\leq n-k}(Y_i^T Y_j)^2\Big)^2\\
+   %         =&
+   %         \frac{4}{(n-k)^2(n-k-1)^2}\myE\Big( \sum_{i<j}(Y_i^T Y_j)^4+
+   %         \sum_{i<j,k<l:\{i,j\}\{k,l\}=\emptyset}(Y_i^T Y_j)^2 (Y_k^T Y_l)^2\\
+   %         &+2\sum_{i<j<k}\big((Y_i^T Y_j)^2(Y_i Y_k)^2+(Y_i^T Y_j)^2(Y_j Y_k)^2+(Y_i^T Y_k)^2(Y_j Y_k)^2\big) \Big)\\
+   %         =&
+   % \frac{4}{(n-k)^2(n-k-1)^2}\Big(
+   %         \frac{(n-k)(n-k-1)}{2}\big(6\mytr(\bSigma^4)+3\mytr^2(\bSigma^2)\big)\\
+   %         &+\frac{(n-k)(n-k-1)(n-k-2)(n-k-3)}{4}\mytr^2(\bSigma^2)\\
+   %         &+(n-k)(n-k-1)(n-k-2)\big(2\mytr(\bSigma^4)
+   %         +\mytr^2(\bSigma^2)\big)
+   %         \Big)\\
+   %         =&
+   %         \mytr^2(\bSigma^2)(1+o(1)).
+   %     \end{aligned}
+   %      $$
+   %      Then
+   %     $$
+   %     \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =
+   %         \myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 - 
+   %         \big(\myE\big(\widehat{\mytr(\bSigma^2)}\big)\big)^2=
+   %         o(\mytr^2(\bSigma^2)).
+   %     $$
+   %     This completes the proof.
+   % \end{proof}
+    %Under the assumptions of Theorem~\ref{nonSpiked}.
 
-\begin{proposition}
-    Under Assumption~\eqref{assumpEigen} and $p/n\to \infty$, we have
-    $$
-    \frac{\widehat{\mytr(\bLambda^2_2)}}{\mytr(\bLambda^2_2)} \xrightarrow{P} 1.
-    $$
 
-\end{proposition}
-\begin{proof}
-For $1\leq i<j\leq n-k$, we have
-$$
-    \begin{aligned}
-        w_{ij}-Y_i^T \bU_{2} \bU_{2}^T Y_j
-        =&Y_i^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2 \bU_2^T) Y_j\\
-        =&Y_i^T \bU_2 \bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bU_2^T Y_j\\
-        &+Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_2 \bU_2^T Y_j\\
-        &+Y_i^T \bU_2 \bU_2^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j\\
-        &+Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j
-    \end{aligned}
-$$
-For the first term, we have
-$$
-        \begin{aligned}
-        &Y_i^T \bU_2 \bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bU_2^T Y_j\\
-        =&O_P(1)\sqrt{p}
-            \lambda_1(\bLambda_2^{1/2}\bU_2^T (\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bLambda_2^{1/2})\\
-        =&O_P(1)\sqrt{p}
-            \lambda_1(\bU_2^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T\bU_2-\bI_{p-r})
-            =O_P(\sqrt{p}\frac{p}{\lambda_r n}).
-        \end{aligned}
-    $$
-    For the second term, we have
-    $$
-    \begin{aligned}
-        &Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_2 \bU_2^T Y_j\\
-        =&
-        O_P(1)\sqrt{r}\|\bLambda_1^{1/2}\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_2 \bLambda_2^{1/2}\|\\
-        =&
-        O_P(1)\sqrt{r\lambda_1}\|\bU_1^T \bU_{\bY,2;(i,j)}\|\\
-        =&
-        O_P(1)\sqrt{r\lambda_1}\sqrt{\frac{p}{\lambda_r n}}\\
-        =&
-        O_P(\sqrt{\frac{pr \lambda_1}{\lambda_r n}}).
-    \end{aligned}
-    $$
-    For the third term, we have
-$$
-\begin{aligned}
-&Y_i^T \bU_1 \bU_1^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T \bU_1 \bU_1^T Y_j\\
-=
-    &O_P(1)\sqrt{r}\|\bLambda_1^{1/2}\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_1 \bLambda_1^{1/2}\|\\
-    =
-    &O_P(1)\sqrt{r}\lambda_1\|\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_1\|\\
-    =
-    &O_P(\sqrt{r}\lambda_1 \frac{p}{\lambda_r n}).
-\end{aligned}
-$$
-Thus, 
-$$
-    w_{ij}=Y_i^T \bU_2 \bU_2^T Y_j+O_P(\frac{p\sqrt{p}}{\lambda_r n}+\sqrt{\frac{pr\lambda_1}{\lambda_r n}}+\frac{\sqrt{r}\lambda_1 p}{\lambda_r n})=Y_i^T \bU_2 \bU_2^T Y_j+o_P(\sqrt{p})
-$$
+ To estimate $\mytr(\bLambda_2^2)$,
+    we use the idea of leave-two-out.
+    Let $\bY_{(i,j)}$ be the matrix obtained from deleting the $i$th and $j$th columns from $\bY$.
+    Let $\bY_{(i,j)}=\bU_{\bY;{(i,j)}}\bD_{\bY;{(i,j)}}\bV_{\bY;{(i,j)}}^T$ be the singular value decomposition of $\bY_{(i,j)}$.
+    Here $\bU_{\bY;{(i,j)}}$ is $p\times (n-k-2)$.
+    Let $\tilde{\bU}_{\bY;{(i,j)}}$ be a $p\times (p-n+k+2)$ orthogonal matrix satisfying $\tilde{\bU}_{\bY;{(i,j)}}\tilde{\bU}_{\bY;{(i,j)}}^T=\bI_{p}-\bU_{\bY;{(i,j)}}\bU_{\bY;{(i,j)}}^T$.
 
-It follows that $w_{ij}^2=(Y_i^T \bU_2 \bU_2^T Y_j)^2+o_P(p)$. Thus
-$$
-    \widehat{\mytr(\bLambda_2^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2+o_P(p).
-$$
-    Then the conclusion follows from Proposition~\ref{prop:nonSpiked}.
-\end{proof}
+
+
+    Let $w_{ij}$ be the $(i,j)$th element of $\bY^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bY$.
+    Define
+    $$
+    \widehat{\mytr(\bLambda_2^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}w_{ij}^2.
+    $$
+    We use $\widehat{\mytr(\bLambda_2^2)}$ to estimate $\mytr(\bLambda_2^2)$.
+    The following proposition shows that $\widehat{\mytr(\bLambda_2^2)}$ is a ratio consistent estimator.
+    \begin{proposition}\label{Taichangle}
+        Under the assumptions of Theorem~\ref{thm1}, we have
+        $$
+        \frac{\widehat{\mytr(\bLambda^2_2)}}{\mytr(\bLambda^2_2)} \xrightarrow{P} 1.
+        $$
+
+    \end{proposition}
 
 
 %\section{Some results for random projection}
@@ -891,47 +840,49 @@ $$
     %$$
 %
 %\end{lemma}
+Now we can construct a test procedure with asymptotic correct level $\alpha$. Let 
+$$
+Q=\frac{T(\bX)-\frac{p-r-n+k}{p-r}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
+$$
+Let $F_{\bW}(x)$ be the cumulative distribution function of $\bW_{k-1}$.
+We reject the null hypothesis if $Q> F_{\bW}^{-1}(1-\alpha)$.
 
+Theorem~\ref{thm1}, Proposition~\ref{traceProp1} and Proposition~\ref{Taichangle} implies that the resulting test procedure has asymptotic correct level under the assumptions of Theorem~\ref{thm1}.
+And the asymptotic local power function can be given by Theorem~\ref{thm1}, which is
+$$
+\Pr\Big(
+        \lambda_{\max}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+\Big).
+$$
+If $k=2$, the asymptotic local power function of~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method can be written as
+$$
+\Pr\Big(
+        \lambda_{\max}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \Xi^T \Xi \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+\Big).
+$$
+Hence the asymptotic relative efficiency between our method and~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method is
+$$
+ \sqrt{\frac{{{\mytr(\bSigma^2)}}}{{\mytr(\bLambda_2^2)}}}
+\frac{ \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC}{ {\bC^T \Xi^T \Xi \bC}}.
+$$
+There's a random term $\bP_{\bY}$ in the expression.
+To gain some insight into this.
+Suppose, for example, $\sqrt{n_i} \xi_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots,k$. Then
+$
+\psi^{-1}\bC^T \Xi^T \Xi \bC$
+is distributed as $ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $k-1$ dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
+On the other hand,
+$\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC$  is distributed as $\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
+In this case, we have
+$$
+\frac{\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC}{\bC^T \Xi^T \Xi \bC}\xrightarrow{P}1.
+$$
+Hence if 
+$$
+\liminf_{n\to \infty}\frac{{{\mytr(\bSigma^2)}}}{{\mytr(\bLambda_2^2)}}\in(1,+\infty],
+$$
+the new test tends to be more powerful.
 
-\section{Comparison with existing tests}
-\label{sc:compare}
-
-\subsection{Permutation method}
-Permutation method is a powerful tool to determine the critical value of a test statistic.
-   The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
-   The major down-side to permutation method is that it can be computationally intensive.
-   Fortunately,  the permutation method can be computationally fast.
-    By expression~\eqref{statisticForm2}, a permuted statistic can be written as
-    \begin{equation}\label{permutedStatistic}
-        T(\bX\Gamma)=\lambda_{\max}\Big(\bC^T{\big( \bJ^T \Gamma^T {(\bX^T \bX)}^{-1} \Gamma \bJ \big)}^{-1}  \bC\Big),
-    \end{equation}
-where $\Gamma$ is an $n\times n$ permutation matrix.
-   Note that ${(\bX^T \bX)}^{-1}$, the most time-consuming component, can be calculated aforehand.
-   The permutation procedure for our statistic can be summarized as:
-   \begin{enumerate}
-       \item
-           Calculate $T(\bX)$ according to~\eqref{statisticForm2}, hold intermediate result ${(\bX^T \bX)}^{-1}$.
-       \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(\bX\Gamma_1),\ldots,T(\bX\Gamma_M)$ according to~\eqref{permutedStatistic}. 
-       \item Calculate the $p$-value by
-           $
-           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^M I\{T(\bX\Gamma_i)\geq T(\bX)\}\big]
-           $.
-           Reject the null hypothesis if $\tilde{p}\leq \alpha$.
-   \end{enumerate}
-
-Here $M$ is the permutation times. 
-   %It can be shown that for any integer $M>0$, the resulting test controls the Type I error. More precisely, we have $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
-   %Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
-   %See, for example,~\cite{Lehmann}, Chapter $15$.
-   It can be seen that  step 1 and step 2 cost $O(n^2 p +n^3)$ and $O(n^2 M)$ operations respectively.
-   In large sample or high dimensional setting, step 2 has negligible effect on total computational complexity.
-
-
-
-
-   
-   
-   
 
 
 %\section{Schott's method}
@@ -958,23 +909,23 @@ Here $M$ is the permutation times.
 %\frac{1}{k-1}\mytr H-\frac{1}{n-k} \mytr E
 %)
 %$$
-
-Our new test statistic comes from construction ii in step 1, the likelihood ratio test statistics in step 2 and strategy II in step 3.
-Theorems~\ref{nonSpiked} and~\ref{thm1} allow us to analyze the properties of the proposed test.
-Suppose $\sqrt{n_i}\mu_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots, k$.
-Then $\psi^{-1}\bC^T \Xi^T \Xi \bC$ is distributed as $\text{Wishart}_{k-1}(p,\bI_{k-1})$ (Wishart distribution with freedom $p$ and parameter $\bI_{k-1}$) and $\psi^{-1}\bC^T \Xi^T \bP_{\bY}\Xi \bC$ is distributed as $\text{Wishart}_{k-1}(n-k,\bI_{k-1})$.
-In this case, we have
-$$
-\psi^{-1}\bC^T \Xi^T (\bI_P-\bP_{\bY})\Xi \bC=
-(1+o_P(1))\psi^{-1}\bC^T \Xi^T \Xi \bC.
-$$
-If the conditions of Theorem~\ref{nonSpiked} hold and $k=2$, the asymptotic power of the proposed test is the same as that of~\cite{Bai1996Efiect}and~\cite{Chen2010A}'s method.
-Since the method of~\cite{Schott2007Some} is a direct generalization of~\cite{Bai1996Efiect}'s method, it can be shown the asymptotic power of the proposed test is the same as that of~\cite{Schott2007Some} for general $k$.
-Next, suppose the covariance matrix is spiked and the conditions of Theorem~\ref{thm1} hold.
-Theorem~\ref{thm1} implies that the proposed test does not depend on large eigenvalues $\lambda_1,\ldots,\lambda_r$ while other existing test procedures are negatively affected by large eigenvalues $\lambda_1,\ldots,\lambda_r$.   
-Thus, the new test has particular good power behavior when $\lambda_1,\ldots,\lambda_r$ are large.
- This property is not surprising since our statistic is from construction ii.
-As a result, our statistic has a wider applicable range compared to the tests from construction i.
+%
+%Our new test statistic comes from construction ii in step 1, the likelihood ratio test statistics in step 2 and strategy II in step 3.
+%Theorems~\ref{nonSpiked} and~\ref{thm1} allow us to analyze the properties of the proposed test.
+%Suppose $\sqrt{n_i}\mu_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots, k$.
+%Then $\psi^{-1}\bC^T \Xi^T \Xi \bC$ is distributed as $\text{Wishart}_{k-1}(p,\bI_{k-1})$ (Wishart distribution with freedom $p$ and parameter $\bI_{k-1}$) and $\psi^{-1}\bC^T \Xi^T \bP_{\bY}\Xi \bC$ is distributed as $\text{Wishart}_{k-1}(n-k,\bI_{k-1})$.
+%In this case, we have
+%$$
+%\psi^{-1}\bC^T \Xi^T (\bI_P-\bP_{\bY})\Xi \bC=
+%(1+o_P(1))\psi^{-1}\bC^T \Xi^T \Xi \bC.
+%$$
+%If the conditions of Theorem~\ref{nonSpiked} hold and $k=2$, the asymptotic power of the proposed test is the same as that of~\cite{Bai1996Efiect}and~\cite{Chen2010A}'s method.
+%Since the method of~\cite{Schott2007Some} is a direct generalization of~\cite{Bai1996Efiect}'s method, it can be shown the asymptotic power of the proposed test is the same as that of~\cite{Schott2007Some} for general $k$.
+%Next, suppose the covariance matrix is spiked and the conditions of Theorem~\ref{thm1} hold.
+%Theorem~\ref{thm1} implies that the proposed test does not depend on large eigenvalues $\lambda_1,\ldots,\lambda_r$ while other existing test procedures are negatively affected by large eigenvalues $\lambda_1,\ldots,\lambda_r$.   
+%Thus, the new test has particular good power behavior when $\lambda_1,\ldots,\lambda_r$ are large.
+% This property is not surprising since our statistic is from construction ii.
+%As a result, our statistic has a wider applicable range compared to the tests from construction i.
 
 
 %%%%%%%%%%%%%%%%% Hotelling-Lawley trace %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1038,8 +989,51 @@ As a result, our statistic has a wider applicable range compared to the tests fr
 %$$
 
 %====================
-\section{Simulation Results}
+\section{Numerical study}
 
+\subsection{Permutation method}
+ Most existing test can not be used under spiked covariance model, since spiked covariance model violated their assumption.
+ To compare the new test with other test, we use permutation method to determine the critical value in our simulation.
+ 
+Permutation method is a powerful tool to determine the critical value of a test statistic.
+   The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
+   The major down-side to permutation method is that it can be computationally intensive.
+   Fortunately, for the test statistic proposed in this paper,  the permutation method can be computationally fast.
+    By expression~\eqref{statisticForm2}, a permuted statistic can be written as
+    \begin{equation}\label{permutedStatistic}
+        T(\bX\Gamma)=\lambda_{\max}\Big(\bC^T{\big( \bJ^T \Gamma^T {(\bX^T \bX)}^{-1} \Gamma \bJ \big)}^{-1}  \bC\Big),
+    \end{equation}
+where $\Gamma$ is an $n\times n$ permutation matrix.
+   Note that ${(\bX^T \bX)}^{-1}$, the most time-consuming component, can be calculated aforehand.
+   The permutation procedure for our statistic can be summarized as:
+   \begin{enumerate}
+       \item
+           Calculate $T(\bX)$ according to~\eqref{statisticForm2}, hold intermediate result ${(\bX^T \bX)}^{-1}$.
+       \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(\bX\Gamma_1),\ldots,T(\bX\Gamma_M)$ according to~\eqref{permutedStatistic}. 
+       \item Calculate the $p$-value by
+           $
+           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^M I\{T(\bX\Gamma_i)\geq T(\bX)\}\big]
+           $.
+           Reject the null hypothesis if $\tilde{p}\leq \alpha$.
+   \end{enumerate}
+
+Here $M$ is the permutation times. 
+   %It can be shown that for any integer $M>0$, the resulting test controls the Type I error. More precisely, we have $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
+   %Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
+   %See, for example,~\cite{Lehmann}, Chapter $15$.
+   It can be seen that  step 1 and step 2 cost $O(n^2 p +n^3)$ and $O(n^2 M)$ operations respectively.
+   In large sample or high dimensional setting, step 2 has negligible effect on total computational complexity.
+
+
+
+
+   
+   
+   
+
+
+
+   \subsection{Simulation results}
 In this section, we evaluate the numerical performance of the new test.
 For comparison, we also carry out simulations for the test of~\citet{Cai2014High} and the test of~\citet{Schott2007Some}.
 These tests are denoted respectively by NEW, CX and SC.
@@ -1227,9 +1221,8 @@ As $p$ increase, the power of the new test approaches to that of SC.
 
 \section{Concluding remarks}
 In this paper, motivated by Roy's union intersection principle, we proposed a generalized likelihood ratio statistic for MANOVA in high dimensional setting.
-We proved that the proposed test has similar asymptotic power with $T_{SC}$ under non-spiked covariance.
-On the other hand, if covariance matrix is spiked, the asymptotic power of the proposed test is not affected by the large eigenvalues.
-We give a discussion of existing MANOVA tests from union intersection principle point of view, this explains why the proposed test has good power behavior.
+We derive the asymptotic distribution of the new test statistic. We also gives the asymptotic local power function.
+Our theoretic work shows that when the covariance matrix is spiked, the asymptotic power of the proposed test is not affected by the large eigenvalues and is more powerful than existing tests when variables are highly correlated.
 
 %In Section~\label{sc:compare}, we consider a random projection test.
 %The theoretical properties of random projection test may be a.
@@ -1323,23 +1316,15 @@ where $\xi_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$.
 Let $\bG_1=(\bG_{1A}^T,\bG_{1B}^T)^T$, where $\bG_{1A}$ is the first $r$ rows of $\bG_1$ and $\bG_{1B}$ is the last $p-r$ rows of $\bG_1$.
 The following lemma gives the asymptotic property of $\lambda_{i}(\bY^T \bY)$, $i=1,\ldots, r$.
 \begin{lemma}\label{PCAlemma1}
-    Under the Assumptions of Theorem~\ref{thm1}, $r=o(n)$, we have
+    Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. 
+    Then
     \begin{align}
         &\sup_{1\leq i\leq r}\Big|\frac{\lambda_{i}(\bY^T \bY)}{n\blambda_i}-1\Big|\to 0,\label{PCAlemma1:eq1}\\
         &\limsup_{n\to +\infty}\frac{\lambda_{r+1}(\bY^T\bY)}{p}\leq c_1,\label{PCAlemma1:eq2}\\
         &\liminf_{n\to +\infty}\frac{\lambda_{n-k}(\bY^T\bY)}{p}\geq c_2,\label{PCAlemma1:eq3}
     \quad
     \end{align}
-    almost surely. And
-    \begin{equation}\label{PCAlemma1:eq4}
-    \frac{
-       1 
-    }{
-        n-k
-    }
-        \sum_{i=r+1}^{n-k}\lambda_i(\bY^T\bY)
-        =\mytr(\bLambda_2)+O_P(\frac{rp}{n}).
-    \end{equation}
+    almost surely.
 \end{lemma}
 \begin{proof}
     %For a matrix $\bA$, we denote by  $\bA_{[a:b,c:d]}$ the $a$-to-$b$-th row, $c$-to-$d$-th column of matrix $\bA$, by $\bA_{[a:b,:]}$ and $\bA_{[:,c:d]}$ the $a$-to-$b$-th full rows and $c$-to-$d$-th full columns of $\bA$ respectively.
@@ -1407,23 +1392,29 @@ Similarly, we can obtain the upper bound.
     We only need to prove the right hand side converges to $0$ almost surely.
 
     By Lemma~\ref{DSbound}, for every $t>0$, we have
-    $$
+    \begin{equation}\label{yaohuo2}
     \begin{aligned}
-        &\Pr\Big(\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\leq \sqrt{\frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}}\leq \sqrt{\frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}}\leq \sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}} \Big) \\
+        &\Pr\Big(\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\leq \sqrt{\frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}}\leq \sqrt{\frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}}\leq
+        \sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}} \Big) \\
         &\geq 1-2\exp(-\frac{t^2}{2}).
     \end{aligned}
+    \end{equation}
+    Let $t=n^{1/4}$. Since $r=o(n)$, we have
     $$
-    Let $t=n^{1/4}$, then Borel-Cantelli lemma implies 
+\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\to 1\quad\text{and}\quad
+\sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}}\to 1.
+    $$
+    This, together with Borel-Cantelli lemma, yields 
     $$
     \frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}\to 1\,\quad
     \frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}\to 1,
     $$
     almost surely.
     As for $\lambda_1(\bG_{1B}^T \bG_{1B})$, by Lemma~\ref{DSbound}, we have
-    $$
+   \begin{equation}\label{yaohuo3}
    \Pr\Big( \frac{c_1}{n\blambda_r}{\lambda_1(\bG_{1B}\bG_{1B}^T)}\leq \frac{c_1}{n\blambda_r}(\sqrt{n-k}+\sqrt{p-r}+t)^2 \Big) 
    \geq 1-\exp(-\frac{t^2}{2}).
-    $$
+   \end{equation}
 Let $t=n^{1/2}$, since we have assumed $\blambda_r n/p\to \infty$, we have $$\frac{c_1}{n\blambda_r}{\lambda_1(\bG_{1B}\bG_{1B}^T)}\to 0$$
 almost surely.
 Then~\eqref{PCAlemma1:eq1} follows.
@@ -1434,37 +1425,24 @@ Inequality~\eqref{PCAlemma1:eq2} and~\eqref{PCAlemma1:eq3} follows from  the fac
     \lambda_{n-k}(\bY^T \bY)\geq \lambda_{n-k}(\bG_{1B}^T \bLambda_2 \bG_{1B})\geq c_2 \lambda_{n-k}(\bG_{1B}^T \bG_{1B}),
 \end{align*}
 and Lemma~\ref{DSbound}.
-
-Now we prove~\eqref{PCAlemma1:eq4}. By Weyl's inequality, for $i=r+1,\ldots, n-k$, we have
-$$
-\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \lambda_i(\bY^T \bY)\leq \lambda_{i-r}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
-$$
-It follows that
-$$
-\sum_{i=r+1}^{n-k}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)\leq \sum_{i=1}^{n-k-r}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
-$$
-Hence
-$$
- \big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- \mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})\big|\leq r \lambda_1(\bG_{1B}^T \bLambda_2 \bG_{1B})=O_P(rp).
-$$
-But central limit theorem implies that
-$$\mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})-(n-k)\mytr(\bLambda_2)%=\sqrt{(n-k)\mytr(\bLambda_2^2)}O_P(1)
-=O_P(\sqrt{np}).$$
-Thus
-$$
-\big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- (n-k)\mytr(\bLambda_2)\big|=O_P(rp).
-$$
-This completes the proof.
-
 \end{proof}
 
 
 Let $\bU_\bY=(\bU_{\bY,1},\bU_{\bY,2})$, where $\bU_{\bY,1}$ and $\bU_{\bY,2}$ are the first $r$ and last $p-r$ columns of $\bU_\bY$ respectively.
 \begin{lemma}\label{PCAlemma2}
-    Under the Assumptions of Theorem~\ref{thm1}, we have
+    Under the assumptions of Lemma~\ref{PCAlemma1}, we have
 $$
 \lambda_{\max}(\bI_r-\bU_1^T \bU_{\bY,1}\bU_{\bY,1}^T \bU_1)
 =O_P(\frac{ p}{\blambda_r n}).
+$$
+If in addition, we assume
+    \begin{equation}\label{newCondition}
+        \frac{\log \blambda_r}{n}\to 0,
+    \end{equation}
+     then
+$$
+\myE\lambda_{\max}(\bI_r-\bU_1^T \bU_{\bY,1}\bU_{\bY,1}^T \bU_1)
+=O(\frac{ p}{\blambda_r n}).
 $$
 \end{lemma}
 \begin{proof}
@@ -1510,10 +1488,10 @@ Hence
     \end{equation}
     %where the last equality follows by Lemma~\ref{PCAlemma1} and Weyl's inequality.
     By Lemma~\ref{DSbound}, for every $t>0$, we have
-    $$
+    \begin{equation}\label{yaohuo1}
     \Pr\Big(\frac{1}{p}(\sqrt{p-r}-\sqrt{n-k}-t)^2 \leq \frac{1}{p}{\lambda_1(\bG_{1B}\bG_{1B}^T)}\leq \frac{1}{p}(\sqrt{p-r}+\sqrt{n-k}+t)^2 \Big) 
    \geq 1-2\exp(-\frac{t^2}{2}).
-    $$
+    \end{equation}
     Let $t=n^{1/2}$, then Borel-Cantelli lemma implies that 
     \begin{equation}\label{eq:qu1}
     \frac{1}{p}\lambda_1(\bG_{1B}\bG_{1B}^T)\to 1
@@ -1522,7 +1500,7 @@ Hence
     Then~\eqref{eq:qu1},~\eqref{ineq:eigenvector} and Lemma~\ref{PCAlemma1} implies that
     $$\lambda_{1}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})=O_P(\frac{p}{\blambda_r n}).
     $$
- The conclusion then follows by the following simple relationship
+ The first conclusion then follows by the following simple relationship
 $$
 \begin{aligned}
 &\lambda_{\max}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})
@@ -1540,10 +1518,26 @@ $$
 \lambda_{\max}(\bI_r-\bU_{1}^T \bU_{\bY,1}\bU_{\bY,1}^T\bU_{1}).
 \end{aligned}
 $$
+
+Next we prove the second conclusion of the lemma.
+In~\eqref{yaohuo2},~\eqref{yaohuo3} and~\eqref{yaohuo1}, we take $t=\sqrt{2\log(\blambda_r n/p)}$.
+Then these inequalities,~\eqref{ineq:eigenvector} and condition~\eqref{newCondition} implies that
+$$
+\lambda_{1}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})\leq
+\frac{c^*p}{\blambda_r n}
+$$
+with probability at least $1-3p/\blambda_r n$ for some constant $c^*$.
+Since $\lambda_{1}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})\leq 1$, we have
+$$
+\myE\lambda_{1}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})\leq
+\frac{c^* p}{\blambda_r n}(1-\frac{3p}{\blambda_r n})
++\frac{3p}{\blambda_r n}=O(\frac{p}{\blambda_r n}).
+$$
+This completes the proof.
 \end{proof}
 
 \begin{lemma}\label{gg:Lemma1}
-    Under Assumption xxx,
+    Under the assumptions of Lemma~\ref{PCAlemma1},
     we have the following upper and lower bound for $\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}$.
     \begin{align}
         &\lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\geq
@@ -1595,7 +1589,7 @@ Thus, for $i=1,\ldots, r$, we have
     $$
 \end{proof}
 \begin{lemma}\label{gg:Lemma2}
-Under Assumption xxx, we have
+    Under the assumptions of Theorem~\ref{thm1}, we have
     \begin{equation}\label{eq:spiketrace2}
         \mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
 = \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)+o_P(\sqrt{p}),
@@ -1749,6 +1743,269 @@ $$
     The conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
+\begin{proof}[Proof of Proposition~\ref{numberConsistency}]
+    First we consider the case of $r>0$. By the construction of $\hat{r}$,
+    $$
+    \{\hat{r}=r\}\supseteq 
+    \{\frac{\lambda_{r}(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq \gamma_n\}
+    \cap
+    \{\frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq \gamma_n\}.
+    $$
+    Suppose $0<\epsilon< 1$ is a fixed number.
+    By assumption, there exists an $n_0^*$, for $n\geq n_0^*$, $\gamma_n\leq (1-\epsilon)n\blambda_r/(c_1 p)$ and $\gamma_n\geq (1+\epsilon) c_1/c_2 $. Thus
+    $$
+    \{\hat{r}=r\}\supseteq 
+    \{\frac{\lambda_{r}(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p}\}
+    \cap
+    \{\frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq (1+\epsilon) \frac{c_1}{c_2} \}.
+    $$
+     Lemma~\ref{PCAlemma1} implies that almost surely, there exists an $n_0$, for $n\geq n_0$, we have
+    $$\frac{\lambda_r(\bY^T \bY)}{\lambda_{r+1}(\bY^T \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p},
+    \quad
+    \frac{\lambda_{r+1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq (1+\epsilon)\frac{c_1}{c_2}.
+    $$
+    This yields $\Pr(\hat{r}=r)\to 1$ for $r>0$.
+    The case of $r=0$ can be similarly proved by note that in this case,
+    $$
+    \{\hat{r}=r\}\supseteq 
+    \{\frac{\lambda_{1}(\bY^T \bY)}{\lambda_{n-k}(\bY^T \bY)}\leq \gamma_n\}.
+    $$
+\end{proof}
+
+\begin{proof}[Proof of Proposition~\ref{traceProp1}]
+    Since $\hat{r}$ is a consistent estimator of $r$, we only need to prove
+    $$
+    \frac{1 }{n-k}
+        \sum_{i=r+1}^{n-k}\lambda_i(\bY^T\bY)
+        =\mytr(\bLambda_2)+O_P(\sqrt{p}).
+    $$
+    Note that
+$$
+\bY^T \bY =\bG_1^T \bLambda \bG_1
+=
+\bG_{1A}^T \bLambda_1 \bG_{1A}+
+\bG_{1B}^T \bLambda_2 \bG_{1B}.
+$$
+By Weyl's inequality, for $i=r+1,\ldots, n-k$, we have
+$$
+\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \lambda_i(\bY^T \bY)\leq \lambda_{i-r}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
+$$
+It follows that
+$$
+\sum_{i=r+1}^{n-k}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)\leq \sum_{i=1}^{n-k-r}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
+$$
+Hence
+$$
+ \big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- \mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})\big|\leq r \lambda_1(\bG_{1B}^T \bLambda_2 \bG_{1B})=O_P(rp).
+$$
+But central limit theorem implies that
+$$\mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})-(n-k)\mytr(\bLambda_2)%=\sqrt{(n-k)\mytr(\bLambda_2^2)}O_P(1)
+=O_P(\sqrt{np}).$$
+Thus
+$$
+    \begin{aligned}
+        &\frac{1}{n-k}\sum_{i=r+1}^{n-k}\lambda_i (\bY^T \bY)
+        =\mytr(\bLambda_2)+
+\frac{1}{n-k}\big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- (n-k)\mytr(\bLambda_2)\big|\\
+        =&\mytr(\bLambda_2)+O_P(\frac{rp}{n})
+        =\mytr(\bLambda_2)+O_P(\sqrt{p}),
+    \end{aligned}
+$$
+    where the last equality follows form Assumption~\ref{assumpEigen}.
+\end{proof}
+
+    \begin{proof}[Proof of Proposition~\ref{Taichangle}]
+        Let $\bU_{\bY,1;(i,j)}$ be the first $r$ columns of $\bU_{\bY;(i,j)}$.
+        Let $\bU_{\bY,2;(i,j)}$ be a $p\times (p-r)$ orthogonal matrix satisfying $\bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T= \bI_p-\bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^T$.
+        Then by Lemma~\ref{PCAlemma2}, we have
+        $$
+        \lambda_1(\bU_1^T \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^T \bU_1)
+        =
+        \lambda_1(\bI_r-\bU_1^T \bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^T \bU_1)
+        =
+        O_P(\frac{p}{\blambda_r n}).
+        $$
+
+
+        First, we prove that $w_{ij}^2$ is an approximation of $Y_i^T \bU_2 \bU_2^T Y_j$.
+        For $1\leq i<j\leq n-k$, define $\epsilon_{ij}= w_{ij}-Y_i^T \bU_{2} \bU_{2}^T Y_j$, then we have
+        \begin{equation}\label{emLong}
+    \begin{aligned}
+        &\epsilon_{ij}
+        =Y_i^T (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_2 \bU_2^T) Y_j\\
+        =&Y_i^T(\bU_1 \bU_1^T+\bU_2 \bU_2^T) (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_2 \bU_2^T)(\bU_1 \bU_1^T+\bU_2 \bU_2^T) Y_j\\
+        =&Y_i^T \bU_2 \bU_2^T (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_2\bU_2^T) \bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_2 \bU_2^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+        =&
+            Y_i^T\bU_2 \bU_2^T ( \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T)\bU_2 \bU_2^T Y_j\\
+            &+
+            Y_i^T \bU_2 \bU_2^T(\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2 \bU_2^T)\bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_2 \bU_2^T Y_j\\
+        &+Y_i^T \bU_2 \bU_2^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+        &+Y_i^T \bU_1 \bU_1^T \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T \bU_1 \bU_1^T Y_j\\
+        \overset{def}{=} &
+        \epsilon_{ij}^{(1)}+
+        \epsilon_{ij}^{(2)}+
+        \epsilon_{ij}^{(3)}+
+        \epsilon_{ij}^{(4)}+
+        \epsilon_{ij}^{(5)}.
+    \end{aligned}
+    \end{equation}
+        We deal with the five terms separately.
+        First we deal with $\epsilon_{ij}^{(1)}$.
+        It can be seen that
+         $Y_i$, $Y_j$ and $\tilde{\bU}_{\bY;(i,j)}$ are mutually independent and
+        $\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T$ is a projection matrix whose rank is not larger than $n-k-2-r$.
+        Then
+        $$
+        \begin{aligned}
+            &\myE (\epsilon_{ij}^{(1)})^2\\
+            %&\myE\|Y_i^T\bU_2 \bU_2^T ( \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T)\bU_2 \bU_2^T Y_j\|^2\\
+            =&\myE \mytr (\bLambda_2^{1/2}\bU_2^T(\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T)\bU_2 \bLambda_2^{1/2})^2\\
+            \leq & c_1^2 (n-k-2-r)=o(p).
+        \end{aligned}
+        $$
+        Next we deal with $\epsilon_{ij}^{(2)}$. we have
+        $$
+        \begin{aligned}
+            &\myE (\epsilon_{ij}^{(2)})^2\\
+            =&\myE \mytr (\bLambda_2^{1/2}\bU_2^T(
+            \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T
+            )\bU_2 \bLambda_2^{1/2})^2\\
+            \leq & c_1^2 
+            \myE \mytr (\bU_2^T(
+            \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T-\bU_2\bU_2^T
+            )\bU_2 )^2\\
+            = & c_1^2 
+            \myE \mytr (
+            \bI_{p-r}-\bU_2^T \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^T\bU_2
+             )^2\\
+            = & c_1^2
+        \myE \mytr (\bI_r-\bU_1^T \bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^T \bU_1)^2\\
+            \leq  & c_1^2 r
+         \myE \lambda_1^2 (\bI_r-\bU_1^T \bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^T \bU_1)\\
+            =&  O(r (\frac{p}{\blambda_r n})^2)=o(p).
+        \end{aligned}
+        $$
+
+        Note that $\epsilon_{i,j}^{(3)}$ and $\epsilon_{i,j}^{(4)}$ have the same distribution, we have
+        $$
+        \begin{aligned}
+            &\myE(\epsilon_{ij}^{(3)})^2 =
+            \myE(\epsilon_{ij}^{(4)})^2 \\
+            =&\myE \mytr ( \bLambda_1^{1/2}\bU_1^T\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^T \bU_2 \bLambda_2 \bU_2^T \tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^T \bU_1 \bLambda_1^{1/2})\\
+            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^T\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^T \bU_2 \bU_2^T \tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^T \bU_1 )\\
+            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^T\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^T \bU_1 )\\
+            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^T{\bU}_{\bY,2;(i,j)}{\bU}_{\bY,2;(i,j)}^T \bU_1 )\\
+            \leq& c_1 \blambda_1 r \frac{p}{\blambda_r n}=o(p).
+        \end{aligned}
+        $$
+        As for $\epsilon_{i,j}^{(5)}$, we have
+        $$
+        \begin{aligned}
+            &\myE(\epsilon_{ij}^{(5)})^2 \\
+            =&\myE \mytr (\bLambda_1^{1/2}\bU_1^T
+            \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T\bU_1 \bLambda_1^{1/2})^2\\
+            \leq & \blambda_1^2\myE \mytr (\bU_1^T
+            \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^T\bU_1 )^2\\
+            \leq&  \blambda_1^2  \myE \mytr ( \bU_1^T{\bU}_{\bY,2;(i,j)}{\bU}_{\bY,2;(i,j)}^T \bU_1 )^2\\
+            \leq& \blambda_1^2 r (\frac{p}{\blambda_r n})^2=o(p).
+        \end{aligned}
+        $$
+
+        Note that
+    $$
+        \begin{aligned}
+            &\widehat{\mytr(\bLambda_2^2)}\\
+            =&
+        \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 \\
+            &+
+            \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}\big((\sum_{l=1}^5\epsilon_{ij}^{(l)})(Y_i^T \bU_2 \bU_2^T Y_j)
+            + (\sum_{l=1}^5\epsilon_{ij}^{(l)})^2\big).
+        \end{aligned}
+    $$
+        Then
+        $$
+            \begin{aligned}
+                &\myE\Big|\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}\big((\sum_{l=1}^5\epsilon_{ij}^{(l)})(Y_i^T \bU_2 \bU_2^T Y_j)
+                +
+                (\sum_{l=1}^5\epsilon_{ij}^{(l)})^2\big)\Big|\\
+                \leq&
+                \myE\Big|(\sum_{l=1}^5\epsilon_{12}^{(l)})(Y_1^T \bU_2 \bU_2^T Y_2)
+            +
+            (\sum_{l=1}^5\epsilon_{12}^{(l)})^2\Big|\\
+            \leq&
+            \sqrt{\myE\big(\sum_{l=1}^5\epsilon_{12}^{(l)}\big)^2\myE\big(Y_1^T \bU_2 \bU_2^T Y_2\big)^2}
+            +
+            \myE (\sum_{l=1}^5\epsilon_{12}^{(l)})^2=o(p).
+        \end{aligned}
+    $$
+    This implies that
+$$
+    \begin{aligned}
+        \widehat{\mytr(\bLambda_2^2)}
+        =
+    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+        +o_P(p).
+    \end{aligned}
+$$
+
+        Now we only need to prove that
+        $$
+    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+        $$
+        is ratio consistent.
+        Since $\myE (Y_i^T \bU_2 \bU_2^T Y_j)^2=\mytr(\bLambda_2^2)$ for $i< j$, we have
+    $$
+        \myE
+    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+        =\mytr(\bLambda_2^2).
+        $$
+        To prove the proposition, we only need to show that 
+        $$
+        \myVar
+    \Big(
+    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+    \Big)
+        =o(\mytr^2(\bLambda_2^2)).
+        $$
+         Note that
+         $$
+        \begin{aligned}
+            &\myE\Big(
+    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+            \Big)^2\\
+            =&
+            \frac{4}{(n-k)^2(n-k-1)^2}\Big(\sum_{1\leq i < j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2\Big)^2\\
+            =&
+            \frac{4}{(n-k)^2(n-k-1)^2}\myE\Big( \sum_{i<j}(Y_i^T\bU_2 \bU_2^T Y_j)^4\\
+            &+
+            \sum_{i<j,k<l:\{i,j\}\{k,l\}=\emptyset}(Y_i^T\bU_2 \bU_2^T Y_j)^2 (Y_k^T\bU_2 \bU_2^T Y_l)^2\\
+            &+2\sum_{i<j<k}\big((Y_i^T\bU_2 \bU_2^T Y_j)^2(Y_i\bU_2 \bU_2^T Y_k)^2\\
+            &+(Y_i^T\bU_2 \bU_2^T Y_j)^2(Y_j\bU_2 \bU_2^T Y_k)^2+(Y_i^T\bU_2 \bU_2^T Y_k)^2(Y_j\bU_2 \bU_2^T Y_k)^2\big) \Big)\\
+            =&
+    \frac{4}{(n-k)^2(n-k-1)^2}\Big(
+            \frac{(n-k)(n-k-1)}{2}\big(6\mytr(\bLambda_2^4)+3\mytr^2(\bLambda_2^2)\big)\\
+            &+\frac{(n-k)(n-k-1)(n-k-2)(n-k-3)}{4}\mytr^2(\bLambda_2^2)\\
+            &+(n-k)(n-k-1)(n-k-2)\big(2\mytr(\bLambda_2^4)
+            +\mytr^2(\bLambda_2^2)\big)
+            \Big)\\
+            =&
+            \mytr^2(\bLambda_2^2)(1+o(1)).
+        \end{aligned}
+         $$
+        It follows that
+        $$
+        \myVar
+    \Big(\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^T \bU_2 \bU_2^T Y_j)^2 
+    \Big)
+            =
+            o(\mytr^2(\bLambda_2^2)).
+        $$
+        This completes the proof.
+\end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip 14pt
 \noindent {\large\bf Supplementary Materials}
