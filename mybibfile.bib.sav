@@ -116,6 +116,7 @@
   pages   = {897},
   doi     = {10.1093/bioinformatics/btp098},
   eprint  = {/oup/backfile/content_public/journal/bioinformatics/25/7/10.1093_bioinformatics_btp098/1/btp098.pdf},
+  groups  = {GWAS},
   url     = { + http://dx.doi.org/10.1093/bioinformatics/btp098},
 }
 
@@ -414,6 +415,21 @@
   groups        = {factor and PCA},
   owner         = {kfeng123},
   timestamp     = {2017.08.30},
+}
+
+@Article{Verstynen1209,
+  author    = {Verstynen , Timothy and Diedrichsen, J{\"o}rn and Albert, Neil and Aparicio, Paul and Ivry, Richard B.},
+  title     = {Ipsilateral Motor Cortex Activity During Unimanual Hand Movements Relates to Task Complexity},
+  journal   = {Journal of Neurophysiology},
+  year      = {2005},
+  volume    = {93},
+  number    = {3},
+  pages     = {1209--1222},
+  issn      = {0022-3077},
+  doi       = {10.1152/jn.00720.2004},
+  eprint    = {http://jn.physiology.org/content/93/3/1209.full.pdf},
+  publisher = {American Physiological Society},
+  url       = {http://jn.physiology.org/content/93/3/1209},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

@@ -116,6 +116,7 @@
   pages   = {897},
   doi     = {10.1093/bioinformatics/btp098},
   eprint  = {/oup/backfile/content_public/journal/bioinformatics/25/7/10.1093_bioinformatics_btp098/1/btp098.pdf},
+  groups  = {GWAS},
   url     = { + http://dx.doi.org/10.1093/bioinformatics/btp098},
 }
 
@@ -399,6 +400,35 @@
   volume  = {7},
   number  = {1},
   pages   = {1-46},
+}
+
+@Article{Fan2008High,
+  author        = {Fan, Jianqing and Fan, Yingying and Lv, Jinchi},
+  title         = {High dimensional covariance matrix estimation using a factor model},
+  journal       = {Journal of Econometrics},
+  year          = {2008},
+  volume        = {147},
+  number        = {1},
+  pages         = {186-197},
+  __markedentry = {[kfeng123:5]},
+  file          = {Fan2008High.pdf:Fan2008High.pdf:PDF},
+  groups        = {factor and PCA},
+  owner         = {kfeng123},
+  timestamp     = {2017.08.30},
+}
+
+@Article{Verstynen2004,
+  author    = {T. Verstynen},
+  title     = {Ipsilateral Motor Cortex Activity During Unimanual Hand Movements Relates to Task Complexity},
+  journal   = {Journal of Neurophysiology},
+  year      = {2005},
+  volume    = {93},
+  number    = {3},
+  pages     = {1209--1222},
+  month     = {Mar},
+  doi       = {10.1152/jn.00720.2004},
+  publisher = {American Physiological Society},
+  url       = {https://doi.org/10.1152/jn.00720.2004},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
