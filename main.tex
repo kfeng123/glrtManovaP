@@ -136,15 +136,17 @@ Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
 
 \begin{quotation}
 \noindent {\it Abstract:}
-This paper considers in high dimensional setting a canonical testing problem, namely testing the equality of multiple mean vectors of normal distribution.
-    Motivated by Roy's union-intersection principle, we propose a generalized likelihood ratio test.
-    To investigate the asymptotic properties of the proposed test, we adopt a spiked covariance model which can characterize the strong correlation between variables.
-    The limiting null distribution of the test statistic is derived and the local asymptotic power function is given.
-    The asymptotic power function implies that the proposed test has particular high power when there are strong correlation between variables.
- We also carry out simulations to verify our theoretical results.
+This paper considers the problem of multivariate analysis of variance for normal samples.
+    When the sample dimension is larger than the sample size, the classical likelihood ratio test can not be defined since the likelihood function is unbounded.
+    Although the unboundedness of the likelihood function causes some trouble, it contains important information based on which we propose a generalized likelihood ratio test.
+    The asymptotic null distribution of the test statistic is derived and the local asymptotic power function is given.
+    Our theoretical framework allows the covariance matrix to have a few large eigenvalues which can characterize the strong correlations between variables.
+    %To investigate the asymptotic properties of the proposed test, we adopt a spiked covariance model which can characterize the strong correlation between variables.
+    Our theoretical results and simulations show that the proposed test has particular high power when there are strong correlation between variables.
 
 \vspace{9pt}
-\noindent {\it Key words and phrases:}
+    \noindent {\it Key words and phrases:}
+    High dimensional test, multivariate analysis of variance, principal component analysis, spiked covariance.
 %Balanced incomplete block design, Hadamard matrix, nearly balanced incomplete block design, orthogonal array.
 \par
 \end{quotation}\par
@@ -162,6 +164,7 @@ This paper considers in high dimensional setting a canonical testing problem, na
 \setcounter{section}{1} %***
 \setcounter{equation}{0} %-1
 \noindent {\bf 1. Introduction}
+
 Suppose there are $k$ ($k\geq 2$) groups of $p$ dimensional data.
 Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\xi_i,\bSigma)$, the $p$ dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
 %Suppose there are $k$ normal populations with possibly different means $\xi_1,\ldots,\xi_k$, but all with the same variance $\bSigma$.
@@ -198,12 +201,12 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be t
 
 
 In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$.
-See, for example,~\citet{Tsai2009,Verstynen1209}.
+See, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
 However, when $p\geq n$, the four classical test statistics can not be defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
  So far, most tests are designed for two sample case, i.e., $k=2$.
-  See, for example,~\citet{Bai1996Efiect,Chen2010A,Srivastava2009A,Tony2013,Feng2015Multivariate}.
+  See, for example,~\citet{Bai1996Efiect},~\citet{Chen2010A},~\citet{Srivastava2009A},~\citet{Tony2013} and \citet{Feng2015Multivariate}.
   For multiple sample case,~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
@@ -224,6 +227,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
   Stitistics $T_{SC}$ and $T_{CX}$ are the representatives of two popular methodologies for high dimensional tests.
   $T_{SC}$ is a so-called {sum-of-squares} type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
   $T_{CX}$ is an {extreme value type} statistic.
+  {\color{red}Some references.}
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\xi_i,\bSigma)$ for $1\leq i\leq K$.
 %The $k$ samples are independent.
@@ -237,10 +241,12 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     it remains a problem how to construct likelihood-based tests in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
+    {\color{red} unbounded likelihood
 Inspired by Roy's union-intersection principle \citep{Roy1953},
     they wrote the null hypothesis as the intersection of a class of component hypotheses.
     For each component hypotheses, the likelihood ratio test is constructed.
-    They use a {least favorable} argument to construct test statistic based on component tests.
+    They use a {least favorable} argument to construct a test statistic based on component tests.
+}
     Their simulation results showed that their test has good power performance, especially when the variables are correlated.
 
     Following~\cite{Zhao2016A}'s methodology, we propose a generalized likelihood ratio test for hypothesis~\eqref{hypothesis}.
@@ -249,7 +255,7 @@ Inspired by Roy's union-intersection principle \citep{Roy1953},
     In this case, the covariance matrix has a few significantly large eigenvalues~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
     We assume there are $r$ significantly large eigenvalues and the other eigenvalues are bounded.
     We derive the asymptotic null distribution of the test statistic and give the asymptotic local power function.
-    Our theoretical results implies that the asymptotic power of the new test is not affected by large eigenvalues, while most existing tests are negatively affected by large eigenvalues.
+    Our theoretical results imply that the asymptotic power of the new test is not affected by large eigenvalues, while most existing tests are negatively affected by large eigenvalues.
     Hence the new test is particularly powerful when there are strong correlations between variables.
     We also conduct a simulation study to examine the numerical performance of the test.
 

@@ -417,18 +417,32 @@
   timestamp     = {2017.08.30},
 }
 
-@Article{Verstynen2004,
-  author    = {T. Verstynen},
+@Article{Verstynen1209,
+  author    = {Verstynen , Timothy and Diedrichsen, J{\"o}rn and Albert, Neil and Aparicio, Paul and Ivry, Richard B.},
   title     = {Ipsilateral Motor Cortex Activity During Unimanual Hand Movements Relates to Task Complexity},
   journal   = {Journal of Neurophysiology},
   year      = {2005},
   volume    = {93},
   number    = {3},
   pages     = {1209--1222},
-  month     = {Mar},
+  issn      = {0022-3077},
   doi       = {10.1152/jn.00720.2004},
+  eprint    = {http://jn.physiology.org/content/93/3/1209.full.pdf},
   publisher = {American Physiological Society},
-  url       = {https://doi.org/10.1152/jn.00720.2004},
+  url       = {http://jn.physiology.org/content/93/3/1209},
+}
+
+@Article{Chang2017,
+  author    = {Chung Chang and Xuejing Lin and R. Todd Ogden},
+  title     = {Simultaneous confidence bands for functional regression models},
+  journal   = {Journal of Statistical Planning and Inference},
+  year      = {2017},
+  volume    = {188},
+  pages     = {67--81},
+  month     = {sep},
+  doi       = {10.1016/j.jspi.2017.03.002},
+  publisher = {Elsevier {BV}},
+  url       = {https://doi.org/10.1016/j.jspi.2017.03.002},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
