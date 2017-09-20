@@ -1,9 +1,6 @@
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
 
-
-
-
 doit <- function() {
     # J
     tmp <- lapply(1:K,function(i){
@@ -89,24 +86,98 @@ for(SNR in seq(0,10)){
     B = 100
     # sample number
     K = 3
-    n <- c(25, 25, 25)
-    p = 100
-    #Sigma <- diag(p)
-    #Sigma[1,1]<- p
-    Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
+    n <- c(10, 10, 10)
+    p = 50
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
     
-    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
-    #SNR <- 0
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     
     (tmpFram<-doit())
     tmpList<-c(tmpList,list(tmpFram))
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"6p100.csv",row.names=FALSE)
+write.csv(theOut,"1p50.csv",row.names=FALSE)
  
 #########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(10, 10, 10)
+    p = 75
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"1p75.csv",row.names=FALSE)
+ 
+#########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(10, 10, 10)
+    p = 100
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"1p100.csv",row.names=FALSE)
+
+ 
+#########################################################################
+
+
+
+##########  table 2 #################################3
+######################################################
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(25, 25, 25)
+    p = 100
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"2p100.csv",row.names=FALSE)
+ 
+#########################################################################
+
 tmpList<-NULL
 for(SNR in seq(0,10)){
     B = 100
@@ -114,22 +185,22 @@ for(SNR in seq(0,10)){
     K = 3
     n <- c(25, 25, 25)
     p = 150
-    #Sigma <- diag(p)
-    #Sigma[1,1]<- p
-    Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
     
-    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
-    #SNR <- 0
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     
     (tmpFram<-doit())
     tmpList<-c(tmpList,list(tmpFram))
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"6p150.csv",row.names=FALSE)
+write.csv(theOut,"2p150.csv",row.names=FALSE)
  
 #########################################################################
+
 tmpList<-NULL
 for(SNR in seq(0,10)){
     B = 100
@@ -137,26 +208,181 @@ for(SNR in seq(0,10)){
     K = 3
     n <- c(25, 25, 25)
     p = 200
-    #Sigma <- diag(p)
-    #Sigma[1,1]<- p
-    Sigma <- diag(sort(runif(p,1,100),decreasing = TRUE))
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
     
-    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
-    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
-    #SNR <- 0
+    mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
     
     (tmpFram<-doit())
     tmpList<-c(tmpList,list(tmpFram))
 }
 
 theOut<-do.call(rbind,tmpList)
-write.csv(theOut,"6p200.csv",row.names=FALSE)
+write.csv(theOut,"2p200.csv",row.names=FALSE)
+
  
 #########################################################################
 
-a<-read.csv("6p100.csv")
-b<-read.csv("6p150.csv")
-c<-read.csv("6p200.csv")
+################## table 3
+######################################################
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(10, 10, 10)
+    p = 50
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"3p50.csv",row.names=FALSE)
+ 
+#########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(10, 10, 10)
+    p = 75
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"3p75.csv",row.names=FALSE)
+ 
+#########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(10, 10, 10)
+    p = 100
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"3p100.csv",row.names=FALSE)
+
+ 
+#########################################################################
+
+
+
+##########  table 4 #################################3
+######################################################
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(25, 25, 25)
+    p = 100
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"4p100.csv",row.names=FALSE)
+ 
+#########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(25, 25, 25)
+    p = 150
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"4p150.csv",row.names=FALSE)
+ 
+#########################################################################
+
+tmpList<-NULL
+for(SNR in seq(0,10)){
+    B = 100
+    # sample number
+    K = 3
+    n <- c(25, 25, 25)
+    p = 200
+    Sigma <- diag(p)
+    Sigma[1,1]<- 1.5*p
+    Sigma[1,1]<- p
+    
+    #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
+    mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
+    
+    (tmpFram<-doit())
+    tmpList<-c(tmpList,list(tmpFram))
+}
+
+theOut<-do.call(rbind,tmpList)
+write.csv(theOut,"4p200.csv",row.names=FALSE)
+
+ 
+#########################################################################
+
+
+
+
+
+
+
+
+
+
+a<-read.csv("1p50.csv")
+b<-read.csv("1p75.csv")
+c<-read.csv("1p100.csv")
 
 tmp<-merge(a,b,by.x="SNR",by.y="SNR")
 tmp<-merge(tmp,c,by.x="SNR",by.y="SNR")

@@ -219,15 +219,16 @@ However, when $p\geq n$, the four classical test statistics can not be defined.
   \frac{1}{k-1}\mytr\big(\bH\big)-\frac{1}{n-k}\mytr\big(\bG\big)
   \Big).
   $$
-In another work,~\cite{Cai2014High} proposed a test statistic
+Statistic $T_{SC}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
+See~\cite{Srivastava2013},~\cite{Yamada2015} and~\cite{Chang2017} for some other sum-of-squares type test statistics.
+
+In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
   Where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
-  Stitistics $T_{SC}$ and $T_{CX}$ are the representatives of two popular methodologies for high dimensional tests.
-  $T_{SC}$ is a so-called {sum-of-squares} type statistic as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
-  $T_{CX}$ is an {extreme value type} statistic.
-  {\color{red}Some references.}
+  Unlike $T_{SC}$, $T_{CX}$ is an extreme value type statistic.
+  %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\xi_i,\bSigma)$ for $1\leq i\leq K$.
 %The $k$ samples are independent.
@@ -236,26 +237,27 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     %H: \xi_1=\xi_2=\cdots=\xi_k\quad v.s.\quad K: \textrm{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
-   Note that both sum-of-squares type statistic and extreme value type statistic are not based on likelihood function.
+   Note that both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
     While the likelihood ratio test (LRT), i.e., Wilks' Lambda, is not defined for $p>n-k$,
     it remains a problem how to construct likelihood-based tests in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
-    {\color{red} unbounded likelihood
-Inspired by Roy's union-intersection principle \citep{Roy1953},
-    they wrote the null hypothesis as the intersection of a class of component hypotheses.
-    For each component hypotheses, the likelihood ratio test is constructed.
-    They use a {least favorable} argument to construct a test statistic based on component tests.
-}
+    They founded that the unboundedness of likelihood function contains useful information.
+    Based on this, they used a least favorable argument to construct a generalized likelihood ratio test statistic.
+    %They wrote the null hypothesis as the intersection of a class of component hypotheses.
+    %For each component hypotheses, the likelihood ratio test is constructed.
     Their simulation results showed that their test has good power performance, especially when the variables are correlated.
 
-    Following~\cite{Zhao2016A}'s methodology, we propose a generalized likelihood ratio test for hypothesis~\eqref{hypothesis}.
-    To understand the power behavior of the new test, especially when variables are strongly correlated, the asymptotic distribution of the new statistic needs to be derived.
-    An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
-    In this case, the covariance matrix has a few significantly large eigenvalues~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
-    We assume there are $r$ significantly large eigenvalues and the other eigenvalues are bounded.
-    We derive the asymptotic null distribution of the test statistic and give the asymptotic local power function.
-    Our theoretical results imply that the asymptotic power of the new test is not affected by large eigenvalues, while most existing tests are negatively affected by large eigenvalues.
+
+    Following~\cite{Zhao2016A}'s methodology, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}.
+    To understand the behavior of the new test, we derive the asymptotic distribution of the test statistic.
+    %An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
+    Our theoretical framework allows the covariance matrix to have $r$ significantly large eigenvalues.
+    This covariance structure, known as spiked covariance, can characterize the strong correlations between variables. See, for example,~\citet{Fan2008High},~\citet{Cai2012Sparse},~\citet{Shen2013Consistency} and~\citet{Ma2015A}.
+    The asymptotic distribution of the proposed test statistic involves some unknown parameters.
+    We give estimators of these parameters and formulate a test with correct level asymptotically.
+    Based on the theoretical results, the asymptotic local power function of the new test can be derived.
+While the asymptotic power of most existing tests are negatively affected by the large eigenvalues of covariance matrix, the asymptotic power of the new test doesn't depend on the large eigenvalues of covariance matrix. 
     Hence the new test is particularly powerful when there are strong correlations between variables.
     We also conduct a simulation study to examine the numerical performance of the test.
 
@@ -271,7 +273,7 @@ Inspired by Roy's union-intersection principle \citep{Roy1953},
 
  
 \section{Methodology}\label{methodology}
-\subsection{Discussion about existing methods}
+\subsection{Existing methods}
 To facilitate the discussion, we introduce some notations.
  Let
  $$\bX=(X_{11},X_{12},\ldots,X_{1n_1},X_{21},X_{22},\ldots,X_{2n_2},\ldots,X_{k1},X_{k2},\ldots,X_{kn_k})$$
@@ -286,7 +288,7 @@ To facilitate the discussion, we introduce some notations.
  \end{pmatrix},
  $$
  and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to $1$.
- Let
+ Construct a matrix $\tilde{\bJ}$ as 
  $$
  \tilde{\bJ}=\begin{pmatrix}
      \tilde{\bJ}_1&\mathbf{0} & \mathbf{0}\\
@@ -295,17 +297,17 @@ To facilitate the discussion, we introduce some notations.
      \mathbf{0}&\mathbf{0}&\tilde{\bJ}_k
  \end{pmatrix},
  $$
- where $\tilde{\bJ}_i$ is a $n_i\times n_{i-1}$ matrix satisfying
+ where $\tilde{\bJ}_i$ is an $n_i\times (n_{i}-1)$ matrix defined as
  $$
 \tilde{\bJ}_i=\begin{pmatrix}
-    \frac{\sqrt{2}}{2}&&&0\\
-    -\frac{\sqrt{2}}{2}&\frac{\sqrt{2}}{2}&&\\
-    &-\frac{\sqrt{2}}{2}&\ddots&\\
-    &&\ddots&\frac{\sqrt{2}}{2}\\
-    0&&&-\frac{\sqrt{2}}{2}\\
+    \frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}&\cdots&\frac{1}{\sqrt{(n_i-2)(n_i-1)}}&\frac{1}{\sqrt{(n_i-1)n_i}}\\
+    -\frac{1}{\sqrt{2}}&\frac{1}{\sqrt{6}}&\cdots&\frac{1}{\sqrt{(n_i-2)(n_i-1)}}&\frac{1}{\sqrt{(n_i-1)n_i}}\\
+    0&-\frac{2}{\sqrt{6}}&\cdots&\vdots&\vdots\\
+    \vdots&\vdots&\cdots&-\frac{n_i-2}{\sqrt{(n_i-2)(n_i-1)}}&\frac{1}{\sqrt{(n_i-1)n_i}}\\
+    0&0&\cdots&0&-\frac{n_i-1}{\sqrt{(n_i-1)n_i}}\\
 \end{pmatrix}.
  $$
-Then $\tilde{\bJ}$ is an $n\times (n-k)$ orthogonal matrix  satisfying $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
+Then $\tilde{\bJ}$ is an $n\times (n-k)$ orthogonal matrix  satisfying $\tilde{\bJ}^T\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
 Let $\bY=\bX\tilde{\bJ}$.
 Then $\bG$ has representation
 $$\bG=
@@ -318,15 +320,23 @@ $$
 =\bX \bJ(\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ)\bJ^T \bX^T.
 $$
 We can write $\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ=\bC\bC^T$
-where $\bC$ be a $k\times (k-1)$ matrix satisfying
-$$
-\bC=\begin{pmatrix}
-    \sqrt{\frac{n_2}{n_1+n_2}}&&&0\\
-    -\sqrt{\frac{n_1}{n_1+n_2}}&\sqrt{\frac{n_3}{n_2+n_3}}&&\\
-    &-\sqrt{\frac{n_2}{n_2+n_3}}&\ddots&\\
-    &&\ddots&\sqrt{\frac{n_k}{n_{k-1}+n_k}}\\
-    0&&&-\sqrt{\frac{n_{k-1}}{n_{k-1}+n_k}}\\
-\end{pmatrix}.
+where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
+ $$
+\bC_1=\begin{pmatrix}
+    \sqrt{n_1}&\sqrt{n_1}&\cdots&\sqrt{n_1}&\sqrt{n_1}\\
+    -\frac{n_1}{\sqrt{n_2}}&\sqrt{n_2}&\cdots&\sqrt{n_2}&\sqrt{n_2}\\
+    0&-\frac{n_1+n_2}{\sqrt{n_3}}&\cdots&\vdots&\vdots\\
+    \vdots&\vdots&\cdots&-\frac{\sum_{i=1}^{k-2}n_i}{\sqrt{n_{k-1}}}&\sqrt{n_{k-1}}\\
+    0&0&\cdots&0&-\frac{\sum_{i=1}^{k-1}n_i}{\sqrt{n_k}}\\
+\end{pmatrix},
+ $$
+ $$
+\bC_2=\begin{pmatrix}
+    \frac{n_1(n_1+n_2)}{n_2}&0&\cdots&0\\
+    0&\frac{(\sum_{i=1}^2 n_i)(\sum_{i=1}^3 n_i)}{n_3}&\cdots&0\\
+    \vdots&\vdots&\cdots&\vdots\\
+    0&0&\cdots&\frac{(\sum_{i=1}^{k-1} n_i)(\sum_{i=1}^k n_i)}{n_{k}}\\
+\end{pmatrix}^{-\frac{1}{2}}.
 $$
 Then $\bH$ has representation
 \begin{equation*}
@@ -342,9 +352,9 @@ Then $\bH$ has representation
  $$
  based on data matrix $\bX$ when $p$ is larger.
 
-In low dimensional setting, the testing problem~\ref{hypothesis} is well studied.
+In low dimensional setting, the testing problem~\eqref{hypothesis} is well studied.
 The difficulty occurs when $p\geq n$, where the four classical test statistics can not be defined.
-As the high dimensional problem is hard to deal with, a simple idea is to reduce the problem to a class of univariate problems.
+To construct test statistic in high dimensional setting, a simple idea is to reduce the problem~\eqref{hypothesis} to a class of univariate problems.
 Following this idea, a general strategy to propose a test statistic can be summarized as three steps.
 \begin{enumerate}
     \item
@@ -365,7 +375,7 @@ While the LRT may be the best choice of univariate problems in step 2,
 In step 3, Roy's union intersection principle suggests to use $\max_{\gamma\in\Gamma}T_{\gamma}$ as global test statistic~\citep{Roy1953},
 while another choice is to integrate $T_\gamma$ according some measure $\mu(\gamma)$ and use $\int_\gamma T_{\gamma}\,\mu(d\gamma)$ as global test statistic.
 For step 1, we consider two different constructions of data projection.
-\begin{enumerate}[i]
+\begin{enumerate}[(i)]
     \item
         Consider the class of univariate data $\{\bX_{i}=e_i^T \bX:i=1,\ldots,p\}$, where $e_i$ is the $i$th standard basis in $\mathbb{R}^p$.
         Hence $H_0=\bigcap_{i=1}^p H_{0i}$ and $H_1=\bigcup_{i=1}^p H_{1i}$, where
@@ -380,7 +390,7 @@ For step 1, we consider two different constructions of data projection.
  $$
 \end{enumerate}
 
-First, we consider the construction i in step 1.
+First, we consider the construction (i) in step 1.
 Suppose component test statistics 
 $$T_i={(k-1)^{-1}} e_i^T \bH e_i-(n-k)^{-1}e_i^T \bG e_i\quad i=1,\ldots, p$$
 are used in step 2, and in step 3 we integrate $T_i$ according to the uniform measure on $1,\ldots,p$. Then the resulting statistic is $p^{-1}\sum_{i=1}^p T_i$ which is equivalent to $T_{SC}$.
@@ -392,17 +402,17 @@ $$
 we have $T_{CX}=\max_{1\leq i\leq p}T_i^*$.
 Here the component test statistic $T_i^*$ is similar to likelihood ratio tests.
 
-While many existing tests can be derived by the construction i in step 1, this construction has limitation in that it relies on the choice of an orthogonal basis of $\mathbb{R}^p$.
+While many existing tests can be derived by the construction (i) in step 1, this construction has limitation in that it relies on the choice of an orthogonal basis of $\mathbb{R}^p$.
 In fact, test statistics resulting from this construction mostly requires certain prior information about the covariance matrix.
 For example,~\citet{Schott2007Some} requires that $\mytr(\bSigma^{2j})/p\to \tau_j\in(0,\infty)$, $j=1,2$, and~\citet{Cai2014High} requires a consistent estimator of $\Omega$.
 
-Next, we consider using construction ii in step 1, which does not rely on the basis of $\mathbb{R}^p$.
+Next, we consider using construction (ii) in step 1, which does not rely on the basis of $\mathbb{R}^p$.
 Suppose the likelihood ratio test statistic $T_a=a^T \bH a/a^T \bG a$ is used in step 2.
 If we use the integrating strategy in step 3 and choose $\mu$ equal to the uniform distribution on the sphere, then the test statistic becomes
 $$
 \int_{a^T a=1} \frac{a^T \bH a}{a^T \bG a}\, \mu(da).
 $$
-Although it is hard to give an explicit form of the integration, it can be approximated by random projection.
+Although it is hard to give an explicit form of the integration, we can approximate it by random projection.
 More specifically, one can randomly generate unit vectors $a_1,\ldots,a_M$ and the statistics can be approximated by $M^{-1}\sum_{i=1}^M a_i^T \bH a_i/a_i^T \bG a_i$.
 This statistic is well defined in high dimensional setting.
 A similar method is proposed by~\cite{Lopes2015A} for $k=2$ from a different point of view.
@@ -415,20 +425,23 @@ In fact, this statistic is first derived in~\cite{Roy1953} as an example of his 
 
 \subsection{A new test statistic}
 
-Roy's maximum root is constructed from the component statistics $\{T_a :a^T a=1\}$ and doesn't require prior knowledge of covariance matrix.
-However, it can only be defined when $n-k\geq p$.
-In fact, if $p>n-k$, $G$ is not invertible and $T_a$ is not defined for some $a$. 
-We will follow~\citet{Zhao2016A}'s idea and propose a new test statistic for $p>n-k$.
-
-Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{01}$ and $H_{01}$, respectively.
+Roy's maximum root is constructed from the component statistics $\{T_a :a^T a=1\}$. 
+It doesn't require prior knowledge of covariance matrix and is widely used in practice.
+%However, it can only be defined when $n-k\geq p$.
+%In fact, if $p>n-k$, $G$ is not invertible and $T_a$ is not defined for some $a$. 
+%We will follow~\citet{Zhao2016A}'s idea and propose a new test statistic for $p>n-k$.
+Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
 The log likelihood ratio 
 $$\log \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
 is an increase function of $T_a$.
 From a likelihood point view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
-Thus, the component LRT statistic characterize the discrepancy between  $H_{0a}$ and $H_{1a}$.
-Thus, by maximizing $\log L_1(a)-\log L_0 (a)$, or equivalently maximizing $T_a$, one obtains
- component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}T_a$. 
-We shall call $H_{0a^*}$ the least favorable hypothesis since it is the component null hypothesis most like to be not true.
+Hence the component LRT statistic characterize the discrepancy between  $H_{0a}$ and $H_{1a}$.
+By maximizing $\log (L_1(a)/L_0 (a))$, 
+%or equivalently maximizing $T_a$,
+one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
+We shall call $a^*$ the least favorable direction %and $H_{0a^*}$ the least favorable hypothesis
+since $H_{0a^*}$ is the component null hypothesis most likely to be not true.
+Since Roy's maximum root equals to $T_{a^*}$, it is the component LRT statistic along the least favorable direction.
 
 
 
@@ -457,26 +470,27 @@ We shall call $H_{0a^*}$ the least favorable hypothesis since it is the componen
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
+Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in high dimensional setting.
+%While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
 In what follows,  we shall assume $p>n-k$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
 %Based on this idea, we have the following heuristic argument to propose a new test statistic.
-In this case, 
+In this case,
 Roy's maximum root is not defined since
 $$\mathcal{A}\overset{def}{=}\{a:L_1(a)=+\infty, \, a^T a=1\}=\{a:a^T \bG a=0, \, a^T a=1\}$$
 is not empty. 
 Note that 
 $$\{a:L_0(a)<+\infty, \, a^T a=1\}=\{a:a^T (\bG+\bH)a\neq 0, \, a^T a=1\}.$$
 By the independence of $\bG$ and $\bH$, with probability $1$, we have $\mathcal{A}\cap \{a:L_0(a)<+\infty,\, a^T a=1\}\neq \emptyset$.
-This suggests that the $a^*$ which makes the discrepancy between $L_1(a^*)$ and $L_0(a^*)$ the most should be the one which is in the set $\mathcal{A}$ and minimize $L_0(a)$.
-Thus, we define $a^* = \argmin_{a\in\mathcal{A}} L_0 (a)$ and take $H_{a^*}$ as the least favorable hypothesis.
+This suggests that the least favorable direction $a^*$, which hopefully maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, should be defined as $a^* = \argmin_{a\in\mathcal{A}} L_0 (a)$.
+%and take $H_{a^*}$ as the least favorable hypothesis.
 Equivalently,
 $$
 \begin{aligned}
     a^*&=\argmin_{a\in \mathcal{A}} L_0(a) = \argmax_{a^T a=1,a^T Ga=0} {a^T \bH a}.
 \end{aligned}
 $$
-This motivates us to propose the new test statistic as
+This motivates us to propose a new test statistic as
 \begin{equation*}
     \begin{aligned}
         T(\bX)=a^{*T} \bH a^*
@@ -485,9 +499,10 @@ This motivates us to propose the new test statistic as
         a^T \bH a.
     \end{aligned}
 \end{equation*}
-We reject the null hypothesis when $T$ is large enough.
+We reject the null hypothesis if $T(\bX)$ is large enough.
+Since $a^*$ is obtained from likelihood function, the statistic $T(\bX)$ can be regarded as a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
-
+The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
 Now we derive the explicit forms of the test statistic. 
 %Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
@@ -511,7 +526,7 @@ Now we derive the explicit forms of the test statistic.
 %\end{equation*}
 Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^T$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ both column orthogonal matrices, $\bD_{Y}$ is an $(n-k)\times (n-k)$ diagonal matrix.
 Let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^T$ be the projection matrix on the column space of $\bY$.
-Then Proposition~\ref{optProp} implies that
+Then Proposition~\ref{optProp} in Appendix implies that
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
     T(\bX)
@@ -524,7 +539,7 @@ Then Proposition~\ref{optProp} implies that
 \end{aligned}
 \end{equation}
 
-While~\eqref{statisticForm1} is convenient for theoretical analysis, it involves a projection matrix $\bP_{\bY}$ which is not easy to compute.
+%While~\eqref{statisticForm1} is convenient for theoretical analysis, it involves a projection matrix $\bP_{\bY}$ which is not easy to compute.
 Next we derive another simple form of $T(\bX)$.
 %where $\bP_A=Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
 By the relationship
@@ -589,7 +604,7 @@ To characterize this correlation pattern, we make the following assumption for t
     Suppose the first $r$ ($r\geq 0$) eigenvalues are significantly larger than the others.
     We assume $r=o(n)$.
     We assume
- $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some absolute constants $c_1$ and $c_2$.
+ $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some positive absolute constants $c_1$ and $c_2$.
     If $r\neq 0$, we assume 
     $$\frac{\blambda_r n}{p}\to \infty,\quad
     \frac{\blambda_1^2 pr^2}{\blambda_r^2 n^2}\to 0\quad
@@ -668,7 +683,7 @@ The following proposition establishes the consistency of $\hat{r}$.
  $\Pr(\hat{r}=r)\to 1$.
 \end{proposition}
 \begin{remark}
-    For the factor model adopted by~\cite{Ma2015A}, $\gamma$ is of order $p$. Then we can set $\gamma_n=\sqrt{n}$.
+    For the factor model adopted by~\cite{Ma2015A}, $\lambda_r$ is of order $p$. Then we can take $\gamma_n=\sqrt{n}$.
 \end{remark}
     We use the following statistic to estimate $\mytr(\bLambda_2)$:
     $$\widehat{\mytr(\bLambda_2)}=\frac{1}{n-k}\sum_{i=\hat{r}+1}^{n-k}\lambda_i(\bY^T \bY).$$
@@ -851,7 +866,7 @@ The following proposition establishes the consistency of $\hat{r}$.
 %\end{lemma}
 Now we can construct a test procedure with asymptotic correct level $\alpha$. Let 
 $$
-Q=\frac{T(\bX)-\frac{p-r-n+k}{p-r}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
+Q=\frac{T(\bX)-\frac{p-\hat{r}-n+k}{p-\hat{r}}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
 $$
 Let $F(x)$ be the cumulative distribution function of $\lambda_{\max}(\bW_{k-1})$.
 We reject the null hypothesis if $Q> F^{-1}(1-\alpha)$.
@@ -1055,9 +1070,7 @@ Without loss of generality, we only consider diagonal $\bSigma$.
 We consider two different structure of $\bSigma$.
 \begin{itemize}
     \item
-        Covariance structure I: $\bSigma=\mydiag(p,1,\ldots,1)$.
-    \item
-        Covariance structure II: $\bSigma=\mydiag(\rho_1,\ldots,\rho_p)$, where $\rho_1\geq \cdots\geq \rho_p$ are order statistics of $p$ i.i.d.\ random variables which have uniform distribution between $0$ and $1$.
+        Covariance structure I: $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
 \end{itemize}
 
 Define signal-to-noise ratio (SNR) as
@@ -1178,61 +1191,62 @@ As $p$ increase, the power of the new test approaches to that of SC.
 \end{tabular}
 \end{table}
 
-\begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure II and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
-    \label{table5}
-    \centering
-\begin{tabular}{*{10}{c}}
-\toprule
-\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
-    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
-\midrule
-0 & 0.063 & 0.054 & 0.058 & 0.052 & 0.040 & 0.042 & 0.045 & 0.049 & 0.070 \\ 
-1 & 0.141 & 0.120 & 0.115 & 0.126 & 0.120 & 0.112 & 0.103 & 0.110 & 0.102 \\ 
-2 & 0.181 & 0.209 & 0.169 & 0.330 & 0.260 & 0.210 & 0.200 & 0.227 & 0.201 \\ 
-3 & 0.692 & 0.367 & 0.244 & 0.759 & 0.385 & 0.341 & 0.468 & 0.413 & 0.394 \\ 
-4 & 0.753 & 0.539 & 0.420 & 0.744 & 0.573 & 0.515 & 0.516 & 0.554 & 0.561 \\ 
-5 & 0.828 & 0.690 & 0.509 & 0.871 & 0.697 & 0.693 & 0.556 & 0.724 & 0.727 \\ 
-6 & 0.809 & 0.812 & 0.622 & 0.822 & 0.824 & 0.766 & 0.959 & 0.838 & 0.859 \\ 
-7 & 1.000 & 0.882 & 0.780 & 0.979 & 0.916 & 0.903 & 0.990 & 0.923 & 0.947 \\ 
-8 & 0.993 & 0.955 & 0.789 & 1.000 & 0.965 & 0.954 & 0.999 & 0.972 & 0.971 \\ 
-9 & 1.000 & 0.979 & 0.911 & 0.999 & 0.981 & 0.979 & 0.964 & 0.986 & 0.987 \\ 
-10 & 1.000 & 0.991 & 0.877 & 0.989 & 0.996 & 0.988 & 0.996 & 0.996 & 0.997 \\ 
-\bottomrule
-\end{tabular}
-\end{table}
+%\begin{table}[!hbp]
+%    \caption{Empirical powers of tests under covariance structure II and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
+%    \label{table5}
+%    \centering
+%\begin{tabular}{*{10}{c}}
+%\toprule
+%\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+%    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+%        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
+%\midrule
+%0 & 0.063 & 0.054 & 0.058 & 0.052 & 0.040 & 0.042 & 0.045 & 0.049 & 0.070 \\ 
+%1 & 0.141 & 0.120 & 0.115 & 0.126 & 0.120 & 0.112 & 0.103 & 0.110 & 0.102 \\ 
+%2 & 0.181 & 0.209 & 0.169 & 0.330 & 0.260 & 0.210 & 0.200 & 0.227 & 0.201 \\ 
+%3 & 0.692 & 0.367 & 0.244 & 0.759 & 0.385 & 0.341 & 0.468 & 0.413 & 0.394 \\ 
+%4 & 0.753 & 0.539 & 0.420 & 0.744 & 0.573 & 0.515 & 0.516 & 0.554 & 0.561 \\ 
+%5 & 0.828 & 0.690 & 0.509 & 0.871 & 0.697 & 0.693 & 0.556 & 0.724 & 0.727 \\ 
+%6 & 0.809 & 0.812 & 0.622 & 0.822 & 0.824 & 0.766 & 0.959 & 0.838 & 0.859 \\ 
+%7 & 1.000 & 0.882 & 0.780 & 0.979 & 0.916 & 0.903 & 0.990 & 0.923 & 0.947 \\ 
+%8 & 0.993 & 0.955 & 0.789 & 1.000 & 0.965 & 0.954 & 0.999 & 0.972 & 0.971 \\ 
+%9 & 1.000 & 0.979 & 0.911 & 0.999 & 0.981 & 0.979 & 0.964 & 0.986 & 0.987 \\ 
+%10 & 1.000 & 0.991 & 0.877 & 0.989 & 0.996 & 0.988 & 0.996 & 0.996 & 0.997 \\ 
+%\bottomrule
+%\end{tabular}
+%\end{table}
 
-\begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure II and sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
-    \label{table6}
-    \centering
-\begin{tabular}{*{10}{c}}
-\toprule
-\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
-    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
-\midrule
-0 & 0.052 & 0.055 & 0.047 & 0.055 & 0.057 & 0.053 & 0.044 & 0.055 & 0.057 \\ 
-1 & 0.068 & 0.124 & 0.065 & 0.070 & 0.130 & 0.085 & 0.049 & 0.116 & 0.087 \\ 
-2 & 0.085 & 0.233 & 0.112 & 0.076 & 0.239 & 0.149 & 0.067 & 0.241 & 0.161 \\ 
-3 & 0.110 & 0.388 & 0.161 & 0.090 & 0.408 & 0.215 & 0.097 & 0.417 & 0.227 \\ 
-4 & 0.120 & 0.530 & 0.184 & 0.112 & 0.552 & 0.282 & 0.103 & 0.556 & 0.309 \\ 
-5 & 0.167 & 0.708 & 0.238 & 0.142 & 0.699 & 0.387 & 0.140 & 0.687 & 0.394 \\ 
-6 & 0.196 & 0.807 & 0.261 & 0.168 & 0.820 & 0.472 & 0.162 & 0.823 & 0.547 \\ 
-7 & 0.217 & 0.875 & 0.318 & 0.177 & 0.892 & 0.505 & 0.173 & 0.896 & 0.646 \\ 
-8 & 0.234 & 0.935 & 0.378 & 0.220 & 0.951 & 0.625 & 0.195 & 0.948 & 0.749 \\ 
-9 & 0.312 & 0.965 & 0.407 & 0.222 & 0.970 & 0.672 & 0.224 & 0.979 & 0.809 \\ 
-10 & 0.334 & 0.976 & 0.505 & 0.292 & 0.987 & 0.773 & 0.254 & 0.989 & 0.881 \\ 
-\bottomrule
-\end{tabular}
-\end{table}
+%\begin{table}[!hbp]
+%    \caption{Empirical powers of tests under covariance structure II and sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
+%    \label{table6}
+%    \centering
+%\begin{tabular}{*{10}{c}}
+%\toprule
+%\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
+%    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
+%        & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
+%\midrule
+%0 & 0.052 & 0.055 & 0.047 & 0.055 & 0.057 & 0.053 & 0.044 & 0.055 & 0.057 \\ 
+%1 & 0.068 & 0.124 & 0.065 & 0.070 & 0.130 & 0.085 & 0.049 & 0.116 & 0.087 \\ 
+%2 & 0.085 & 0.233 & 0.112 & 0.076 & 0.239 & 0.149 & 0.067 & 0.241 & 0.161 \\ 
+%3 & 0.110 & 0.388 & 0.161 & 0.090 & 0.408 & 0.215 & 0.097 & 0.417 & 0.227 \\ 
+%4 & 0.120 & 0.530 & 0.184 & 0.112 & 0.552 & 0.282 & 0.103 & 0.556 & 0.309 \\ 
+%5 & 0.167 & 0.708 & 0.238 & 0.142 & 0.699 & 0.387 & 0.140 & 0.687 & 0.394 \\ 
+%6 & 0.196 & 0.807 & 0.261 & 0.168 & 0.820 & 0.472 & 0.162 & 0.823 & 0.547 \\ 
+%7 & 0.217 & 0.875 & 0.318 & 0.177 & 0.892 & 0.505 & 0.173 & 0.896 & 0.646 \\ 
+%8 & 0.234 & 0.935 & 0.378 & 0.220 & 0.951 & 0.625 & 0.195 & 0.948 & 0.749 \\ 
+%9 & 0.312 & 0.965 & 0.407 & 0.222 & 0.970 & 0.672 & 0.224 & 0.979 & 0.809 \\ 
+%10 & 0.334 & 0.976 & 0.505 & 0.292 & 0.987 & 0.773 & 0.254 & 0.989 & 0.881 \\ 
+%\bottomrule
+%\end{tabular}
+%\end{table}
 
 \section{Concluding remarks}
-In this paper, motivated by Roy's union intersection principle, we proposed a generalized likelihood ratio statistic for MANOVA in high dimensional setting.
+In this paper, using the idea of least favorable direction, we proposed a generalized likelihood ratio test for MANOVA in high dimensional setting.
 We derive the asymptotic distribution of the new test statistic. We also gives the asymptotic local power function.
-Our theoretic work and simulation study shows that when the covariance matrix is spiked, the  proposed test 
+Our theoretic work and simulation study show that when the covariance matrix is spiked, the  proposed test 
 tends to be more powerful than existing tests.
+{\color{red}non normal. Large p}
 
 %In Section~\label{sc:compare}, we consider a random projection test.
 %The theoretical properties of random projection test may be a.

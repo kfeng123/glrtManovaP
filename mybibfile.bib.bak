@@ -433,15 +433,19 @@
 }
 
 @Article{Chang2017,
-  author    = {Chung Chang and Xuejing Lin and R. Todd Ogden},
-  title     = {Simultaneous confidence bands for functional regression models},
+  author    = {Bu Zhou, Jia Guo andj Jin-Ting Zhang},
+  title     = {High-dimensional general linear hypothesis testing under heteroscedasticity},
   journal   = {Journal of Statistical Planning and Inference},
   year      = {2017},
   volume    = {188},
   pages     = {67--81},
   month     = {sep},
   doi       = {10.1016/j.jspi.2017.03.002},
+  file      = {Chang2017.pdf:Chang2017.pdf:PDF},
+  groups    = {MANOVA},
+  owner     = {kfeng123},
   publisher = {Elsevier {BV}},
+  timestamp = {2017.09.19},
   url       = {https://doi.org/10.1016/j.jspi.2017.03.002},
 }
 

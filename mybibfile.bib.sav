@@ -449,4 +449,17 @@
   url       = {https://doi.org/10.1016/j.jspi.2017.03.002},
 }
 
+@Article{Yamada2015,
+  author    = {Takayuki Yamada and Tetsuto Himeno},
+  title     = {Testing homogeneity of mean vectors under heteroscedasticity in high-dimension},
+  journal   = {Journal of Multivariate Analysis},
+  year      = {2015},
+  volume    = {139},
+  pages     = {7--27},
+  month     = {jul},
+  doi       = {10.1016/j.jmva.2015.02.005},
+  publisher = {Elsevier {BV}},
+  url       = {https://doi.org/10.1016/j.jmva.2015.02.005},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
