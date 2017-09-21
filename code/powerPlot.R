@@ -1,6 +1,6 @@
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
-repTime <- 100
+repTime <- 1000
 
 rock <- function() {
     # J

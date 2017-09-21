@@ -1,6 +1,6 @@
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
-repTime <- 100
+repTime <- 1000
 
 doit <- function() {
     # J
@@ -381,9 +381,9 @@ write.csv(theOut,"4p200.csv",row.names=FALSE)
 
 
 
-a<-read.csv("1p50.csv")
-b<-read.csv("1p75.csv")
-c<-read.csv("1p100.csv")
+a<-read.csv("4p100.csv")
+b<-read.csv("4p150.csv")
+c<-read.csv("4p200.csv")
 
 tmp<-merge(a,b,by.x="SNR",by.y="SNR")
 tmp<-merge(tmp,c,by.x="SNR",by.y="SNR")
