@@ -137,12 +137,12 @@ Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
 \begin{quotation}
 \noindent {\it Abstract:}
 This paper considers the problem of multivariate analysis of variance for normal samples.
-    When the sample dimension is larger than the sample size, the classical likelihood ratio test can not be defined since the likelihood function is unbounded.
+    When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
     Although the unboundedness of the likelihood function causes some trouble, it contains important information based on which we propose a generalized likelihood ratio test.
     The asymptotic null distribution of the test statistic is derived and the local asymptotic power function is given.
     Our theoretical framework allows the covariance matrix to have a few large eigenvalues which can characterize the strong correlations between variables.
     %To investigate the asymptotic properties of the proposed test, we adopt a spiked covariance model which can characterize the strong correlation between variables.
-    Our theoretical results and simulations show that the proposed test has particular high power when there are strong correlation between variables.
+    Our theoretical results and simulations show that the proposed test has particular high power when there are strong correlations between variables.
 
 \vspace{9pt}
     \noindent {\it Key words and phrases:}
@@ -203,10 +203,10 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be t
 In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$.
 See, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
-However, when $p\geq n$, the four classical test statistics can not be defined.
+However, when $p\geq n$, the four classical test statistics are not defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
  So far, most tests are designed for two sample case, i.e., $k=2$.
-  See, for example,~\citet{Bai1996Efiect},~\citet{Chen2010A},~\citet{Srivastava2009A},~\citet{Tony2013} and \citet{Feng2015Multivariate}.
+  See, for example,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
   For multiple sample case,~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
@@ -242,7 +242,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     it remains a problem how to construct likelihood-based tests in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
-    They founded that the unboundedness of likelihood function contains useful information.
+    They found that the unboundedness of likelihood function contains useful information.
     Based on this, they used a least favorable argument to construct a generalized likelihood ratio test statistic.
     %They wrote the null hypothesis as the intersection of a class of component hypotheses.
     %For each component hypotheses, the likelihood ratio test is constructed.
@@ -257,12 +257,14 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     The asymptotic distribution of the proposed test statistic involves some unknown parameters.
     We give estimators of these parameters and formulate a test with correct level asymptotically.
     Based on the theoretical results, the asymptotic local power function of the new test can be derived.
-While the asymptotic power of most existing tests are negatively affected by the large eigenvalues of covariance matrix, the asymptotic power of the new test doesn't depend on the large eigenvalues of covariance matrix. 
+While the asymptotic powers of most existing tests are negatively affected by the large eigenvalues of the covariance matrix, the asymptotic power of the new test doesn't depend on the large eigenvalues of the covariance matrix. 
     Hence the new test is particularly powerful when there are strong correlations between variables.
     We also conduct a simulation study to examine the numerical performance of the test.
 
     The rest of the paper is organized  as follows.
-    In Section 2, we propose a new test. Section 3 concerns the theoretical properties of the proposed test. In Section 4, the proposed test is compared with some existing tests. Section 5 complements our study with some numerical simulations. In Section 6, we give a short discussion. Finally, the proofs are gathered in the Appendix.
+    In Section 2, we review some existing tests and propose a new test.
+    Section 3 concerns the theoretical properties of the proposed test.
+     Section 4 complements our study with some numerical simulations. In Section 5, we give a short discussion. Finally, the proofs are gathered in the Appendix.
     %Higher criticism CX are special case of UIT.
 
 
@@ -372,8 +374,8 @@ Following this idea, a general strategy to propose a test statistic can be summa
 It turns out that many tests in the literature can be derived by the above strategy.
 While the LRT may be the best choice of univariate problems in step 2,
  there are more choices in step 1 and step 3.
-In step 3, Roy's union intersection principle suggests to use $\max_{\gamma\in\Gamma}T_{\gamma}$ as global test statistic~\citep{Roy1953},
-while another choice is to integrate $T_\gamma$ according some measure $\mu(\gamma)$ and use $\int_\gamma T_{\gamma}\,\mu(d\gamma)$ as global test statistic.
+In step 3, Roy's union intersection principle suggests using $\max_{\gamma\in\Gamma}T_{\gamma}$ as a global test statistic~\citep{Roy1953},
+while another choice is to integrate $T_\gamma$ according to some measure $\mu(\gamma)$ and use $\int_\gamma T_{\gamma}\,\mu(d\gamma)$ as global test statistic.
 For step 1, we consider two different constructions of data projection.
 \begin{enumerate}[(i)]
     \item
@@ -394,7 +396,7 @@ First, we consider the construction (i) in step 1.
 Suppose component test statistics 
 $$T_i={(k-1)^{-1}} e_i^T \bH e_i-(n-k)^{-1}e_i^T \bG e_i\quad i=1,\ldots, p$$
 are used in step 2, and in step 3 we integrate $T_i$ according to the uniform measure on $1,\ldots,p$. Then the resulting statistic is $p^{-1}\sum_{i=1}^p T_i$ which is equivalent to $T_{SC}$.
-If instead the likelihood ratio test statistic $e_i^T \bH e_i/e_i^T \bG e_i$ is used in step 2, one obtains a scalar invariant test statistic which is a direct generalization of~\citet{Srivastava2009A}.
+If instead the likelihood ratio test statistic $e_i^T \bH e_i/e_i^T \bG e_i$ is used in step 2, one obtains a scalar invariant test statistic which is a direct generalization of~\citet{Srivastava2009A}'s test.
 On the other hand, by using data $\Omega^{-1}\bX$ and component test statistics
 $$
 T_i^*=\sum_{1\leq j<l \leq k} \frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))^2_i}{\omega_{ii}},
@@ -416,8 +418,8 @@ Although it is hard to give an explicit form of the integration, we can approxim
 More specifically, one can randomly generate unit vectors $a_1,\ldots,a_M$ and the statistics can be approximated by $M^{-1}\sum_{i=1}^M a_i^T \bH a_i/a_i^T \bG a_i$.
 This statistic is well defined in high dimensional setting.
 A similar method is proposed by~\cite{Lopes2015A} for $k=2$ from a different point of view.
-Their analysis and simulations show that such random projection method has relative good performance especially when variables are correlated.
-On the other hand, if $n-k\geq p$, Roy's union intersection principle can be used in step 3, the resulting  statistic is the  well known Roy's maximum root:
+Their analysis and simulations show that such random projection method has relatively good performance especially when variables are correlated.
+On the other hand, if $n-k\geq p$, Roy's union intersection principle can be used in step 3, the resulting  statistic is the well-known Roy's maximum root:
 $$
 \max_{a^T a=1}T_a=\lambda_{\max}(\bH \bG^{-1}).
 $$
@@ -433,9 +435,9 @@ It doesn't require prior knowledge of covariance matrix and is widely used in pr
 Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
 The log likelihood ratio 
 $$\log \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
-is an increase function of $T_a$.
+is an increasing function of $T_a$.
 From a likelihood point view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
-Hence the component LRT statistic characterize the discrepancy between  $H_{0a}$ and $H_{1a}$.
+Hence the component LRT statistic characterizes the discrepancy between  $H_{0a}$ and $H_{1a}$.
 By maximizing $\log (L_1(a)/L_0 (a))$, 
 %or equivalently maximizing $T_a$,
 one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
@@ -470,7 +472,7 @@ Since Roy's maximum root equals to $T_{a^*}$, it is the component LRT statistic 
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in high dimensional setting.
+Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in the high dimensional setting.
 %While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
 In what follows,  we shall assume $p>n-k$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
@@ -540,7 +542,7 @@ Then Proposition~\ref{optProp} in Appendix implies that
 \end{equation}
 
 %While~\eqref{statisticForm1} is convenient for theoretical analysis, it involves a projection matrix $\bP_{\bY}$ which is not easy to compute.
-Next we derive another simple form of $T(\bX)$.
+Next, we derive another simple form of $T(\bX)$.
 %where $\bP_A=Z\tilde{J}{(\tilde{J}^T Z^T Z\tilde{J})}^{-1}\tilde{J}^T Z^T$.
 By the relationship
 \begin{equation*}
@@ -589,7 +591,7 @@ Hence~\eqref{statisticForm2} is convenient for computation.
 
 \section{Main results}
 To understand the statistical properties of $T(\bX)$, we derive the asymptotic distribution of $T(\bX)$.
-We are specially interested in the case when variables are correlated.
+We are especially interested in the case when variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
 To characterize this correlation pattern, we make the following assumption for the eigenvalues of $\bSigma$.
 %In this section, we investigate the asymptotic behavior of the new test statistic when $p$ is much larger than $n$.
@@ -613,11 +615,11 @@ To characterize this correlation pattern, we make the following assumption for t
 
 \begin{remark}
 The spiked covariance model is commonly assumed in the study of PCA theory.
-Most existing work assumed $r$ is fixed.
+Most existing works assumed $r$ is fixed.
     Here we allow $r$ to vary as a smaller order of $n$.
     The condition $\blambda_r n/p\to \infty$ requires $\blambda_r$ to be much larger than $p/n$. This is satisfied, for example, for the factor model adopted by~\citet{Ma2015A}.
-    The most harsh condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
-    If $\blambda_1$ and $\blambda_r$ are of same order and $r$ is fixed, this condition is equivalent to $p/n^2\to 0$.
+    The harshest condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
+    If $\blambda_1$ and $\blambda_r$ are of the same order and $r$ is fixed, this condition is equivalent to $p/n^2\to 0$.
     We require this condition since the PCA consistency results are not valid when $p$ is too large. See, for example,~\citep{Cai2012Sparse}.
     If $r>0$, this condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
 \end{remark}
@@ -652,7 +654,7 @@ The following theorem establishes the asymptotic distribution of $T(\bX)$.
     $$
     where $\sim$ means they have the same distribution.
 \end{theorem}
-To gain some insight into the asymptotic behavior of $T(\bX)$, suppose null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
+To gain some insight into the asymptotic behavior of $T(\bX)$, suppose the null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
 $$
         \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
@@ -666,7 +668,7 @@ $$
 The reason for this is because the projection $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance terms of $\bX\bJ \bC$.
 
 To formulate a test procedure with asymptotic correct level, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
-Since they relies on the unknown parameter $r$, we use the following statistic to estimate $r$:
+Since they rely on the unknown parameter $r$, we use the following statistic to estimate $r$:
     $$
     \begin{aligned}
     \hat{r}=
@@ -747,7 +749,7 @@ The following proposition establishes the consistency of $\hat{r}$.
 
  To estimate $\mytr(\bLambda_2^2)$,
     we use the idea of leave-two-out.
-    Let $\bY_{(i,j)}$ be the matrix obtained from deleting the $i$th and $j$th columns from $\bY$.
+    Let $\bY_{(i,j)}$ be the matrix obtained by deleting the $i$th and $j$th columns from $\bY$.
     Let $\bY_{(i,j)}=\bU_{\bY;{(i,j)}}\bD_{\bY;{(i,j)}}\bV_{\bY;{(i,j)}}^T$ be the singular value decomposition of $\bY_{(i,j)}$.
     Here $\bU_{\bY;{(i,j)}}$ is $p\times (n-k-2)$.
     Let $\tilde{\bU}_{\bY;{(i,j)}}$ be a $p\times (p-n+k+2)$ orthogonal matrix satisfying $\tilde{\bU}_{\bY;{(i,j)}}\tilde{\bU}_{\bY;{(i,j)}}^T=\bI_{p}-\bU_{\bY;{(i,j)}}\bU_{\bY;{(i,j)}}^T$.
@@ -1016,7 +1018,7 @@ the new test tends to be more powerful than~\cite{Chen2010A}'s test.
 \section{Numerical study}
 
 \subsection{Permutation method}
- Most existing test can not be used under spiked covariance model, since spiked covariance model violated their assumption.
+ Most existing test can not be used under spiked covariance model since spiked covariance model violated their assumption.
  To compare the new test with other tests, we use permutation method to determine the critical value in our simulation.
  
 Permutation method is a powerful tool to determine the critical value of a test statistic.
@@ -1046,7 +1048,7 @@ Here $M$ is the permutation times.
    %Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
    %See, for example,~\cite{Lehmann}, Chapter $15$.
    It can be seen that  step 1 and step 2 cost $O(n^2 p +n^3)$ and $O(n^2 M)$ operations respectively.
-   In large sample or high dimensional setting, step 2 has negligible effect on total computational complexity.
+   In large sample or high dimensional setting, step 2 has a negligible effect on total computational complexity.
 
 
 
@@ -1058,41 +1060,45 @@ Here $M$ is the permutation times.
 
 
    \subsection{Simulation results}
-In this section, we evaluate the numerical performance of the new test.
-For comparison, we also carry out simulations for the test of~\citet{Cai2014High} and the test of~\citet{Schott2007Some}.
-These tests are denoted respectively by NEW, CX and SC.
-Since the critical value of $CX$ and $SC$ may not be valid under spiked covariance model, we use permutation method to determine the critical value for all three test.
-The empirical power is computed based on $1000$ simulations.
-
-In the simulations, we set $k=3$.
-Note that the new test is invariant under orthogonal transformation.
-Without loss of generality, we only consider diagonal $\bSigma$.
-We consider two different structure of $\bSigma$.
-\begin{itemize}
-    \item
-        Covariance structure I: $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
-\end{itemize}
-
+In this section, we evaluate the empirical power performance of the new test.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\xi_f\|_F^2}{\sqrt{\sum_{i=2}^{p}\lambda_i(\bSigma)^2}}.
+\textrm{SNR}=\frac{\|\Xi\bC\|_F^2}{\sqrt{\bLambda_2^2}}.
 $$
 We use SNR to characterize the signal strength.
+Since the critical values of most existing tests can not guarantee correct test level under spiked covariance model, we use permutation method to determine the critical value in the simulations.
+
+In our first simulation study, we take $k=3$.
+For comparison, we also carry out simulations for the test of~\citet{Cai2014High} and the test of~\citet{Schott2007Some}.
+We denote these two tests by CX and SC, respectively.
+%Note that the new test is invariant under orthogonal transformation.
+We take $r=2$ and $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
 We consider two structure of alternative hypotheses: the non-sparse alternative and the sparse alternative.
 In the non-sparse case, we set $\xi_1=\kappa 1_p$, $\xi_2=-\kappa 1_p$ and $\xi_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to the given value.
 In the sparse case, we set $\xi_1=\kappa (1_{p/5}^T,\mathbf{0}_{4p/5}^T)^T$, $\xi_2=\kappa (\mathbf{0}_{p/5}^T, 1_{p/5}^T,\mathbf{0}_{3p/5}^T)^T$ and $\xi_3=\mathbf{0}_p$. Again, $\kappa$ is selected to make the SNR equal to the given value.
+The empirical power is computed based on $1000$ simulations.
+The simulation results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
+This verifies our theoretical results that the new test performs well under spiked covariance.
 
-The simulation results are summarized in Tables~\ref{table1}-\ref{table6}. It can be seen from the results that under spiked covariance, the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
-Under non-spiked covariance, the power of the new test is a little lower than that of SC.\ 
-As $p$ increase, the power of the new test approaches to that of SC.
+In our second simulation study, we would like to investigate the effect of correlations between variables.
+We take $k=2$ so that we can compare our test with some existing two sample tests.
+For comparison, we carry out simulations for the test of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
+We shall denote these tests SR, CQ, CLX and FZWZ, respectively.
+Let the diagonal elements of $\Sigma$ be $1$ and the off-diagonal elements of $\Sigma$ be $\rho$ where $0\leq \rho<1$.
+The parameter $\rho$ characterizes the correlations between variables.
+We set $\xi_1=\kappa (\textbf{1}_{p/2}^T,-\textbf{1}_{p/2}^T)^T$ and $\xi_2=\mathbf{0}_p$, where $\kappa$ is selected such that SNR equals to $5$.
+Figure~\ref{figure1} plots the empirical power versus $\rho$, where empirical power is computed based on 1000 simulations.
+We can see that the empirical power of the proposed test holds nearly constant as $\rho$ varies while the empirical powers of~\cite{Chen2010A} and~\cite{Feng2014Two}'s tests decrease as $\rho$ increases.
+When $\rho$ is small,  the new test has reasonable performance. When $\rho$ is larger than $0.1$, the new test outperforms all other tests.
+
 
 %$$
-%SNR=\frac{\|\xi_f\|_F^2}{\sqrt{\mytr (\bSigma^2)}}
+%SNR=\frac{\|\Xi \bC\|_F^2}{\sqrt{\mytr (\bSigma^2)}}
 %$$
 
 
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure I and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=10$. }
+    \caption{Empirical powers of tests under non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=10$. }
     \label{table1}
     \centering
     \begin{tabular}{*{10}{c}}
@@ -1101,23 +1107,23 @@ As $p$ increase, the power of the new test approaches to that of SC.
         \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
         & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
     \midrule
-0 & 0.035 & 0.048 & 0.052 & 0.057 & 0.052 & 0.057 & 0.053 & 0.048 & 0.045 \\ 
-1 & 0.060 & 0.049 & 0.096 & 0.081 & 0.050 & 0.092 & 0.063 & 0.062 & 0.085 \\ 
-2 & 0.100 & 0.058 & 0.140 & 0.073 & 0.045 & 0.169 & 0.086 & 0.055 & 0.171 \\ 
-3 & 0.145 & 0.066 & 0.234 & 0.119 & 0.070 & 0.266 & 0.117 & 0.056 & 0.307 \\ 
-4 & 0.126 & 0.064 & 0.317 & 0.121 & 0.059 & 0.380 & 0.122 & 0.061 & 0.402 \\ 
-5 & 0.179 & 0.072 & 0.392 & 0.178 & 0.068 & 0.541 & 0.141 & 0.071 & 0.579 \\ 
-6 & 0.198 & 0.070 & 0.513 & 0.189 & 0.071 & 0.639 & 0.143 & 0.066 & 0.717 \\ 
-7 & 0.249 & 0.085 & 0.629 & 0.227 & 0.084 & 0.777 & 0.206 & 0.073 & 0.822 \\ 
-8 & 0.268 & 0.092 & 0.685 & 0.252 & 0.084 & 0.822 & 0.217 & 0.078 & 0.894 \\ 
-9 & 0.324 & 0.100 & 0.786 & 0.256 & 0.090 & 0.911 & 0.246 & 0.074 & 0.949 \\ 
-10 & 0.342 & 0.115 & 0.828 & 0.303 & 0.097 & 0.937 & 0.270 & 0.075 & 0.973 \\ 
+0 & 0.030 & 0.060 & 0.020 & 0.050 & 0.030 & 0.030 & 0.050 & 0.080 & 0.090 \\ 
+1 & 0.070 & 0.070 & 0.100 & 0.020 & 0.060 & 0.090 & 0.050 & 0.030 & 0.090 \\ 
+2 & 0.080 & 0.040 & 0.150 & 0.190 & 0.060 & 0.140 & 0.060 & 0.030 & 0.100 \\ 
+3 & 0.070 & 0.070 & 0.230 & 0.020 & 0.020 & 0.110 & 0.100 & 0.070 & 0.220 \\ 
+4 & 0.140 & 0.060 & 0.250 & 0.080 & 0.060 & 0.330 & 0.130 & 0.030 & 0.310 \\ 
+5 & 0.240 & 0.060 & 0.410 & 0.090 & 0.040 & 0.490 & 0.090 & 0.110 & 0.460 \\ 
+6 & 0.280 & 0.100 & 0.510 & 0.150 & 0.080 & 0.530 & 0.210 & 0.090 & 0.650 \\ 
+7 & 0.240 & 0.110 & 0.590 & 0.230 & 0.070 & 0.720 & 0.190 & 0.020 & 0.740 \\ 
+8 & 0.340 & 0.060 & 0.670 & 0.280 & 0.090 & 0.770 & 0.260 & 0.110 & 0.810 \\ 
+9 & 0.320 & 0.070 & 0.790 & 0.250 & 0.010 & 0.820 & 0.190 & 0.070 & 0.870 \\ 
+10 & 0.310 & 0.130 & 0.780 & 0.310 & 0.130 & 0.950 & 0.370 & 0.040 & 0.930 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure I and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
+    \caption{Empirical powers of tests under non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
     \label{table2}
 \centering
 \begin{tabular}{*{10}{c}}
@@ -1126,23 +1132,23 @@ As $p$ increase, the power of the new test approaches to that of SC.
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
         & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
-0 & 0.050 & 0.043 & 0.050 & 0.056 & 0.066 & 0.048 & 0.062 & 0.045 & 0.054 \\ 
-1 & 0.069 & 0.048 & 0.063 & 0.046 & 0.052 & 0.091 & 0.068 & 0.048 & 0.095 \\ 
-2 & 0.097 & 0.046 & 0.131 & 0.086 & 0.053 & 0.164 & 0.068 & 0.057 & 0.173 \\ 
-3 & 0.113 & 0.061 & 0.200 & 0.117 & 0.057 & 0.270 & 0.101 & 0.045 & 0.313 \\ 
-4 & 0.135 & 0.053 & 0.247 & 0.130 & 0.054 & 0.402 & 0.118 & 0.066 & 0.485 \\ 
-5 & 0.158 & 0.065 & 0.357 & 0.134 & 0.066 & 0.526 & 0.134 & 0.073 & 0.616 \\ 
-6 & 0.198 & 0.081 & 0.433 & 0.161 & 0.052 & 0.668 & 0.138 & 0.067 & 0.765 \\ 
-7 & 0.217 & 0.068 & 0.514 & 0.191 & 0.067 & 0.759 & 0.174 & 0.068 & 0.862 \\ 
-8 & 0.229 & 0.063 & 0.582 & 0.223 & 0.075 & 0.853 & 0.187 & 0.060 & 0.927 \\ 
-9 & 0.264 & 0.094 & 0.680 & 0.218 & 0.080 & 0.918 & 0.227 & 0.067 & 0.966 \\ 
-10 & 0.298 & 0.091 & 0.758 & 0.245 & 0.076 & 0.934 & 0.228 & 0.052 & 0.982 \\ 
+0 & 0.070 & 0.070 & 0.020 & 0.030 & 0.090 & 0.090 & 0.040 & 0.050 & 0.040 \\ 
+1 & 0.060 & 0.040 & 0.060 & 0.090 & 0.100 & 0.120 & 0.030 & 0.030 & 0.070 \\ 
+2 & 0.080 & 0.080 & 0.190 & 0.070 & 0.020 & 0.170 & 0.160 & 0.040 & 0.240 \\ 
+3 & 0.130 & 0.070 & 0.160 & 0.100 & 0.050 & 0.240 & 0.130 & 0.060 & 0.310 \\ 
+4 & 0.130 & 0.050 & 0.240 & 0.160 & 0.040 & 0.250 & 0.100 & 0.050 & 0.410 \\ 
+5 & 0.120 & 0.070 & 0.330 & 0.090 & 0.080 & 0.450 & 0.100 & 0.060 & 0.590 \\ 
+6 & 0.170 & 0.080 & 0.540 & 0.190 & 0.030 & 0.680 & 0.120 & 0.040 & 0.740 \\ 
+7 & 0.170 & 0.020 & 0.460 & 0.230 & 0.070 & 0.800 & 0.160 & 0.030 & 0.810 \\ 
+8 & 0.310 & 0.100 & 0.610 & 0.220 & 0.040 & 0.780 & 0.190 & 0.050 & 0.910 \\ 
+9 & 0.320 & 0.090 & 0.650 & 0.190 & 0.100 & 0.870 & 0.150 & 0.020 & 0.950 \\ 
+10 & 0.340 & 0.060 & 0.710 & 0.210 & 0.080 & 0.940 & 0.220 & 0.110 & 0.950 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure I and sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=10$. }
+    \caption{Empirical powers of tests under sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=10$. }
     \label{table3}
 \centering
 \begin{tabular}{*{10}{c}}
@@ -1151,23 +1157,23 @@ As $p$ increase, the power of the new test approaches to that of SC.
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
         & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
-0 & 0.063 & 0.056 & 0.052 & 0.048 & 0.049 & 0.048 & 0.057 & 0.047 & 0.042 \\ 
-1 & 0.087 & 0.058 & 0.071 & 0.069 & 0.044 & 0.096 & 0.076 & 0.051 & 0.080 \\ 
-2 & 0.091 & 0.066 & 0.116 & 0.113 & 0.037 & 0.133 & 0.080 & 0.058 & 0.139 \\ 
-3 & 0.155 & 0.065 & 0.177 & 0.131 & 0.062 & 0.228 & 0.113 & 0.058 & 0.218 \\ 
-4 & 0.184 & 0.065 & 0.246 & 0.174 & 0.076 & 0.308 & 0.144 & 0.061 & 0.310 \\ 
-5 & 0.225 & 0.081 & 0.337 & 0.214 & 0.075 & 0.386 & 0.176 & 0.083 & 0.417 \\ 
-6 & 0.270 & 0.088 & 0.425 & 0.266 & 0.085 & 0.507 & 0.228 & 0.071 & 0.508 \\ 
-7 & 0.364 & 0.080 & 0.501 & 0.307 & 0.078 & 0.571 & 0.302 & 0.087 & 0.629 \\ 
-8 & 0.405 & 0.105 & 0.549 & 0.381 & 0.080 & 0.698 & 0.362 & 0.089 & 0.721 \\ 
-9 & 0.470 & 0.121 & 0.634 & 0.408 & 0.078 & 0.774 & 0.391 & 0.070 & 0.797 \\ 
-10 & 0.547 & 0.128 & 0.702 & 0.484 & 0.109 & 0.819 & 0.415 & 0.088 & 0.877 \\ 
+0 & 0.050 & 0.040 & 0.050 & 0.040 & 0.010 & 0.050 & 0.080 & 0.020 & 0.050 \\ 
+1 & 0.080 & 0.060 & 0.050 & 0.070 & 0.040 & 0.060 & 0.090 & 0.010 & 0.070 \\ 
+2 & 0.140 & 0.090 & 0.180 & 0.060 & 0.030 & 0.160 & 0.090 & 0.030 & 0.060 \\ 
+3 & 0.080 & 0.060 & 0.160 & 0.090 & 0.070 & 0.180 & 0.150 & 0.060 & 0.180 \\ 
+4 & 0.220 & 0.070 & 0.180 & 0.180 & 0.040 & 0.310 & 0.170 & 0.090 & 0.290 \\ 
+5 & 0.300 & 0.070 & 0.350 & 0.250 & 0.040 & 0.420 & 0.200 & 0.040 & 0.270 \\ 
+6 & 0.290 & 0.120 & 0.390 & 0.210 & 0.060 & 0.390 & 0.270 & 0.060 & 0.440 \\ 
+7 & 0.370 & 0.160 & 0.500 & 0.190 & 0.050 & 0.450 & 0.210 & 0.110 & 0.540 \\ 
+8 & 0.410 & 0.030 & 0.590 & 0.440 & 0.090 & 0.700 & 0.360 & 0.060 & 0.640 \\ 
+9 & 0.470 & 0.120 & 0.630 & 0.310 & 0.070 & 0.750 & 0.290 & 0.080 & 0.720 \\ 
+10 & 0.430 & 0.050 & 0.610 & 0.500 & 0.090 & 0.730 & 0.480 & 0.090 & 0.740 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
 
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests under covariance structure I and sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
+    \caption{Empirical powers of tests under sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
     \label{table4}
     \centering
 \begin{tabular}{*{10}{c}}
@@ -1176,20 +1182,29 @@ As $p$ increase, the power of the new test approaches to that of SC.
     \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
         & CX & SC & NEW & CX &SC &NEW &CX & SC & NEW\\
 \midrule
-0 & 0.048 & 0.045 & 0.046 & 0.053 & 0.046 & 0.043 & 0.051 & 0.034 & 0.046 \\ 
-1 & 0.079 & 0.055 & 0.082 & 0.066 & 0.063 & 0.079 & 0.063 & 0.059 & 0.100 \\ 
-2 & 0.097 & 0.054 & 0.119 & 0.088 & 0.055 & 0.138 & 0.085 & 0.055 & 0.160 \\ 
-3 & 0.133 & 0.069 & 0.167 & 0.113 & 0.066 & 0.223 & 0.114 & 0.054 & 0.235 \\ 
-4 & 0.149 & 0.062 & 0.212 & 0.126 & 0.084 & 0.298 & 0.132 & 0.057 & 0.344 \\ 
-5 & 0.204 & 0.060 & 0.281 & 0.169 & 0.066 & 0.427 & 0.154 & 0.057 & 0.469 \\ 
-6 & 0.252 & 0.060 & 0.352 & 0.227 & 0.070 & 0.548 & 0.195 & 0.072 & 0.641 \\ 
-7 & 0.310 & 0.072 & 0.429 & 0.252 & 0.059 & 0.614 & 0.220 & 0.061 & 0.711 \\ 
-8 & 0.372 & 0.088 & 0.529 & 0.314 & 0.085 & 0.719 & 0.297 & 0.060 & 0.800 \\ 
-9 & 0.427 & 0.083 & 0.547 & 0.362 & 0.085 & 0.794 & 0.300 & 0.057 & 0.881 \\ 
-10 & 0.449 & 0.093 & 0.619 & 0.396 & 0.072 & 0.853 & 0.340 & 0.076 & 0.911 \\ 
+0 & 0.070 & 0.040 & 0.050 & 0.070 & 0.030 & 0.070 & 0.010 & 0.030 & 0.010 \\ 
+1 & 0.080 & 0.020 & 0.040 & 0.080 & 0.040 & 0.100 & 0.070 & 0.020 & 0.110 \\ 
+2 & 0.090 & 0.080 & 0.170 & 0.170 & 0.130 & 0.130 & 0.130 & 0.090 & 0.130 \\ 
+3 & 0.160 & 0.050 & 0.210 & 0.130 & 0.030 & 0.270 & 0.090 & 0.010 & 0.280 \\ 
+4 & 0.170 & 0.020 & 0.260 & 0.140 & 0.050 & 0.320 & 0.070 & 0.050 & 0.300 \\ 
+5 & 0.200 & 0.070 & 0.290 & 0.200 & 0.060 & 0.360 & 0.180 & 0.040 & 0.420 \\ 
+6 & 0.210 & 0.090 & 0.360 & 0.130 & 0.060 & 0.550 & 0.180 & 0.040 & 0.650 \\ 
+7 & 0.250 & 0.060 & 0.290 & 0.280 & 0.060 & 0.600 & 0.210 & 0.030 & 0.670 \\ 
+8 & 0.350 & 0.040 & 0.490 & 0.370 & 0.050 & 0.720 & 0.260 & 0.090 & 0.730 \\ 
+9 & 0.390 & 0.080 & 0.550 & 0.430 & 0.070 & 0.780 & 0.390 & 0.040 & 0.820 \\ 
+10 & 0.460 & 0.080 & 0.600 & 0.410 & 0.070 & 0.800 & 0.380 & 0.090 & 0.870 \\ 
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=12cm,height=12cm]{figure1}
+    \caption{The empirical powers of tests. $\alpha=0.05$, $k=2$, $n_1=n_2=20$, $p=150$.}\label{figure1}
+\end{figure}
+
+
+
 
 %\begin{table}[!hbp]
 %    \caption{Empirical powers of tests under covariance structure II and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
@@ -1243,10 +1258,18 @@ As $p$ increase, the power of the new test approaches to that of SC.
 
 \section{Concluding remarks}
 In this paper, using the idea of least favorable direction, we proposed a generalized likelihood ratio test for MANOVA in high dimensional setting.
-We derive the asymptotic distribution of the new test statistic. We also gives the asymptotic local power function.
-Our theoretic work and simulation study show that when the covariance matrix is spiked, the  proposed test 
+We derive the asymptotic distribution of the new test statistic. We also give the asymptotic local power function.
+Our theoretic work and simulation studies show that when the covariance matrix is spiked, the  proposed test 
 tends to be more powerful than existing tests.
-{\color{red}non normal. Large p}
+
+Our proof relies on the normality of the observations.
+It remains a question that if the theorems are still valid without normal assumption.
+Moreover, we assumed $p$ doesn't grow too fast.
+ Without prior knowledge of $\Sigma$, this condition is unavoidable since when $p$ is large, it's impossible to consistently estimate the principal space.
+See, for example,~\cite{Cai2012Sparse}.
+On the other hand, if we know some prior knowledge of $\Sigma$, for example, $\Sigma$ is sparse, it's possible to construct a better test.
+We leave it for future research.
+
 
 %In Section~\label{sc:compare}, we consider a random projection test.
 %The theoretical properties of random projection test may be a.
@@ -1312,7 +1335,7 @@ $,
 where $\bG_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
 We write
 $
-\bX\bJ\bC = \xi_f + \bU\bLambda^{1/2} \bG_2
+\bX\bJ\bC = \Xi \bC + \bU\bLambda^{1/2} \bG_2
 $, 
 where $\bG_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
 
@@ -1322,17 +1345,17 @@ Then
 \bC^T\bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX\bJ\bC
 =&
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\xi_f^T (\bI_p -\bP_{\bY})\xi_f+\\
-&\xi_f^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\xi_f.
+\Xi \bC^T (\bI_p -\bP_{\bY})\Xi \bC+\\
+&\Xi \bC^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
+\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\Xi \bC.
 \end{aligned}
 \end{equation}
     The first term of~\eqref{eq:maindec} can be represented as
 \begin{equation}\label{eq:firstTerm}
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2=
-\sum_{i=1}^p \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\xi_i \xi_i^T,
+\sum_{i=1}^p \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\eta_i \eta_i^T,
 \end{equation}
-where $\xi_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$.
+where $\eta_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$.
 
 
 
@@ -1687,9 +1710,7 @@ $$
 \end{proof}
 
 \begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
-
-    We deal with the three terms of~\eqref{eq:maindec} separately.
-    Lemma~\eqref{gg:Lemma1} implies that the first term satisfies the Lyapunov condition
+    Lemma~\eqref{gg:Lemma1} implies that the first term of~\eqref{eq:maindec} satisfies the Lyapunov condition
 $$
     \frac{\lambda_1\Big(\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}{\mytr \Big( \big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}
 %\leq
@@ -2031,12 +2052,12 @@ $$
         This completes the proof.
 \end{proof}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vskip 14pt
-\noindent {\large\bf Supplementary Materials}
-
-Contain
-the brief description of the online supplementary materials.
-\par
+%\vskip 14pt
+%\noindent {\large\bf Supplementary Materials}
+%
+%Contain
+%the brief description of the online supplementary materials.
+%\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip 14pt
 \noindent {\large\bf Acknowledgements}

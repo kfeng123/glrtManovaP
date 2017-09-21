@@ -1,5 +1,6 @@
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
+repTime <- 100
 
 doit <- function() {
     # J
@@ -21,7 +22,7 @@ doit <- function() {
     }
     tmpMuF <- tmpMu%*%C
         
-    tmpSigEig <- eigen(Sigma)$values[-1]
+    tmpSigEig <- eigen(Sigma)$values[-c(1,2)]
     tmpCon <- sqrt(SNR*sqrt(sum(tmpSigEig^2))/sum(tmpMuF^2))
     for(i in 1:length(mu)){
         mu[[i]] <- mu[[i]]*tmpCon
@@ -31,10 +32,10 @@ doit <- function() {
 
     pb <- txtProgressBar(style = 3)
     
-    jCX <- rep(0, 1000)
-    jNEW <- rep(0, 1000)
-    jSC <- rep(0, 1000)
-    for (myIterator in 1:1000) {
+    jCX <- rep(0, repTime)
+    jNEW <- rep(0, repTime)
+    jSC <- rep(0, repTime)
+    for (myIterator in 1:repTime) {
         X <- lapply(1:K, function(k) {
             dataGen(n[k], p, mu[[k]], Sigma)
         })
@@ -69,7 +70,7 @@ doit <- function() {
         if ((sum(tmpSCstat >= theSCstat) + 1) / (B + 1) <= 0.05)
             jSC[myIterator] <- 1
         
-        setTxtProgressBar(pb, myIterator / 1000)
+        setTxtProgressBar(pb, myIterator / repTime)
     }
     close(pb)
     return(data.frame(
@@ -90,7 +91,7 @@ for(SNR in seq(0,10)){
     p = 50
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -113,7 +114,7 @@ for(SNR in seq(0,10)){
     p = 75
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -136,7 +137,7 @@ for(SNR in seq(0,10)){
     p = 100
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -164,7 +165,7 @@ for(SNR in seq(0,10)){
     p = 100
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -187,7 +188,7 @@ for(SNR in seq(0,10)){
     p = 150
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -210,7 +211,7 @@ for(SNR in seq(0,10)){
     p = 200
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -236,7 +237,7 @@ for(SNR in seq(0,10)){
     p = 50
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -259,7 +260,7 @@ for(SNR in seq(0,10)){
     p = 75
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -282,7 +283,7 @@ for(SNR in seq(0,10)){
     p = 100
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -310,7 +311,7 @@ for(SNR in seq(0,10)){
     p = 100
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -333,7 +334,7 @@ for(SNR in seq(0,10)){
     p = 150
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))
@@ -356,7 +357,7 @@ for(SNR in seq(0,10)){
     p = 200
     Sigma <- diag(p)
     Sigma[1,1]<- 1.5*p
-    Sigma[1,1]<- p
+    Sigma[2,2]<- p
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))

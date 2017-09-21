@@ -178,18 +178,19 @@
 }
 
 @Article{Tony2013,
-  author        = {Tony, Cai T. and Liu, Weidong and Xia, Yin and Fryzlewicz, P. and Keilegom, I. Van},
+  author        = {T. Tony Cai and Weidong Liu and Yin Xia},
   title         = {Two-sample test of high dimensional means under dependence},
-  journal       = {Journal of the Royal Statistical Society},
+  journal       = {Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
   year          = {2013},
   volume        = {76},
   number        = {2},
-  pages         = {349-372},
+  pages         = {349--372},
+  month         = {aug},
   __markedentry = {[kfeng123:5]},
+  doi           = {10.1111/rssb.12034},
   file          = {Tony2013.pdf:Tony2013.pdf:PDF},
-  groups        = {mean test},
-  owner         = {kfeng123},
-  timestamp     = {2017.06.13},
+  publisher     = {Wiley-Blackwell},
+  url           = {https://doi.org/10.1111/rssb.12034},
 }
 
 @Article{Shen2013Consistency,
@@ -447,6 +448,30 @@
   publisher = {Elsevier {BV}},
   timestamp = {2017.09.19},
   url       = {https://doi.org/10.1016/j.jspi.2017.03.002},
+}
+
+@Article{Yamada2015,
+  author    = {Takayuki Yamada and Tetsuto Himeno},
+  title     = {Testing homogeneity of mean vectors under heteroscedasticity in high-dimension},
+  journal   = {Journal of Multivariate Analysis},
+  year      = {2015},
+  volume    = {139},
+  pages     = {7--27},
+  month     = {jul},
+  doi       = {10.1016/j.jmva.2015.02.005},
+  publisher = {Elsevier {BV}},
+  url       = {https://doi.org/10.1016/j.jmva.2015.02.005},
+}
+
+@Article{Feng2014Two,
+  author    = {Feng, Long and Zou, Changliang and Wang, Zhaojun and Zhu, Lixing},
+  title     = {Two-sample behrens-fisher problem for high-dimensional data},
+  journal   = {Statistica Sinica},
+  year      = {2014},
+  file      = {Feng2014Two.pdf:Feng2014Two.pdf:PDF},
+  groups    = {mean test},
+  owner     = {kfeng123},
+  timestamp = {2017.09.21},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

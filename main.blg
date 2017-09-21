@@ -3,50 +3,50 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: chicago.bst
 Database file #1: mybibfile.bib
-Warning--no number and no volume in Feng2015Multivariate
-Warning--page numbers missing in Feng2015Multivariate
+Warning--no number and no volume in Feng2014Two
+Warning--page numbers missing in Feng2014Two
 Warning--no number and no volume in Lopes2015A
 Warning--no number and no volume in Zhao2016A
 Warning--page numbers missing in Zhao2016A
-You've used 21 entries,
+You've used 22 entries,
             2861 wiz_defined-function locations,
-            765 strings with 8478 characters,
-and the built_in function-call counts, 16320 in all, are:
-= -- 1402
-> -- 1102
+            773 strings with 8633 characters,
+and the built_in function-call counts, 16799 in all, are:
+= -- 1449
+> -- 1111
 < -- 1
 + -- 336
-- -- 378
-* -- 1558
-:= -- 2863
-add.period$ -- 64
-call.type$ -- 21
-change.case$ -- 153
-chr.to.int$ -- 21
-cite$ -- 26
-duplicate$ -- 370
-empty$ -- 1056
-format.name$ -- 442
-if$ -- 3084
+- -- 382
+* -- 1593
+:= -- 2949
+add.period$ -- 67
+call.type$ -- 22
+change.case$ -- 158
+chr.to.int$ -- 22
+cite$ -- 27
+duplicate$ -- 388
+empty$ -- 1098
+format.name$ -- 446
+if$ -- 3171
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 22
-newline$ -- 109
-num.names$ -- 210
-pop$ -- 92
+missing$ -- 23
+newline$ -- 114
+num.names$ -- 220
+pop$ -- 94
 preamble$ -- 1
-purify$ -- 280
+purify$ -- 291
 quote$ -- 0
-skip$ -- 400
+skip$ -- 417
 stack$ -- 0
-substring$ -- 1313
-swap$ -- 120
+substring$ -- 1352
+swap$ -- 126
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 410
+type$ -- 430
 warning$ -- 5
-while$ -- 200
+while$ -- 212
 width$ -- 0
-write$ -- 279
+write$ -- 292
 (There were 5 warnings)
