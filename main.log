@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  21 SEP 2017 21:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  25 SEP 2017 18:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main
+**main.tex
 (./main.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
@@ -554,78 +554,81 @@ Overfull \hbox (8.38896pt too wide) in paragraph at lines 1104--1123
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1129--1148
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 1129--1149
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1154--1173
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 1155--1174
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1179--1198
+Overfull \hbox (8.38896pt too wide) in paragraph at lines 1180--1199
  [][] 
  []
 
 Package epstopdf Info: Source file: <figure1.eps>
-(epstopdf)                    date: 2017-09-21 17:53:05
-(epstopdf)                    size: 13067 bytes
+(epstopdf)                    date: 2017-09-25 18:11:32
+(epstopdf)                    size: 13058 bytes
 (epstopdf)             Output file: <figure1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-21 17:54:30
-(epstopdf)                    size: 15483 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
-(epstopdf)             \includegraphics on input line 1202.
-Package epstopdf Info: Output file is already uptodate.
+(epstopdf)             \includegraphics on input line 1203.
+runsystem(repstopdf --outfile=figure1-eps-converted-to.pdf figure1.eps)...execu
+ted safely (allowed).
+
+Package epstopdf Info: Result file: <figure1-eps-converted-to.pdf>
+(epstopdf)                    date: 2017-09-25 18:59:28
+(epstopdf)                    size: 15518 bytes.
 <figure1-eps-converted-to.pdf, id=320, 505.89pt x 505.89pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
-Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1202.
+Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1203.
 (pdftex.def)             Requested size: 341.43785pt x 341.43785pt.
  [23] [24pdfTeX warning (ext4): destination with the same identifier (name{tabl
 e.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1264 
+l.1265 
        ] [25pdfTeX warning (ext4): destination with the same identifier (name{t
 able.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1264 
+l.1265 
        ] [26pdfTeX warning (ext4): destination with the same identifier (name{t
 able.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1264 
+l.1265 
        ] [27pdfTeX warning (ext4): destination with the same identifier (name{t
 able.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1264 
+l.1265 
        ] [28pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1264 
+l.1265 
         <./figure1-eps-converted-to.pdf>] [29] [30]
-Overfull \hbox (29.0409pt too wide) detected at line 1352
+Overfull \hbox (29.0409pt too wide) detected at line 1353
 [] []
  []
 
 [31]
-Overfull \hbox (45.39824pt too wide) detected at line 1433
+Overfull \hbox (45.39824pt too wide) detected at line 1434
 [] []
  []
 
 [32]
-Overfull \hbox (54.74213pt too wide) detected at line 1438
+Overfull \hbox (54.74213pt too wide) detected at line 1439
 [] [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[] \OMS/cmsy/m/n/12 ^^T [] [][][]
  ^^@ \OT1/cmr/m/n/12 1[]\OML/cmm/m/it/12 ; [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 1[][] + []\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 G[]G[]\
@@ -633,17 +636,17 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (78.95969pt too wide) detected at line 1448
+Overfull \hbox (78.95969pt too wide) detected at line 1449
 [] []
  []
 
 [33]
-Overfull \hbox (22.46817pt too wide) detected at line 1520
+Overfull \hbox (22.46817pt too wide) detected at line 1521
 [] \OT1/cmr/m/n/12 = []
  []
 
 [34]
-Overfull \hbox (80.19566pt too wide) detected at line 1541
+Overfull \hbox (80.19566pt too wide) detected at line 1542
 [] [][]\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ [] ^^@ \OML/cmm/m/it/12 t\OT1/c
 mr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^T [][] ^^T []\OT1/cmr/m/n/12 ([] + [] + \OML/c
 mm/m/it/12 t\OT1/cmr/m/n/12 )[][] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/c
@@ -652,7 +655,7 @@ msy/m/n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML
  []
 
 [35]
-Overfull \hbox (49.59628pt too wide) in paragraph at lines 1575--1578
+Overfull \hbox (49.59628pt too wide) in paragraph at lines 1576--1579
 \OT1/cmr/m/n/12 with prob-a-bil-ity at least $1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 3\OML/cmm/m/it/12 p=\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 n$ \OT1/cmr/m/
 n/12 for some con-stant $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 . Since $\OML/cmm
@@ -661,7 +664,7 @@ OMS/cmsy/m/n/12 ^^T
  []
 
 
-Overfull \hbox (19.7598pt too wide) in paragraph at lines 1602--1606
+Overfull \hbox (19.7598pt too wide) in paragraph at lines 1603--1607
 \OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12
  ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[]$ \OT1/cmr/m/n
 /12 equal to the pos-i-tive eigen-val-ues of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
@@ -670,17 +673,17 @@ Overfull \hbox (19.7598pt too wide) in paragraph at lines 1602--1606
  []
 
 
-Overfull \hbox (6.61018pt too wide) detected at line 1614
+Overfull \hbox (6.61018pt too wide) detected at line 1615
 [] []
  []
 
 [36]
-Overfull \hbox (32.79509pt too wide) detected at line 1632
+Overfull \hbox (32.79509pt too wide) detected at line 1633
 [] []
  []
 
 [37]
-Overfull \hbox (76.50154pt too wide) detected at line 1674
+Overfull \hbox (76.50154pt too wide) detected at line 1675
 [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
 /n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[][] \OT1/c
 mr/m/n/12 = [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[]
@@ -691,31 +694,31 @@ mr/bx/n/12 U[]^^C[][]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (101.89233pt too wide) detected at line 1702
+Overfull \hbox (101.89233pt too wide) detected at line 1703
 [] []
  []
 
 [38]
-Overfull \hbox (20.41805pt too wide) detected at line 1741
+Overfull \hbox (20.41805pt too wide) detected at line 1742
 [] []
  []
 
 
-Overfull \hbox (58.44193pt too wide) detected at line 1778
+Overfull \hbox (58.44193pt too wide) detected at line 1779
 [] []
  []
 
 [39] [40] [41] [42] [43] [44] [45] (./main.bbl [46] [47] [48])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2103.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2104.
  [49]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2103.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2104.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2103.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2103.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2104.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2104.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: B9944DE576C0421B9E6E8C766D6E419B;464.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2103.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2104.
  ) 
 Here is how much of TeX's memory you used:
  7940 strings out of 493029
@@ -724,7 +727,7 @@ Here is how much of TeX's memory you used:
  11191 multiletter control sequences out of 15000+600000
  15518 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,45p,411b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,45p,415b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texliv
@@ -745,7 +748,7 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (49 pages, 372583 bytes).
+Output written on main.pdf (49 pages, 372869 bytes).
 PDF statistics:
  631 PDF objects out of 1000 (max. 8388607)
  549 compressed objects within 6 object streams
