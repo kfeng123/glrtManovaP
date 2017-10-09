@@ -71,6 +71,7 @@
 \def\blambda {\bfsym {\lambda}} 
 \def\bLambda {\bfsym {\Lambda}} 
 \def\bSigma {\bfsym {\Sigma}} 
+\def\bTheta {\bfsym {\Theta}} 
 
 
 
@@ -117,7 +118,7 @@
 }\hfill }
 
 \markboth{\hfill{\footnotesize\rm Rui Wang AND Xingzhong Xu} \hfill}
-{\hfill {\footnotesize\rm GENERALIZED LIKELIHOOD RATIO TEST} \hfill}
+{\hfill {\footnotesize\rm LEAST FAVORABLE DIRECTION TEST} \hfill}
 
 \renewcommand{\thefootnote}{}
 $\ $\par
@@ -125,7 +126,7 @@ $\ $\par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \fontsize{12}{14pt plus.8pt minus .6pt}\selectfont \vspace{0.8pc}
-\centerline{\large\bf A GENERALIZED LIKELIHOOD RATIO TEST FOR }
+\centerline{\large\bf LEAST FAVORABLE DIRECTION TEST FOR }
 \vspace{2pt} \centerline{\large\bf MULTIVARIATE ANALYSIS OF VARIANCE}
 \vspace{2pt} \centerline{\large\bf IN HIGH DIMENSION}
 \vspace{.4cm} \centerline{Author(s)} \vspace{.4cm} \centerline{\it
@@ -138,15 +139,15 @@ Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
 \noindent {\it Abstract:}
 This paper considers the problem of multivariate analysis of variance for normal samples.
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
-    Although the unboundedness of the likelihood function causes some trouble, it contains important information based on which we propose a generalized likelihood ratio test.
-    The asymptotic null distribution of the test statistic is derived and the local asymptotic power function is given.
-    Our theoretical framework allows the covariance matrix to have a few large eigenvalues which can characterize the strong correlations between variables.
+    Based on the unboundedness of the likelihood function, we propose a new test.
+    The asymptotic null distribution of the test statistic is derived and the local asymptotic power function of the test is also given.
+    In our results, the covariance matrix may have a few large eigenvalues which can characterize the strong correlations between variables.
     %To investigate the asymptotic properties of the proposed test, we adopt a spiked covariance model which can characterize the strong correlation between variables.
-    Our theoretical results and simulations show that the proposed test has particular high power when there are strong correlations between variables.
+    The asymptotic power function and simulations show that the proposed test has particular high power when there are strong correlations between variables.
 
 \vspace{9pt}
     \noindent {\it Key words and phrases:}
-    High dimensional test, multivariate analysis of variance, principal component analysis, spiked covariance.
+    High dimensional data, least favorable direction test, multivariate analysis of variance, principal component analysis, spiked covariance.
 %Balanced incomplete block design, Hadamard matrix, nearly balanced incomplete block design, orthogonal array.
 \par
 \end{quotation}\par
@@ -237,35 +238,39 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     %H: \xi_1=\xi_2=\cdots=\xi_k\quad v.s.\quad K: \textrm{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
-   Note that both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
-    While the likelihood ratio test (LRT), i.e., Wilks' Lambda, is not defined for $p>n-k$,
-    it remains a problem how to construct likelihood-based tests in high dimensional setting.
+   The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
+    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e., Wilks' Lambda, is not defined for $p>n-k$.
+   In high dimensional setting, both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
+    We try to construct a likelihood-based test in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
-    They found that the unboundedness of likelihood function contains useful information.
-    Based on this, they used a least favorable argument to construct a generalized likelihood ratio test statistic.
+    They used a least favorable argument to construct a generalized likelihood ratio test statistic.
     %They wrote the null hypothesis as the intersection of a class of component hypotheses.
     %For each component hypotheses, the likelihood ratio test is constructed.
     Their simulation results showed that their test has good power performance, especially when the variables are correlated.
 
 
-    Following~\cite{Zhao2016A}'s methodology, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}.
-    To understand the behavior of the new test, we derive the asymptotic distribution of the test statistic.
+    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}, we call it least favorable direction (LFD) statistic.
+    The asymptotic distributions of the test statistic are derived.
     %An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
-    Our theoretical framework allows the covariance matrix to have $r$ significantly large eigenvalues.
+    In our results, the covariance matrix may have $r$ significantly large eigenvalues.
     This covariance structure, known as spiked covariance, can characterize the strong correlations between variables. See, for example,~\citet{Fan2008High},~\citet{Cai2012Sparse},~\citet{Shen2013Consistency} and~\citet{Ma2015A}.
-    The asymptotic distribution of the proposed test statistic involves some unknown parameters.
-    We give estimators of these parameters and formulate a test with correct level asymptotically.
-    Based on the theoretical results, the asymptotic local power function of the new test can be derived.
-While the asymptotic powers of most existing tests are negatively affected by the large eigenvalues of the covariance matrix, the asymptotic power of the new test doesn't depend on the large eigenvalues of the covariance matrix. 
-    Hence the new test is particularly powerful when there are strong correlations between variables.
-    We also conduct a simulation study to examine the numerical performance of the test.
+    The asymptotic null distribution of the proposed test statistic involves some unknown parameters.
+    We give their estimators and formulate a test with correct level asymptotically.
+    The asymptotic local power function of LFD test is also given.
+ The asymptotic power of LFD test doesn't depend on the large eigenvalues of the covariance matrix.
+For most existing tests, however, the asymptotic power decreases as the large eigenvalues of the covariance matrix increases.
+    Hence LFD test is particularly powerful when there are strong correlations between variables.
+    Further simulations show the good performance of LFD test.
 
+    {\color{red}
     The rest of the paper is organized  as follows.
     In Section 2, we review some existing tests and propose a new test.
     Section 3 concerns the theoretical properties of the proposed test.
      Section 4 complements our study with some numerical simulations. In Section 5, we give a short discussion. Finally, the proofs are gathered in the Appendix.
+ }
     %Higher criticism CX are special case of UIT.
+
 
 
 
@@ -274,12 +279,10 @@ While the asymptotic powers of most existing tests are negatively affected by th
 %\noindent {\bf 2. The Second Section}
 
  
-\section{Methodology}\label{methodology}
-\subsection{Existing methods}
-To facilitate the discussion, we introduce some notations.
- Let
- $$\bX=(X_{11},X_{12},\ldots,X_{1n_1},X_{21},X_{22},\ldots,X_{2n_2},\ldots,X_{k1},X_{k2},\ldots,X_{kn_k})$$
- be the pooled sample matrix.
+\section{Least favorable direction test}\label{methodology}
+We introduce some notations.
+ Define the $p\times n$ pooled sample matrix $\bX$ as
+ $$\bX=(X_{11},X_{12},\ldots,X_{1n_1},X_{21},X_{22},\ldots,X_{2n_2},\ldots,X_{k1},X_{k2},\ldots,X_{kn_k}).$$
  The sum-of-squares within groups $\bG$ can be written as $\bG=\bX(\bI_n-\bJ\bJ^T)\bX^T$ where
  $$
  \bJ=\begin{pmatrix}
@@ -287,10 +290,11 @@ To facilitate the discussion, we introduce some notations.
      \mathbf{0}&\frac{1}{\sqrt{n_2}} \mathbf{1}_{n_2}& \mathbf{0}\\
      \vdots &\vdots &\vdots \\
      \mathbf{0}&\mathbf{0}&\frac{1}{\sqrt{n_k}}\mathbf{1}_{n_k}
- \end{pmatrix},
+ \end{pmatrix}
  $$
- and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to $1$.
- Construct a matrix $\tilde{\bJ}$ as 
+ is an $n\times k$ matrix
+ and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to $1$, $i=1,\ldots, k$.
+ Construct an $n\times (n-k)$ matrix $\tilde{\bJ}$ as 
  $$
  \tilde{\bJ}=\begin{pmatrix}
      \tilde{\bJ}_1&\mathbf{0} & \mathbf{0}\\
@@ -309,19 +313,19 @@ To facilitate the discussion, we introduce some notations.
     0&0&\cdots&0&-\frac{n_i-1}{\sqrt{(n_i-1)n_i}}\\
 \end{pmatrix}.
  $$
-Then $\tilde{\bJ}$ is an $n\times (n-k)$ orthogonal matrix  satisfying $\tilde{\bJ}^T\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
-Let $\bY=\bX\tilde{\bJ}$.
-Then $\bG$ has representation
+Then $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^T\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
+Let $\bY=\bX\tilde{\bJ}$ be a $p\times (n-k)$ random matrix.
+Then $\bG$ can be written as
 $$\bG=
 \bY \bY^T.
 $$
 
-On the other hand, the sum-of-squares between groups $\bH$ satisfies
+The sum-of-squares between groups $\bH$ can be written as
 $$
         \bH=\bX(\bJ\bJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)\bX^T
 =\bX \bJ(\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ)\bJ^T \bX^T.
 $$
-We can write $\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ=\bC\bC^T$
+By some matrix algebra, $\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ=\bC\bC^T$
 where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
  $$
 \bC_1=\begin{pmatrix}
@@ -340,110 +344,107 @@ where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
     0&0&\cdots&\frac{(\sum_{i=1}^{k-1} n_i)(\sum_{i=1}^k n_i)}{n_{k}}\\
 \end{pmatrix}^{-\frac{1}{2}}.
 $$
-Then $\bH$ has representation
+Then $\bH$ can be written as
 \begin{equation*}
     \begin{aligned}
         \bH=\bX \bJ\bC \bC^T \bJ^T \bX^T.
     \end{aligned}
 \end{equation*}
- Define $\Xi=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
- and the null hypothesis $H_0$ is equivalent to $\Xi \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with all elements equal to $0$.
- Thus the problem becomes testing hypotheses
+ Define $\bTheta=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
+ and the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with all elements equal to $0$.
+ Thus, the hypotheses in~\eqref{hypothesis} are equivalent to
  $$
- H_0:\Xi \bC=\bO_{p\times (k-1)}\quad \text{v.s.}\quad H_1: \Xi \bC\neq \bO_{p\times (k-1)}
+ H_0:\bTheta \bC=\bO_{p\times (k-1)}\quad \text{v.s.}\quad H_1: \bTheta \bC\neq \bO_{p\times (k-1)}.
  $$
- based on data matrix $\bX$ when $p$ is larger.
 
 In low dimensional setting, the testing problem~\eqref{hypothesis} is well studied.
-The difficulty occurs when $p\geq n$, where the four classical test statistics can not be defined.
-To construct test statistic in high dimensional setting, a simple idea is to reduce the problem~\eqref{hypothesis} to a class of univariate problems.
-Following this idea, a general strategy to propose a test statistic can be summarized as three steps.
-\begin{enumerate}
-    \item
-       Construct a class of projected univariate data $\{\bX_{\gamma}:\gamma\in\Gamma\}$ which contains all the information of data $\bX$.
+A classical test statistic is Roy's maximum root which is constructed by~\cite{Roy1953} using his well-known union intersection principle.
+%The difficulty occurs when $p\geq n$, where the four classical test statistics can not be defined.
+%To construct test statistic in high dimensional setting, a simple idea is to reduce the problem~\eqref{hypothesis} to a class of univariate problems.
+        The key idea is to decompose data $\bX$ into a set of univariate data $\{\bX_{a}=a^T \bX:\, a\in \mathbb{R}^p, a^T a=1\}$.
         This induces a decomposition of the null hypothesis and the alternative hypothesis:
         $$
-        H_0=\bigcap_{\gamma\in\Gamma} H_{0\gamma} \quad \text{v.s.} \quad 
-        H_1=\bigcup_{\gamma\in \Gamma} H_{1\gamma}.
+        H_0=\bigcap_{a\in\mathbb{R}^p, a^T a=1} H_{0a} \quad \text{v.s.} \quad 
+        H_1=\bigcup_{a\in\mathbb{R}^p, a^T a=1} H_{1a},
         $$
-    \item
-        Construct a test statistic $T_\gamma$ for $H_{0\gamma}$ against $H_{1\gamma}$ such that $H_{0\gamma}$ is rejected if $T_{\gamma}$ is large.
-    \item
-        Summarize the component test statistics $\{T_{\gamma}:\gamma\in\Gamma\}$ into a global test statistic.
-\end{enumerate}
-It turns out that many tests in the literature can be derived by the above strategy.
-While the LRT may be the best choice of univariate problems in step 2,
- there are more choices in step 1 and step 3.
-In step 3, Roy's union intersection principle suggests using $\max_{\gamma\in\Gamma}T_{\gamma}$ as a global test statistic~\citep{Roy1953},
-while another choice is to integrate $T_\gamma$ according to some measure $\mu(\gamma)$ and use $\int_\gamma T_{\gamma}\,\mu(d\gamma)$ as global test statistic.
-For step 1, we consider two different constructions of data projection.
-\begin{enumerate}[(i)]
-    \item
-        Consider the class of univariate data $\{\bX_{i}=e_i^T \bX:i=1,\ldots,p\}$, where $e_i$ is the $i$th standard basis in $\mathbb{R}^p$.
-        Hence $H_0=\bigcap_{i=1}^p H_{0i}$ and $H_1=\bigcup_{i=1}^p H_{1i}$, where
- $$
- H_{0i}: e_i^T \Xi \bC = \bO_{1\times (k-1)}\quad \text{and}\quad H_{1a} : e_i^T \Xi \bC \neq \bO_{1\times (k-1)}.
- $$
-\item
-    Consider the class of univariate data $\{\bX_{a}=a^T \bX:i=1,a\in\mathbb{R}^p, a^T a=1\}$.
-        Hence $H_0=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_{0a}$ and $H_1=\bigcup_{a\in \mathbb{R}^p,a^T a=1}H_{1a}$, where
- $$
- H_{0a}: a^T \Xi \bC = \bO_{1\times (k-1)}\quad \text{and}\quad H_{1a} : a^T \Xi \bC \neq \bO_{1\times (k-1)}.
- $$
-\end{enumerate}
-
-First, we consider the construction (i) in step 1.
-Suppose component test statistics 
-$$T_i={(k-1)^{-1}} e_i^T \bH e_i-(n-k)^{-1}e_i^T \bG e_i\quad i=1,\ldots, p$$
-are used in step 2, and in step 3 we integrate $T_i$ according to the uniform measure on $1,\ldots,p$. Then the resulting statistic is $p^{-1}\sum_{i=1}^p T_i$ which is equivalent to $T_{SC}$.
-If instead the likelihood ratio test statistic $e_i^T \bH e_i/e_i^T \bG e_i$ is used in step 2, one obtains a scalar invariant test statistic which is a direct generalization of~\citet{Srivastava2009A}'s test.
-On the other hand, by using data $\Omega^{-1}\bX$ and component test statistics
-$$
-T_i^*=\sum_{1\leq j<l \leq k} \frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))^2_i}{\omega_{ii}},
-$$
-we have $T_{CX}=\max_{1\leq i\leq p}T_i^*$.
-Here the component test statistic $T_i^*$ is similar to likelihood ratio tests.
-
-While many existing tests can be derived by the construction (i) in step 1, this construction has limitation in that it relies on the choice of an orthogonal basis of $\mathbb{R}^p$.
-In fact, test statistics resulting from this construction mostly requires certain prior information about the covariance matrix.
-For example,~\citet{Schott2007Some} requires that $\mytr(\bSigma^{2j})/p\to \tau_j\in(0,\infty)$, $j=1,2$, and~\citet{Cai2014High} requires a consistent estimator of $\Omega$.
-
-Next, we consider using construction (ii) in step 1, which does not rely on the basis of $\mathbb{R}^p$.
-Suppose the likelihood ratio test statistic $T_a=a^T \bH a/a^T \bG a$ is used in step 2.
-If we use the integrating strategy in step 3 and choose $\mu$ equal to the uniform distribution on the sphere, then the test statistic becomes
-$$
-\int_{a^T a=1} \frac{a^T \bH a}{a^T \bG a}\, \mu(da).
-$$
-Although it is hard to give an explicit form of the integration, we can approximate it by random projection.
-More specifically, one can randomly generate unit vectors $a_1,\ldots,a_M$ and the statistics can be approximated by $M^{-1}\sum_{i=1}^M a_i^T \bH a_i/a_i^T \bG a_i$.
-This statistic is well defined in high dimensional setting.
-A similar method is proposed by~\cite{Lopes2015A} for $k=2$ from a different point of view.
-Their analysis and simulations show that such random projection method has relatively good performance especially when variables are correlated.
-On the other hand, if $n-k\geq p$, Roy's union intersection principle can be used in step 3, the resulting  statistic is the well-known Roy's maximum root:
-$$
-\max_{a^T a=1}T_a=\lambda_{\max}(\bH \bG^{-1}).
-$$
-In fact, this statistic is first derived in~\cite{Roy1953} as an example of his union intersection principle.
-
-\subsection{A new test statistic}
-
-Roy's maximum root is constructed from the component statistics $\{T_a :a^T a=1\}$. 
-It doesn't require prior knowledge of covariance matrix and is widely used in practice.
+        where 
+ $H_{0a}: a^T \bTheta \bC = \bO_{1\times (k-1)}$ and  $H_{1a} : a^T \bTheta \bC \neq \bO_{1\times (k-1)}$.
+Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
+For each $a$ satisfying $a^T a=1$, the  LRT statistic
+$$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
+can be used to test $H_{0a}$ v.s. $H_{1a}$. 
+Using union intersection principle, Roy proposed the test statistic
+$
+\max_{a^T a=1}  {L_1(a)}/{L_0(a)}=\lambda_{\max}^{n/2}(\bH\bG^{-1}),
+$
+where $\lambda_{\max}(\cdot)$ means the largest eigenvalue.
+This statistic is an increasing function of Roy's maximum root.
+%It turns out that many tests in the literature can be derived by the above strategy.
+%While the LRT may be the best choice of univariate problems in step 2,
+% there are more choices in step 1 and step 3.
+%In step 3, Roy's union intersection principle suggests using $\max_{\gamma\in\Gamma}T_{\gamma}$ as a global test statistic~\citep{Roy1953},
+%while another choice is to integrate $T_\gamma$ according to some measure $\mu(\gamma)$ and use $\int_\gamma T_{\gamma}\,\mu(d\gamma)$ as global test statistic.
+%For step 1, we consider two different constructions of data projection.
+%\begin{enumerate}[(i)]
+%    \item
+%        Consider the class of univariate data $\{\bX_{i}=e_i^T \bX:i=1,\ldots,p\}$, where $e_i$ is the $i$th standard basis in $\mathbb{R}^p$.
+%        Hence $H_0=\bigcap_{i=1}^p H_{0i}$ and $H_1=\bigcup_{i=1}^p H_{1i}$, where
+% $$
+% H_{0i}: e_i^T \bTheta \bC = \bO_{1\times (k-1)}\quad \text{and}\quad H_{1a} : e_i^T \bTheta \bC \neq \bO_{1\times (k-1)}.
+% $$
+%\item
+%    Consider the class of univariate data $\{\bX_{a}=a^T \bX:i=1,a\in\mathbb{R}^p, a^T a=1\}$.
+%        Hence $H_0=\bigcap_{a\in \mathbb{R}^p, a^T a=1}H_{0a}$ and $H_1=\bigcup_{a\in \mathbb{R}^p,a^T a=1}H_{1a}$, where
+% $$
+% H_{0a}: a^T \bTheta \bC = \bO_{1\times (k-1)}\quad \text{and}\quad H_{1a} : a^T \bTheta \bC \neq \bO_{1\times (k-1)}.
+% $$
+%\end{enumerate}
+%
+%First, we consider the construction (i) in step 1.
+%Suppose component test statistics 
+%$$T_i={(k-1)^{-1}} e_i^T \bH e_i-(n-k)^{-1}e_i^T \bG e_i\quad i=1,\ldots, p$$
+%are used in step 2, and in step 3 we integrate $T_i$ according to the uniform measure on $1,\ldots,p$. Then the resulting statistic is $p^{-1}\sum_{i=1}^p T_i$ which is equivalent to $T_{SC}$.
+%If instead the likelihood ratio test statistic $e_i^T \bH e_i/e_i^T \bG e_i$ is used in step 2, one obtains a scalar invariant test statistic which is a direct generalization of~\citet{Srivastava2009A}'s test.
+%On the other hand, by using data $\Omega^{-1}\bX$ and component test statistics
+%$$
+%T_i^*=\sum_{1\leq j<l \leq k} \frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))^2_i}{\omega_{ii}},
+%$$
+%we have $T_{CX}=\max_{1\leq i\leq p}T_i^*$.
+%Here the component test statistic $T_i^*$ is similar to likelihood ratio tests.
+%
+%While many existing tests can be derived by the construction (i) in step 1, this construction has limitation in that it relies on the choice of an orthogonal basis of $\mathbb{R}^p$.
+%In fact, test statistics resulting from this construction mostly requires certain prior information about the covariance matrix.
+%For example,~\citet{Schott2007Some} requires that $\mytr(\bSigma^{2j})/p\to \tau_j\in(0,\infty)$, $j=1,2$, and~\citet{Cai2014High} requires a consistent estimator of $\Omega$.
+%
+%Next, we consider using construction (ii) in step 1, which does not rely on the basis of $\mathbb{R}^p$.
+%Suppose the likelihood ratio test statistic $T_a=a^T \bH a/a^T \bG a$ is used in step 2.
+%If we use the integrating strategy in step 3 and choose $\mu$ equal to the uniform distribution on the sphere, then the test statistic becomes
+%$$
+%\int_{a^T a=1} \frac{a^T \bH a}{a^T \bG a}\, \mu(da).
+%$$
+%Although it is hard to give an explicit form of the integration, we can approximate it by random projection.
+%More specifically, one can randomly generate unit vectors $a_1,\ldots,a_M$ and the statistics can be approximated by $M^{-1}\sum_{i=1}^M a_i^T \bH a_i/a_i^T \bG a_i$.
+%This statistic is well defined in high dimensional setting.
+%A similar method is proposed by~\cite{Lopes2015A} for $k=2$ from a different point of view.
+%Their analysis and simulations show that such random projection method has relatively good performance especially when variables are correlated.
+%On the other hand, if $n-k\geq p$, Roy's union intersection principle can be used in step 3, the resulting  statistic is the well-known Roy's maximum root:
+%$$
+%\max_{a^T a=1}T_a=\lambda_{\max}(\bH \bG^{-1}).
+%$$
+%In fact, this statistic is first derived in~\cite{Roy1953} as an example of his union intersection principle.
+%
 %However, it can only be defined when $n-k\geq p$.
 %In fact, if $p>n-k$, $G$ is not invertible and $T_a$ is not defined for some $a$. 
 %We will follow~\citet{Zhao2016A}'s idea and propose a new test statistic for $p>n-k$.
-Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
-The log likelihood ratio 
-$$\log \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
-is an increasing function of $T_a$.
-From a likelihood point view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
-Hence the component LRT statistic characterizes the discrepancy between  $H_{0a}$ and $H_{1a}$.
-By maximizing $\log (L_1(a)/L_0 (a))$, 
-%or equivalently maximizing $T_a$,
-one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
-We shall call $a^*$ the least favorable direction %and $H_{0a^*}$ the least favorable hypothesis
-since $H_{0a^*}$ is the component null hypothesis most likely to be not true.
-Since Roy's maximum root equals to $T_{a^*}$, it is the component LRT statistic along the least favorable direction.
+
+From a likelihood point of view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
+Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along direction $a$.
+%By maximizing $ (L_1(a)/L_0 (a))$, 
+%one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
+Hopefully, the direction $a^*=\argmax_{a^T a=1}L_1(a)/L_0(a)$ achieves the largest discrepancy between the true distribution and the null distribution.
+Thus, $H_{0a^*}$ is the component null hypothesis most likely to be not true.
+We shall call $a^*$ the least favorable direction. %and $H_{0a^*}$ the least favorable hypothesis
+Roy's maximum root is in fact the component LRT statistic along the least favorable direction.
 
 
 
@@ -472,9 +473,9 @@ Since Roy's maximum root equals to $T_{a^*}$, it is the component LRT statistic 
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in the high dimensional setting.
+Unfortunately, Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in the high dimensional setting.
 %While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
-In what follows,  we shall assume $p>n-k$.
+In what follows, we assume $p>n-k$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
 %Based on this idea, we have the following heuristic argument to propose a new test statistic.
 In this case,
@@ -501,10 +502,11 @@ This motivates us to propose a new test statistic as
         a^T \bH a.
     \end{aligned}
 \end{equation*}
-We reject the null hypothesis if $T(\bX)$ is large enough.
-Since $a^*$ is obtained from likelihood function, the statistic $T(\bX)$ can be regarded as a generalized likelihood ratio test statistic.
+We reject the null hypothesis when $T(\bX)$ is large enough.
+We shall call $T(\bX)$ the least favorable direction (LFD) test statistic.
+Since the least favorable direction $a^*$ is obtained from likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
-The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
+%The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
 Now we derive the explicit forms of the test statistic. 
 %Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
@@ -641,14 +643,14 @@ The following theorem establishes the asymptotic distribution of $T(\bX)$.
     $$
     Then under local alternative hypothesis
     \begin{equation*}
-        \frac{1}{\sqrt{p}}\|\Xi \bC\|_F^2=O(1),
+        \frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1),
     \end{equation*}
     we have
     $$
     \begin{aligned}
         \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{\mytr (\bLambda_2^2)}}
         \sim
-        \lambda_{\max}\Big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\Big)
+        \lambda_{\max}\Big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC\Big)
         +o_P(1),
     \end{aligned}
     $$
@@ -877,31 +879,31 @@ Theorem~\ref{thm1}, Proposition~\ref{traceProp1} and Proposition~\ref{Taichangle
 And by Theorem~\ref{thm1}, the asymptotic local power function of the proposed test procedure is
 $$
 \Pr\Big(
-        \lambda_{\max}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+        \lambda_{\max}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
 \Big).
 $$
 If $k=2$, the asymptotic local power function of~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method can be written as
 $$
 \Pr\Big(
-        \lambda_{\max}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \Xi^T \Xi \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+        \lambda_{\max}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \bTheta^T \bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
 \Big).
 $$
 Hence the asymptotic relative efficiency between our method and~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method is
 $$
  \sqrt{\frac{{{\mytr(\bSigma^2)}}}{{\mytr(\bLambda_2^2)}}}
-\frac{ \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC}{ {\bC^T \Xi^T \Xi \bC}}.
+\frac{ \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC}{ {\bC^T \bTheta^T \bTheta \bC}}.
 $$
 There's a random term $\bP_{\bY}$ in the expression.
 To gain some insight into this,
 suppose, for example, $\sqrt{n_i} \xi_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots,k$. Then
 $
-\psi^{-1}\bC^T \Xi^T \Xi \bC$
+\psi^{-1}\bC^T \bTheta^T \bTheta \bC$
 is distributed as $ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $k-1$ dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
 On the other hand,
-$\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC$  is distributed as $\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
+$\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC$  is distributed as $\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
 In this case, we have
 $$
-\frac{\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC}{\bC^T \Xi^T \Xi \bC}\xrightarrow{P}1.
+\frac{\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC}{\bC^T \bTheta^T \bTheta \bC}\xrightarrow{P}1.
 $$
 Thus, when
 $$
@@ -939,11 +941,11 @@ the new test tends to be more powerful than~\cite{Chen2010A}'s test.
 %Our new test statistic comes from construction ii in step 1, the likelihood ratio test statistics in step 2 and strategy II in step 3.
 %Theorems~\ref{nonSpiked} and~\ref{thm1} allow us to analyze the properties of the proposed test.
 %Suppose $\sqrt{n_i}\mu_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots, k$.
-%Then $\psi^{-1}\bC^T \Xi^T \Xi \bC$ is distributed as $\text{Wishart}_{k-1}(p,\bI_{k-1})$ (Wishart distribution with freedom $p$ and parameter $\bI_{k-1}$) and $\psi^{-1}\bC^T \Xi^T \bP_{\bY}\Xi \bC$ is distributed as $\text{Wishart}_{k-1}(n-k,\bI_{k-1})$.
+%Then $\psi^{-1}\bC^T \bTheta^T \bTheta \bC$ is distributed as $\text{Wishart}_{k-1}(p,\bI_{k-1})$ (Wishart distribution with freedom $p$ and parameter $\bI_{k-1}$) and $\psi^{-1}\bC^T \bTheta^T \bP_{\bY}\bTheta \bC$ is distributed as $\text{Wishart}_{k-1}(n-k,\bI_{k-1})$.
 %In this case, we have
 %$$
-%\psi^{-1}\bC^T \Xi^T (\bI_P-\bP_{\bY})\Xi \bC=
-%(1+o_P(1))\psi^{-1}\bC^T \Xi^T \Xi \bC.
+%\psi^{-1}\bC^T \bTheta^T (\bI_P-\bP_{\bY})\bTheta \bC=
+%(1+o_P(1))\psi^{-1}\bC^T \bTheta^T \bTheta \bC.
 %$$
 %If the conditions of Theorem~\ref{nonSpiked} hold and $k=2$, the asymptotic power of the proposed test is the same as that of~\cite{Bai1996Efiect}and~\cite{Chen2010A}'s method.
 %Since the method of~\cite{Schott2007Some} is a direct generalization of~\cite{Bai1996Efiect}'s method, it can be shown the asymptotic power of the proposed test is the same as that of~\cite{Schott2007Some} for general $k$.
@@ -960,16 +962,16 @@ the new test tends to be more powerful than~\cite{Chen2010A}'s test.
  %$$H_{0}=\bigcap_{M}H_{0M} \quad\text{and}\quad H_1=\bigcup_{M}H_{1M} ,$$
  %where
  %$$
- %H_{0M}: \mytr( M \Xi C) = 0\quad \text{and}\quad H_{1M} : \mytr( M \Xi C )> 0.
+ %H_{0M}: \mytr( M \bTheta C) = 0\quad \text{and}\quad H_{1M} : \mytr( M \bTheta C )> 0.
  %$$
 %
-%Note that $\myE Z=\Xi J^T$, hence
-%the uniformly minimum variance unbiased estimator of $\mytr(M\Xi C)$ is $\mytr(MZJ C)$.
+%Note that $\myE Z=\bTheta J^T$, hence
+%the uniformly minimum variance unbiased estimator of $\mytr(M\bTheta C)$ is $\mytr(MZJ C)$.
 %It can be seen that
 %$
 %\mytr \big(MZJ C\big)
 %\sim
-%N\big(\mytr(M\Xi C),\mytr(M\bSigma M^T )\big)
+%N\big(\mytr(M\bTheta C),\mytr(M\bSigma M^T )\big)
 %$.
 
 %=====================
@@ -984,9 +986,9 @@ the new test tends to be more powerful than~\cite{Chen2010A}'s test.
 %$$
 %\mytr \big(CMZJ\big)
 %\sim
-%N(\mytr(CM\Xi),\mytr(CM\bSigma M^T C^T))
+%N(\mytr(CM\bTheta),\mytr(CM\bSigma M^T C^T))
 %\sim
-%N(\mytr(M\Xi C),\mytr(M\bSigma M^T )).
+%N(\mytr(M\bTheta C),\mytr(M\bSigma M^T )).
 %$$
 %==================
 
@@ -1063,7 +1065,7 @@ Here $M$ is the permutation times.
 In this section, we evaluate the empirical power performance of the new test.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\Xi\bC\|_F^2}{\sqrt{\bLambda_2^2}}.
+\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\bLambda_2^2}}.
 $$
 We use SNR to characterize the signal strength.
 Since the critical values of most existing tests can not guarantee correct test level under spiked covariance model, we use permutation method to determine the critical value in the simulations.
@@ -1093,7 +1095,7 @@ When $\rho$ is small,  the new test has reasonable performance. When $\rho$ is l
 
 
 %$$
-%SNR=\frac{\|\Xi \bC\|_F^2}{\sqrt{\mytr (\bSigma^2)}}
+%SNR=\frac{\|\bTheta \bC\|_F^2}{\sqrt{\mytr (\bSigma^2)}}
 %$$
 
 
@@ -1336,7 +1338,7 @@ $,
 where $\bG_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
 We write
 $
-\bX\bJ\bC = \Xi \bC + \bU\bLambda^{1/2} \bG_2
+\bX\bJ\bC = \bTheta \bC + \bU\bLambda^{1/2} \bG_2
 $, 
 where $\bG_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
 
@@ -1346,9 +1348,9 @@ Then
 \bC^T\bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX\bJ\bC
 =&
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\Xi \bC^T (\bI_p -\bP_{\bY})\Xi \bC+\\
-&\Xi \bC^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\Xi \bC.
+\bTheta \bC^T (\bI_p -\bP_{\bY})\bTheta \bC+\\
+&\bTheta \bC^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
+\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bTheta \bC.
 \end{aligned}
 \end{equation}
     The first term of~\eqref{eq:maindec} can be represented as
@@ -1754,26 +1756,26 @@ $$
 Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
 $$
 \begin{aligned}
-    &\myE [\|\bC^T \Xi^T (\bI_p -\bP_{Z\tilde{J}})\bU\bLambda^{1/2}\bG_2\|_F^2|\bY]\\
+    &\myE [\|\bC^T \bTheta^T (\bI_p -\bP_{Z\tilde{J}})\bU\bLambda^{1/2}\bG_2\|_F^2|\bY]\\
     = &
-    (k-1)\mytr(\bC^T \Xi^T (\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\Xi \bC)\\
+    (k-1)\mytr(\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\bTheta \bC)\\
     \leq &
-    (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\big)\|\Xi \bC\|^2_F\\
+    (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\big)\|\bTheta \bC\|^2_F\\
     \leq &
-    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^T (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\Xi \bC\|^2_F\\
+    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^T (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\bTheta \bC\|^2_F\\
     = &
-    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n}+c_1)  \|\Xi \bC\|^2_F\\
+    (k-1) O_P(\frac{\lambda_1 p}{\lambda_r n}+c_1)  \|\bTheta \bC\|^2_F\\
     = &
-    (k-1) O_P\big(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}+\frac{c_1}{\sqrt{p}}\big) \sqrt{p}  \|\Xi \bC\|^2_F=o_P(p),
+    (k-1) O_P\big(\frac{\lambda_1 \sqrt{p}}{\lambda_r n}+\frac{c_1}{\sqrt{p}}\big) \sqrt{p}  \|\bTheta \bC\|^2_F=o_P(p),
 \end{aligned}
 $$
-where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\Xi \bC\|_F^2=O(1)$.
-Hence $\|\bC^T \Xi^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2=o_P(p)$. Now,
+where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1)$.
+Hence $\|\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2=o_P(p)$. Now,
 $$
 \begin{aligned}
 \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
     \big( \bC^T\bY^T(\bI_p-\bP_{\bY}) \bY \bC
-    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} -\bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC\big)
+    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} -\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC\big)
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{aligned}
 $$
@@ -1782,7 +1784,7 @@ $$
     \begin{aligned}
         &\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} {\Big(\bC^T\bY^T(\bI_p-\bP_{\bY}) \bY \bC- \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1}}\Big)\\
         \sim&
-\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \Xi^T (\bI_p-\bP_{\bY})\Xi \bC
+\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC
         +\bW_{k-1}+o_P(1).
     \end{aligned}
     $$
