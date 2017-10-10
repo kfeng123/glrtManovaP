@@ -131,6 +131,7 @@ for(Rho in seq(0,0.9,0.1)){
 theOut<-do.call(rbind,tmpList)
 write.csv(theOut,"tu.csv",row.names=FALSE)
 
+theOut <- read.csv('tu.csv')
 
 tCQ <- data.frame(
     rho=theOut$Rho,
@@ -156,7 +157,7 @@ tFZWZ <- data.frame(
 tNEW <- data.frame(
     rho=theOut$Rho,
     power=theOut$NEW,
-    method="NEW"
+    method="LFD"
 )
 df=rbind(tCQ,tSR,tCLX,tFZWZ,tNEW)
 

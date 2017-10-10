@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  9 OCT 2017 20:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  10 OCT 2017 17:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -320,6 +320,12 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headsep=\skip64
 \dth@everypar=\toks27
 )
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count112
+\c@@ppsavesec=\count113
+\c@@ppsaveapp=\count114
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
 \symboldoperators=\mathgroup6
@@ -348,12 +354,12 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen130
 \cmidrulekern=\dimen131
 \defaultaddspace=\dimen132
-\@cmidla=\count112
-\@cmidlb=\count113
+\@cmidla=\count115
+\@cmidlb=\count116
 \@aboverulesep=\dimen133
 \@belowrulesep=\dimen134
-\@thisruleclass=\count114
-\@lastruleclass=\count115
+\@thisruleclass=\count117
+\@lastruleclass=\count118
 \@thisrulewidth=\dimen135
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithm.sty
@@ -362,21 +368,21 @@ nment
 
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count116
+\c@float@type=\count119
 \float@exts=\toks28
 \float@box=\box29
 \@float@everytoks=\toks29
 \@floatcapt=\box30
 )
 \@float@every@algorithm=\toks30
-\c@algorithm=\count117
+\c@algorithm=\count120
 )
 (/usr/share/texlive/texmf-dist/tex/latex/algorithms/algorithmic.sty
 Package: algorithmic 2009/08/24 v0.1 Document Style `algorithmic'
-\c@ALC@unique=\count118
-\c@ALC@line=\count119
-\c@ALC@rem=\count120
-\c@ALC@depth=\count121
+\c@ALC@unique=\count121
+\c@ALC@line=\count122
+\c@ALC@rem=\count123
+\c@ALC@depth=\count124
 \ALC@tlm=\skip65
 \algorithmicindent=\skip66
 )
@@ -388,9 +394,9 @@ Package: IEEEtrantools 2015/08/26 V1.5 by Michael Shell
 \@IEEEtrantmpdimenA=\dimen136
 \@IEEEtrantmpdimenB=\dimen137
 \@IEEEtrantmpdimenC=\dimen138
-\@IEEEtrantmpcountA=\count122
-\@IEEEtrantmpcountB=\count123
-\@IEEEtrantmpcountC=\count124
+\@IEEEtrantmpcountA=\count125
+\@IEEEtrantmpcountB=\count126
+\@IEEEtrantmpcountC=\count127
 \@IEEEtrantmptoksA=\toks31
 \IEEEnormaljot=\dimen139
 \IEEEquantizedlength=\dimen140
@@ -405,53 +411,53 @@ Package: IEEEtrantools 2015/08/26 V1.5 by Michael Shell
 \IEEEiednormlabelsep=\dimen149
 \IEEEiedmathlabelsep=\dimen150
 \IEEEiedtopsep=\skip67
-\c@IEEEsubequation=\count125
-\@IEEEeqnnumcols=\count126
-\@IEEEeqncolcnt=\count127
-\@IEEEsubeqnnumrollback=\count128
+\c@IEEEsubequation=\count128
+\@IEEEeqnnumcols=\count129
+\@IEEEeqncolcnt=\count130
+\@IEEEsubeqnnumrollback=\count131
 \IEEEPARstartletwidth=\dimen151
 ) (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
 )
-\c@assumption=\count129
-\c@theorem=\count130
-\c@lemma=\count131
-\c@corollary=\count132
-\c@proposition=\count133
-\c@definition=\count134
-\c@example=\count135
-\c@remark=\count136
+\c@assumption=\count132
+\c@theorem=\count133
+\c@lemma=\count134
+\c@corollary=\count135
+\c@proposition=\count136
+\c@definition=\count137
+\c@example=\count138
+\c@remark=\count139
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
-LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 107.
+LaTeX Font Info:    ... okay on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count137
+\scratchcounter=\count140
 \scratchdimen=\dimen152
 \scratchbox=\box31
-\nofMPsegments=\count138
-\nofMParguments=\count139
+\nofMPsegments=\count141
+\nofMParguments=\count142
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count140
+\MPscratchCnt=\count143
 \MPscratchDim=\dimen153
-\MPnumerator=\count141
-\makeMPintoPDFobject=\count142
+\MPnumerator=\count144
+\makeMPintoPDFobject=\count145
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -469,7 +475,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 106.
+Package hyperref Info: Link coloring OFF on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -477,22 +483,22 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count143
+\c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 106.
-LaTeX Info: Redefining \pageref on input line 106.
-LaTeX Info: Redefining \nameref on input line 106.
+LaTeX Info: Redefining \ref on input line 107.
+LaTeX Info: Redefining \pageref on input line 107.
+LaTeX Info: Redefining \nameref on input line 107.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 124.
+LaTeX Font Info:    Try loading font information for U+msa on input line 125.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 124.
+LaTeX Font Info:    Try loading font information for U+msb on input line 125.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -511,28 +517,22 @@ Missing character: There is no € in font cmr12!
 Missing character: There is no € in font cmr12!
  [2] [3] [4] [5] [6]
 [7] [8] [9]
-Overfull \hbox (5.11905pt too wide) in paragraph at lines 511--534
-[]\OT1/cmr/m/n/12 Now we de-rive the ex-plicit forms of the test statis-tic. Le
-t $\OT1/cmr/bx/n/12 Y \OT1/cmr/m/n/12 = \OT1/cmr/bx/n/12 U[]D[]V[]$
- []
-
-
-Overfull \hbox (92.46512pt too wide) detected at line 573
+Overfull \hbox (92.46512pt too wide) detected at line 574
 [] []
  []
 
 
-Overfull \hbox (78.61082pt too wide) detected at line 582
+Overfull \hbox (78.61082pt too wide) detected at line 583
 [] []
  []
 
 [10] [11] [12]
-Overfull \hbox (23.70753pt too wide) detected at line 656
+Overfull \hbox (23.70753pt too wide) detected at line 660
 [] []
  []
 
 [13] [14] [15] [16] [17]
-Overfull \hbox (3.2319pt too wide) in paragraph at lines 1041--1046
+Overfull \hbox (3.2319pt too wide) in paragraph at lines 1045--1050
 []\OT1/cmr/m/n/12 Calculate the $\OML/cmm/m/it/12 p$\OT1/cmr/m/n/12 -value by $
 [] = [][][]1 + [][] \OML/cmm/m/it/12 I\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 T\OT1/
 cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 ^^@[]) \OMS/cmsy/m/n/12 ^^U \OML/
@@ -541,83 +541,83 @@ cmm/m/it/12 T\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/
  []
 
 [18] [19]
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1106--1125
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1109--1128
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1131--1151
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1134--1154
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1157--1176
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1160--1179
  [][] 
  []
 
 
-Overfull \hbox (8.38896pt too wide) in paragraph at lines 1182--1201
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1185--1204
  [][] 
  []
 
 Package epstopdf Info: Source file: <figure1.eps>
-(epstopdf)                    date: 2017-09-25 18:11:32
+(epstopdf)                    date: 2017-10-10 16:07:04
 (epstopdf)                    size: 13058 bytes
 (epstopdf)             Output file: <figure1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-09-25 18:59:28
-(epstopdf)                    size: 15518 bytes
+(epstopdf)                    date: 2017-10-10 16:07:28
+(epstopdf)                    size: 15544 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
-(epstopdf)             \includegraphics on input line 1205.
+(epstopdf)             \includegraphics on input line 1208.
 Package epstopdf Info: Output file is already uptodate.
-<figure1-eps-converted-to.pdf, id=278, 505.89pt x 505.89pt>
+<figure1-eps-converted-to.pdf, id=289, 505.89pt x 505.89pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
-Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1205.
+Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1208.
 (pdftex.def)             Requested size: 341.43785pt x 341.43785pt.
- [20] [21pdfTeX warning (ext4): destination with the same identifier (name{tabl
-e.1}) has been already used, duplicate ignored
+ [20pdfTeX warning (ext4): destination with the same identifier (name{table.1})
+ has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1275 
-       ] [22pdfTeX warning (ext4): destination with the same identifier (name{t
+l.1269 
+       ] [21pdfTeX warning (ext4): destination with the same identifier (name{t
 able.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1275 
-       ] [23pdfTeX warning (ext4): destination with the same identifier (name{t
+l.1269 
+       ] [22pdfTeX warning (ext4): destination with the same identifier (name{t
 able.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1275 
-       ] [24pdfTeX warning (ext4): destination with the same identifier (name{t
+l.1269 
+       ] [23pdfTeX warning (ext4): destination with the same identifier (name{t
 able.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1275 
-       ] [25pdfTeX warning (ext4): destination with the same identifier (name{f
+l.1269 
+       ] [24pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1275 
-        <./figure1-eps-converted-to.pdf>] [26]
-Overfull \hbox (34.37439pt too wide) detected at line 1355
+l.1269 
+        <./figure1-eps-converted-to.pdf>] [25] [26]
+Overfull \hbox (34.37439pt too wide) detected at line 1358
 [] []
  []
 
-[27] [28]
-Overfull \hbox (45.39824pt too wide) detected at line 1436
+[27]
+Overfull \hbox (45.39824pt too wide) detected at line 1439
 [] []
  []
 
-
-Overfull \hbox (54.74213pt too wide) detected at line 1441
+[28]
+Overfull \hbox (54.74213pt too wide) detected at line 1444
 [] [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[] \OMS/cmsy/m/n/12 ^^T [] [][][]
  ^^@ \OT1/cmr/m/n/12 1[]\OML/cmm/m/it/12 ; [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 1[][] + []\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 G[]G[]\
@@ -625,17 +625,17 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (78.95969pt too wide) detected at line 1451
+Overfull \hbox (78.95969pt too wide) detected at line 1454
 [] []
  []
 
-[29] [30]
-Overfull \hbox (22.46817pt too wide) detected at line 1523
+[29]
+Overfull \hbox (22.46817pt too wide) detected at line 1526
 [] \OT1/cmr/m/n/12 = []
  []
 
-
-Overfull \hbox (80.19566pt too wide) detected at line 1544
+[30]
+Overfull \hbox (80.19566pt too wide) detected at line 1547
 [] [][]\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ [] ^^@ \OML/cmm/m/it/12 t\OT1/c
 mr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^T [][] ^^T []\OT1/cmr/m/n/12 ([] + [] + \OML/c
 mm/m/it/12 t\OT1/cmr/m/n/12 )[][] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/c
@@ -644,7 +644,7 @@ msy/m/n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML
  []
 
 [31]
-Overfull \hbox (49.59628pt too wide) in paragraph at lines 1578--1581
+Overfull \hbox (49.59628pt too wide) in paragraph at lines 1581--1584
 \OT1/cmr/m/n/12 with prob-a-bil-ity at least $1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 3\OML/cmm/m/it/12 p=\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 n$ \OT1/cmr/m/
 n/12 for some con-stant $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 . Since $\OML/cmm
@@ -652,8 +652,8 @@ n/12 for some con-stant $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 . Since $\OML/cmm
 OMS/cmsy/m/n/12 ^^T
  []
 
-[32]
-Overfull \hbox (19.7598pt too wide) in paragraph at lines 1605--1609
+
+Overfull \hbox (19.7598pt too wide) in paragraph at lines 1608--1612
 \OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12
  ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[]$ \OT1/cmr/m/n
 /12 equal to the pos-i-tive eigen-val-ues of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
@@ -662,17 +662,17 @@ Overfull \hbox (19.7598pt too wide) in paragraph at lines 1605--1609
  []
 
 
-Overfull \hbox (6.61018pt too wide) detected at line 1617
+Overfull \hbox (6.61018pt too wide) detected at line 1620
 [] []
  []
 
-
-Overfull \hbox (32.79509pt too wide) detected at line 1635
+[32]
+Overfull \hbox (32.79509pt too wide) detected at line 1638
 [] []
  []
 
 [33]
-Overfull \hbox (76.50154pt too wide) detected at line 1677
+Overfull \hbox (76.50154pt too wide) detected at line 1680
 [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
 /n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[][] \OT1/c
 mr/m/n/12 = [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[]
@@ -683,40 +683,40 @@ mr/bx/n/12 U[]^^C[][]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (101.89233pt too wide) detected at line 1705
+Overfull \hbox (101.89233pt too wide) detected at line 1708
 [] []
  []
 
 [34]
-Overfull \hbox (20.41805pt too wide) detected at line 1744
+Overfull \hbox (20.41805pt too wide) detected at line 1747
 [] []
  []
 
-[35]
-Overfull \hbox (63.77542pt too wide) detected at line 1781
+
+Overfull \hbox (63.77542pt too wide) detected at line 1784
 [] []
  []
 
-[36] [37] [38] [39] [40] [41] [42] (./main.bbl [43] [44] [45])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2106.
- [46]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2106.
+[35] [36] [37] [38] [39] [40] [41] (./main.bbl [42] [43] [44])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2110.
+ [45]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2110.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2106.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2106.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2110.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2110.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8C875E1D13D1A160E9FC5432EAE661EA;349.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2106.
+(rerunfilecheck)             Checksum: FFF1F21DECA69EF207C91A26A6F971FA;223.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2110.
  ) 
 Here is how much of TeX's memory you used:
- 7929 strings out of 493029
- 113394 string characters out of 6136235
- 232539 words of memory out of 5000000
- 11190 multiletter control sequences out of 15000+600000
+ 8019 strings out of 493029
+ 114740 string characters out of 6136235
+ 233133 words of memory out of 5000000
+ 11281 multiletter control sequences out of 15000+600000
  15518 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,17n,45p,411b,456s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,17n,45p,411b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texliv
@@ -737,10 +737,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (46 pages, 364190 bytes).
+Output written on main.pdf (45 pages, 363207 bytes).
 PDF statistics:
- 589 PDF objects out of 1000 (max. 8388607)
- 510 compressed objects within 6 object streams
- 125 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 593 PDF objects out of 1000 (max. 8388607)
+ 515 compressed objects within 6 object streams
+ 121 named destinations out of 1000 (max. 500000)
+ 38 words of extra memory for PDF output out of 10000 (max. 10000000)
 
