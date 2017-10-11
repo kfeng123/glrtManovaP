@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  10 OCT 2017 17:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  11 OCT 2017 22:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -517,22 +517,22 @@ Missing character: There is no € in font cmr12!
 Missing character: There is no € in font cmr12!
  [2] [3] [4] [5] [6]
 [7] [8] [9]
-Overfull \hbox (92.46512pt too wide) detected at line 574
+Overfull \hbox (92.46512pt too wide) detected at line 573
 [] []
  []
 
 
-Overfull \hbox (78.61082pt too wide) detected at line 583
+Overfull \hbox (78.61082pt too wide) detected at line 582
 [] []
  []
 
 [10] [11] [12]
-Overfull \hbox (23.70753pt too wide) detected at line 660
+Overfull \hbox (23.70753pt too wide) detected at line 664
 [] []
  []
 
 [13] [14] [15] [16] [17]
-Overfull \hbox (3.2319pt too wide) in paragraph at lines 1045--1050
+Overfull \hbox (3.2319pt too wide) in paragraph at lines 1050--1055
 []\OT1/cmr/m/n/12 Calculate the $\OML/cmm/m/it/12 p$\OT1/cmr/m/n/12 -value by $
 [] = [][][]1 + [][] \OML/cmm/m/it/12 I\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 T\OT1/
 cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 ^^@[]) \OMS/cmsy/m/n/12 ^^U \OML/
@@ -540,23 +540,23 @@ cmm/m/it/12 T\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/
 12 g[]$\OT1/cmr/m/n/12 .
  []
 
-[18] [19]
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1109--1128
+[18]
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1115--1134
+ [][] 
+ []
+
+[19]
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1140--1160
  [][] 
  []
 
 
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1134--1154
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1166--1185
  [][] 
  []
 
 
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1160--1179
- [][] 
- []
-
-
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1185--1204
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1191--1210
  [][] 
  []
 
@@ -568,56 +568,56 @@ Package epstopdf Info: Source file: <figure1.eps>
 (epstopdf)                    size: 15544 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
-(epstopdf)             \includegraphics on input line 1208.
+(epstopdf)             \includegraphics on input line 1214.
 Package epstopdf Info: Output file is already uptodate.
-<figure1-eps-converted-to.pdf, id=289, 505.89pt x 505.89pt>
+<figure1-eps-converted-to.pdf, id=291, 505.89pt x 505.89pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
-Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1208.
+Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1214.
 (pdftex.def)             Requested size: 341.43785pt x 341.43785pt.
  [20pdfTeX warning (ext4): destination with the same identifier (name{table.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1269 
+l.1275 
        ] [21pdfTeX warning (ext4): destination with the same identifier (name{t
 able.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1269 
+l.1275 
        ] [22pdfTeX warning (ext4): destination with the same identifier (name{t
 able.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1269 
+l.1275 
        ] [23pdfTeX warning (ext4): destination with the same identifier (name{t
 able.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1269 
+l.1275 
        ] [24pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1269 
+l.1275 
         <./figure1-eps-converted-to.pdf>] [25] [26]
-Overfull \hbox (34.37439pt too wide) detected at line 1358
+Overfull \hbox (41.00365pt too wide) detected at line 1372
 [] []
  []
 
 [27]
-Overfull \hbox (45.39824pt too wide) detected at line 1439
+Overfull \hbox (45.39824pt too wide) detected at line 1454
 [] []
  []
 
 [28]
-Overfull \hbox (54.74213pt too wide) detected at line 1444
+Overfull \hbox (54.74213pt too wide) detected at line 1459
 [] [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[] \OMS/cmsy/m/n/12 ^^T [] [][][]
  ^^@ \OT1/cmr/m/n/12 1[]\OML/cmm/m/it/12 ; [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 1[][] + []\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 G[]G[]\
@@ -625,26 +625,26 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (78.95969pt too wide) detected at line 1454
+Overfull \hbox (78.95969pt too wide) detected at line 1469
 [] []
  []
 
 [29]
-Overfull \hbox (22.46817pt too wide) detected at line 1526
-[] \OT1/cmr/m/n/12 = []
+Overfull \hbox (27.732pt too wide) detected at line 1541
+[] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 :
  []
 
 [30]
-Overfull \hbox (80.19566pt too wide) detected at line 1547
+Overfull \hbox (102.69563pt too wide) detected at line 1562
 [] [][]\OT1/cmr/m/n/12 ([] \OMS/cmsy/m/n/12 ^^@ [] ^^@ \OML/cmm/m/it/12 t\OT1/c
-mr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^T [][] ^^T []\OT1/cmr/m/n/12 ([] + [] + \OML/c
-mm/m/it/12 t\OT1/cmr/m/n/12 )[][] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/c
-msy/m/n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML
-/cmm/m/it/12 :
+mr/m/n/12 ) \OMS/cmsy/m/n/12 ^^T [] ^^T []\OT1/cmr/m/n/12 ([] + [] + \OML/cmm/m
+/it/12 t\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/cmsy/m/
+n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML/cmm/m
+/it/12 :
  []
 
 [31]
-Overfull \hbox (49.59628pt too wide) in paragraph at lines 1581--1584
+Overfull \hbox (49.59628pt too wide) in paragraph at lines 1596--1599
 \OT1/cmr/m/n/12 with prob-a-bil-ity at least $1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 3\OML/cmm/m/it/12 p=\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 n$ \OT1/cmr/m/
 n/12 for some con-stant $\OML/cmm/m/it/12 c[]$\OT1/cmr/m/n/12 . Since $\OML/cmm
@@ -653,7 +653,7 @@ OMS/cmsy/m/n/12 ^^T
  []
 
 
-Overfull \hbox (19.7598pt too wide) in paragraph at lines 1608--1612
+Overfull \hbox (19.7598pt too wide) in paragraph at lines 1623--1627
 \OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12
  ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[]$ \OT1/cmr/m/n
 /12 equal to the pos-i-tive eigen-val-ues of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
@@ -662,17 +662,17 @@ Overfull \hbox (19.7598pt too wide) in paragraph at lines 1608--1612
  []
 
 
-Overfull \hbox (6.61018pt too wide) detected at line 1620
+Overfull \hbox (6.61018pt too wide) detected at line 1635
 [] []
  []
 
 [32]
-Overfull \hbox (32.79509pt too wide) detected at line 1638
+Overfull \hbox (32.79509pt too wide) detected at line 1653
 [] []
  []
 
 [33]
-Overfull \hbox (76.50154pt too wide) detected at line 1680
+Overfull \hbox (76.50154pt too wide) detected at line 1695
 [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
 /n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[][] \OT1/c
 mr/m/n/12 = [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[]
@@ -683,35 +683,35 @@ mr/bx/n/12 U[]^^C[][]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (101.89233pt too wide) detected at line 1708
+Overfull \hbox (101.89233pt too wide) detected at line 1723
 [] []
  []
 
 [34]
-Overfull \hbox (20.41805pt too wide) detected at line 1747
+Overfull \hbox (20.41805pt too wide) detected at line 1762
 [] []
  []
 
 
-Overfull \hbox (63.77542pt too wide) detected at line 1784
+Overfull \hbox (63.77542pt too wide) detected at line 1799
 [] []
  []
 
 [35] [36] [37] [38] [39] [40] [41] (./main.bbl [42] [43] [44])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2110.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2125.
  [45]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2110.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2125.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2110.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2110.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2125.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2125.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: FFF1F21DECA69EF207C91A26A6F971FA;223.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2110.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2125.
  ) 
 Here is how much of TeX's memory you used:
- 8019 strings out of 493029
- 114740 string characters out of 6136235
+ 8020 strings out of 493029
+ 114731 string characters out of 6136235
  233133 words of memory out of 5000000
  11281 multiletter control sequences out of 15000+600000
  15518 words of font info for 56 fonts, out of 8000000 for 9000
@@ -737,10 +737,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (45 pages, 363207 bytes).
+Output written on main.pdf (45 pages, 366085 bytes).
 PDF statistics:
- 593 PDF objects out of 1000 (max. 8388607)
- 515 compressed objects within 6 object streams
- 121 named destinations out of 1000 (max. 500000)
+ 597 PDF objects out of 1000 (max. 8388607)
+ 519 compressed objects within 6 object streams
+ 122 named destinations out of 1000 (max. 500000)
  38 words of extra memory for PDF output out of 10000 (max. 10000000)
 

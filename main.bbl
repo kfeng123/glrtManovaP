@@ -1,5 +1,11 @@
 \begin{thebibliography}{}
 
+\bibitem[\protect\citeauthoryear{Ahn and Marron}{Ahn and
+  Marron}{2010}]{Ahn2010}
+Ahn, J. and J.~S. Marron (2010).
+\newblock The maximal data piling direction for discrimination.
+\newblock {\em Biometrika\/}~{\em 97\/}(1), 254--259.
+
 \bibitem[\protect\citeauthoryear{Bai and Saranadasa}{Bai and
   Saranadasa}{1996}]{Bai1996Efiect}
 Bai, Z. and H.~Saranadasa (1996).
@@ -56,12 +62,11 @@ Feng, L., C.~Zou, Z.~Wang, and L.~Zhu (2014).
 \newblock Two-sample behrens-fisher problem for high-dimensional data.
 \newblock {\em Statistica Sinica\/}.
 
-\bibitem[\protect\citeauthoryear{Lopes, Jacob, and Wainwright}{Lopes
-  et~al.}{2015}]{Lopes2015A}
-Lopes, M.~E., L.~J. Jacob, and M.~J. Wainwright (2015).
-\newblock A more powerful two-sample test in high dimensions using random
-  projection.
-\newblock {\em Statistics\/}, 1206--1214.
+\bibitem[\protect\citeauthoryear{Horn and Johnson}{Horn and
+  Johnson}{2012}]{Horn1985Matrix}
+Horn, R.~A. and C.~R. Johnson (2012).
+\newblock {\em Matrix Analysis\/} (2nd ed.).
+\newblock New York: Cambridge University Press.
 
 \bibitem[\protect\citeauthoryear{Ma, Lan, and Wang}{Ma et~al.}{2015}]{Ma2015A}
 Ma, Y., W.~Lan, and H.~Wang (2015).
@@ -100,15 +105,6 @@ Srivastava, M.~S. (2007).
 \newblock Multivariate theory for analyzing high dimensional data.
 \newblock {\em Journal of the Japan Statistical Society\/}~{\em 37\/}(1),
   53--86.
-
-\bibitem[\protect\citeauthoryear{Srivastava}{Srivastava}{2009}]{Srivastava2009A}
-Srivastava, M.~S. (2009).
-\newblock A test for the mean vector with fewer observations than the dimension
-  under non-normality.
-\newblock {\em Journal of Multivariate Analysis\/}~{\em 100\/}(3), 518--532As
-  the access to this document is restricted, you may want to look for a
-  different version under "Related research" (further below) orfor a different
-  version of it.
 
 \bibitem[\protect\citeauthoryear{Srivastava and Kubokawa}{Srivastava and
   Kubokawa}{2013}]{Srivastava2013}

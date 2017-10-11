@@ -140,11 +140,10 @@ Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
 \noindent {\it Abstract:}
 This paper considers the problem of multivariate analysis of variance for normal samples.
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
-    Based on the unboundedness of the likelihood function, we propose a new test.
+    Based on the unboundedness of the likelihood function, we propose a new test called least favorable direction test.
     The asymptotic null distribution of the test statistic is derived and the local asymptotic power function of the test is also given.
-    In our results, the covariance matrix may have a few large eigenvalues which can characterize the strong correlations between variables.
-    %To investigate the asymptotic properties of the proposed test, we adopt a spiked covariance model which can characterize the strong correlation between variables.
-    The asymptotic power function and simulations show that the proposed test has particular high power when there are strong correlations between variables.
+    These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
+    The asymptotic power function and simulations show that the proposed test has particular high power when variables are strongly correlated.
 
 \vspace{9pt}
     \noindent {\it Key words and phrases:}
@@ -251,7 +250,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     Their simulation results showed that their test has good power performance, especially when the variables are correlated.
 
 
-    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}, we call it least favorable direction (LFD) statistic.
+    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}, we call it least favorable direction (LFD) test statistic.
     The asymptotic distributions of the test statistic are derived.
     %An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
     In our results, the covariance matrix may have $r$ significantly large eigenvalues.
@@ -259,9 +258,9 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     The asymptotic null distribution of the proposed test statistic involves some unknown parameters.
     We give their estimators and formulate a test with asymptotically correct level.
     The asymptotic local power function of LFD test is also given.
- The asymptotic power of LFD test doesn't depend on the large eigenvalues of the covariance matrix.
-For most existing tests, however, the asymptotic power decreases as the large eigenvalues of the covariance matrix increases.
-    Hence LFD test is particularly powerful when there are strong correlations between variables.
+ It can be seen that the asymptotic local power function of LFD test doesn't depend on the large eigenvalues of the covariance matrix.
+For most existing tests, however, the asymptotic power decreases as the large eigenvalues of the covariance matrix increase.
+    Thus, LFD test is particularly powerful when variables are strongly correlated.
     Further simulations show the good performance of LFD test.
 
     The rest of the paper is organized  as follows.
@@ -371,7 +370,7 @@ A classical test statistic is Roy's maximum root which is constructed by~\cite{R
         where 
  $H_{0a}: a^T \bTheta \bC = \bO_{1\times (k-1)}$ and  $H_{1a} : a^T \bTheta \bC \neq \bO_{1\times (k-1)}$.
 Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
-For each $a$ satisfying $a^T a=1$, the  LRT statistic
+For each $a$ satisfying $a^T a=1$, the component LRT statistic
 $$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
 can be used to test $H_{0a}$ v.s. $H_{1a}$. 
 Using union intersection principle, Roy proposed the test statistic
@@ -442,7 +441,7 @@ From a likelihood point of view, log likelihood ratio is an estimator of the Kul
 Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along direction $a$.
 %By maximizing $ (L_1(a)/L_0 (a))$, 
 %one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
-Hopefully, the direction $a^*=\argmax_{a^T a=1}L_1(a)/L_0(a)$ achieves the largest discrepancy between the true distribution and the null distribution.
+Hopefully, the direction $a^*=\argmax_{a^T a=1}L_1(a)/L_0(a)$ can achieve the largest discrepancy between the true distribution and the null distribution.
 Thus, $H_{0a^*}$ is the component null hypothesis most likely to be not true.
 We shall call $a^*$ the least favorable direction. %and $H_{0a^*}$ the least favorable hypothesis
 Roy's maximum root is in fact the component LRT statistic along the least favorable direction.
@@ -505,7 +504,7 @@ This motivates us to propose a new test statistic as
 \end{equation*}
 We reject the null hypothesis when $T(\bX)$ is large enough.
 We shall call $T(\bX)$ the least favorable direction (LFD) test statistic.
-Since the least favorable direction $a^*$ is obtained from likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
+Since the least favorable direction $a^*$ is obtained from the component likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
@@ -529,7 +528,7 @@ Now we derive the explicit forms of LFD test statistic.
 %=ZJC C^T J^T Z^T.
     %\end{aligned}
 %\end{equation*}
-Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^T$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ both column orthogonal matrices, $\bD_{Y}$ is an $(n-k)\times (n-k)$ diagonal matrix.
+Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^T$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ column orthogonal matrices, $\bD_{Y}$ is an $(n-k)\times (n-k)$ diagonal matrix.
 Let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^T$ be the projection matrix on the column space of $\bY$.
 Then Proposition~\ref{optProp} in Appendix implies that
 \begin{equation}\label{statisticForm1}
@@ -590,10 +589,15 @@ Thus,
 \end{equation}
 Compared with~\eqref{statisticForm1},~\eqref{statisticForm2} doesn't involve $\bP_{\bY}$.
 Hence~\eqref{statisticForm2} is convenient for computation.
-
-{\color{red}
-The case $k=2$ and the least favorable direction.
-}
+In the case of $k=2$, the least favorable direction is propotional to
+$
+(\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)
+$ and LFD test statistic has expression
+$$
+T(\bX)=\frac{n_1 n_2}{n_1+n_2}\| (\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)\|^2.
+$$
+In this case, 
+the least favorable direction coincides with the maximal data piling direction proposed by~\cite{Ahn2010}.
 
 
 Now we derive the asymptotic distribution of LFD test statistic.
@@ -609,7 +613,7 @@ To characterize this correlation pattern, we make the following assumption for t
 
 \begin{assumption}\label{assumpEigen}
     Let $\blambda_1\geq \blambda_2\geq \cdots \geq \blambda_p$ be the eigenvalues of $\bSigma$.
-    Suppose the first $r$ ($r\geq 0$) eigenvalues are significantly larger than the others.
+    Suppose there are $r\geq 0$ eigenvalues significantly larger than the others.
     We assume $r=o(n)$.
     We assume
  $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some positive absolute constants $c_1$ and $c_2$.
@@ -671,7 +675,7 @@ In fact, if $\liminf_{n\to \infty} \blambda_1/p \in (0,+\infty]$, we have
 $$
 \liminf_{n\to \infty}\frac{2\mytr(\bSigma^2)}{2\mytr(\bLambda_2^2)}\in (1,+\infty].
 $$
-The reason for this is because the projection $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance terms of $\bX\bJ \bC$.
+The reason for this is because the projection matrix $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance terms of $\bX\bJ \bC$.
 
 To formulate a test procedure with asymptotically correct level, the parameters $r$, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
 We use the following statistic to estimate $r$:
@@ -684,14 +688,14 @@ We use the following statistic to estimate $r$:
             \end{cases}
     \end{aligned}
     $$
-where $\gamma_n$ is slowly tends to $+\infty$ as $n\to \infty$.
+where $\gamma_n$ is a hyper parameter slowly tending to $+\infty$ as $n\to \infty$.
 The following proposition establishes the consistency of $\hat{r}$.
 \begin{proposition}\label{numberConsistency}
     Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. If $\gamma_n\to \infty$ and $\gamma_n = o(n\blambda_r/p)$, then
  $\Pr(\hat{r}=r)\to 1$.
 \end{proposition}
 \begin{remark}
-    For the factor model adopted by~\cite{Ma2015A}, $\lambda_r$ is of order $p$. Then we can take $\gamma_n=\sqrt{n}$.
+    For the factor model adopted by~\cite{Ma2015A}, $\lambda_r$ is of order $p$. Hence we can take $\gamma_n=\sqrt{n}$.
 \end{remark}
     We use the following statistic to estimate $\mytr(\bLambda_2)$:
     $$\widehat{\mytr(\bLambda_2)}=\frac{1}{n-k}\sum_{i=\hat{r}+1}^{n-k}\lambda_i(\bY^T \bY).$$
@@ -755,9 +759,9 @@ The following proposition establishes the consistency of $\hat{r}$.
 
  To estimate $\mytr(\bLambda_2^2)$,
     we use the idea of leave-two-out.
-    Let $\bY_{(i,j)}$ be the matrix obtained by deleting the $i$th and $j$th columns from $\bY$.
-    Let $\bY_{(i,j)}=\bU_{\bY;{(i,j)}}\bD_{\bY;{(i,j)}}\bV_{\bY;{(i,j)}}^T$ be the singular value decomposition of $\bY_{(i,j)}$.
-    Here $\bU_{\bY;{(i,j)}}$ is $p\times (n-k-2)$.
+    Let $\bY_{(i,j)}$ be a $p\times (n-k-2)$ matrix obtained by deleting the $i$th and $j$th columns from $\bY$.
+    Let $\bY_{(i,j)}=\bU_{\bY;{(i,j)}}\bD_{\bY;{(i,j)}}\bV_{\bY;{(i,j)}}^T$ denote the singular value decomposition of $\bY_{(i,j)}$.
+    Here $\bU_{\bY;{(i,j)}}$ is a $p\times (n-k-2)$ column orthogonal matrix.
     Let $\tilde{\bU}_{\bY;{(i,j)}}$ be a $p\times (p-n+k+2)$ orthogonal matrix satisfying $\tilde{\bU}_{\bY;{(i,j)}}\tilde{\bU}_{\bY;{(i,j)}}^T=\bI_{p}-\bU_{\bY;{(i,j)}}\bU_{\bY;{(i,j)}}^T$.
 
 
@@ -768,7 +772,7 @@ The following proposition establishes the consistency of $\hat{r}$.
     \widehat{\mytr(\bLambda_2^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}w_{ij}^2.
     $$
     We use $\widehat{\mytr(\bLambda_2^2)}$ to estimate $\mytr(\bLambda_2^2)$.
-    The following proposition shows that $\widehat{\mytr(\bLambda_2^2)}$ is a ratio consistent estimator.
+    The following proposition shows that $\widehat{\mytr(\bLambda_2^2)}$ is  ratio consistent.
     \begin{proposition}\label{Taichangle}
         Under the assumptions of Theorem~\ref{thm1}, we have
         $$
@@ -899,12 +903,15 @@ $$
 $$
 There's a random term $\bP_{\bY}$ in the expression.
 To gain some insight into this,
-suppose, for example, $\sqrt{n_i} \xi_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots,k$. Then
+suppose $\sqrt{n_i} \xi_i$ has prior distribution $N_p(0,\psi \bI_p)$, $i=1,2$. Then
 $
 \psi^{-1}\bC^T \bTheta^T \bTheta \bC$
-is distributed as $ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $k-1$ dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
+is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
+%$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $k-1$ dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
 On the other hand,
-$\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC$  is distributed as $\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
+$\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC$  is distributed as 
+%$\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
+$\chi^2$ distribution with $p-n+k$ degrees of freedom.
 In this case, we have
 $$
 \frac{\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC}{\bC^T \bTheta^T \bTheta \bC}\xrightarrow{P}1.
@@ -1025,12 +1032,10 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 
 In this section, we compare the numerical performance of LFD test with some existing tests, including the MANOVA tests of~\citet{Schott2007Some} and~\citet{Cai2014High} and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
  Note that the critical values of these existing tests are not valid under spiked covariance model.
-Hence we use permutation method to determine the critical values during our simulations.
- 
-Permutation method is a powerful tool to determine the critical value of a test statistic.
-   The test procedure resulting from permutation method is exact as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
+Hence we use permutation method to determine the critical values throughout our simulations.
+   The test procedures resulting from permutation method have exact levels as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
    The major down-side to permutation method is that it can be computationally intensive.
-   Fortunately, for the test statistic proposed in this paper,  the permutation method can be computationally fast.
+   Fortunately, for LFD test statistic,  the permutation method has a simple implementation.
     By expression~\eqref{statisticForm2}, a permuted statistic can be written as
     \begin{equation}\label{permutedStatistic}
         T(\bX\Gamma)=\lambda_{\max}\Big(\bC^T{\big( \bJ^T \Gamma^T {(\bX^T \bX)}^{-1} \Gamma \bJ \big)}^{-1}  \bC\Big),
@@ -1040,7 +1045,7 @@ where $\Gamma$ is an $n\times n$ permutation matrix.
    The permutation procedure for LFD test statistic can be summarized as:
    \begin{enumerate}
        \item
-           Calculate $T(\bX)$ according to~\eqref{statisticForm2}, hold intermediate result ${(\bX^T \bX)}^{-1}$.
+           Calculate $T(\bX)$ according to~\eqref{statisticForm2}, keep intermediate result ${(\bX^T \bX)}^{-1}$.
        \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(\bX\Gamma_1),\ldots,T(\bX\Gamma_M)$ according to~\eqref{permutedStatistic}. 
        \item Calculate the $p$-value by
            $
@@ -1073,14 +1078,15 @@ $$
 We use SNR to characterize the signal strength.
 %Since the critical values of most existing tests can not guarantee correct test level under spiked covariance model, we use permutation method to determine the critical value in the simulations.
 
-In our first simulation study, we take $k=3$.
+In the first simulation study, we take $k=3$.
 For comparison, we also carry out simulations for the tests of~\citet{Schott2007Some} and~\citet{Cai2014High}.
 We denote these two tests by  SC and  CX, respectively.
 %Note that the new test is invariant under orthogonal transformation.
 We take $r=2$ and $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
 We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we set $\xi_1=\kappa 1_p$, $\xi_2=-\kappa 1_p$ and $\xi_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to the given value.
-In the sparse case, we set $\xi_1=\kappa (1_{p/5}^T,\mathbf{0}_{4p/5}^T)^T$, $\xi_2=\kappa (\mathbf{0}_{p/5}^T, 1_{p/5}^T,\mathbf{0}_{3p/5}^T)^T$ and $\xi_3=\mathbf{0}_p$. Again, $\kappa$ is selected to make the SNR equal to the given value.
+In the non-sparse case, we set $\xi_1=\kappa 1_p$, $\xi_2=-\kappa 1_p$ and $\xi_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
+In the sparse case, we set $\xi_1=\kappa (1_{p/5}^T,\mathbf{0}_{4p/5}^T)^T$, $\xi_2=\kappa (\mathbf{0}_{p/5}^T, 1_{p/5}^T,\mathbf{0}_{3p/5}^T)^T$ and $\xi_3=\mathbf{0}_p$.
+Again, $\kappa$ is selected to make the SNR equal to specific values.
 The empirical power is computed based on $1000$ simulations.
 The simulation results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
 This verifies our theoretical results that LFD test performs well under spiked covariance.
@@ -1088,7 +1094,7 @@ This verifies our theoretical results that LFD test performs well under spiked c
 In our second simulation study, we would like to investigate the effect of correlations between variables.
 We take $k=2$ so that we can compare our test with some existing two sample tests.
 For comparison, we carry out simulations for the test of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
-We shall denote these tests by SR, CQ, CLX and FZWZ, respectively.
+We denote these tests by SR, CQ, CLX and FZWZ, respectively.
 Let the diagonal elements of $\Sigma$ be $1$ and the off-diagonal elements of $\Sigma$ be $\rho$ with $0\leq \rho<1$.
 The parameter $\rho$ characterizes the correlations between variables.
 We set $\xi_1=\kappa (\textbf{1}_{p/2}^T,-\textbf{1}_{p/2}^T)^T$ and $\xi_2=\mathbf{0}_p$, where $\kappa$ is selected such that SNR equals to $5$.
@@ -1289,7 +1295,7 @@ We leave it for future research.
 \begin{proposition}\label{optProp}
     Suppose $\bA$ is a $p\times r$ matrix with rank $r$ and $\bB$ is a $p\times p$  non-zero semi-definite matrix.
     Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^T$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrix, $\bD_\bA$ is a $r\times r$ diagonal matrix.
-    Let $\bP_\bA=\bU_\bA \bU_\bA^T$ be the projection on the column space of $\bA$.
+    Let $\bP_\bA=\bU_\bA \bU_\bA^T$ be the projection matrix on the column space of $\bA$.
     Then
     \begin{equation}
         \max_{a^T a=1, a^T \bA \bA^T a=0}a^T \bB a=
@@ -1315,8 +1321,16 @@ We leave it for future research.
     The conclusion now follows by noting that $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)=\lambda_{\max}\big( \bB(\bI-\bP_\bA)\big)$.
     
 \end{proof}
+    \begin{lemma}[Weyl's inequality]
+        Let $\bA$ and $\bB$ be two symmetric $n\times n$ matrices. If $r+s-1\leq i \leq j+k-n$, we have
+        $$
+        \lambda_j(\bA) +\lambda_k(\bB)\leq \lambda_i (\bA+\bB) \leq
+        \lambda_r(\bA)+\lambda_s(\bB).
+        $$
+        See, for example,~\citet{Horn1985Matrix} Theorem 4.3.1.
+\end{lemma}
 \begin{lemma}[\citet{DAVIDSON2001317} Theorem II.7]\label{DSbound}
-    Let $\bA$ be $m\times n$ with iid $N(0,1)$ entries.
+    Let $\bA$ be $m\times n$ random matrix with i.i.d. $N(0,1)$ entries.
     If $m>n$, then for any $t>0$,
     \begin{align*}
         \Pr(\sqrt{\lambda_1(\bA \bA^T)}>\sqrt{m}+\sqrt{n}+t)\leq \exp(-t^2/2),\\
@@ -1351,8 +1365,8 @@ Then
 \bC^T\bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX\bJ\bC
 =&
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\bTheta \bC^T (\bI_p -\bP_{\bY})\bTheta \bC+\\
-&\bTheta \bC^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
+ \bC^T \bTheta^T (\bI_p -\bP_{\bY})\bTheta \bC+\\
+& \bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bTheta \bC.
 \end{aligned}
 \end{equation}
@@ -1361,7 +1375,7 @@ Then
 \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2=
 \sum_{i=1}^p \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\eta_i \eta_i^T,
 \end{equation}
-where $\eta_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$.
+where $\eta_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$, $i=1,\ldots,p$.
 
 
 
@@ -1403,7 +1417,7 @@ For $1\leq i \leq r$, we have
     \leq \lambda_i(\bY^T \bY) \leq \lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})+
     c_1 \lambda_1(\bG_{1B}^T  \bG_{1B}).
     \end{equation}
- Using Weyl's inequality, we can derive a lower bound for $\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$, $ i=1,\ldots, r$.
+ Using Weyl's inequality, we can derive a lower bound for $\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$, $ i=1,\ldots, r$. In fact,
 \begin{equation}\label{eq:DLower}
 \begin{aligned}
 &\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})
@@ -1418,7 +1432,8 @@ For $1\leq i \leq r$, we have
 \blambda_i \lambda_r(\bG_{1A}\bG_{1A}^T).
 \end{aligned}
 \end{equation}
-Similarly, we can obtain the upper bound.
+Similarly, we can obtain the upper bound for
+$\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$.
 \begin{equation}\label{eq:DUpper}
 \begin{aligned}
 &\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})
@@ -1459,8 +1474,8 @@ Similarly, we can obtain the upper bound.
     $$
     This, together with Borel-Cantelli lemma, yields 
     $$
-    \frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}\to 1\,\quad
-    \frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}\to 1,
+    \frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}\to 1\quad\text{and}\quad
+    \frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}\to 1
     $$
     almost surely.
     As for $\lambda_1(\bG_{1B}^T \bG_{1B})$, by Lemma~\ref{DSbound}, we have
@@ -1522,7 +1537,7 @@ $$
          \bU_1^T \bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T \bU_2\\
         \bU_2^T \bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T \bU_1&
          \bU_2^T \bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T \bU_2\\
-    \end{pmatrix}
+    \end{pmatrix}.
 $$
 It follows that
 $$
@@ -1542,7 +1557,7 @@ Hence
     %where the last equality follows by Lemma~\ref{PCAlemma1} and Weyl's inequality.
     By Lemma~\ref{DSbound}, for every $t>0$, we have
     \begin{equation}\label{yaohuo1}
-    \Pr\Big(\frac{1}{p}(\sqrt{p-r}-\sqrt{n-k}-t)^2 \leq \frac{1}{p}{\lambda_1(\bG_{1B}\bG_{1B}^T)}\leq \frac{1}{p}(\sqrt{p-r}+\sqrt{n-k}+t)^2 \Big) 
+        \Pr\Big(\frac{1}{\sqrt{p}}(\sqrt{p-r}-\sqrt{n-k}-t) \leq \sqrt{\frac{1}{p}{\lambda_1(\bG_{1B}\bG_{1B}^T)} }\leq \frac{1}{\sqrt{p}}(\sqrt{p-r}+\sqrt{n-k}+t) \Big) 
    \geq 1-2\exp(-\frac{t^2}{2}).
     \end{equation}
     Let $t=n^{1/2}$, then Borel-Cantelli lemma implies that 
