@@ -130,8 +130,12 @@ $\ $\par
 \centerline{\large\bf LEAST FAVORABLE DIRECTION TEST FOR }
 \vspace{2pt} \centerline{\large\bf MULTIVARIATE ANALYSIS OF VARIANCE}
 \vspace{2pt} \centerline{\large\bf IN HIGH DIMENSION}
-\vspace{.4cm} \centerline{Author(s)} \vspace{.4cm} \centerline{\it
-Affiliation(s)} \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
+\vspace{.4cm} \centerline{
+    Rui Wang, Xingzhong Xu
+} \vspace{.4cm} \centerline{\it
+Beijing Institute of Technology
+}
+ \vspace{.55cm} \fontsize{9}{11.5pt plus.8pt minus
 .6pt}\selectfont
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -142,7 +146,9 @@ This paper considers the problem of multivariate analysis of variance for normal
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
     Based on the unboundedness of the likelihood function, we propose a new test called least favorable direction test.
     The asymptotic null distribution of the test statistic is derived and the local asymptotic power function of the test is also given.
+    {\color{red}
     These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
+}
     The asymptotic power function and simulations show that the proposed test has particular high power when variables are strongly correlated.
 
 \vspace{9pt}
@@ -166,8 +172,8 @@ This paper considers the problem of multivariate analysis of variance for normal
 \setcounter{equation}{0} %-1
 \noindent {\bf 1. Introduction}
 
-Suppose there are $k$ ($k\geq 2$) groups of $p$ dimensional data.
-Within the $i$th group ($1\leq i\leq k$), we have observations $\{X_{ij}\}_{j=1}^{n_i}$ which are independent and identically distributed (i.i.d.) as $N_p(\xi_i,\bSigma)$, the $p$ dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
+Suppose there are $k$ ($k\geq 2$) independent samples of $p$ dimensional data.
+Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (i.i.d.) as $N_p(\xi_i,\bSigma)$, the $p$ dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
 %Suppose there are $k$ normal populations with possibly different means $\xi_1,\ldots,\xi_k$, but all with the same variance $\bSigma$.
 %Suppose we observe $k$ independent random samples, each from the distribution $N_p(\xi_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\xi_i$ and $\bSigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
@@ -175,7 +181,7 @@ We would like to test the hypotheses
 \begin{equation}\label{hypothesis}
     H_0: \xi_1=\xi_2=\cdots=\xi_k\quad \text{v.s.}\quad　H_1: \text{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 \end{equation}
-This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared to $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
+This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared with $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
 
 Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be the sum-of-squares between groups and $\bG=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^T$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
    There are four classical test statistics for hypothesis~\eqref{hypothesis}, which are all based on the eigenvalues of $\bH\bG^{-1}$. 
@@ -206,9 +212,9 @@ See, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
 However, when $p\geq n$, the four classical test statistics are not defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
- So far, most tests are designed for two sample case, i.e., $k=2$.
+ So far, most tests are designed for two-sample case, i.e., $k=2$.
   See, for example,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
-  For multiple sample case,~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
+  Recently, some tests have also been introduced for the case of genenral $k$.~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
   %\frac{1}{k-1}\mytr\big(\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^T-n\bar{X}\bar{X}^T\big)-\frac{1}{n-k}\mytr\big(\sum_{i=1}^k \sum_{j=1}^{n_i}X_{ij}X_{ij}^T-\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^T\big)
@@ -222,12 +228,11 @@ However, when $p\geq n$, the four classical test statistics are not defined.
   $$
 Statistic $T_{SC}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
 See~\cite{Srivastava2013},~\cite{Yamada2015} and~\cite{Chang2017} for some other sum-of-squares type test statistics.
-
 In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
-  Where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, they substitute it by an estimator $\hat{\Omega}$.
+  where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, it is substituted by an estimator.
   Unlike $T_{SC}$, $T_{CX}$ is an extreme value type statistic.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
@@ -239,9 +244,9 @@ In another work,~\cite{Cai2014High} proposed a test statistic
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
    The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
-    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e., Wilks' Lambda, is not defined for $p>n-k$.
+    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>n-k$.
    In high dimensional setting, both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
-    We try to construct a likelihood-based test in high dimensional setting.
+    This motivates us to construct a likelihood-based test in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
     In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one-sample mean vector test.
     They used a least favorable argument to construct a generalized likelihood ratio test statistic.
@@ -250,15 +255,17 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     Their simulation results showed that their test has good power performance, especially when the variables are correlated.
 
 
-    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}, we call it least favorable direction (LFD) test statistic.
+    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis} called least favorable direction (LFD) test statistic.
     The asymptotic distributions of the test statistic are derived.
     %An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
+    {\color{red}
     In our results, the covariance matrix may have $r$ significantly large eigenvalues.
     This covariance structure, known as spiked covariance, can characterize the strong correlations between variables. See, for example,~\citet{Fan2008High},~\citet{Cai2012Sparse},~\citet{Shen2013Consistency} and~\citet{Ma2015A}.
+}
     The asymptotic null distribution of the proposed test statistic involves some unknown parameters.
-    We give their estimators and formulate a test with asymptotically correct level.
+    We substitute the unknown parameters by their consistent estimators and formulate a test with asymptotically correct level.
     The asymptotic local power function of LFD test is also given.
- It can be seen that the asymptotic local power function of LFD test doesn't depend on the large eigenvalues of the covariance matrix.
+ It will be seen that the asymptotic local power function of LFD test doesn't rely on the large eigenvalues of the covariance matrix.
 For most existing tests, however, the asymptotic power decreases as the large eigenvalues of the covariance matrix increase.
     Thus, LFD test is particularly powerful when variables are strongly correlated.
     Further simulations show the good performance of LFD test.
@@ -964,7 +971,7 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 %Theorem~\ref{thm1} implies that the proposed test does not depend on large eigenvalues $\lambda_1,\ldots,\lambda_r$ while other existing test procedures are negatively affected by large eigenvalues $\lambda_1,\ldots,\lambda_r$.   
 %Thus, the new test has particular good power behavior when $\lambda_1,\ldots,\lambda_r$ are large.
 % This property is not surprising since our statistic is from construction ii.
-%As a result, our statistic has a wider applicable range compared to the tests from construction i.
+%As a result, our statistic has a wider applicable range compared with the tests from construction i.
 
 
 %%%%%%%%%%%%%%%%% Hotelling-Lawley trace %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2166,8 +2173,8 @@ $$
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip 14pt
 \noindent {\large\bf Acknowledgements}
-
-Write the acknowledgements here.
+This work was supported by the National Natural Science Foundation of
+China under Grant No. 11471035, 11471030.
 \par
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2193,16 +2200,20 @@ natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 %-------------------------------------------
 \vskip .65cm
 \noindent
-first author affiliation
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing, 100081,China
 \vskip 2pt
 \noindent
-E-mail: (first author email)
+E-mail: wangruiphd@bit.edu.cn
 \vskip 2pt
 
 \noindent
-second author affiliation
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing, 100081,China
+\\
+and
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing
+100081,China
 \vskip 2pt
 \noindent
-E-mail: (second author email)
+E-mail: xuxz@bit.edu.cn
 
 \end{document}
