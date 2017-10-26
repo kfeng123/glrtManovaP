@@ -146,9 +146,9 @@ This paper considers the problem of multivariate analysis of variance for normal
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
     Based on the unboundedness of the likelihood function, we propose a new test called least favorable direction test.
     The asymptotic null distribution of the test statistic is derived and the local asymptotic power function of the test is also given.
-    {\color{red}
-    These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
-}
+    %{\color{red}
+    %These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
+%}
     The asymptotic power function and simulations show that the proposed test has particular high power when variables are strongly correlated.
 
 \vspace{9pt}
@@ -199,7 +199,7 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^T$ be t
        {Wilks' Lambda:} & $|\bG+\bH|/|\bG|$\\
        {Pillai trace:} & $\mytr[\bH(\bG+\bH)^{-1}]$\\
        {Hotelling-Lawley trace:} & $\mytr[\bH \bG^{-1}]$\\
-       {Roy's maximum root:} & $\lambda_{\max}(\bH \bG^{-1})$\\
+       {Roy's maximum root:} & $\lambda_{1}(\bH \bG^{-1})$\\
            \hline
            \end{tabular}
        \end{center}
@@ -258,10 +258,8 @@ In another work,~\cite{Cai2014High} proposed a test statistic
     In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis} called least favorable direction (LFD) test statistic.
     The asymptotic distributions of the test statistic are derived.
     %An important correlation pattern is that the variation of variables are mainly driven by a small number of common factors.
-    {\color{red}
-    In our results, the covariance matrix may have $r$ significantly large eigenvalues.
-    This covariance structure, known as spiked covariance, can characterize the strong correlations between variables. See, for example,~\citet{Fan2008High},~\citet{Cai2012Sparse},~\citet{Shen2013Consistency} and~\citet{Ma2015A}.
-}
+    These asymptotic distributions are valid when the eigenvalues of covariance matrix are bounded or the covariance matrix has $r$ significantly large eigenvalues.
+    The latter covariance structure, known as spiked covariance model, can characterize the strong correlations between variables. See, for example,~\citet{Fan2008High},~\citet{Cai2012Sparse},~\citet{Shen2013Consistency} and~\citet{Ma2015A}.
     The asymptotic null distribution of the proposed test statistic involves some unknown parameters.
     We substitute the unknown parameters by their consistent estimators and formulate a test with asymptotically correct level.
     The asymptotic local power function of LFD test is also given.
@@ -320,7 +318,7 @@ We introduce some notations.
     0&0&\cdots&0&-\frac{n_i-1}{\sqrt{(n_i-1)n_i}}\\
 \end{pmatrix}.
  $$
-Then $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^T\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
+The matrix $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^T\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^T =\bI_n-\bJ\bJ^T$.
 Let $\bY=\bX\tilde{\bJ}$ be a $p\times (n-k)$ random matrix.
 Then $\bG$ can be written as
 $$\bG=
@@ -332,7 +330,7 @@ $$
         \bH=\bX(\bJ\bJ^T-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^T)\bX^T
 =\bX \bJ(\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ)\bJ^T \bX^T.
 $$
-By some matrix algebra, $\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ=\bC\bC^T$
+By some matrix algebra, we have $\bI_k-\frac{1}{n}\bJ^T\mathbf{1}_n \mathbf{1}_n^T \bJ=\bC\bC^T$
 where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
  $$
 \bC_1=\begin{pmatrix}
@@ -382,9 +380,9 @@ $$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^T(\bG+\bH) a}{a^T \bG a}\Big)^{n/2}$$
 can be used to test $H_{0a}$ v.s. $H_{1a}$. 
 Using union intersection principle, Roy proposed the test statistic
 $
-\max_{a^T a=1}  {L_1(a)}/{L_0(a)}=\lambda_{\max}^{n/2}(\bH\bG^{-1}),
+\max_{a^T a=1}  {L_1(a)}/{L_0(a)}=\lambda_{1}^{n/2}(\bH\bG^{-1}),
 $
-where $\lambda_{\max}(\cdot)$ means the largest eigenvalue.
+where $\lambda_{i}(\cdot)$ means the $i$th largest eigenvalue.
 This statistic is an increasing function of Roy's maximum root.
 %It turns out that many tests in the literature can be derived by the above strategy.
 %While the LRT may be the best choice of univariate problems in step 2,
@@ -448,7 +446,11 @@ From a likelihood point of view, log likelihood ratio is an estimator of the Kul
 Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along direction $a$.
 %By maximizing $ (L_1(a)/L_0 (a))$, 
 %one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
-Hopefully, the direction $a^*=\argmax_{a^T a=1}L_1(a)/L_0(a)$ can achieve the largest discrepancy between the true distribution and the null distribution.
+This motivates us to consider the direction 
+\begin{equation}\label{LFDdef1}
+    a^*=\argmax_{a^T a=1}\frac{L_1(a)}{L_0(a)}
+\end{equation}
+which can hopefully achieve the largest discrepancy between the true distribution and the null distribution.
 Thus, $H_{0a^*}$ is the component null hypothesis most likely to be not true.
 We shall call $a^*$ the least favorable direction. %and $H_{0a^*}$ the least favorable hypothesis
 Roy's maximum root is in fact the component LRT statistic along the least favorable direction.
@@ -486,21 +488,26 @@ In what follows, we assume $p>n-k$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
 %Based on this idea, we have the following heuristic argument to propose a new test statistic.
 In this case,
-Roy's maximum root is not defined since
+the set
 $$\mathcal{A}\overset{def}{=}\{a:L_1(a)=+\infty, \, a^T a=1\}=\{a:a^T \bG a=0, \, a^T a=1\}$$
-is not empty. 
-Note that 
-$$\{a:L_0(a)<+\infty, \, a^T a=1\}=\{a:a^T (\bG+\bH)a\neq 0, \, a^T a=1\}.$$
-By the independence of $\bG$ and $\bH$, with probability $1$, we have $\mathcal{A}\cap \{a:L_0(a)<+\infty,\, a^T a=1\}\neq \emptyset$.
-This suggests that the least favorable direction $a^*$, which hopefully maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, should be defined as $a^* = \argmin_{a\in\mathcal{A}} L_0 (a)$.
+is not empty since $\bG$ is singular. 
+Consequently, the right hand side of~\eqref{LFDdef1} is not well defined since the ratio involves infinity.
+Hence we need a new definition for LFD in the high dimensional setting.
+Define
+$$\mathcal{B}=\{a:L_0(a)=+\infty, \, a^T a=1\}=\{a:a^T (\bG+\bH)a= 0, \, a^T a=1\}.$$
+It can be seen that $\mathcal{B}\subset \mathcal{A}$.
+Moreover, by the independence of $\bG$ and $\bH$, with probability $1$, we have $\mathcal{A}\cap \mathcal{B}^c\neq \emptyset$.
+Then for any direction $a$, there are three possible scenarios: $L_1(a)<+\infty$ and $L_0(a)<+\infty$; $L_1(a)=+\infty$ and $L_0(a)<+\infty$; $L_1(a)=+\infty$ and $L_0(a)=+\infty$.
+To maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, one may consider the direction $a$ such that $L_1(a)=+\infty$ and $L_0(a)<+\infty$.
+This suggests that the least favorable direction $a^*$, which hopefully maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, should be defined as $a^* = \argmin_{a\in\mathcal{A}\cap\mathcal{B}^c} L_0 (a)$.
 %and take $H_{a^*}$ as the least favorable hypothesis.
 Equivalently,
 $$
 \begin{aligned}
-    a^*&=\argmin_{a\in \mathcal{A}} L_0(a) = \argmax_{a^T a=1,a^T Ga=0} {a^T \bH a}.
+    a^*&=\argmin_{a\in \mathcal{A}\cap\mathcal{B}^c} L_0(a) = \argmax_{a^T a=1,a^T Ga=0} {a^T \bH a}.
 \end{aligned}
 $$
-This motivates us to propose a new test statistic as
+Based on $a^*$ and likelihood $L_0(a)$, we propose a new test statistic
 \begin{equation*}
     \begin{aligned}
         T(\bX)=a^{*T} \bH a^*
@@ -510,7 +517,7 @@ This motivates us to propose a new test statistic as
     \end{aligned}
 \end{equation*}
 We reject the null hypothesis when $T(\bX)$ is large enough.
-We shall call $T(\bX)$ the least favorable direction (LFD) test statistic.
+We shall call $T(\bX)$ the LFD test statistic.
 Since the least favorable direction $a^*$ is obtained from the component likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
@@ -544,7 +551,7 @@ Then Proposition~\ref{optProp} in Appendix implies that
     %&=\lambda_{\max}\big(\bX \bJ\bC\bC^T\bJ^T\bX^T (\bI_p-
     %\bP_{\bY})
     %\big)
-    =\lambda_{\max}\big(\bC^T\bJ^T\bX^T (\bI_p-
+    =\lambda_{1}\big(\bC^T\bJ^T\bX^T (\bI_p-
     \bP_{\bY}
     )\bX\bJ\bC\big).
 \end{aligned}
@@ -608,7 +615,7 @@ the least favorable direction coincides with the maximal data piling direction p
 
 
 Now we derive the asymptotic distribution of LFD test statistic.
-We are especially interested in the case when variables are correlated.
+We are especially interested in the case where variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
 To characterize this correlation pattern, we make the following assumption for the eigenvalues of $\bSigma$.
 %In this section, we investigate the asymptotic behavior of the new test statistic when $p$ is much larger than $n$.
@@ -621,13 +628,18 @@ To characterize this correlation pattern, we make the following assumption for t
 \begin{assumption}\label{assumpEigen}
     Let $\blambda_1\geq \blambda_2\geq \cdots \geq \blambda_p$ be the eigenvalues of $\bSigma$.
     Suppose there are $r\geq 0$ eigenvalues significantly larger than the others.
-    We assume $r=o(n)$.
-    We assume
+    We assume that
+    \begin{itemize}
+        \item
+     $r=o(n)$.
+\item
  $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some positive absolute constants $c_1$ and $c_2$.
+            \item
     If $r\neq 0$, we assume 
     $$\frac{\blambda_r n}{p}\to \infty,\quad
     \frac{\blambda_1^2 pr^2}{\blambda_r^2 n^2}\to 0\quad
         \frac{\log \blambda_r}{n}\to 0.$$
+    \end{itemize}
 \end{assumption}
 
 \begin{remark}
@@ -676,15 +688,15 @@ $$
         \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}N(0,1).
 $$
 The asymptotic variance of $T(\bX)$ is ${2\mytr (\bLambda_2^2)}$.
-If $r=0$, this equals to ${2\mytr (\bSigma^2)}$ which is the asymptotic variance of~\citet{Bai1996Efiect} and~\citet{Chen2010A}'s statistic.
-While for $r>0$, ${2\mytr (\bLambda_2^2)}$ is smaller than $2\mytr(\bSigma^2)$.
+If $r=0$, it equals to ${2\mytr (\bSigma^2)}$ which is also the asymptotic variance of~\citet{Bai1996Efiect} and~\citet{Chen2010A}'s statistics.
+In comparison, if $r>0$, ${2\mytr (\bLambda_2^2)}$ tends to be smaller than $2\mytr(\bSigma^2)$.
 In fact, if $\liminf_{n\to \infty} \blambda_1/p \in (0,+\infty]$, we have
 $$
 \liminf_{n\to \infty}\frac{2\mytr(\bSigma^2)}{2\mytr(\bLambda_2^2)}\in (1,+\infty].
 $$
 The reason for this is because the projection matrix $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance terms of $\bX\bJ \bC$.
 
-To formulate a test procedure with asymptotically correct level, the parameters $r$, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
+To formulate a test procedure with asymptotically correct level, the unknown parameters $r$, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
 We use the following statistic to estimate $r$:
     $$
     \begin{aligned}
@@ -887,20 +899,20 @@ Now we can construct LFD test procedure with asymptotic correct level $\alpha$. 
 $$
 Q=\frac{T(\bX)-\frac{p-\hat{r}-n+k}{p-\hat{r}}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
 $$
-Let $F(x)$ be the cumulative distribution function of $\lambda_{\max}(\bW_{k-1})$.
+Let $F(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
 LFD test reject the null hypothesis if $Q> F^{-1}(1-\alpha)$.
 
 Theorem~\ref{thm1}, Proposition~\ref{traceProp1} and Proposition~\ref{Taichangle} implies that the resulting test procedure has asymptotic correct level under the assumptions of Theorem~\ref{thm1}.
-And by Theorem~\ref{thm1}, the asymptotic local power function of LFD test procedure is
+Moreover, by Theorem~\ref{thm1}, the asymptotic local power function of LFD test procedure is
 $$
 \Pr\Big(
-        \lambda_{\max}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+        \lambda_{1}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
 \Big).
 $$
 If $k=2$, the asymptotic local power function of~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method can be written as
 $$
 \Pr\Big(
-        \lambda_{\max}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \bTheta^T \bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
+        \lambda_{1}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^T \bTheta^T \bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
 \Big).
 $$
 Hence the asymptotic relative efficiency between LFD test and~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method is
@@ -909,8 +921,9 @@ $$
 \frac{ \bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC}{ {\bC^T \bTheta^T \bTheta \bC}}.
 $$
 There's a random term $\bP_{\bY}$ in the expression.
-To gain some insight into this,
-suppose $\sqrt{n_i} \xi_i$ has prior distribution $N_p(0,\psi \bI_p)$, $i=1,2$. Then
+To overcome this,
+suppose $\sqrt{n_i} \xi_i$ has prior distribution $N_p(0,\psi \bI_p)$, $i=1,2$.
+In this case,
 $
 \psi^{-1}\bC^T \bTheta^T \bTheta \bC$
 is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
