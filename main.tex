@@ -443,7 +443,7 @@ This statistic is an increasing function of Roy's maximum root.
 %We will follow~\citet{Zhao2016A}'s idea and propose a new test statistic for $p>n-k$.
 
 From a likelihood point of view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
-Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along direction $a$.
+Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along the direction $a$.
 %By maximizing $ (L_1(a)/L_0 (a))$, 
 %one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^T a=1}(L_1(a)/L_0(a))$. 
 This motivates us to consider the direction 
@@ -643,14 +643,25 @@ To characterize this correlation pattern, we make the following assumption for t
 \end{assumption}
 
 \begin{remark}
+    If $r=0$, Assumption~\ref{assumpEigen} becomes
+    $
+   c_1 \geq \blambda_{1} \geq \ldots \geq \blambda_{p} \geq c_2
+    $.
+    This is equivalent to Condition (C1) in~\cite{Cai2014High}.
+    In fact, most existing high dimensional tests require conditions like this to avoid large eigenvalues.
+    If $r>0$, the covariance matrix is spiked.
 The spiked covariance model is commonly assumed in the study of PCA theory.
-Most existing works assumed $r$ is fixed.
+Many existing works in PCA study assume that $r$ is fixed.
     Here we allow $r$ to vary as a smaller order of $n$.
-    The condition $\blambda_r n/p\to \infty$ requires $\blambda_r$ to be much larger than $p/n$. This is satisfied, for example, for the factor model adopted by~\citet{Ma2015A}.
-    The harshest condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
+\end{remark}
+%\begin{remark}
+    %The condition $\blambda_r n/p\to \infty$ requires $\blambda_r$ to be much larger than $p/n$. This is satisfied, for example, for the factor model adopted by~\citet{Ma2015A}.
+%\end{remark}
+\begin{remark}
+    If $r>0$, the harshest condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
     If $\blambda_1$ and $\blambda_r$ are of the same order and $r$ is fixed, this condition is equivalent to $p/n^2\to 0$.
     We require this condition since the PCA consistency results are not valid when $p$ is too large. See, for example,~\citep{Cai2012Sparse}.
-    If $r>0$, this condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
+    This condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
 \end{remark}
 
 
