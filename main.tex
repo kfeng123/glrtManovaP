@@ -66,6 +66,9 @@
 \newcommand{\bV}{\mathbf{V}}
 \newcommand{\bW}{\mathbf{W}}
 
+\newcommand{\bu}{\mathbf{u}}
+\newcommand{\bw}{\mathbf{w}}
+
 \newcommand{\ud}{\mathbf{d}}
 
 \newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
@@ -172,10 +175,10 @@ This paper considers the problem of multivariate analysis of variance for normal
 \setcounter{equation}{0} %-1
 \noindent {\bf 1. Introduction}
 
-Suppose there are $k$ ($k\geq 2$) independent samples of $p$ dimensional data.
-Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (i.i.d.) as $N_p(\xi_i,\bSigma)$, the $p$ dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
+Suppose there are $k$ ($k\geq 2$) independent samples of $p$-dimensional data.
+Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (i.i.d.) as $\mathcal{N}_p(\xi_i,\bSigma)$, the $p$-dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
 %Suppose there are $k$ normal populations with possibly different means $\xi_1,\ldots,\xi_k$, but all with the same variance $\bSigma$.
-%Suppose we observe $k$ independent random samples, each from the distribution $N_p(\xi_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\xi_i$ and $\bSigma$ are unknown parameters.
+%Suppose we observe $k$ independent random samples, each from the distribution $\mathcal{N}_p(\xi_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\xi_i$ and $\bSigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
 We would like to test the hypotheses
 \begin{equation}\label{hypothesis}
@@ -236,7 +239,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
   Unlike $T_{SC}$, $T_{CX}$ is an extreme value type statistic.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
-  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $N(\xi_i,\bSigma)$ for $1\leq i\leq K$.
+  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are i.i.d.\ distributed as $\mathcal{N}(\xi_i,\bSigma)$ for $1\leq i\leq K$.
 %The $k$ samples are independent.
 %%$\xi_i$, $i=1\ldots, k$ and $\bSigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
 %\begin{equation}
@@ -667,7 +670,7 @@ Many existing works in PCA study assume that $r$ is fixed.
 
 To establish the asymptotic distribution of $T(\bX)$ under Assumption~\ref{assumpEigen},
 we need following notations.
-Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
+Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $\mathcal{N}(0,1)$ and the entries on the diagonal are i.i.d.\ $\mathcal{N}(0,2)$.
 Let $\bSigma= \bU\bLambda \bU^T$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
 We denote $\bU=(\bU_1,\bU_2)$ where $\bU_1$ is $p\times r$ and $\bU_2$ is $p\times (p-r)$.
 Denote $\bLambda_1=\mydiag(\blambda_1,\ldots,\blambda_r)$ and $\bLambda_2=\mydiag(\blambda_{r+1},\ldots,\blambda_p)$.
@@ -696,7 +699,7 @@ The following theorem establishes the asymptotic distribution of LFD test statis
 \end{theorem}
 To gain some insight into the asymptotic behavior of $T(\bX)$, suppose the null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
 $$
-        \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}N(0,1).
+\frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
 $$
 The asymptotic variance of $T(\bX)$ is ${2\mytr (\bLambda_2^2)}$.
 If $r=0$, it equals to ${2\mytr (\bSigma^2)}$ which is also the asymptotic variance of~\citet{Bai1996Efiect} and~\citet{Chen2010A}'s statistics.
@@ -812,100 +815,6 @@ The following proposition establishes the consistency of $\hat{r}$.
     \end{proposition}
 
 
-%\section{Some results for random projection}
-%The prove of our main results relies on the properties of random projection.
-%There have been studies on the random projection. See xxxxx.
-%
-%However, sometimes the random projection is not driven by homoscedastic variables.
-%In this section, we will study such cases.
-%
-%Let $\bZ$ be a $p\times n$ random matrix with i.i.d. $N(0,1)$ entries.
-%Let $\bLambda=\mydiag(\lambda_1,\ldots,\lambda_p)$ with $c_1\geq \lambda_1,\ldots,\lambda_p\geq c_2$ and $\bU$ be an $p\times p$ orthogonal matrix.
-%
-%Let $\bU\bLambda^{1/2}\bZ=\bU_{\bZ}\bD_{\bZ} \bV_{\bZ}^T$ be the singular value decomposition of $\bU \bLambda^{1/2}\bZ$, where $\bU_{\bZ}$ and $\bV_{\bZ}$ are $p\times n$ and $n\times n$ orthogonal matrices and $\bD_{\bZ}$ is a $n\times n$ diagonal matrix.
-%Similarly, let $\big(\frac{\mytr(\bLambda)}{p}\big)^{1/2}\bU \bZ=\bU_{\bZ}^* \bD_{\bZ}^* \bV_{\bZ}^{*T}$ be the singular value decomposition of $\big(\frac{\mytr(\bLambda)}{p}\big)^{1/2}\bU \bZ$.
-%Let $\bP_{\bZ}=\bU_{\bZ}\bU_{\bZ}^T$ and $\bP_{\bZ}^*=\bU_{\bZ}^* \bU_{\bZ}^{*T}$ be the projection matrices on the column spaces of $\bU\bLambda^{1/2}\bZ$ and $\big(\frac{\mytr(\bLambda)}{p}\big)^{1/2}\bU \bZ$ respectively.
-%
-%
-%Note that $\bU \bLambda^{1/2}\bZ \bZ^T \bLambda^{1/2}\bU^T= \bU_{\bZ}\bD_{\bZ}^2 \bU_{\bZ}^T$ and $\frac{\mytr(\bLambda)}{p}\bU \bZ \bZ^T \bU^T= \bU_{\bZ}^*\bD_{\bZ}^{*2} \bU_{\bZ}^{*T}$.
-%By Lemma~\ref{sinTheta}, we have
-%\begin{equation}\label{random:eq:1}
-%\|\bP_{\bZ}-\bP_{\bZ}^*\|\leq 
-%\frac{
-%\|\bU \bLambda^{1/2}\bZ \bZ^T \bLambda^{1/2}\bU^T-\frac{\mytr(\bLambda)}{p}\bU \bZ \bZ^T \bU^T\|
-%}{
-    %\lambda_{n}\Big(\frac{\mytr(\bLambda)}{p}\bU\bZ \bZ^T\bU^T\Big)
-%}.
-%\end{equation}
-%By Lemma~\ref{DSbound}, if $\sqrt{p}-\sqrt{n}\to \infty$, we have
-%$$
-    %\lambda_{n}\Big(\frac{\mytr(\bLambda)}{p}\bU\bZ \bZ^T\bU^T\Big)\geq
-    %\frac{\mytr(\bLambda)}{p}(\sqrt{p}-\sqrt{n})^2+o_P(1).
-%$$
-%On the other hand,
-%$$
-%\begin{aligned}
-%&\|\bU \bLambda^{1/2}\bZ \bZ^T \bLambda^{1/2}\bU^T-\frac{\mytr(\bLambda)}{p}\bU \bZ \bZ^T \bU^T\|^2\\
-%\leq&
-%\|\bU \bLambda^{1/2}\bZ \bZ^T \bLambda^{1/2}\bU^T-\frac{\mytr(\bLambda)}{p}\bU \bZ \bZ^T \bU^T\|^2_F\\
-    %=&
-    %\mytr(\bZ^T \bLambda \bZ)^2
-    %+
-    %\frac{\big(\mytr(\bLambda)\big)^2}{p^2}\mytr(\bZ^T \bZ)^2
-    %-2\frac{\mytr(\bLambda)}{p}\mytr(\bZ^T \bLambda^{1/2}\bZ)^2.
-%\end{aligned}
-%$$
-%By taking expectation, we have
-%$$
-%\begin{aligned}
-%&\myE\|\bU \bLambda^{1/2}\bZ \bZ^T \bLambda^{1/2}\bU^T-\frac{\mytr(\bLambda)}{p}\bU \bZ \bZ^T \bU^T\|^2\\
-    %\leq&
-    %%n(\mytr \bLambda)^2+n(n+1)\mytr(\bLambda^2)+\frac{\big(\mytr(\bLambda)\big)^2}{p^2}(np^2+n(n+1)p)\\
-    %%&-2\frac{\mytr(\bLambda)}{p}(n(\mytr\bLambda^{1/2})^2+n(n+1)\mytr(\bLambda))\\
-    %%=&
-    %2n\mytr(\bLambda)\big(\mytr(\bLambda)-\frac{1}{p}(\mytr \bLambda^{1/2})^2\big)
-    %+n(n+1)(\mytr(\bLambda)^2-\frac{1}{p}(\mytr\bLambda)^2).
-%\end{aligned}
-%$$
-%
-%
-%
-%
-%\begin{lemma}[$\sin\theta$ theorem for symmetric matrices~\citep{Davis1970The}]\label{sinTheta}
-    %Let $\bA$ and $\bA +\bE$ be symmetric matrices satisfying
-%$$
-    %\bA=\begin{pmatrix}
-        %\bF_0&\bF_1
-    %\end{pmatrix}
-    %\begin{pmatrix}
-        %\bA_0& 0\\
-        %0&\bA_1
-    %\end{pmatrix}
-    %\begin{pmatrix}
-        %\bF_0^T\\
-        %\bF_1^T
-    %\end{pmatrix},
-    %\quad
-    %\bA+\bE=\begin{pmatrix}
-        %\bF_0^*&\bF_1^*
-    %\end{pmatrix}
-    %\begin{pmatrix}
-        %\bA_0^*& 0\\
-        %0&\bA_1^*
-    %\end{pmatrix}
-    %\begin{pmatrix}
-        %\bF_0^{*T}\\
-        %\bF_1^{*T}
-    %\end{pmatrix},
-%$$
-    %where $(\bF_0, \bF_1)$ and $(\bF_0^*, \bF_1^*)$ are orthogonal matrices.
-    %If the eigenvalues of $\bA_0$ are contained in an interval $(a,b)$, and the eigenvalues of $\bA_1^*$ are excluded from the interval $(a-\delta,b+\delta)$ for some $\delta>0$, then
-    %$$
-    %\|\bF_0 \bF_0^T -\bF_0^*\bF_0^{*T}\| \leq
-    %\frac{\min(\|\bF_1^T\bE \bF_0^*\|,\|\bF_0^T\bE \bF_1^*\|)}{\delta}.
-    %$$
-%
-%\end{lemma}
 Now we can construct LFD test procedure with asymptotic correct level $\alpha$. Let 
 $$
 Q=\frac{T(\bX)-\frac{p-\hat{r}-n+k}{p-\hat{r}}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
@@ -933,12 +842,12 @@ $$
 $$
 There's a random term $\bP_{\bY}$ in the expression.
 To overcome this,
-suppose $\sqrt{n_i} \xi_i$ has prior distribution $N_p(0,\psi \bI_p)$, $i=1,2$.
+suppose $\sqrt{n_i} \xi_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
 In this case,
 $
 \psi^{-1}\bC^T \bTheta^T \bTheta \bC$
 is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
-%$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $k-1$ dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
+%$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $(k-1)$-dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
 On the other hand,
 $\bC^T \bTheta^T (\bI_p-\bP_{\bY})\bTheta \bC$  is distributed as 
 %$\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
@@ -982,7 +891,7 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 %
 %Our new test statistic comes from construction ii in step 1, the likelihood ratio test statistics in step 2 and strategy II in step 3.
 %Theorems~\ref{nonSpiked} and~\ref{thm1} allow us to analyze the properties of the proposed test.
-%Suppose $\sqrt{n_i}\mu_i$ is from prior distribution $N_p(0,\psi \bI_p)$, $i=1,\ldots, k$.
+%Suppose $\sqrt{n_i}\mu_i$ is from prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,\ldots, k$.
 %Then $\psi^{-1}\bC^T \bTheta^T \bTheta \bC$ is distributed as $\text{Wishart}_{k-1}(p,\bI_{k-1})$ (Wishart distribution with freedom $p$ and parameter $\bI_{k-1}$) and $\psi^{-1}\bC^T \bTheta^T \bP_{\bY}\bTheta \bC$ is distributed as $\text{Wishart}_{k-1}(n-k,\bI_{k-1})$.
 %In this case, we have
 %$$
@@ -1013,7 +922,7 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 %$
 %\mytr \big(MZJ C\big)
 %\sim
-%N\big(\mytr(M\bTheta C),\mytr(M\bSigma M^T )\big)
+%\mathcal{N}\big(\mytr(M\bTheta C),\mytr(M\bSigma M^T )\big)
 %$.
 
 %=====================
@@ -1023,14 +932,14 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 %\mytr \big(CMZJ\big)
 %$$
 %$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
-%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim N_{k-1}(\sqrt{n_i}CM\xi_i,CM\bSigma M^T C^T)$.
+%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim \mathcal{N}_{k-1}(\sqrt{n_i}CM\xi_i,CM\bSigma M^T C^T)$.
 %Hence we have that
 %$$
 %\mytr \big(CMZJ\big)
 %\sim
-%N(\mytr(CM\bTheta),\mytr(CM\bSigma M^T C^T))
+%\mathcal{N}(\mytr(CM\bTheta),\mytr(CM\bSigma M^T C^T))
 %\sim
-%N(\mytr(M\bTheta C),\mytr(M\bSigma M^T )).
+%\mathcal{N}(\mytr(M\bTheta C),\mytr(M\bSigma M^T )).
 %$$
 %==================
 
@@ -1360,19 +1269,368 @@ We leave it for future research.
         $$
         See, for example,~\citet{Horn1985Matrix} Theorem 4.3.1.
 \end{lemma}
-\begin{lemma}[\citet{DAVIDSON2001317} Theorem II.7]\label{DSbound}
-    Let $\bA$ be $m\times n$ random matrix with i.i.d. $N(0,1)$ entries.
-    If $m>n$, then for any $t>0$,
-    \begin{align*}
-        \Pr(\sqrt{\lambda_1(\bA \bA^T)}>\sqrt{m}+\sqrt{n}+t)\leq \exp(-t^2/2),\\
-        \Pr(\sqrt{\lambda_n(\bA \bA^T)}<\sqrt{m}-\sqrt{n}-t)\leq \exp(-t^2/2).
-    \end{align*}
+%\begin{lemma}[\citet{DAVIDSON2001317} Theorem II.7]\label{DSbound}
+    %Let $\bA$ be $m\times n$ random matrix with i.i.d. $\mathcal{N}(0,1)$ entries.
+    %If $m>n$, then for any $t>0$,
+    %\begin{align*}
+        %\Pr(\sqrt{\lambda_1(\bA \bA^T)}>\sqrt{m}+\sqrt{n}+t)\leq \exp(-t^2/2),\\
+        %\Pr(\sqrt{\lambda_n(\bA \bA^T)}<\sqrt{m}-\sqrt{n}-t)\leq \exp(-t^2/2).
+    %\end{align*}
+%\end{lemma}
+
+\begin{lemma}\label{lemma:con}
+    Let $\{Z_i\}_{i=1}^n$ be i.i.d. $p$-dimensional random vectors with common distribution $\mathcal{N}_p(\mathbf{0}_p,\bI_p)$.
+    Then for any $n$-dimensional vector $\omega=(\omega_1,\ldots,\omega_n)^T$, we have
+\begin{equation*}
+    \left\|\sum_{i=1}^n \omega_i(Z_i Z_i^T - \bI_p)\right\|=O_P(|\omega|_2 \sqrt{p}+|\omega|_{\infty}p).
+\end{equation*}
+\end{lemma}
+\begin{proof}
+    This proof is adapted from the proof of Theorem 5.39 in~\cite{Vershynin2010Introduction}.
+    By Lemma 5.2 and Lemma 5.4 of~\cite{Vershynin2010Introduction}, there exists a set $\mathcal{C}\subset \{x\in\mathbb{R}^p: |x|_2=1\}$ satisfying $\text{Card} (\mathcal{C})\leq 9^p$ such that for any $p\times p$ symmetric matrix $\bA$,
+    \begin{equation}\label{eq:b1}
+    \|A\|\leq 2\max_{x\in\mathcal{C}} x^T \bA x.
+\end{equation}
+For $t>1$, we have
+\begin{equation*}
+    \begin{split}
+        &\Pr\left(
+            \left\|\sum_{i=1}^n \omega_i(Z_i Z_i^T - \bI_p)\right\|
+            > t (|\omega|_2 \sqrt{p}+|\omega|_{\infty} p)
+        \right)
+        \\
+        \leq &
+        \Pr\left(
+            2\sup_{x\in\mathcal{C}}\left|\sum_{i=1}^n \omega_i(x^T Z_i Z_i^T x - 1)\right|
+            > t (|\omega|_2 \sqrt{p}+|\omega|_{\infty} p)
+        \right)
+        \\
+        \leq &
+        \sum_{x\in\mathcal{C}}
+        \Pr\left(
+            \left|\sum_{i=1}^n \omega_i(x^T Z_i Z_i^T x - 1)\right|
+            >  |\omega|_2 \sqrt{\frac{pt}{4}}+2|\omega|_{\infty} \frac{pt}{4}
+        \right)
+        \\
+        \leq & 2\cdot 9^{p} \exp\left(-\frac{pt}{4}\right)
+        =2\exp\left((2\log 3 -t/4)p\right)
+        \leq 2\exp\left(2\log 3 -t/4\right)
+        ,
+    \end{split}
+\end{equation*}
+where the first inequality follows from~\eqref{eq:b1}, the second inequality follows from union bound and the third inequality follows Lemma 1 of~\cite{Laurent2000Adaptive}.
+The upper bound $2\exp\left(2\log 3 -t/4\right)$ can be arbitrarily small as long as $t$ is large enough.
+This completes the proof.
+\end{proof}
+
+\begin{proposition}
+Let $\bZ$ be a $p\times n$ random matrix with i.i.d. standard normal entries.
+Then uniformly for $i=1,\ldots, r$, 
+    \begin{equation*}
+        %\lambda_i\left(n^{-1}\bZ^T \bLambda \bZ\right)
+    \lambda_i(n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T)
+        =
+        \blambda_i
+        +
+        n^{-1}\sum_{i=r+1}^p\blambda_i
+        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\frac{1}{\sqrt n}\|\bLambda_2\|_F+\|\bLambda_2\|_{\infty}\right).
+    \end{equation*}
+And we have
+\begin{equation*}
+    \begin{split}
+     &\sum_{i=r+1}^p\lambda_i(n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T)
+    =
+\mytr(\bLambda_2)
+    -
+    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    +O_P\left(\frac{r}{\sqrt{n}}\|\bLambda_2\|_F+r\|\bLambda_2\|_{\infty}\right)
+    .
+    \end{split}
+\end{equation*}
+\end{proposition}
+\begin{proof}
+    The positive eigenvalues of $n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T$ are equal to the positive eigenvalues of $n^{-1}\bZ^T \bLambda \bZ$.
+    Let $\bZ =(\bZ_A^T,\bZ_B^T)^T$, where $\bZ_A$ and $\bZ_B$ are the first $r$ rows and last $p-r$ rows of $\bZ$.
+    We have
+    \begin{equation*}
+        \begin{split}
+        &n^{-1}\bZ^T \bLambda \bZ=
+        n^{-1}\bZ_A^T \bLambda_1 \bZ_A+
+        n^{-1}\bZ_B^T \bLambda_2 \bZ_B
+        \\
+        =&
+        n^{-1}\bZ_A^T \bLambda_1 \bZ_A+
+        n^{-1}(\sum_{i=r+1}^p\blambda_i)\bI_n+
+        n^{-1}\left(\bZ_B^T \bLambda_2 \bZ_B-(\sum_{i=r+1}^p\blambda_i)\bI_n\right)
+        .
+        \end{split}
+    \end{equation*}
+    It follows from Weyl's inequality that for $ i=1,\ldots, r$,
+    \begin{equation}\label{eigenBoundForF}
+        \begin{split}
+        &
+        \left|
+        \lambda_i\left(n^{-1}\bZ^T \bLambda \bZ\right)
+        -
+        \lambda_i(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)
+        -
+        n^{-1}\sum_{i=r+1}^p\blambda_i
+        \right|
+        \leq
+        n^{-1}\left\|\bZ_B^T \bLambda_2 \bZ_B-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|.
+        \end{split}
+    \end{equation}
+    Now we deal with $\lambda_i(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)$, $ i=1,\ldots, r$.
+    Using Weyl's inequality, we can derive the following lower bound.
+\begin{equation*}\label{eq:DLower}
+\begin{aligned}
+&\lambda_i(\bZ_{A}^T \bLambda_1 \bZ_{A})
+\geq
+\lambda_i(\bZ_{A}^T \mydiag(\blambda_i \bI_{i},\bO_{(r-i)\times(r-i)}) \bZ_{A})
+\\
+    =&
+    \lambda_i\Big( \blambda_i \bZ_{A}^T \bZ_{A}-\blambda_i\bZ_{A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{A}\Big)\\
+    \geq&
+    \lambda_r\Big( \blambda_i \bZ_{A}^T \bZ_{A}\Big)+\lambda_{p+i-r}\Big(-\blambda_i\bZ_{A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{A}\Big)\\
+= &
+\blambda_i \lambda_r(\bZ_{A}\bZ_{A}^T).
+\end{aligned}
+\end{equation*}
+Similarly, we can obtain the upper bound for
+$\lambda_i(\bZ_{A}^T \bLambda_1 \bZ_{A})$.
+\begin{equation*}\label{eq:DUpper}
+\begin{aligned}
+&\lambda_i(\bZ_{A}^T \bLambda_1 \bZ_{A})
+\\
+=&\lambda_i\Big(
+\bZ_{A}^T \big(
+\mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})+
+\mydiag(\bO_{(i-1)\times(i-1)},\blambda_i,\ldots,\blambda_r)
+\big)
+\bZ_{A}
+\Big)\\
+%\leq&
+%\lambda_1(\bZ_{1[1:r,:]}^T \mydiag(\bO_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) \bZ_{1[1:r,:]})
+    \leq&
+\lambda_1(\bZ_{A}^T \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i \bI_{r-i+1}) \bZ_{A})
+\leq  \blambda_i \lambda_1(\bZ_{A}\bZ_{A}^T).
+\end{aligned}
+\end{equation*}
+Combining the lower bound and the upper bound, we have
+\begin{equation}\label{eigenBoundForA}
+    \begin{aligned}
+\left|
+\lambda_i(n^{-1}\bZ_{A}^T \bLambda_1 \bZ_{A})-\blambda_i
+\right|
+\leq&
+\blambda_i 
+\max\left(
+    |\lambda_1(n^{-1}\bZ_A \bZ_A^T)-1|,
+    |\lambda_r(n^{-1}\bZ_A \bZ_A^T)-1|
+\right)
+\\
+=&\blambda_i \|n^{-1}\bZ_A\bZ_A^T -\bI_r\|.
+    \end{aligned}
+\end{equation}
+Combining the equalities~\eqref{eigenBoundForF} and~\eqref{eigenBoundForA}, we have for $i=1,\ldots,r$,
+\begin{equation*}
+    \begin{split}
+        &
+        \left|
+        \lambda_i\left(n^{-1}\bZ^T \bLambda \bZ\right)
+        -
+        \blambda_i
+        -
+        n^{-1}\sum_{i=r+1}^p\blambda_i
+        \right|
+        \\
+        \leq&
+        n^{-1}\left\|\bZ_B^T \bLambda_2 \bZ_B-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|
+        +\blambda_i \|n^{-1}\bZ_A\bZ_A^T -\bI_r\|.
+    \end{split}
+\end{equation*}
+    By Lemma~\ref{lemma:con}, we have
+\begin{align}
+            \notag
+            \|n^{-1}\bZ_A\bZ_A^T -\bI_r\|&=
+            O_P\left(\sqrt{\frac{r}{n}}+\frac{r}{n}\right)=O_P\left(\sqrt{\frac{r}{n}}\right),
+        \\
+        \label{conB2B}
+        n^{-1}\left\|\bZ_B^T \bLambda_2 \bZ_B-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|&=O_P\left(\frac{1}{\sqrt{n}}\|\bLambda_2\|_F+\|\bLambda_2\|_{\infty}\right).
+\end{align}
+    This complets the proof of the first statement.
+
+    To prove the second statement, we note that
+\begin{equation*}
+    \begin{split}
+     &\sum_{i=r+1}^p\lambda_i(n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T)
+    =
+    \sum_{i=r+1}^n\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    \\
+    =&
+    \mytr (n^{-1}\bZ^T \bLambda \bZ) -\sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    \\
+    =&
+    \mytr (n^{-1}\bZ_A^T \bLambda_1 \bZ_A)
+    +
+    \mytr (n^{-1}\bZ_B^T \bLambda_2 \bZ_B)
+    -\sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    .
+    \end{split}
+\end{equation*}
+The inequalities~\eqref{eigenBoundForF} and~\eqref{conB2B} implies that the last term satisfies
+\begin{equation*}
+    \begin{split}
+    &\left|
+    \sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    -\mytr (n^{-1}\bZ_A^T \bLambda_1 \bZ_A)- \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    \right|
+    \\
+    \leq & \frac{r}{n}
+    \left\|\bZ_B^T \bLambda_2 \bZ_B-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|
+    =O_P\left(\frac{r}{\sqrt{n}}\|\bLambda_2\|_F+r\|\bLambda_2\|_{\infty}\right)
+    .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \begin{split}
+     &\sum_{i=r+1}^p\lambda_i(n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T)
+     \\
+    =&
+    \mytr (n^{-1}\bZ_B^T \bLambda_2 \bZ_B)
+    -
+    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    +O_P\left(\frac{r}{\sqrt{n}}\|\bLambda_2\|_F+r\|\bLambda_2\|_{\infty}\right)
+    .
+    \end{split}
+\end{equation*}
+It is straightforward to show that
+\begin{equation*}
+    \myE \mytr (n^{-1}\bZ_B^T \bLambda_2 \bZ_B)=\mytr(\bLambda_2),
+    \quad
+    \myVar \left(\mytr (n^{-1}\bZ_B^T \bLambda_2 \bZ_B)\right)
+    =\frac{2}{n}\mytr(\bLambda_2^2).
+\end{equation*}
+Hence
+\begin{equation*}
+    \begin{split}
+     &\sum_{i=r+1}^p\lambda_i(n^{-1}\bU\bLambda^{1/2} \bZ\bZ^T \bLambda^{1/2} \bU^T)
+     \\
+    =&
+\mytr(\bLambda_2)+O_P\left(\frac{1}{\sqrt{n}}\|\bLambda_2\|_F\right)
+    -
+    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    +O_P\left(\frac{r}{\sqrt{n}}\|\bLambda_2\|_F+r\|\bLambda_2\|_{\infty}\right)
+     \\
+    =&
+\mytr(\bLambda_2)
+    -
+    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    +O_P\left(\frac{r}{\sqrt{n}}\|\bLambda_2\|_F+r\|\bLambda_2\|_{\infty}\right)
+    .
+    \end{split}
+\end{equation*}
+This completes the proof of the second statement.
+
+\end{proof}
+\begin{lemma}[Lemma of Fan]
+            \label{perturbation}
+    Let $\bA,\hat{\bA}$ be $p\times p$ symmetric matrices.
+    Denote by $\bA=\bU_\bA \bLambda_\bA \bU_\bA^T$ the spectral decomposition of $\bA$, where $\bU_\bA=(\bu_{\bA,1},\ldots,\bu_{\bA,p})$ is a $p\times p$ orthogonal matrix and $\bLambda_\bA=\mydiag(\lambda_1(\bA),\ldots,\lambda_p(\bA))$.
+    Let $\bU_{\bA,1}=(\bu_{\bA,1},\ldots,\bu_{\bA,r})$ be the first $r$ columns of $\bU_\bA$.
+    The notations $\hat\bU_{{\bA}}=(\hat\bu_{{\bA},1},\ldots,\hat\bu_{{\bA},p})$, $\hat\bLambda_{{\bA}}$ and $\hat\bU_{{\bA},1}$ are similarly defined for $\hat{\bA}$.
+    Assume that $\Delta=\lambda_r(\bA)-\lambda_{r+1}(\bA)>0$.
+    Define $\mathcal{R}_j=\sum_{i> r}(\lambda_i(\bA)-\lambda_j(\bA))^{-1} \bu_{\bA,i} \bu_{\bA,i}^T$ for $j=1,\ldots, r$, and 
+    \begin{equation*}
+        f: \mathbb{R}^{p\times r}\to \mathbb{R}^{p\times r},\quad
+        (\bw_1,\ldots,\bw_r)\mapsto (-\mathcal{R}_1 \bw_1,\ldots,-\mathcal{R}_r \bw_r).
+    \end{equation*}
+        When $\epsilon =\|\hat{\bA}-\bA\|/\Delta\leq 1/10$, we have
+        \begin{equation}
+            \begin{split}
+            &\|
+            \hat\bU_{{\bA},1}
+            \hat\bU_{{\bA},1}^T-
+            \bU_{\bA,1}
+            \bU_{\bA,1}^T-
+            [
+                f(
+                    (\hat{\bA}-\bA) \bU_{\bA,1}
+                )\bU_{\bA,1}^T
+                +
+                \bU_{\bA,1}f(
+                    (\hat{\bA}-\bA) \bU_{\bA,1}
+                )^T
+            ]
+            \|_F
+            \\
+            \leq&
+            24\epsilon \|f((\hat{\bA}-\bA)\bU_{\bA,1})\|_F.
+            \end{split}
+        \end{equation}
 \end{lemma}
 
+\begin{proposition}
+    A prop for eigenvectors,
+\end{proposition}
+\begin{proof}
+    Let $\hat{\bSigma}=n^{-1}\bY\bY^T$.
+
+    Note that $\bU_1$ is in fact the $r$ leading eigenvectors of $\hat{\bSigma}_0=\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T + \bU_2\bU_2^T \hat{\bSigma}\bU_2\bU_2^T$ provided the eigenvalues of $\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T$ are larger than the eigenvalues of $\bU_2\bU_2^T \hat{\bSigma}\bU_2\bU_2^T$. {\color{red}this is in fact true.}
+
+    We apply Lemma~\ref{perturbation} with $A=\hat{\bSigma}_0$ and $\hat{A}=\hat{\bSigma}$.
+    Note that
+    \begin{equation*}
+        \begin{split}
+        &\hat{\bSigma}-\hat{\bSigma}_0 
+        =\bU_1\bU_1^T \hat{\bSigma}\bU_2\bU_2^T + \bU_2\bU_2^T \hat{\bSigma}\bU_1\bU_1^T
+        \\
+        =&
+        n^{-1}\bU_1 \bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\bU_2^T
+        +
+        n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_B \bZ_A^T \bLambda_1^{1/2}\bU_1^T.
+        \end{split}
+    \end{equation*}
+    Then 
+    \begin{equation*}
+        \begin{split}
+        &\|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        = n^{-1} \|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\|
+        \\
+        \leq &
+        %n^{-1} \blambda_1^{1/2} \| \bZ_A \bZ_B^T \bLambda_2^{1/2}\|
+        \end{split}
+    \end{equation*}
+    hh
+    \begin{equation*}
+        \begin{split}
+            &\|
+         \bU_{\bY,1}\bU_{\bY,1}^T
+         -\bU_1\bU_1^T
+-
+            [
+                f(
+                    (\hat{\bSigma}-\bSigma) \bU_{1}
+                )\bU_{1}^T
+                +
+                \bU_{1}f(
+                    (\hat{\bSigma}-\bSigma) \bU_{1}
+                )^T
+            ]
+            \|_F
+            \\
+            \leq &
+            24 \frac{\|\hat{\bSigma}-\bSigma\|}{\blambda_r-\blambda_{r+1}} \|f((\hat{\bSigma}-\bSigma)\bU_1)\|_F.
+        \end{split}
+    \end{equation*}
+
+\end{proof}
 
 
 
-\paragraph{Proves of the main results}
+
+\paragraph{Proofs of the main results}
 
 It can be seen that $\bX\bJ\bC$ is independent of $\bY$.
 Since
@@ -1381,37 +1639,37 @@ $
 $,
 we can write
 $
-\bY = \bU\bLambda^{1/2} \bG_1
+\bY = \bU\bLambda^{1/2} \bZ_1
 $,
-where $\bG_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $N(0,1)$ entries.
+where $\bZ_1$ is a $p\times (n-k)$ matrix with i.i.d.\ $\mathcal{N}(0,1)$ entries.
 We write
 $
-\bX\bJ\bC = \bTheta \bC + \bU\bLambda^{1/2} \bG_2
+\bX\bJ\bC = \bTheta \bC + \bU\bLambda^{1/2} \bZ_2
 $, 
-where $\bG_2$ is a $p\times (k-1)$ matrix with i.i.d. $N(0,1)$ entries.
+where $\bZ_2$ is a $p\times (k-1)$ matrix with i.i.d. $\mathcal{N}(0,1)$ entries.
 
 Then 
 \begin{equation}\label{eq:maindec}
 \begin{aligned}
 \bC^T\bJ^T \bX^T(\bI_p-\bP_{\bY}) \bX\bJ\bC
 =&
-\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
+\bZ_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2+
  \bC^T \bTheta^T (\bI_p -\bP_{\bY})\bTheta \bC+\\
-& \bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2+
-\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bTheta \bC.
+& \bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2+
+\bZ_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bTheta \bC.
 \end{aligned}
 \end{equation}
     The first term of~\eqref{eq:maindec} can be represented as
 \begin{equation}\label{eq:firstTerm}
-\bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2=
+\bZ_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2=
 \sum_{i=1}^p \lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\eta_i \eta_i^T,
 \end{equation}
-where $\eta_i\overset{i.i.d.}{\sim} N(0,\bI_{k-1})$, $i=1,\ldots,p$.
+where $\eta_i\overset{i.i.d.}{\sim} \mathcal{N}(0,\bI_{k-1})$, $i=1,\ldots,p$.
 
 
 
 
-Let $\bG_1=(\bG_{1A}^T,\bG_{1B}^T)^T$, where $\bG_{1A}$ is the first $r$ rows of $\bG_1$ and $\bG_{1B}$ is the last $p-r$ rows of $\bG_1$.
+Let $\bZ_1=(\bZ_{1A}^T,\bZ_{1B}^T)^T$, where $\bZ_{1A}$ is the first $r$ rows of $\bZ_1$ and $\bZ_{1B}$ is the last $p-r$ rows of $\bZ_1$.
 The following lemma gives the asymptotic property of $\lambda_{i}(\bY^T \bY)$, $i=1,\ldots, r$.
 \begin{lemma}\label{PCAlemma1}
     Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. 
@@ -1428,72 +1686,72 @@ The following lemma gives the asymptotic property of $\lambda_{i}(\bY^T \bY)$, $
     %For a matrix $\bA$, we denote by  $\bA_{[a:b,c:d]}$ the $a$-to-$b$-th row, $c$-to-$d$-th column of matrix $\bA$, by $\bA_{[a:b,:]}$ and $\bA_{[:,c:d]}$ the $a$-to-$b$-th full rows and $c$-to-$d$-th full columns of $\bA$ respectively.
 %$
 %\bY^T \bY=
-%\bG_1^T \bLambda \bG_1   = \bV_{\bY} \bD_{\bY}^2 \bV_{\bY}^T
+%\bZ_1^T \bLambda \bZ_1   = \bV_{\bY} \bD_{\bY}^2 \bV_{\bY}^T
 %$, and 
 %$
-%\bG_1^T \bLambda \bG_1=
-%\bG_{1A}^T \bLambda_1 \bG_{1A}+
-%\bG_{1B}^T \bLambda_2 \bG_{1B}
+%\bZ_1^T \bLambda \bZ_1=
+%\bZ_{1A}^T \bLambda_1 \bZ_{1A}+
+%\bZ_{1B}^T \bLambda_2 \bZ_{1B}
 %$. We have
     Note that
 $$
-\bY^T \bY =\bG_1^T \bLambda \bG_1
+\bY^T \bY =\bZ_1^T \bLambda \bZ_1
 =
-\bG_{1A}^T \bLambda_1 \bG_{1A}+
-\bG_{1B}^T \bLambda_2 \bG_{1B}.
+\bZ_{1A}^T \bLambda_1 \bZ_{1A}+
+\bZ_{1B}^T \bLambda_2 \bZ_{1B}.
 $$
 For $1\leq i \leq r$, we have
     \begin{equation}\label{eq:DLU}
-\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})
-    \leq \lambda_i(\bY^T \bY) \leq \lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})+
-    c_1 \lambda_1(\bG_{1B}^T  \bG_{1B}).
+\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
+    \leq \lambda_i(\bY^T \bY) \leq \lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})+
+    c_1 \lambda_1(\bZ_{1B}^T  \bZ_{1B}).
     \end{equation}
- Using Weyl's inequality, we can derive a lower bound for $\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$, $ i=1,\ldots, r$. In fact,
+ Using Weyl's inequality, we can derive a lower bound for $\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})$, $ i=1,\ldots, r$. In fact,
 \begin{equation}\label{eq:DLower}
 \begin{aligned}
-&\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})
+&\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
 \geq
-\lambda_i(\bG_{1A}^T \mydiag(\blambda_i \bI_{i},\bO_{(r-i)\times(r-i)}) \bG_{1A})
+\lambda_i(\bZ_{1A}^T \mydiag(\blambda_i \bI_{i},\bO_{(r-i)\times(r-i)}) \bZ_{1A})
 \\
     =&
-    \lambda_i\Big( \blambda_i \bG_{1A}^T \bG_{1A}-\blambda_i\bG_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bG_{1A}\Big)\\
+    \lambda_i\Big( \blambda_i \bZ_{1A}^T \bZ_{1A}-\blambda_i\bZ_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{1A}\Big)\\
     \geq&
-    \lambda_r\Big( \blambda_i \bG_{1A}^T \bG_{1A}\Big)+\lambda_{p+i-r}\Big(-\blambda_i\bG_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bG_{1A}\Big)\\
+    \lambda_r\Big( \blambda_i \bZ_{1A}^T \bZ_{1A}\Big)+\lambda_{p+i-r}\Big(-\blambda_i\bZ_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{1A}\Big)\\
 = &
-\blambda_i \lambda_r(\bG_{1A}\bG_{1A}^T).
+\blambda_i \lambda_r(\bZ_{1A}\bZ_{1A}^T).
 \end{aligned}
 \end{equation}
 Similarly, we can obtain the upper bound for
-$\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$.
+$\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})$.
 \begin{equation}\label{eq:DUpper}
 \begin{aligned}
-&\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})
+&\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
 \\
 =&\lambda_i\Big(
-\bG_{1A}^T \big(
+\bZ_{1A}^T \big(
 \mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})+
 \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i,\ldots,\blambda_r)
 \big)
-\bG_{1A}
+\bZ_{1A}
 \Big)\\
 %\leq&
-%\lambda_1(\bG_{1[1:r,:]}^T \mydiag(\bO_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) \bG_{1[1:r,:]})
+%\lambda_1(\bZ_{1[1:r,:]}^T \mydiag(\bO_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) \bZ_{1[1:r,:]})
     \leq&
-\lambda_1(\bG_{1A}^T \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i \bI_{r-i+1}) \bG_{1A})
-\leq  \blambda_i \lambda_1(\bG_{1A}\bG_{1A}^T).
+\lambda_1(\bZ_{1A}^T \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i \bI_{r-i+1}) \bZ_{1A})
+\leq  \blambda_i \lambda_1(\bZ_{1A}\bZ_{1A}^T).
 \end{aligned}
 \end{equation}
     The inequality~\eqref{eq:DLU},~\eqref{eq:DLower} and~\eqref{eq:DUpper} implies that
 \begin{equation}\label{mainInequality}
 \sup_{1\leq i \leq r} \Big|\frac{\lambda_i(\bY^T \bY)}{n\blambda_i}-1\Big|\leq
-\max\Big(\Big|\frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}-1\Big|,\Big|\frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}-1\Big|\Big)+\frac{c_1}{n\blambda_r}\lambda_1(\bG_{1B}^T \bG_{1B}).
+\max\Big(\Big|\frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}-1\Big|,\Big|\frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}-1\Big|\Big)+\frac{c_1}{n\blambda_r}\lambda_1(\bZ_{1B}^T \bZ_{1B}).
 \end{equation}
     We only need to prove the right hand side converges to $0$ almost surely.
 
     By Lemma~\ref{DSbound}, for every $t>0$, we have
     \begin{equation}\label{yaohuo2}
     \begin{aligned}
-        &\Pr\Big(\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\leq \sqrt{\frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}}\leq \sqrt{\frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}}\leq
+        &\Pr\Big(\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\leq \sqrt{\frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}}\leq \sqrt{\frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}}\leq
         \sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}} \Big) \\
         &\geq 1-2\exp(-\frac{t^2}{2}).
     \end{aligned}
@@ -1505,28 +1763,28 @@ $\lambda_i(\bG_{1A}^T \bLambda_1 \bG_{1A})$.
     $$
     This, together with Borel-Cantelli lemma, yields 
     $$
-    \frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}\to 1\quad\text{and}\quad
-    \frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}\to 1
+    \frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}\to 1\quad\text{and}\quad
+    \frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}\to 1
     $$
     almost surely.
-    Next we control $\lambda_1(\bG_{1B}^T \bG_{1B})$. By Lemma~\ref{DSbound}, for every $t>0$, we have
+    Next we control $\lambda_1(\bZ_{1B}^T \bZ_{1B})$. By Lemma~\ref{DSbound}, for every $t>0$, we have
     \begin{equation}\label{yaohuo1}
-        \Pr\Big(\sqrt{1-\frac{r}{p}}-\sqrt{\frac{n-k}{p}}-\frac{t}{\sqrt{p}} \leq \sqrt{\frac{1}{p}{\lambda_1(\bG_{1B}\bG_{1B}^T)} }\leq \sqrt{1-\frac{r}{p}}+\sqrt{\frac{n-k}{p}}+\frac{t}{\sqrt{p}} \Big) 
+        \Pr\Big(\sqrt{1-\frac{r}{p}}-\sqrt{\frac{n-k}{p}}-\frac{t}{\sqrt{p}} \leq \sqrt{\frac{1}{p}{\lambda_1(\bZ_{1B}\bZ_{1B}^T)} }\leq \sqrt{1-\frac{r}{p}}+\sqrt{\frac{n-k}{p}}+\frac{t}{\sqrt{p}} \Big) 
    \geq 1-2\exp(-\frac{t^2}{2}).
     \end{equation}
     Let $t=n^{1/2}$, then Borel-Cantelli lemma implies that 
     \begin{equation}\label{eq:qu1}
-    \frac{1}{p}\lambda_1(\bG_{1B}\bG_{1B}^T)\to 1
+    \frac{1}{p}\lambda_1(\bZ_{1B}\bZ_{1B}^T)\to 1
     \end{equation}
     almost surely.
-By the assumption $\blambda_r n/p\to \infty$, we have $$\frac{c_1}{n\blambda_r}{\lambda_1(\bG_{1B}\bG_{1B}^T)}\to 0$$
+By the assumption $\blambda_r n/p\to \infty$, we have $$\frac{c_1}{n\blambda_r}{\lambda_1(\bZ_{1B}\bZ_{1B}^T)}\to 0$$
 almost surely.
 Then~\eqref{PCAlemma1:eq1} follows.
 
 Inequality~\eqref{PCAlemma1:eq2} and~\eqref{PCAlemma1:eq3} follows from  the fact
 \begin{align*}
-\lambda_{r+1}(\bY^T \bY)\leq \lambda_1(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq c_1 \lambda_1(\bG_{1B}^T \bG_{1B}),\\
-    \lambda_{n-k}(\bY^T \bY)\geq \lambda_{n-k}(\bG_{1B}^T \bLambda_2 \bG_{1B})\geq c_2 \lambda_{n-k}(\bG_{1B}^T \bG_{1B}),
+\lambda_{r+1}(\bY^T \bY)\leq \lambda_1(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\leq c_1 \lambda_1(\bZ_{1B}^T \bZ_{1B}),\\
+    \lambda_{n-k}(\bY^T \bY)\geq \lambda_{n-k}(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\geq c_2 \lambda_{n-k}(\bZ_{1B}^T \bZ_{1B}),
 \end{align*}
 and inequality~\eqref{yaohuo1}.
 \end{proof}
@@ -1559,20 +1817,20 @@ $$
 \begin{proof}
     From
 $
-\bU\bLambda^{1/2} \bG_1 \bG_1^T \bLambda^{1/2} \bU^T 
+\bU\bLambda^{1/2} \bZ_1 \bZ_1^T \bLambda^{1/2} \bU^T 
 =\bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T
 $,
 we have
 %$$
- %\bLambda^{1/2}\bG_1 \bG_1^T  \bLambda^{1/2}
+ %\bLambda^{1/2}\bZ_1 \bZ_1^T  \bLambda^{1/2}
 %= \bU^T \bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T \bU.
 %$$ 
 $$
     \begin{pmatrix}        
-        \bLambda_{1}^{\frac{1}{2}}\bG_{1A} \bG_{1A}^T \bLambda_1^{\frac{1}{2}}&
-        \bLambda_{1}^{\frac{1}{2}} \bG_{1A}\bG_{1B}^T\bLambda_2^{\frac{1}{2}}\\
-        \bLambda_{2}^{\frac{1}{2}} \bG_{1B} \bG_{1A}^T\bLambda_1^{\frac{1}{2}} &
-        \bLambda_{2}^{\frac{1}{2}}\bG_{1B}\bG_{1B}^T\bLambda_2^{\frac{1}{2}}\\
+        \bLambda_{1}^{\frac{1}{2}}\bZ_{1A} \bZ_{1A}^T \bLambda_1^{\frac{1}{2}}&
+        \bLambda_{1}^{\frac{1}{2}} \bZ_{1A}\bZ_{1B}^T\bLambda_2^{\frac{1}{2}}\\
+        \bLambda_{2}^{\frac{1}{2}} \bZ_{1B} \bZ_{1A}^T\bLambda_1^{\frac{1}{2}} &
+        \bLambda_{2}^{\frac{1}{2}}\bZ_{1B}\bZ_{1B}^T\bLambda_2^{\frac{1}{2}}\\
     \end{pmatrix}
     =
     \begin{pmatrix}        
@@ -1585,7 +1843,7 @@ $$
 It follows that
 $$
 \begin{aligned}
- \bLambda_{2}^{\frac{1}{2}}\bG_{1B} \bG_{1B}^T  \bLambda_{2}^{\frac{1}{2}}
+ \bLambda_{2}^{\frac{1}{2}}\bZ_{1B} \bZ_{1B}^T  \bLambda_{2}^{\frac{1}{2}}
     =&
          \bU_2^T \bU_{\bY}\bD_{\bY}^2 \bU_{\bY}^T \bU_2\\
 \geq&
@@ -1598,7 +1856,7 @@ Hence
     \begin{equation}\label{ineq:eigenvector}
 \lambda_{1}(\bU_{2}^T \bU_{\bY,1} \bU_{\bY,1}^T \bU_{2})\leq
 \frac{c_1}{\lambda_r(\bY^T \bY)} \lambda_{1}
-(\bG_{1B} \bG_{1B}^T).
+(\bZ_{1B} \bZ_{1B}^T).
 %=O_P(\frac{p}{\lambda_r n}),
     \end{equation}
     %where the last equality follows by Lemma~\ref{PCAlemma1} and Weyl's inequality.
@@ -1630,10 +1888,10 @@ The condition~\eqref{newCondition} implies $t=o(\sqrt{n})$.
 Hence for large $n$ and some small $0<\epsilon<1$, with probability at least $1-4(\frac{p}{ n\blambda_r})^2$, we have
 $$
 \begin{aligned}
-    &1-\epsilon\leq \frac{\lambda_r(\bG_{1A}\bG_{1A}^T)}{n}\leq
-\frac{\lambda_1(\bG_{1A}\bG_{1A}^T)}{n}\leq 1+\epsilon,\\
-    &1-\epsilon\leq \frac{\lambda_r(\bG_{1B}\bG_{1B}^T)}{p}\leq
-\frac{\lambda_1(\bG_{1B}\bG_{1B}^T)}{p}\leq 1+\epsilon.
+    &1-\epsilon\leq \frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}\leq
+\frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}\leq 1+\epsilon,\\
+    &1-\epsilon\leq \frac{\lambda_r(\bZ_{1B}\bZ_{1B}^T)}{p}\leq
+\frac{\lambda_1(\bZ_{1B}\bZ_{1B}^T)}{p}\leq 1+\epsilon.
 \end{aligned}
 $$
 If these two inequalities holds,~\eqref{mainInequality} implies that
@@ -1850,18 +2108,18 @@ Apply Lyapunov central limit theorem conditioning on $\bP_{\bY}$, we have
 $$
 \begin{aligned}
     &\Big(\mytr \Big(\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big) \Big)^{-1/2}\\
-    &\big( \bG_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2
+    &\big( \bZ_2^T \bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
     -\mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
      \bI_{k-1} \big)
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{aligned}
 $$
-%where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $N(0,1)$ and the entries on the diagonal are i.i.d.\ $N(0,2)$.
+%where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are i.i.d.\ $\mathcal{N}(0,1)$ and the entries on the diagonal are i.i.d.\ $\mathcal{N}(0,2)$.
     This, combined with Lemma~\ref{gg:Lemma2} and Slutsky's theorem, yields
 $$
 \begin{aligned}
     \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
-    \big( \bG_2^T \bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bG_2
+    \big( \bZ_2^T \bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
     -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} \big)
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{aligned}
@@ -1870,7 +2128,7 @@ $$
 Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
 $$
 \begin{aligned}
-    &\myE [\|\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2|\bY]\\
+    &\myE [\|\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2|\bY]\\
     = &
     (k-1)\mytr(\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda \bU^T (\bI_p -\bP_{\bY})\bTheta \bC)\\
     \leq &
@@ -1884,7 +2142,7 @@ $$
 \end{aligned}
 $$
 where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1)$.
-Hence $\|\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bG_2\|_F^2=o_P(p)$. Now,
+Hence $\|\bC^T \bTheta^T (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2=o_P(p)$. Now,
 $$
 \begin{aligned}
 \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
@@ -1943,33 +2201,33 @@ $$
     $$
     Note that
 $$
-\bY^T \bY =\bG_1^T \bLambda \bG_1
+\bY^T \bY =\bZ_1^T \bLambda \bZ_1
 =
-\bG_{1A}^T \bLambda_1 \bG_{1A}+
-\bG_{1B}^T \bLambda_2 \bG_{1B}.
+\bZ_{1A}^T \bLambda_1 \bZ_{1A}+
+\bZ_{1B}^T \bLambda_2 \bZ_{1B}.
 $$
 By Weyl's inequality, for $i=r+1,\ldots, n-k$, we have
 $$
-\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \lambda_i(\bY^T \bY)\leq \lambda_{i-r}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
+\lambda_{i}(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\leq \lambda_i(\bY^T \bY)\leq \lambda_{i-r}(\bZ_{1B}^T \bLambda_2 \bZ_{1B}).
 $$
 It follows that
 $$
-\sum_{i=r+1}^{n-k}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B})\leq \sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)\leq \sum_{i=1}^{n-k-r}\lambda_{i}(\bG_{1B}^T \bLambda_2 \bG_{1B}).
+\sum_{i=r+1}^{n-k}\lambda_{i}(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\leq \sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)\leq \sum_{i=1}^{n-k-r}\lambda_{i}(\bZ_{1B}^T \bLambda_2 \bZ_{1B}).
 $$
 Hence
 $$
- \big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- \mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})\big|\leq r \lambda_1(\bG_{1B}^T \bLambda_2 \bG_{1B})=O_P(rp),
+ \big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)- \mytr(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\big|\leq r \lambda_1(\bZ_{1B}^T \bLambda_2 \bZ_{1B})=O_P(rp),
 $$
     Where the last equality holds by Lemma~\ref{DSbound}.
 But central limit theorem implies that
-$$\mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})-(n-k)\mytr(\bLambda_2)%=\sqrt{(n-k)\mytr(\bLambda_2^2)}O_P(1)
+$$\mytr(\bZ_{1B}^T \bLambda_2 \bZ_{1B})-(n-k)\mytr(\bLambda_2)%=\sqrt{(n-k)\mytr(\bLambda_2^2)}O_P(1)
 =O_P(\sqrt{np}).$$
 Thus,
 $$
     \begin{aligned}
         &\frac{1}{n-k}\sum_{i=r+1}^{n-k}\lambda_i (\bY^T \bY)\\
         =&\mytr(\bLambda_2)+
-        \frac{1}{n-k}\big(\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)-\mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})\big) +\frac{1}{n-k}\big(\mytr(\bG_{1B}^T \bLambda_2 \bG_{1B})-(n-k)\mytr(\bLambda_2)\big)\\
+        \frac{1}{n-k}\big(\sum_{i=r+1}^{n-k}\lambda_i(\bY^T \bY)-\mytr(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\big) +\frac{1}{n-k}\big(\mytr(\bZ_{1B}^T \bLambda_2 \bZ_{1B})-(n-k)\mytr(\bLambda_2)\big)\\
         =&\mytr(\bLambda_2)+O_P(\frac{rp}{n})+O_P(\sqrt{\frac{p}{n}})
         =\mytr(\bLambda_2)+O_P(\sqrt{p}),
     \end{aligned}
@@ -2186,6 +2444,8 @@ $$
         $$
         This completes the proof.
 \end{proof}
+\section{new thoery}
+
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\vskip 14pt
