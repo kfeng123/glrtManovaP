@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  10 JUN 2018 21:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  11 JUN 2018 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -438,20 +438,20 @@ LaTeX Warning: Label `eq:DUpper' multiply defined.
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
-LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
  (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count140
@@ -481,7 +481,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 110.
+Package hyperref Info: Link coloring OFF on input line 111.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -491,20 +491,20 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count146
 )
-LaTeX Info: Redefining \ref on input line 110.
-LaTeX Info: Redefining \pageref on input line 110.
-LaTeX Info: Redefining \nameref on input line 110.
+LaTeX Info: Redefining \ref on input line 111.
+LaTeX Info: Redefining \pageref on input line 111.
+LaTeX Info: Redefining \nameref on input line 111.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 128.
+LaTeX Font Info:    Try loading font information for U+msa on input line 129.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 128.
+LaTeX Font Info:    Try loading font information for U+msb on input line 129.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -523,36 +523,36 @@ Missing character: There is no € in font cmr12!
 Missing character: There is no € in font cmr12!
  [2] [3] [4] [5] [6]
 [7] [8] [9] [10]
-Overfull \hbox (92.46512pt too wide) detected at line 590
+Overfull \hbox (92.46512pt too wide) detected at line 591
 [] []
  []
 
 
-Overfull \hbox (78.61082pt too wide) detected at line 599
+Overfull \hbox (78.61082pt too wide) detected at line 600
 [] []
  []
 
 [11]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 637.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 638.
 
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 637.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 638.
  [12] [13]
-Overfull \hbox (23.70753pt too wide) detected at line 697
+Overfull \hbox (23.70753pt too wide) detected at line 698
 [] []
  []
 
 
-Overfull \hbox (3.08357pt too wide) in paragraph at lines 703--708
+Overfull \hbox (3.08357pt too wide) in paragraph at lines 704--709
 \OT1/cmr/m/n/12 which is also the asymp-totic vari-ance of []Bai and Saranadasa
 [] ([]1996[]) and []Chen
  []
 
 [14] [15] [16] [17] [18]
-Overfull \hbox (3.2319pt too wide) in paragraph at lines 990--995
+Overfull \hbox (3.2319pt too wide) in paragraph at lines 991--996
 []\OT1/cmr/m/n/12 Calculate the $\OML/cmm/m/it/12 p$\OT1/cmr/m/n/12 -value by $
 [] = [][][]1 + [][] \OML/cmm/m/it/12 I\OMS/cmsy/m/n/12 f\OML/cmm/m/it/12 T\OT1/
 cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 ^^@[]) \OMS/cmsy/m/n/12 ^^U \OML/
@@ -561,22 +561,22 @@ cmm/m/it/12 T\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 X\OT1/cmr/m/n/12 )\OMS/cmsy/m/n/
  []
 
 [19]
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1055--1074
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1056--1075
  [][] 
  []
 
 [20]
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1080--1100
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1081--1101
  [][] 
  []
 
 
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1106--1125
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1107--1126
  [][] 
  []
 
 
-Overfull \hbox (2.05566pt too wide) in paragraph at lines 1131--1150
+Overfull \hbox (2.05566pt too wide) in paragraph at lines 1132--1151
  [][] 
  []
 
@@ -588,46 +588,46 @@ Package epstopdf Info: Source file: <figure1.eps>
 (epstopdf)                    size: 15544 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
-(epstopdf)             \includegraphics on input line 1154.
+(epstopdf)             \includegraphics on input line 1155.
 Package epstopdf Info: Output file is already uptodate.
 <figure1-eps-converted-to.pdf, id=305, 505.89pt x 505.89pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
-Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1154.
+Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1155.
 (pdftex.def)             Requested size: 341.43785pt x 341.43785pt.
  [21pdfTeX warning (ext4): destination with the same identifier (name{table.1})
  has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1215 
+l.1216 
        ] [22pdfTeX warning (ext4): destination with the same identifier (name{t
 able.2}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1215 
+l.1216 
        ] [23pdfTeX warning (ext4): destination with the same identifier (name{t
 able.3}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1215 
+l.1216 
        ] [24pdfTeX warning (ext4): destination with the same identifier (name{t
 able.4}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1215 
+l.1216 
        ] [25pdfTeX warning (ext4): destination with the same identifier (name{f
 igure.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1215 
+l.1216 
         <./figure1-eps-converted-to.pdf>] [26] [27]
-Overfull \hbox (34.40929pt too wide) in paragraph at lines 1282--1284
+Overfull \hbox (34.40929pt too wide) in paragraph at lines 1283--1285
 \OT1/cmr/m/it/12 mon dis-tri-bu-tion $\OMS/cmsy/m/n/12 N[]\OT1/cmr/m/n/12 (\OT1
 /cmr/bx/n/12 0[]\OML/cmm/m/it/12 ; \OT1/cmr/bx/n/12 I[]\OT1/cmr/m/n/12 )$\OT1/c
 mr/m/it/12 . Then for any $\OML/cmm/m/it/12 n$\OT1/cmr/m/it/12 -dimensional vec
@@ -636,7 +636,7 @@ cmr/m/n/12 )[]$\OT1/cmr/m/it/12 ,
  []
 
 [28]
-Overfull \hbox (45.28815pt too wide) detected at line 1337
+Overfull \hbox (45.28815pt too wide) detected at line 1338
 \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[]\OT1/cmr/bx/n/12 U^^
 C[]ZZ[]^^C[]U[]\OT1/cmr/m/n/12 ) = \OML/cmm/b/it/12 ^^U[] \OT1/cmr/m/n/12 + \OM
 L/cmm/m/it/12 n[] [] \OML/cmm/b/it/12 ^^U[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 
@@ -644,22 +644,22 @@ O[] [] :
  []
 
 
-Overfull \hbox (54.94598pt too wide) in paragraph at lines 1349--1349
+Overfull \hbox (54.94598pt too wide) in paragraph at lines 1350--1350
 [] 
  []
 
 
-Overfull \hbox (43.82793pt too wide) in paragraph at lines 1382--1382
+Overfull \hbox (43.82793pt too wide) in paragraph at lines 1383--1383
 [] 
  []
 
 [29]
-Overfull \hbox (32.17592pt too wide) detected at line 1418
+Overfull \hbox (32.17592pt too wide) detected at line 1419
 [] [][]
  []
 
 [30] [31]
-Overfull \hbox (14.28735pt too wide) in paragraph at lines 1539--1545
+Overfull \hbox (14.28735pt too wide) in paragraph at lines 1540--1546
 \OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 u[]\OML/cmm/m/it/12 ; [] ; \OT1/cmr/bx/n/12 u
 []\OT1/cmr/m/n/12 )$ \OT1/cmr/m/it/12 is a $\OML/cmm/m/it/12 p \OMS/cmsy/m/n/12
  ^^B \OML/cmm/m/it/12 p$ \OT1/cmr/m/it/12 or-thog-o-nal ma-trix and $\OT1/cmr/b
@@ -669,29 +669,29 @@ mr/bx/n/12 A\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 ; [] ; ^^U[]\OT1/cmr/m/n/12 (\OT1
  []
 
 
-Overfull \hbox (22.27974pt too wide) in paragraph at lines 1571--1571
+Overfull \hbox (22.27974pt too wide) in paragraph at lines 1572--1572
 [] 
  []
 
 [32]
-Overfull \hbox (7.57622pt too wide) in paragraph at lines 1580--1581
+Overfull \hbox (7.57622pt too wide) in paragraph at lines 1581--1582
 []\OT1/cmr/m/n/12 Note that $\OT1/cmr/bx/n/12 U[]$ \OT1/cmr/m/n/12 is in fact t
 he $\OML/cmm/m/it/12 r$ \OT1/cmr/m/n/12 lead-ing eigen-vec-tors of $[] = \OT1/c
 mr/bx/n/12 U[]U[][]U[]U[] \OT1/cmr/m/n/12 +
  []
 
-
-Overfull \hbox (36.28145pt too wide) detected at line 1661
+[33]
+Overfull \hbox (36.28145pt too wide) detected at line 1711
 [] []
  []
 
-[33] [34]
-Overfull \hbox (40.67604pt too wide) detected at line 1743
+[34] [35]
+Overfull \hbox (40.67604pt too wide) detected at line 1793
 [] []
  []
 
 
-Overfull \hbox (40.57553pt too wide) detected at line 1748
+Overfull \hbox (40.57553pt too wide) detected at line 1798
 [] [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 1[] \OMS/cmsy/m/n/12 ^^T [] [][][]
  ^^@ \OT1/cmr/m/n/12 1[]\OML/cmm/m/it/12 ; [][] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m
 /n/12 1[][] + []\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Z[]Z[]\
@@ -699,42 +699,42 @@ OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
 
-LaTeX Warning: Reference `DSbound' on page 35 undefined on input line 1751.
+LaTeX Warning: Reference `DSbound' on page 36 undefined on input line 1801.
 
 
-Overfull \hbox (69.51529pt too wide) detected at line 1758
+Overfull \hbox (69.51529pt too wide) detected at line 1808
 [] []
  []
 
-[35]
+[36]
 
-LaTeX Warning: Reference `DSbound' on page 36 undefined on input line 1770.
+LaTeX Warning: Reference `DSbound' on page 37 undefined on input line 1820.
 
 
-Overfull \hbox (89.31673pt too wide) detected at line 1774
+Overfull \hbox (89.31673pt too wide) detected at line 1824
 [] [][] \OMS/cmsy/m/n/12 ^^@ [] ^^@ [] ^^T [] ^^T [] \OT1/cmr/m/n/12 + [] + [][
 ] \OMS/cmsy/m/n/12 ^^U \OT1/cmr/m/n/12 1 \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/m/n/12 2
  [](\OMS/cmsy/m/n/12 ^^@[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
  []
 
-[36]
-Overfull \hbox (18.2876pt too wide) detected at line 1842
+[37]
+Overfull \hbox (18.2876pt too wide) detected at line 1892
 [] \OT1/cmr/m/n/12 = [] \OML/cmm/m/it/12 :
  []
 
-[37]
-Overfull \hbox (2.17773pt too wide) in paragraph at lines 1885--1889
+[38]
+Overfull \hbox (2.17773pt too wide) in paragraph at lines 1935--1939
 []\OT1/cmr/m/n/12 Next we prove the sec-ond con-clu-sion of the lemma. In [] an
 d [],
  []
 
-[38]
-Overfull \hbox (11.51389pt too wide) detected at line 1919
+[39]
+Overfull \hbox (11.51389pt too wide) detected at line 1969
 [] []
  []
 
 
-Overfull \hbox (19.7598pt too wide) in paragraph at lines 1947--1951
+Overfull \hbox (19.7598pt too wide) in paragraph at lines 1997--2001
 \OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12
  ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[]$ \OT1/cmr/m/n
 /12 equal to the pos-i-tive eigen-val-ues of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
@@ -742,25 +742,25 @@ Overfull \hbox (19.7598pt too wide) in paragraph at lines 1947--1951
 /m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@
  []
 
-[39]
-Overfull \hbox (6.61018pt too wide) detected at line 1959
-[] []
- []
 
-
-Overfull \hbox (32.79509pt too wide) detected at line 1977
+Overfull \hbox (6.61018pt too wide) detected at line 2009
 [] []
  []
 
 [40]
-Overfull \hbox (7.78525pt too wide) in paragraph at lines 2013--2017
+Overfull \hbox (32.79509pt too wide) detected at line 2027
+[] []
+ []
+
+[41]
+Overfull \hbox (7.78525pt too wide) in paragraph at lines 2063--2067
 []\OT1/cmr/m/n/12 Now we prove the equa-tion []. Note that $[] []\OT1/cmr/bx/n/
 12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/
 bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[][]$
  []
 
 
-Overfull \hbox (76.50154pt too wide) detected at line 2023
+Overfull \hbox (76.50154pt too wide) detected at line 2073
 [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m
 /n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 U^^C[][] \OT1/c
 mr/m/n/12 = [] []\OT1/cmr/bx/n/12 ^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[]
@@ -771,44 +771,44 @@ mr/bx/n/12 U[]^^C[][]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (33.7092pt too wide) detected at line 2073
-[] []
- []
-
-[41]
-Overfull \hbox (15.69585pt too wide) detected at line 2116
+Overfull \hbox (33.7092pt too wide) detected at line 2123
 [] []
  []
 
 [42]
-Overfull \hbox (63.77542pt too wide) detected at line 2153
+Overfull \hbox (15.69585pt too wide) detected at line 2166
 [] []
  []
 
-[43] [44]
-
-LaTeX Warning: Reference `DSbound' on page 45 undefined on input line 2221.
-
-
-Overfull \hbox (97.76703pt too wide) detected at line 2234
+[43]
+Overfull \hbox (63.77542pt too wide) detected at line 2203
 [] []
  []
 
-[45]
-Overfull \hbox (6.8977pt too wide) detected at line 2248
+[44] [45]
+
+LaTeX Warning: Reference `DSbound' on page 46 undefined on input line 2271.
+
+
+Overfull \hbox (97.76703pt too wide) detected at line 2284
+[] []
+ []
+
+[46]
+Overfull \hbox (6.8977pt too wide) detected at line 2298
 [] \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 U[]U[]U[]U[]\OT1/cmr
 /m/n/12 ) = [] \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS
 /cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 U[]U[]U[]U[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it
 /12 O\OT1/cmr/m/n/12 ([])
  []
 
-[46] [47] [48] [49] [50] (./main.bbl [51] [52] [53])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2503.
- [54]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2503.
+[47] [48] [49] [50] [51] (./main.bbl [52] [53] [54])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2553.
+ [55]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2553.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2503.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2503.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2553.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2553.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 77B6F2E1E0222D4EF15423D8A8FFD858;271.
@@ -819,13 +819,13 @@ LaTeX Warning: There were undefined references.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2503.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2553.
  ) 
 Here is how much of TeX's memory you used:
- 8077 strings out of 493029
- 115588 string characters out of 6136235
- 233619 words of memory out of 5000000
- 11312 multiletter control sequences out of 15000+600000
+ 8079 strings out of 493029
+ 115597 string characters out of 6136235
+ 233625 words of memory out of 5000000
+ 11313 multiletter control sequences out of 15000+600000
  15518 words of font info for 56 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,17n,45p,411b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -849,10 +849,10 @@ f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (54 pages, 389556 bytes).
+Output written on main.pdf (55 pages, 392075 bytes).
 PDF statistics:
- 674 PDF objects out of 1000 (max. 8388607)
- 587 compressed objects within 6 object streams
- 145 named destinations out of 1000 (max. 500000)
+ 681 PDF objects out of 1000 (max. 8388607)
+ 593 compressed objects within 6 object streams
+ 146 named destinations out of 1000 (max. 500000)
  46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

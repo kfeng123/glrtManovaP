@@ -65,6 +65,7 @@
 \newcommand{\bD}{\mathbf{D}}
 \newcommand{\bV}{\mathbf{V}}
 \newcommand{\bW}{\mathbf{W}}
+\newcommand{\bL}{\mathbf{L}}
 
 \newcommand{\bu}{\mathbf{u}}
 \newcommand{\bw}{\mathbf{w}}
@@ -1592,17 +1593,66 @@ This completes the proof of the second statement.
         n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_B \bZ_A^T \bLambda_1^{1/2}\bU_1^T.
         \end{split}
     \end{equation*}
-    Then 
+    Hence we have
     \begin{equation*}
-        \begin{split}
-        &\|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        \|\hat{\bSigma}-\hat{\bSigma}_0 \|
         = n^{-1} \|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\|
+        = n^{-1} \|\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2^{1/2}\|,
+    \end{equation*}
+    where $\bL=(\bZ_A \bZ_A^T)^{-1/2}\bZ_A\bZ_B^T$ is a $r\times (p-r)$ random matrix with independent $\mathcal{N} (0,1)$ entries.
+        Then we have
+\begin{equation*}
+    \begin{split}
+        &\|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        = n^{-1} \lambda_1\left(\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2 \bL^T (\bZ_A \bZ_A^T)^{1/2} \bLambda_1^{1/2}\right)^{1/2}
         \\
         \leq &
-        %n^{-1} \blambda_1^{1/2} \| \bZ_A \bZ_B^T \bLambda_2^{1/2}\|
-        \end{split}
-    \end{equation*}
-    hh
+        n^{-1} \blambda_1^{1/2} \lambda_1\left(  \bZ_A \bZ_A^T \right)^{1/2}
+        \lambda_1\left(\bL \bLambda_2 \bL^T \right)^{1/2}.
+    \end{split}
+\end{equation*}
+By Weyl's inequality and Lemma~\ref{lemma:con}, we have
+\begin{equation*}
+\lambda_1\left(  \bZ_A \bZ_A^T \right)
+=
+n 
++
+\lambda_1\left(  \bZ_A \bZ_A^T 
+- n \bI_r \right)
+\leq
+n+
+\|  \bZ_A \bZ_A^T 
+- n \bI_r \|=n+O_P(\sqrt{nr}).
+\end{equation*}
+Similarly, we have
+\begin{equation*}
+    \begin{split}
+        &\lambda_1\left( \bL \bLambda_2 \bL^T \right) 
+        =\mytr(\bLambda_2)+
+        \lambda_1\left( \bL \bLambda_2 \bL^T - 
+        \mytr(\bLambda_2) \bI_r
+        \right) 
+        \\
+        \leq&
+        \mytr(\bLambda_2)+
+        \| \bL \bLambda_2 \bL^T - 
+        \mytr(\bLambda_2) \bI_r
+        \|
+        =
+        \mytr(\bLambda_2)+ O_P\left(
+            \sqrt{r\mytr\left(\bLambda_2^2\right)}
+            +r\blambda_{r+1}
+        \right).
+    \end{split}
+\end{equation*}
+Thus, {\color{red} under certain conditions,} we have
+\begin{equation*}
+        \|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        =(1+o_P(1))\sqrt{\frac{\blambda_1 \mytr(\bLambda_2)}{n}}.
+\end{equation*}
+Then if $\blambda_1\mytr(\bLambda_2)/(n(\blambda_r-\blambda_{r+1})^2)< 10^{-2}$, the condition $\epsilon\leq 1/10$ will be satisfied with probability tending to $1$.
+
+By Lemma~\ref{perturbation}, with probability tending to $1$, we have
     \begin{equation*}
         \begin{split}
             &\|
@@ -1611,17 +1661,17 @@ This completes the proof of the second statement.
 -
             [
                 f(
-                    (\hat{\bSigma}-\bSigma) \bU_{1}
+                    (\hat{\bSigma}-\hat{\bSigma}_0) \bU_{1}
                 )\bU_{1}^T
                 +
                 \bU_{1}f(
-                    (\hat{\bSigma}-\bSigma) \bU_{1}
+                    (\hat{\bSigma}-\hat{\bSigma}_0) \bU_{1}
                 )^T
             ]
             \|_F
             \\
             \leq &
-            24 \frac{\|\hat{\bSigma}-\bSigma\|}{\blambda_r-\blambda_{r+1}} \|f((\hat{\bSigma}-\bSigma)\bU_1)\|_F.
+            24 \frac{\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\blambda_r-\blambda_{r+1}} \|f((\hat{\bSigma}-\hat{\bSigma}_0)\bU_1)\|_F.
         \end{split}
     \end{equation*}
 
