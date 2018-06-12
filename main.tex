@@ -1578,32 +1578,61 @@ This completes the proof of the second statement.
 \begin{proof}
     Let $\hat{\bSigma}=n^{-1}\bY\bY^T$.
 
-    Note that $\bU_1$ is in fact the $r$ leading eigenvectors of $\hat{\bSigma}_0=\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T + \bU_2\bU_2^T \hat{\bSigma}\bU_2\bU_2^T$ provided the eigenvalues of $\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T$ are larger than the eigenvalues of $\bU_2\bU_2^T \hat{\bSigma}\bU_2\bU_2^T$. {\color{red}this is in fact true.}
+    Note that $\bU_1$ is in fact the $r$ leading eigenvectors of $\hat{\bSigma}_0=\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T + n^{-1}\mytr(\bLambda_2)\bU_2 \bU_2^T$ provided the eigenvalues of $\bU_1\bU_1^T \hat{\bSigma}\bU_1\bU_1^T$ are larger than $n^{-1}\mytr(\bLambda_2)$. {\color{red}this is in fact true.}
 
     We apply Lemma~\ref{perturbation} with $A=\hat{\bSigma}_0$ and $\hat{A}=\hat{\bSigma}$.
     Note that
     \begin{equation*}
         \begin{split}
         &\hat{\bSigma}-\hat{\bSigma}_0 
-        =\bU_1\bU_1^T \hat{\bSigma}\bU_2\bU_2^T + \bU_2\bU_2^T \hat{\bSigma}\bU_1\bU_1^T
+        \\
+        =&\bU_1\bU_1^T \hat{\bSigma}\bU_2\bU_2^T + \bU_2\bU_2^T \hat{\bSigma}\bU_1\bU_1^T
+        +\bU_2\left(\bU_2^T \hat{\bSigma}\bU_2- n^{-1}\mytr(\bLambda_2)\bI_{p-r}\right)\bU_2^T
         \\
         =&
         n^{-1}\bU_1 \bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\bU_2^T
         +
-        n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_B \bZ_A^T \bLambda_1^{1/2}\bU_1^T.
+        n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_B \bZ_A^T \bLambda_1^{1/2}\bU_1^T
+        \\
+        &+
+        n^{-1}\bU_2\left( \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2} -\mytr(\bLambda_2) \bI_{p-r}\right)\bU_2^T
+        .
         \end{split}
     \end{equation*}
-    Hence we have
+    Hence
     \begin{equation*}
-        \|\hat{\bSigma}-\hat{\bSigma}_0 \|
-        = n^{-1} \|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\|
-        = n^{-1} \|\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2^{1/2}\|,
+        \begin{split}
+        &\|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        \\
+        \leq &
+        n^{-1}\left\|\bU_1 \bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\bU_2^T
+        +
+        \bU_2 \bLambda_2^{1/2} \bZ_B \bZ_A^T \bLambda_1^{1/2}\bU_1^T
+        \right\|
+        \\
+        &+
+n^{-1}\left\| \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}- \mytr(\bLambda_2) \bI_{p-r} \right\|
+        \\
+        =&
+        n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+        +
+        n^{-1} \left\|\bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}
+-\mytr(\bLambda_2) \bI_{p-r} \right\|.
+        \end{split}
     \end{equation*}
-    where $\bL=(\bZ_A \bZ_A^T)^{-1/2}\bZ_A\bZ_B^T$ is a $r\times (p-r)$ random matrix with independent $\mathcal{N} (0,1)$ entries.
-        Then we have
+    For the first term, we have
+    \begin{equation*}
+        \begin{split}
+        n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+        = n^{-1} \left\|\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2^{1/2}\right\|,
+        \end{split}
+    \end{equation*}
+    where $\bL=(\bZ_A \bZ_A^T)^{-1/2}\bZ_A\bZ_B^T$ is an $r\times (p-r)$ random matrix with independent $\mathcal{N} (0,1)$ entries.
+        Then
 \begin{equation*}
     \begin{split}
-        &\|\hat{\bSigma}-\hat{\bSigma}_0 \|
+        &
+n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
         = n^{-1} \lambda_1\left(\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2 \bL^T (\bZ_A \bZ_A^T)^{1/2} \bLambda_1^{1/2}\right)^{1/2}
         \\
         \leq &
@@ -1645,12 +1674,77 @@ Similarly, we have
         \right).
     \end{split}
 \end{equation*}
-Thus, {\color{red} under certain conditions,} we have
+Thus, 
 \begin{equation*}
-        \|\hat{\bSigma}-\hat{\bSigma}_0 \|
-        =(1+o_P(1))\sqrt{\frac{\blambda_1 \mytr(\bLambda_2)}{n}}.
+n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+=O_P(1)\sqrt{\frac{\blambda_1 \left( \mytr(\bLambda_2)
+            +\sqrt{r\mytr\left(\bLambda_2^2\right)}
+            +r\blambda_{r+1}
+\right)}{n}}.
 \end{equation*}
-Then if $\blambda_1\mytr(\bLambda_2)/(n(\blambda_r-\blambda_{r+1})^2)< 10^{-2}$, the condition $\epsilon\leq 1/10$ will be satisfied with probability tending to $1$.
+
+Now we deal with the second term.
+If $p-r\leq n$,
+the matrix $\bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}$ is full-rank. In this case,
+\begin{equation*}
+    \begin{split}
+        &n^{-1}\left\| \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}-
+ \mytr(\bLambda_2) \bI_{p-r}\right\|
+ \leq 
+     n^{-1}\left\| \bZ_B^T \bLambda_2\bZ_B-\mytr(\bLambda_2)\bI_n\right\|
+     .
+    \end{split}
+\end{equation*}
+If $p-r>n$, 
+the matrix $\bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}$ is of rank $n$. In this case,
+\begin{equation*}
+    \begin{split}
+        &n^{-1}\left\| \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}-
+ \mytr(\bLambda_2) \bI_{p-r}\right\|
+ \\
+ =&n^{-1}\max\left(
+     \left|\lambda_1\left(\bLambda_2^{1/2}\bZ_B \bZ_B^T \bLambda_2^{1/2}\right)-\mytr(\bLambda_2)\right|, 
+      \mytr(\bLambda_2)
+ \right)
+ \\
+ \leq &
+     n^{-1}\left\| \bZ_B^T \bLambda_2\bZ_B-\mytr(\bLambda_2)\bI_n\right\|
+     +n^{-1}
+     \mytr(\bLambda_2).
+    \end{split}
+\end{equation*}
+These bounds, togother with Lemma~\ref{lemma:con}, yield
+\begin{equation*}
+    \begin{split}
+         n^{-1}\left\| \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}-
+ \mytr(\bLambda_2) \bI_{p-r}\right\|
+     \leq  &
+     n^{-1}\left\| \bZ_B^T \bLambda_2\bZ_B-\mytr(\bLambda_2)\bI_n\right\|
+     +n^{-1}
+     \mytr(\bLambda_2)
+     \\
+        = &
+        O_P\left(
+            \sqrt{\frac{\mytr\left(\bLambda_2^2\right)}{n}}+\blambda_{r+1}+n^{-1}\mytr(\bLambda_2)
+        \right)
+     .
+    \end{split}
+\end{equation*}
+Thus,
+\begin{equation*}
+    \|\hat{\Sigma}-\hat{\Sigma}_0\|
+    =O_P(1)\left(
+\sqrt{\frac{\blambda_1 \left( \mytr(\bLambda_2)
+            +\sqrt{r\mytr\left(\bLambda_2^2\right)}
+            +r\blambda_{r+1}
+\right)}{n}}
++
+            \sqrt{\frac{\mytr\left(\bLambda_2^2\right)}{n}}+\blambda_{r+1}+n^{-1}\mytr(\bLambda_2)
+        \right).
+\end{equation*}
+
+
+Then if xxx, the condition $\epsilon\leq 1/10$ will be satisfied with probability tending to $1$.
 
 By Lemma~\ref{perturbation}, with probability tending to $1$, we have
     \begin{equation*}
@@ -1672,6 +1766,54 @@ By Lemma~\ref{perturbation}, with probability tending to $1$, we have
             \\
             \leq &
             24 \frac{\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\blambda_r-\blambda_{r+1}} \|f((\hat{\bSigma}-\hat{\bSigma}_0)\bU_1)\|_F.
+        \end{split}
+    \end{equation*}
+
+    It can be seen that 
+$(\hat{\bSigma}-\hat{\bSigma}_0)\bU_1 = n^{-1} \bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^T \bLambda_1^{1/2}$
+and  for $j=1,\ldots, r$,
+    \begin{equation*}
+        \mathcal{R}_j=\left(n^{-1}\mytr(\bLambda_2)-\lambda_j(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)\right)^{-1} \bU_2 \bU_2^T.
+    \end{equation*}
+    Hence
+    \begin{equation*}
+                f(
+                    (\hat{\bSigma}-\hat{\bSigma}_0) \bU_{1}
+                )
+                =
+                n^{-1} \bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^T \bLambda_1^{1/2} \tilde{\bLambda}_1^{-1},
+    \end{equation*}
+    where
+    \begin{equation*}
+        \tilde{\bLambda}_1 = \mydiag\left(\lambda_1(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2), \ldots, \lambda_r(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2)\right).
+    \end{equation*}
+
+    The inequalities \eqref{eigenBoundForA}  and \eqref{conB2B} imply that
+    uniformly for $i=1,\ldots, r$,
+    \begin{equation*}
+        \lambda_i(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)
+        =\blambda_i+O_P\left(\blambda_i \sqrt{\frac{r}{n}}\right).
+    \end{equation*}
+    Hence
+    \begin{equation*}
+        \begin{split}
+        &\|\bLambda_1\tilde{\bLambda}_1^{-1}-\bI_r\|
+= 
+\max_{1\leq i\leq r}\left|
+    \frac{\blambda_i}{\lambda_i(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2)}
+    -1
+\right|
+\\
+=&
+\max_{1\leq i\leq r}\left|
+\frac{1}{1+O_P(\sqrt{r/n})-(n\blambda_{i})^{-1}\mytr(\bLambda_2)}
+    -1
+\right|
+\\
+=& 
+O_P\left(\sqrt{\frac{r}{n}}
+    +\frac{\mytr(\bLambda_2)}{n\blambda_r}.
+\right)
         \end{split}
     \end{equation*}
 
