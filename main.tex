@@ -1567,7 +1567,7 @@ This completes the proof of the second statement.
             \|_F
             \\
             \leq&
-            24\epsilon \|f((\hat{\bA}-\bA)\bU_{\bA,1})\|_F.
+            24\sqrt{r}\epsilon^2 .
             \end{split}
         \end{equation}
 \end{lemma}
@@ -1617,26 +1617,27 @@ n^{-1}\left\| \bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}- \mytr(\bLambda_2)
         n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
         +
         n^{-1} \left\|\bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}
+-\mytr(\bLambda_2) \bI_{p-r} \right\|
+        \\
+        \leq&
+        n^{-1} \blambda_1^{1/2}\left\| \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+        +
+        n^{-1} \left\|\bLambda_2^{1/2} \bZ_B \bZ_B^T \bLambda_2^{1/2}
 -\mytr(\bLambda_2) \bI_{p-r} \right\|.
         \end{split}
     \end{equation*}
-    For the first term, we have
-    \begin{equation*}
-        \begin{split}
-        n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
-        = n^{-1} \left\|\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2^{1/2}\right\|,
-        \end{split}
-    \end{equation*}
+    Write $\bZ_A \bZ_B^T
+        = (\bZ_A \bZ_A^T)^{1/2} \bL $
     where $\bL=(\bZ_A \bZ_A^T)^{-1/2}\bZ_A\bZ_B^T$ is an $r\times (p-r)$ random matrix with independent $\mathcal{N} (0,1)$ entries.
-        Then
+    Then
 \begin{equation*}
     \begin{split}
-        &
-n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
-        = n^{-1} \lambda_1\left(\bLambda_1^{1/2} (\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2 \bL^T (\bZ_A \bZ_A^T)^{1/2} \bLambda_1^{1/2}\right)^{1/2}
-        \\
+        %&
+ \left\| \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+        %=  \lambda_1\left((\bZ_A \bZ_A^T)^{1/2} \bL \bLambda_2 \bL^T (\bZ_A \bZ_A^T)^{1/2} \right)^{1/2}
+        %\\
         \leq &
-        n^{-1} \blambda_1^{1/2} \lambda_1\left(  \bZ_A \bZ_A^T \right)^{1/2}
+        \lambda_1\left(  \bZ_A \bZ_A^T \right)^{1/2}
         \lambda_1\left(\bL \bLambda_2 \bL^T \right)^{1/2}.
     \end{split}
 \end{equation*}
@@ -1675,13 +1676,13 @@ Similarly, we have
     \end{split}
 \end{equation*}
 Thus, 
-\begin{equation*}
-n^{-1} \left\|\bLambda_1^{1/2} \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
-=O_P(1)\sqrt{\frac{\blambda_1 \left( \mytr(\bLambda_2)
+\begin{equation}\label{firstTermNao}
+\left\| \bZ_A \bZ_B^T \bLambda_2^{1/2}\right\|
+=O_P(1)\sqrt{n \left( \mytr(\bLambda_2)
             +\sqrt{r\mytr\left(\bLambda_2^2\right)}
             +r\blambda_{r+1}
-\right)}{n}}.
-\end{equation*}
+\right)}.
+\end{equation}
 
 Now we deal with the second term.
 If $p-r\leq n$,
@@ -1765,7 +1766,10 @@ By Lemma~\ref{perturbation}, with probability tending to $1$, we have
             \|_F
             \\
             \leq &
-            24 \frac{\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\blambda_r-\blambda_{r+1}} \|f((\hat{\bSigma}-\hat{\bSigma}_0)\bU_1)\|_F.
+            24\sqrt{r} \left(\frac{\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\lambda_r\left(n^{-1}\bZ_A^T \bLambda_1\bZ_A  \right)-n^{-1}\mytr(\bLambda_2)}\right)^2
+            =O_P(1)\sqrt{r}
+\left(\frac{\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\blambda_r}\right)^2
+            .
         \end{split}
     \end{equation*}
 
@@ -1787,7 +1791,7 @@ and  for $j=1,\ldots, r$,
     \begin{equation*}
         \tilde{\bLambda}_1 = \mydiag\left(\lambda_1(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2), \ldots, \lambda_r(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2)\right).
     \end{equation*}
-
+    We need to derive the asymptotic behavior of $\tilde{\bLambda}_1$.
     The inequalities \eqref{eigenBoundForA}  and \eqref{conB2B} imply that
     uniformly for $i=1,\ldots, r$,
     \begin{equation*}
@@ -1797,26 +1801,80 @@ and  for $j=1,\ldots, r$,
     Hence
     \begin{equation*}
         \begin{split}
-        &\|\bLambda_1\tilde{\bLambda}_1^{-1}-\bI_r\|
-= 
+            &\left\|\bLambda_1\tilde{\bLambda}_1^{-1}- \bLambda_1 \left( \bLambda_1-n^{-1} \mytr(\bLambda_2) \bI_r\right)^{-1}\right\|
+            \\
+= &
 \max_{1\leq i\leq r}\left|
     \frac{\blambda_i}{\lambda_i(n^{-1}\bZ_A^T \bLambda_1 \bZ_A)-n^{-1}\mytr(\bLambda_2)}
-    -1
+    -
+    \frac{1}{1-(n\blambda_i)^{-1}\mytr(\bLambda_2)}
 \right|
 \\
 =&
 \max_{1\leq i\leq r}\left|
 \frac{1}{1+O_P(\sqrt{r/n})-(n\blambda_{i})^{-1}\mytr(\bLambda_2)}
-    -1
+    -
+\frac{1}{1-(n\blambda_i)^{-1}\mytr(\bLambda_2)}
 \right|
 \\
 =& 
 O_P\left(\sqrt{\frac{r}{n}}
-    +\frac{\mytr(\bLambda_2)}{n\blambda_r}.
-\right)
+    \right)
+    .
         \end{split}
     \end{equation*}
-
+It follows that
+    \begin{equation*}
+        \begin{split}
+                &\left\|f((\hat{\bSigma}-\hat{\bSigma}_0) \bU_{1})
+                -
+                n^{-1} \bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^T \bLambda_1^{1/2}\left( \bLambda_1-n^{-1} \mytr(\bLambda_2) \bI_r\right)^{-1}  \right\|
+                \\
+                \leq&
+                \left\|
+                n^{-1} \bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^T \bLambda_1^{-1/2} 
+                \left(
+                \bLambda_1\tilde{\bLambda}_1^{-1}-\bLambda_1 \left( \bLambda_1-n^{-1} \mytr(\bLambda_2) \bI_r\right)^{-1}
+                \right)
+                \right\|
+                \\
+                \leq &
+                \left\|
+                n^{-1} \bLambda_2^{1/2} \bZ_2 \bZ_1^T
+                \right\|
+                \left\|
+                \bLambda_1^{-1/2} 
+                \right\|
+                \left\|
+                \bLambda_1\tilde{\bLambda}_1^{-1}-\left(1-(n\blambda_i)^{-1}\mytr(\bLambda_2)\right)^{-1}\bI_r
+                \right\|
+                \\
+                =&
+                O_P(1)\sqrt{ \frac{r}{n^2\blambda_r}\left( \mytr(\bLambda_2)
+            +\sqrt{r\mytr\left(\bLambda_2^2\right)}
+            +r\blambda_{r+1}
+    \right)},
+        \end{split}
+    \end{equation*}
+    where the last equality follows from \eqref{firstTermNao}.
+    Thus,
+    \begin{equation*}
+        \begin{split}
+            &\Big\|
+         \bU_{\bY,1}\bU_{\bY,1}^T
+         -\bU_1\bU_1^T
+         \\
+&-
+n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^T \bLambda_1^{1/2}\left( \bLambda_1-n^{-1} \mytr(\bLambda_2) \bI_r\right)^{-1} \bU_1^T
+\\
+&-
+    n^{-1}\bU_1 \left( \bLambda_1-n^{-1} \mytr(\bLambda_2) \bI_r\right)^{-1} \bLambda_1^{1/2} \bZ_1 \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \Big\|
+            \\
+            \leq &
+            {\color{red}xxx}
+        \end{split}
+    \end{equation*}
 \end{proof}
 
 
