@@ -7,43 +7,43 @@ Warning--no number and no volume in Vershynin2010Introduction
 Warning--page numbers missing in Vershynin2010Introduction
 You've used 24 entries,
             2861 wiz_defined-function locations,
-            795 strings with 8736 characters,
-and the built_in function-call counts, 17225 in all, are:
-= -- 1452
-> -- 1241
-< -- 1
-+ -- 370
-- -- 432
-* -- 1602
-:= -- 3112
-add.period$ -- 73
+            796 strings with 8784 characters,
+and the built_in function-call counts, 17320 in all, are:
+= -- 1460
+> -- 1250
+< -- 0
++ -- 372
+- -- 430
+* -- 1627
+:= -- 3118
+add.period$ -- 72
 call.type$ -- 24
-change.case$ -- 172
+change.case$ -- 174
 chr.to.int$ -- 24
 cite$ -- 26
 duplicate$ -- 422
-empty$ -- 1065
-format.name$ -- 508
-if$ -- 3230
+empty$ -- 1073
+format.name$ -- 506
+if$ -- 3256
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 26
-newline$ -- 124
+missing$ -- 25
+newline$ -- 123
 num.names$ -- 240
 pop$ -- 106
 preamble$ -- 1
-purify$ -- 318
+purify$ -- 319
 quote$ -- 0
-skip$ -- 467
+skip$ -- 460
 stack$ -- 0
-substring$ -- 1043
+substring$ -- 1064
 swap$ -- 134
-text.length$ -- 1
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 460
+type$ -- 470
 warning$ -- 2
-while$ -- 229
+while$ -- 226
 width$ -- 0
-write$ -- 319
+write$ -- 315
 (There were 2 warnings)

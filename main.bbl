@@ -12,6 +12,14 @@ Bai, Z. and H.~Saranadasa ({1996}).
 \newblock {Effect of high dimension: By an example of a two sample problem}.
 \newblock {\em Statistica Sinica\/}~{\em {6}\/}({2}), {311--329}.
 
+\bibitem[\protect\citeauthoryear{Cai, Ma, and Wu}{Cai
+  et~al.}{2015}]{Cai2015Optimal}
+Cai, T., Z.~Ma, and Y.~Wu (2015).
+\newblock Optimal estimation and rank detection for sparse spiked covariance
+  matrices.
+\newblock {\em Probability Theory \& Related Fields\/}~{\em 161\/}(3-4),
+  781--815.
+
 \bibitem[\protect\citeauthoryear{Cai, Liu, and Xia}{Cai
   et~al.}{2014}]{Tony2013}
 Cai, T.~T., W.~Liu, and Y.~Xia ({2014}).
@@ -35,13 +43,6 @@ Chen, S.~X. and Y.-L. Qin ({2010}).
 \newblock A two-sample test for high-dimensional data with applications to
   gene-set testing.
 \newblock {\em The Annals of Statistics\/}~{\em {38}\/}({2}), {808--835}.
-
-\bibitem[\protect\citeauthoryear{Davidson and Szarek}{Davidson and
-  Szarek}{2001}]{DAVIDSON2001317}
-Davidson, K.~R. and S.~J. Szarek (2001).
-\newblock {\em Handbook of the Geometry of Banach Spaces}, Volume~1.
-\newblock Amsterdam: North-Holland.
-\newblock Handbook of the Geometry of Banach Spaces.
 
 \bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
   et~al.}{2008}]{Fan2008High}

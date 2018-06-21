@@ -1879,6 +1879,21 @@ Let $\bU_{\bY,2}^{(1)}$ denote the $(r+1)$ to $n$th columns of $\bU_\bY$.
 \begin{proposition}
     Suppose that $p>n$, $r=o(n)$, ${\blambda_1 \mytr(\bLambda_2)}/{(n \blambda_r^2)}\to 0$, $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
     \label{eigenvectorprop2}
+    \begin{equation*}
+        \begin{split}
+            &\left\|\bU_{\bY,2}^{(1)}\bU_{\bY,2}^{(1)T}-
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \left(\tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}\right)^{-1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \right\|
+         \\
+         =&
+        O_P\left(
+\sqrt{\frac{r\blambda_1^3 \mytr(\bLambda_2)}{n\blambda_r^4}}
++\sqrt{\frac{r\blambda_1}{n\blambda_r}}
+                \right).
+        \end{split}
+    \end{equation*}
 \end{proposition}
 \begin{proof}
     Note that $\bU_{\bY,2}^{(1)}$ is the first $n-r$ eigenvectors of $(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)$.
@@ -2227,29 +2242,50 @@ O_P\left(\frac{\mytr^2(\bLambda_2)}{n^2\blambda_r}\right)
         \end{split}
     \end{equation*}
     The matrix $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T$ is of rank $n-r$ and shares the same non-zero eigenvalues as $n^{-1} \tilde{\bV}_{\bZ_1}^T\bZ_2^T\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}$.
-
     Note that $\bZ_{2}\tilde{\bV}_{\bZ_1}$ is a $p\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries.
-    Then Lemma~\ref{lemma:con} implies that
+    Then it follows from Lemma~\ref{lemma:con} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ that
     \begin{equation*}
-         xxx
+        \begin{split}
+        \left\|
+        n^{-1} \tilde{\bV}_{\bZ_1}^T\bZ_2^T\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}-n^{-1}\mytr(\bLambda_2)\bI_{n-r}
+        \right\|
+        =&O_P\left(n^{-1/2}\mytr^{1/2}(\bLambda_2^2)+\blambda_{r+1}\right)
+        \\
+        \leq &
+        O_P\left(n^{-1/2}\blambda_{r+1}^{1/2}\mytr^{1/2}(\bLambda_2)+\blambda_{r+1}\right)
+        \\
+        =& o_P\left(n^{-1}\mytr(\bLambda_2)\right).
+        \end{split}
     \end{equation*}
-
+    Hence we have 
     \begin{equation*}
-        \lambda_{n-r}\left(
-            n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T
-        \right)
-        =
+        %\lambda_{n-r}\left(
+            %n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+        %\right)
+        %=
         \lambda_{n-r}\left(
             n^{-1} \tilde{\bV}_{\bZ_1}^T\bZ_2^T\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}   
         \right)
         =(1+o_P(1))\frac{\mytr(\bLambda_1)}{n}.
     \end{equation*}
-    Thus,
+    Note that the matrix $
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \left(\tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}\right)^{-1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            $ is a projection matrix which projects any vector on the principal space of $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T$.
+            on the space spanned by the first $n-r$ columns
+    By~\cite{Cai2015Optimal}, Proposition 1, we have
     \begin{equation*}
         \begin{split}
-             &
+            &\left\|\bU_{\bY,2}^{(1)}\bU_{\bY,2}^{(1)T}-
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \left(\tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}\right)^{-1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \right\|
+            \\
+             \leq&
              \frac{
-                 \left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)
+                 2\left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^T)
              -
          n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T
              \right\|
@@ -2259,10 +2295,28 @@ O_P\left(\frac{\mytr^2(\bLambda_2)}{n^2\blambda_r}\right)
         \right)
          }
          \\
-         =&O_P(1)\sqrt{\frac{\blambda_1^3 \mytr (\bLambda_2)}{\blambda_r^4 n}}
-         +O_P(\frac{r}{n}).
+         =&
+        O_P\left(
+                    \frac{r\blambda_1^2}{\blambda_r^2}
+                    \left(
+\frac{\blambda_1 \mytr(\bLambda_2)}{n\blambda_r^2}
++\frac{\blambda_r}{n\blambda_1}
+                    \right)
+                 +\frac{\sqrt{r} \blambda_1 }{ \blambda_r}
+                    \left(
+\sqrt{\frac{\blambda_1 \mytr(\bLambda_2)}{n\blambda_r^2}}
++\sqrt{\frac{\blambda_r}{n\blambda_1}}
+                    \right)
+                \right)
+         \\
+         =&
+        O_P\left(
+\sqrt{\frac{r\blambda_1^3 \mytr(\bLambda_2)}{n\blambda_r^4}}
++\sqrt{\frac{r\blambda_1}{n\blambda_r}}
+                \right).
         \end{split}
     \end{equation*}
+    This completes the proof.
 
 
 \end{proof}
@@ -2311,123 +2365,6 @@ where $\eta_i\overset{iid}{\sim} \mathcal{N}(0,\bI_{k-1})$, $i=1,\ldots,p$.
 
 Let $\bZ_1=(\bZ_{1A}^T,\bZ_{1B}^T)^T$, where $\bZ_{1A}$ is the first $r$ rows of $\bZ_1$ and $\bZ_{1B}$ is the last $p-r$ rows of $\bZ_1$.
 The following lemma gives the asymptotic property of $\lambda_{i}(\bY^T \bY)$, $i=1,\ldots, r$.
-\begin{lemma}\label{PCAlemma1}
-    Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. 
-    Then
-    \begin{align}
-        &\sup_{1\leq i\leq r}\Big|\frac{\lambda_{i}(\bY^T \bY)}{n\blambda_i}-1\Big|\to 0,\label{PCAlemma1:eq1}\\
-        &\limsup_{n\to +\infty}\frac{\lambda_{r+1}(\bY^T\bY)}{p}\leq c_1,\label{PCAlemma1:eq2}\\
-        &\liminf_{n\to +\infty}\frac{\lambda_{n-k}(\bY^T\bY)}{p}\geq c_2,\label{PCAlemma1:eq3}
-    \quad
-    \end{align}
-    almost surely.
-\end{lemma}
-\begin{proof}
-    %For a matrix $\bA$, we denote by  $\bA_{[a:b,c:d]}$ the $a$-to-$b$-th row, $c$-to-$d$-th column of matrix $\bA$, by $\bA_{[a:b,:]}$ and $\bA_{[:,c:d]}$ the $a$-to-$b$-th full rows and $c$-to-$d$-th full columns of $\bA$ respectively.
-%$
-%\bY^T \bY=
-%\bZ_1^T \bLambda \bZ_1   = \bV_{\bY} \bD_{\bY}^2 \bV_{\bY}^T
-%$, and 
-%$
-%\bZ_1^T \bLambda \bZ_1=
-%\bZ_{1A}^T \bLambda_1 \bZ_{1A}+
-%\bZ_{1B}^T \bLambda_2 \bZ_{1B}
-%$. We have
-    Note that
-$$
-\bY^T \bY =\bZ_1^T \bLambda \bZ_1
-=
-\bZ_{1A}^T \bLambda_1 \bZ_{1A}+
-\bZ_{1B}^T \bLambda_2 \bZ_{1B}.
-$$
-For $1\leq i \leq r$, we have
-    \begin{equation}\label{eq:DLU}
-\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
-    \leq \lambda_i(\bY^T \bY) \leq \lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})+
-    c_1 \lambda_1(\bZ_{1B}^T  \bZ_{1B}).
-    \end{equation}
- Using Weyl's inequality, we can derive a lower bound for $\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})$, $ i=1,\ldots, r$. In fact,
-\begin{equation}\label{eq:DLower}
-\begin{aligned}
-&\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
-\geq
-\lambda_i(\bZ_{1A}^T \mydiag(\blambda_i \bI_{i},\bO_{(r-i)\times(r-i)}) \bZ_{1A})
-\\
-    =&
-    \lambda_i\Big( \blambda_i \bZ_{1A}^T \bZ_{1A}-\blambda_i\bZ_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{1A}\Big)\\
-    \geq&
-    \lambda_r\Big( \blambda_i \bZ_{1A}^T \bZ_{1A}\Big)+\lambda_{p+i-r}\Big(-\blambda_i\bZ_{1A}^T \mydiag(\bO_{i\times i}, \bI_{r-i}) \bZ_{1A}\Big)\\
-= &
-\blambda_i \lambda_r(\bZ_{1A}\bZ_{1A}^T).
-\end{aligned}
-\end{equation}
-Similarly, we can obtain the upper bound for
-$\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})$.
-\begin{equation}\label{eq:DUpper}
-\begin{aligned}
-&\lambda_i(\bZ_{1A}^T \bLambda_1 \bZ_{1A})
-\\
-=&\lambda_i\Big(
-\bZ_{1A}^T \big(
-\mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})+
-\mydiag(\bO_{(i-1)\times(i-1)},\blambda_i,\ldots,\blambda_r)
-\big)
-\bZ_{1A}
-\Big)\\
-%\leq&
-%\lambda_1(\bZ_{1[1:r,:]}^T \mydiag(\bO_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) \bZ_{1[1:r,:]})
-    \leq&
-\lambda_1(\bZ_{1A}^T \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i \bI_{r-i+1}) \bZ_{1A})
-\leq  \blambda_i \lambda_1(\bZ_{1A}\bZ_{1A}^T).
-\end{aligned}
-\end{equation}
-    The inequality~\eqref{eq:DLU},~\eqref{eq:DLower} and~\eqref{eq:DUpper} implies that
-\begin{equation}\label{mainInequality}
-\sup_{1\leq i \leq r} \Big|\frac{\lambda_i(\bY^T \bY)}{n\blambda_i}-1\Big|\leq
-\max\Big(\Big|\frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}-1\Big|,\Big|\frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}-1\Big|\Big)+\frac{c_1}{n\blambda_r}\lambda_1(\bZ_{1B}^T \bZ_{1B}).
-\end{equation}
-    We only need to prove the right hand side converges to $0$ almost surely.
-
-    By Lemma~\ref{DSbound}, for every $t>0$, we have
-    \begin{equation}\label{yaohuo2}
-    \begin{aligned}
-        &\Pr\Big(\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\leq \sqrt{\frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}}\leq \sqrt{\frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}}\leq
-        \sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}} \Big) \\
-        &\geq 1-2\exp(-\frac{t^2}{2}).
-    \end{aligned}
-    \end{equation}
-    Let $t=n^{1/4}$. Since $r=o(n)$, we have
-    $$
-\sqrt{1-\frac{k}{n}}-\sqrt{\frac{r}{n}}-\frac{t}{\sqrt{n}}\to 1\quad\text{and}\quad
-\sqrt{1-\frac{k}{n}}+\sqrt{\frac{r}{n}}+\frac{t}{\sqrt{n}}\to 1.
-    $$
-    This, together with Borel-Cantelli lemma, yields 
-    $$
-    \frac{\lambda_r(\bZ_{1A}\bZ_{1A}^T)}{n}\to 1\quad\text{and}\quad
-    \frac{\lambda_1(\bZ_{1A}\bZ_{1A}^T)}{n}\to 1
-    $$
-    almost surely.
-    Next we control $\lambda_1(\bZ_{1B}^T \bZ_{1B})$. By Lemma~\ref{DSbound}, for every $t>0$, we have
-    \begin{equation}\label{yaohuo1}
-        \Pr\Big(\sqrt{1-\frac{r}{p}}-\sqrt{\frac{n-k}{p}}-\frac{t}{\sqrt{p}} \leq \sqrt{\frac{1}{p}{\lambda_1(\bZ_{1B}\bZ_{1B}^T)} }\leq \sqrt{1-\frac{r}{p}}+\sqrt{\frac{n-k}{p}}+\frac{t}{\sqrt{p}} \Big) 
-   \geq 1-2\exp(-\frac{t^2}{2}).
-    \end{equation}
-    Let $t=n^{1/2}$, then Borel-Cantelli lemma implies that 
-    \begin{equation}\label{eq:qu1}
-    \frac{1}{p}\lambda_1(\bZ_{1B}\bZ_{1B}^T)\to 1
-    \end{equation}
-    almost surely.
-By the assumption $\blambda_r n/p\to \infty$, we have $$\frac{c_1}{n\blambda_r}{\lambda_1(\bZ_{1B}\bZ_{1B}^T)}\to 0$$
-almost surely.
-Then~\eqref{PCAlemma1:eq1} follows.
-
-Inequality~\eqref{PCAlemma1:eq2} and~\eqref{PCAlemma1:eq3} follows from  the fact
-\begin{align*}
-\lambda_{r+1}(\bY^T \bY)\leq \lambda_1(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\leq c_1 \lambda_1(\bZ_{1B}^T \bZ_{1B}),\\
-    \lambda_{n-k}(\bY^T \bY)\geq \lambda_{n-k}(\bZ_{1B}^T \bLambda_2 \bZ_{1B})\geq c_2 \lambda_{n-k}(\bZ_{1B}^T \bZ_{1B}),
-\end{align*}
-and inequality~\eqref{yaohuo1}.
-\end{proof}
 
 
 Let $\bU_{\bY,1}$ denote the first $r$ columns of $\bU_{\bY}$.
