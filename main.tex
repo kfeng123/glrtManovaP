@@ -2851,8 +2851,114 @@ we have
          \end{equation*}
 Note that
 \begin{equation*}
+    \begin{split}
          \left\|\bSigma 
          (\bI_p-\bP_{\bY,1}^{\dagger})\right\|
+         =&
+         \left\|
+         \bU_2 \bLambda_2 \bU_2^T
+         -\bU_1 \bLambda_1 \bQ^T \bU_2^T
+         -\bU_2 \bLambda_2 \bQ \bU_1^T
+         \right\|
+         \\
+         \leq &
+         \blambda_{r+1}
+         +
+         \left\|
+          \bLambda_1 \bQ^T
+          \right\|
+          +
+          \blambda_{r+1}
+          \left\|
+          \bQ 
+         \right\|
+         \\
+         = &
+         \blambda_{r+1}
+         +
+         \left\|
+         \bLambda_1^{1/2} (\bZ_1 \bZ_1^T)^{-1} \bZ_1 \bZ_2^T \bLambda_2^{1/2}
+         \right\|
+         +
+         \blambda_{r+1}\|\bQ^T \bQ\|^{1/2}
+         \\
+         \leq &
+         \blambda_{r+1}
+         +
+         \blambda_1^{1/2}
+         \left\|
+        (\bZ_1 \bZ_1^T)^{-1/2}
+         \right\|
+         \left\|
+         \bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+         \right\|^{1/2}
+         +
+         \blambda_{r+1}\|\bQ^T \bQ\|^{1/2}
+         \\
+         =&
+         O_P\left(\sqrt{\frac{\blambda_1\mytr(\bLambda_2)}{n}}\right),
+    \end{split}
+\end{equation*}
+where the last equality follows from~\eqref{projCon},~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+Thus,
+         \begin{equation*}
+         \left\|
+         (\bI_p-\bP_{\bY,1})
+         \bSigma 
+         (\bI_p-\bP_{\bY,1})
+         -
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+         \bSigma 
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+         \right\|
+         = 
+         O_P\left(\frac{\mytr^{3/2}(\bLambda_2)\blambda_1^{1/2}}{n^{3/2}\blambda_r}\right)
+         .
+         \end{equation*}
+
+         It is straightforward to show that
+         \begin{equation*}
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+         \bSigma 
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+             =
+             \bU_2\bQ \bLambda_1 \bQ^T \bU_2^T 
+             +\bU_2\bLambda_2  \bU_2^T
+             -\bU_2 \bLambda_2 \bQ \bU_1^T
+             -\bU_1 \bQ^T \bLambda_2 \bU_2^T
+             +\bU_1 \bQ^T \bLambda_2 \bQ \bU_1^T.
+         \end{equation*}
+         Therefore,
+         \begin{equation*}
+             \begin{split}
+         \left\|
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+         \bSigma 
+         (\bI_p-\bP_{\bY,1}^{\dagger})
+             -
+             \bU_2 \bQ \bLambda_1 \bQ^T  \bU_2^T
+             \right\|
+             \leq &
+             \blambda_{r+1}(1+2\|\bQ^T \bQ\|^{1/2}+\|\bQ^T \bQ\|)
+             \\
+             = &
+             o_P\left(\frac{\mytr(\bLambda_2)}{n}\right)
+             ,
+             \end{split}
+         \end{equation*}
+         where the last equality follows from~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+         Note that
+         $
+             \bU_2\bQ \bLambda_1 \bQ^T\bU_2^T
+             =
+             \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} (\bZ_1 \bZ_1^T)^{-1}\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T$. 
+             Hence for $i=1,\ldots, r$,
+\begin{equation*}
+    \lambda_i(\bU_2\bQ \bLambda_1 \bQ^T\bU_2^T)
+             =
+              \lambda_i\left(
+                  (\bZ_1 \bZ_1^T)^{-1/2}\bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}(\bZ_1 \bZ_1^T)^{-1/2}
+              \right).
 \end{equation*}
 
 
