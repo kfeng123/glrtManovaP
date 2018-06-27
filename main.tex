@@ -2388,10 +2388,9 @@ $
 %\end{proof}
 
 
-
 \begin{proposition}
-    Suppose that $r=o(n)$ and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
     \label{eigenvectorprop2}
+    Suppose that $r=o(n)$ and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
     \begin{equation*}
             \left\|\bU_{\bY,2}\bU_{\bY,2}^{T}-
             \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
@@ -2639,7 +2638,7 @@ n^{-1} \|\bZ_2^T \bLambda_2 \bZ_2\| \|\bQ^T \bQ\|^{1/2}
     The matrix $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^T  \bZ_2^T \bLambda_2^{1/2} \bU_2^T$ shares the same non-zero eigenvalues as $n^{-1} \tilde{\bV}_{\bZ_1}^T\bZ_2^T\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}$.
     Note that $\bZ_{2}\tilde{\bV}_{\bZ_1}$ is a $p\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries.
     Then it follows from Lemma~\ref{lemma:con} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ that
-    \begin{equation*}
+    \begin{equation}\label{choc8}
         \begin{split}
         \left\|
         n^{-1} \tilde{\bV}_{\bZ_1}^T\bZ_2^T\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}-n^{-1}\mytr(\bLambda_2)\bI_{n-r}
@@ -2651,7 +2650,7 @@ n^{-1} \|\bZ_2^T \bLambda_2 \bZ_2\| \|\bQ^T \bQ\|^{1/2}
         \\
         =& o_P\left(n^{-1}\mytr(\bLambda_2)\right).
         \end{split}
-    \end{equation*}
+    \end{equation}
     This bound, combined with Weyl's inequality, leads to
     \begin{equation}\label{haoqilai2}
         %\lambda_{n-r}\left(
@@ -2709,6 +2708,51 @@ n^{-1} \|\bZ_2^T \bLambda_2 \bZ_2\| \|\bQ^T \bQ\|^{1/2}
 
 
 \end{proof}
+\begin{corollary}
+    \label{eigenvectorprop3}
+    Under the conditions of Proposition \ref{eigenvectorprop2}, we have
+    \begin{equation*}
+            \left\|\bP_{\bY,2}-
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \right\|
+    = 
+    o_P(1)
+    .
+    \end{equation*}
+\end{corollary}
+\begin{proof}
+    By some algebra,
+    it can be seen that
+    \begin{equation*}
+        \begin{split}
+            &\Big\|
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \left(\tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}\right)^{-1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \\
+            &-
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+            \Big\|
+            \\
+            =&
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \left\|
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}
+            -
+            \mytr(\bLambda_2)
+            \bI_{n-r}
+            \right\|\\
+            =&o_P(1),
+        \end{split}
+    \end{equation*}
+    where the last equality follows from \eqref{choc8}.
+    Then the conclusion follows from the last display and Proposition~\ref{eigenvectorprop2}.
+     
+\end{proof}
 
 
 
@@ -2756,31 +2800,27 @@ where $\eta_i\overset{iid}{\sim} \mathcal{N}(0,\bI_{k-1})$, $i=1,\ldots,p$.
 
 
 \begin{lemma}\label{gg:Lemma1}
-    Under the assumptions of Lemma~\ref{PCAlemma1},
-    we have the following upper and lower bound for the eigenvalues of $(\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})$.
-    \begin{align}
-        &\lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\geq
-        \blambda_{i+n-k},\quad 
-        \text{$i=1,\ldots, p-n+k$},
-        \label{eq:mybound2}\\
-        &\lambda_i\big(\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\big)= O_P(\frac{\blambda_1 p}{\blambda_r n}),\quad
-        \text{$i=1,\ldots, r$},\label{eq:mybound3}\\
-        &\lambda_i (\bLambda^{1/2}\bU^T (\bI_p-\bP_{\bY})\bU\bLambda^{1/2})\leq
-        \blambda_i, \quad 
-        \text{$i=r+1,\ldots, p$}.\label{eq:mybound1}
-    \end{align}
+    Suppose the conditions of Proposition~\ref{eigenvectorprop2} hold.
+    Then uniformly for $i=1,\ldots, r$,
+\begin{equation*}
+    \lambda_i\left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+         \right)
+         =(1+o_P(1))n^{-1}\mytr(\bLambda_2).
+\end{equation*}
+
 \end{lemma}
 \begin{proof}
     Note that
-    \begin{equation*}
+    \begin{equation}\label{cho111}
          (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})
          =
-         (\bI_p-\bP_{\bY})
+         (\bI_p-\bP_{\bY,2})
          (\bI_p-\bP_{\bY,1})
          \bSigma 
          (\bI_p-\bP_{\bY,1})
-         (\bI_p-\bP_{\bY}).
-    \end{equation*}
+         (\bI_p-\bP_{\bY,2}).
+    \end{equation}
 We first deal with
     $
          (\bI_p-\bP_{\bY,1})
@@ -2901,7 +2941,7 @@ Note that
 \end{equation*}
 where the last equality follows from~\eqref{projCon},~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
 Thus,
-         \begin{equation*}
+\begin{equation}\label{choc1}
          \left\|
          (\bI_p-\bP_{\bY,1})
          \bSigma 
@@ -2914,7 +2954,7 @@ Thus,
          = 
          O_P\left(\frac{\mytr^{3/2}(\bLambda_2)\blambda_1^{1/2}}{n^{3/2}\blambda_r}\right)
          .
-         \end{equation*}
+         \end{equation}
 
          It is straightforward to show that
          \begin{equation*}
@@ -2929,7 +2969,7 @@ Thus,
              +\bU_1 \bQ^T \bLambda_2 \bQ \bU_1^T.
          \end{equation*}
          Therefore,
-         \begin{equation*}
+         \begin{equation}\label{choc2}
              \begin{split}
          \left\|
          (\bI_p-\bP_{\bY,1}^{\dagger})
@@ -2942,28 +2982,194 @@ Thus,
              \blambda_{r+1}(1+2\|\bQ^T \bQ\|^{1/2}+\|\bQ^T \bQ\|)
              \\
              = &
-             o_P\left(\frac{\mytr(\bLambda_2)}{n}\right)
+             o_P\left(n^{-1}\mytr(\bLambda_2)\right)
              ,
              \end{split}
-         \end{equation*}
+         \end{equation}
          where the last equality follows from~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
          Note that
          $
              \bU_2\bQ \bLambda_1 \bQ^T\bU_2^T
              =
              \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} (\bZ_1 \bZ_1^T)^{-1}\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T$. 
-             Hence for $i=1,\ldots, r$,
+             We have
+     \begin{equation} \label{choc6}
+     \begin{split}
+             &\left\|\bU_2\bQ \bLambda_1 \bQ^T\bU_2^T
+             -
+             n^{-1} \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} \bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+             \right\|
+             \\
+             \leq&
+             \left\|\bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T\right\|
+             \left\|(\bZ_1 \bZ_1^T)^{-1} - n^{-1} \bI_r\right\|
+                  \\
+            \leq&
+             \left\|\bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
+                  \left\|(\bZ_1 \bZ_1^T)^{-1}\right\|
+                  \left\|n^{-1}\bZ_1 \bZ_1^T -\bI_r\right\|
+                  \\
+                  =&
+                  o_P\left(n^{-1}\mytr(\bLambda_2)\right),
+     \end{split}
+ \end{equation}
+where the last equality follows from~\eqref{conB2B1} and~\eqref{projCon}.
+From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain that
+         \begin{equation*}
+             \begin{split}
+             &\left\|
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+             -
+             n^{-1}
+             (\bI_p -\bP_{\bY,2})
+              \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} \bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T
+             (\bI_p- \bP_{\bY,2})
+             \right\|
+             \\
+             =&
+             o_P\left(n^{-1}\mytr(\bLambda_2)\right).
+             \end{split}
+         \end{equation*}
+
+         Thus, the last display, together with Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
+\begin{equation}\label{choc3}
+    \begin{split}
+    &\lambda_i\left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+         \right)
+         \\
+             =&
+             n^{-1}\lambda_i\left(
+                  \bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
+              \right)
+              +o_P\left(n^{-1}\mytr(\bLambda_2)\right).
+    \end{split}
+\end{equation}
+From Corollary~\ref{eigenvectorprop3} we have
+\begin{equation}\label{jojojo}
+    \begin{split}
+                  &\left\|
+                  \bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
+              \right.
+              \\
+              &\left.
+                  -\left(
+                      \bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+                  -
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bV_{\bZ_1}^T \bZ_2^T \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+                  \right)
+                  \right\|
+                  \\
+                  \leq&
+                  \left\|\bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
+            \left\|\bP_{\bY,2}-
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2}
+            \right\|
+            \\
+            =& o_P(\mytr(\bLambda_2)),
+    \end{split}
+\end{equation}
+where the last equality follows from \eqref{projCon},
+Now we deal with the term $
+            \bV_{\bZ_1}^T \bZ_2^T \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+            $.
+            Note that
+            $\bZ_2\bV_{\bZ_1}$
+            and
+            $\bZ_2\tilde{\bV}_{\bZ_1}$
+            both have iid $\mathcal{N}(0,1)$ entries and they are mutually independent.
+            So we can write
 \begin{equation*}
-    \lambda_i(\bU_2\bQ \bLambda_1 \bQ^T\bU_2^T)
-             =
-              \lambda_i\left(
-                  (\bZ_1 \bZ_1^T)^{-1/2}\bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}(\bZ_1 \bZ_1^T)^{-1/2}
-              \right).
+    \begin{split}
+            &\bV_{\bZ_1}^T \bZ_2^T \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+            \\
+            =&
+            (\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{1/2}
+            \bZ_2^{\dagger}
+            \bZ_2^{\dagger T}
+            (\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{1/2}.
+    \end{split}
+\end{equation*}
+where $
+\bZ_2^{\dagger}=
+            (\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{-1/2}
+            \bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_{2} \tilde{\bV}_{\bZ_1}
+    $
+    is a $r\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries and is independent of $\bZ_2 \bV_{\bZ_1}$.
+            Hence
+\begin{equation*}
+    \begin{split}
+            \left\|
+            \bV_{\bZ_1}^T \bZ_2^T \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}
+            \right\|
+            \leq&
+            \left\|
+                \bZ_2^{\dagger}\bZ_2^{\dagger T}
+            \right\|
+            \left\|\bV_{\bZ_1}^T \bZ_2^T \bLambda_2^2 \bZ_2 \bV_{\bZ_1}\right\|
+            \\
+            \leq&
+            \blambda_{r+1}
+            \left\|
+                \bZ_2^{\dagger}\bZ_2^{\dagger T}
+            \right\|
+            \left\|\bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
+            \\
+            =&o_P\left(\mytr^2(\bLambda_2)\right),
+    \end{split}
+\end{equation*}
+where the last equality follows from \eqref{projCon}, the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ and the fact 
+            $
+            \|
+                \bZ_2^{\dagger}\bZ_2^{\dagger T}
+            \|
+            =O_P(n)$.
+            It then follows from \eqref{projCon},~\eqref{jojojo} and the last display that
+\begin{equation*}
+    \begin{split}
+                  &\left\|
+                  \bV_{\bZ_1}^T \bZ_2^T \bLambda_2^{1/2} \bU_2^T (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
+                  -
+                      \mytr(\bLambda_2) \bI_r
+                  \right\|
+                  = o_P\left(\mytr(\bLambda_2)\right).
+    \end{split}
+\end{equation*}
+This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
+\begin{equation*}
+    \lambda_i\left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+         \right)
+         =(1+o_P(1))n^{-1}\mytr(\bLambda_2).
 \end{equation*}
 
 
-
 \end{proof}
+\begin{lemma}
+    Suppose the conditions of Proposition~\ref{eigenvectorprop2} hold.
+    Then
+    \begin{align}
+        &\lambda_i \left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)\geq
+        \blambda_{i+n},\quad 
+        i=r+1,\ldots, p-n,
+        \label{eq:mybound2}\\
+        &\lambda_i \left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)\leq
+        \blambda_i, \quad 
+        i=r+1,\ldots, p-n.
+        \label{eq:mybound1}
+    \end{align}
+\end{lemma}
 \begin{lemma}\label{gg:Lemma2}
     Under the assumptions of Theorem~\ref{thm1}, we have
     \begin{equation}\label{eq:spiketrace2}
