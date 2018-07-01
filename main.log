@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  28 JUN 2018 15:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.4)  30 JUN 2018 22:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,16 +575,16 @@ Overfull \hbox (2.05566pt too wide) in paragraph at lines 1133--1152
  []
 
 Package epstopdf Info: Source file: <figure1.eps>
-(epstopdf)                    date: 2017-10-10 16:07:04
+(epstopdf)                    date: 2018-06-30 15:16:41
 (epstopdf)                    size: 13058 bytes
 (epstopdf)             Output file: <figure1-eps-converted-to.pdf>
-(epstopdf)                    date: 2017-10-10 16:07:28
+(epstopdf)                    date: 2018-06-30 15:16:41
 (epstopdf)                    size: 15544 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
 (epstopdf)             \includegraphics on input line 1156.
 Package epstopdf Info: Output file is already uptodate.
-<figure1-eps-converted-to.pdf, id=309, 505.89pt x 505.89pt>
+<figure1-eps-converted-to.pdf, id=305, 505.89pt x 505.89pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
@@ -630,77 +630,72 @@ m/n/12 )[]$\OT1/cmr/m/it/12 ,
  []
 
 [28]
-Overfull \hbox (5.18068pt too wide) in paragraph at lines 1383--1383
+Overfull \hbox (18.28294pt too wide) in paragraph at lines 1399--1399
 [] 
  []
 
 [29]
-Overfull \hbox (38.24178pt too wide) in paragraph at lines 1398--1398
-[] 
- []
-
-
-Overfull \hbox (41.75584pt too wide) in paragraph at lines 1398--1400
+Overfull \hbox (41.75584pt too wide) in paragraph at lines 1399--1401
 \OT1/cmr/m/n/12 Using Weyl's in-equal-ity, we can de-rive the fol-low-ing lower
  bound for $\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[]\OT1/cmr
 /bx/n/12 Z[]^^C[]Z[]\OT1/cmr/m/n/12 )$,
  []
 
 
-Overfull \hbox (29.82172pt too wide) detected at line 1433
+Overfull \hbox (29.82172pt too wide) detected at line 1434
 [] [][]
  []
 
 [30] [31] [32]
-Overfull \hbox (44.43529pt too wide) in paragraph at lines 1594--1594
+Overfull \hbox (44.43529pt too wide) in paragraph at lines 1628--1628
 [] 
  []
 
-[33]
-Overfull \hbox (12.55351pt too wide) in paragraph at lines 1756--1756
-[] 
- []
-
-[34]
-Overfull \hbox (39.42921pt too wide) in paragraph at lines 1873--1873
+[33] [34]
+Overfull \hbox (12.55351pt too wide) in paragraph at lines 1790--1790
 [] 
  []
 
 [35]
-Overfull \hbox (12.26024pt too wide) in paragraph at lines 1949--1949
+Overfull \hbox (39.42921pt too wide) in paragraph at lines 1907--1907
 [] 
  []
 
-[36]
-Overfull \hbox (13.5152pt too wide) in paragraph at lines 2081--2084
+
+Overfull \hbox (12.26024pt too wide) in paragraph at lines 1983--1983
+[] 
+ []
+
+[36] [37]
+Overfull \hbox (13.5152pt too wide) in paragraph at lines 2115--2118
 \OT1/cmr/m/n/12 where the sec-ond last equal-ity fol-lows from the fact $\OMS/c
 msy/m/n/12 k\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Z[]Z[]\OT1/cmr/m/n/12 )[]\OMS/cms
 y/m/n/12 k \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx
 /n/12 Z[]Z[]\OT1/cmr/m/n/12 )[]$,
  []
 
-[37]
-Overfull \hbox (73.77492pt too wide) detected at line 2405
+
+Overfull \hbox (73.77492pt too wide) detected at line 2439
 [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[] [] :
  []
 
-
-Overfull \hbox (16.15652pt too wide) in paragraph at lines 2432--2435
+[38]
+Overfull \hbox (16.15652pt too wide) in paragraph at lines 2466--2469
 []\OT1/cmr/m/n/12 Note that $\OT1/cmr/bx/n/12 U[]$ \OT1/cmr/m/n/12 is in fact t
 he first $\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 r$ \OT1/cmr/
 m/n/12 eigen-vec-tors of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/b
 x/n/12 U[]U[]\OT1/cmr/m/n/12 )[](\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@
  []
 
-[38]
-Overfull \hbox (32.04544pt too wide) detected at line 2463
+
+Overfull \hbox (32.04544pt too wide) detected at line 2497
 \OMS/cmsy/m/n/12 k[]k \OT1/cmr/m/n/12 = \OML/cmm/b/it/12 ^^U[] [] \OT1/cmr/m/n/
 12 = \OML/cmm/b/it/12 ^^U[]\OT1/cmr/m/n/12 (1 + \OML/cmm/m/it/12 o[]\OT1/cmr/m/
 n/12 (1))\OML/cmm/m/it/12 :
  []
 
-
-Overfull \hbox (0.33646pt too wide) detected at line 2513
+[39]
+Overfull \hbox (0.33646pt too wide) detected at line 2547
 \OT1/cmr/bx/n/12 Z[]^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n
 /12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 ) = [][]\OT1/cmr/bx/n/12 Z[]^^C[]U[
 ] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 Z[]^^C[]Z[]Z[]\OT1/cmr/m/n/12 (\OT1/cmr
@@ -708,35 +703,35 @@ Overfull \hbox (0.33646pt too wide) detected at line 2513
  []
 
 
-Overfull \hbox (4.02115pt too wide) detected at line 2524
+Overfull \hbox (4.02115pt too wide) detected at line 2558
 [] \OMS/cmsy/m/n/12 ^^T [][] \OT1/cmr/m/n/12 + \OML/cmm/b/it/12 ^^U[] [] [][] \
 OML/cmm/m/it/12 :
  []
 
-[39]
-Overfull \hbox (14.15726pt too wide) in paragraph at lines 2547--2547
+
+Overfull \hbox (14.15726pt too wide) in paragraph at lines 2581--2581
 [] 
  []
 
-[40]
-Overfull \hbox (2.52632pt too wide) in paragraph at lines 2637--2641
+[40] [41]
+Overfull \hbox (2.52632pt too wide) in paragraph at lines 2671--2675
 \OT1/cmr/m/n/12 The ma-trix $\OML/cmm/m/it/12 n[]\OT1/cmr/bx/n/12 U[]^^C[]Z[][]
 []Z[]^^C[]U[]$ \OT1/cmr/m/n/12 shares the same non-zero eigen-
  []
 
 
-Overfull \hbox (1.20432pt too wide) in paragraph at lines 2653--2653
+Overfull \hbox (1.20432pt too wide) in paragraph at lines 2687--2687
 [] 
  []
 
-[41]
-Overfull \hbox (16.87186pt too wide) in paragraph at lines 2664--2672
+
+Overfull \hbox (16.87186pt too wide) in paragraph at lines 2698--2706
 \OT1/cmr/m/n/12 can be seen that the ma-trix $\OT1/cmr/bx/n/12 U[]^^C[]Z[][] []
 [] []Z[]^^C[]U[]$
  []
 
 
-Overfull \hbox (108.70242pt too wide) in paragraph at lines 2664--2672
+Overfull \hbox (108.70242pt too wide) in paragraph at lines 2698--2706
 \OT1/cmr/m/n/12 is the pro-jec-tion ma-trix onto the rank $\OML/cmm/m/it/12 n \
 OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 r$ \OT1/cmr/m/n/12 prin-ci-pal sub-space o
 f $\OML/cmm/m/it/12 n[]\OT1/cmr/bx/n/12 U[]^^C[]Z[][][]Z[]^^C[]U[]$\OT1/cmr/m/n
@@ -744,17 +739,17 @@ f $\OML/cmm/m/it/12 n[]\OT1/cmr/bx/n/12 U[]^^C[]Z[][][]Z[]^^C[]U[]$\OT1/cmr/m/n
  []
 
 
-Overfull \hbox (7.69136pt too wide) in paragraph at lines 2705--2705
+Overfull \hbox (7.69136pt too wide) in paragraph at lines 2739--2739
 [] 
  []
 
-[42]
-Overfull \hbox (39.58705pt too wide) detected at line 2789
+[42] [43]
+Overfull \hbox (39.58705pt too wide) detected at line 2823
 [] []
  []
 
-[43]
-Overfull \hbox (19.9043pt too wide) in paragraph at lines 2824--2832
+
+Overfull \hbox (19.9043pt too wide) in paragraph at lines 2858--2866
 \OT1/cmr/m/n/12 We first deal with $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ 
 \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 ^^F\OT1/cmr/m/n/12 (\OT1/
 cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )$. Un
@@ -763,30 +758,30 @@ cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )$. Un
 
  []
 
-
-Overfull \hbox (78.98845pt too wide) in paragraph at lines 2862--2862
-[] 
- []
-
-
-Overfull \hbox (44.26141pt too wide) in paragraph at lines 2942--2942
-[] 
- []
-
 [44]
-Overfull \hbox (48.16254pt too wide) in paragraph at lines 2942--2945
+Overfull \hbox (78.98845pt too wide) in paragraph at lines 2896--2896
+[] 
+ []
+
+
+Overfull \hbox (44.26141pt too wide) in paragraph at lines 2976--2976
+[] 
+ []
+
+
+Overfull \hbox (48.16254pt too wide) in paragraph at lines 2976--2979
 \OT1/cmr/m/n/12 where the last equal-ity fol-lows from [], [] and the con-di-ti
 on $\OML/cmm/m/it/12 n\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 = []\OT1/cmr/m/n/1
 2 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 !
  []
 
 
-Overfull \hbox (22.51366pt too wide) detected at line 2958
+Overfull \hbox (22.51366pt too wide) detected at line 2992
 [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[] [] :
  []
 
-
-Overfull \hbox (99.77376pt too wide) detected at line 2971
+[45]
+Overfull \hbox (99.77376pt too wide) detected at line 3005
 \OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]
 \OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 ^^F\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS
 /cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 ) = \OT1/cmr/bx/n/12 U[]Q^
@@ -796,118 +791,110 @@ U[] \OT1/cmr/m/n/12 + \OT1/cmr/bx/n/12 U[]Q[]^^C[]QU[]\OML/cmm/m/it/12 :
  []
 
 
-Overfull \hbox (20.364pt too wide) in paragraph at lines 2989--2989
+Overfull \hbox (20.364pt too wide) in paragraph at lines 3023--3023
 [] 
  []
 
 
-Overfull \hbox (9.32683pt too wide) in paragraph at lines 2989--2997
+Overfull \hbox (9.32683pt too wide) in paragraph at lines 3023--3031
 \OT1/cmr/m/n/12 where the last equal-ity fol-lows from [] and the con-di-tion $
 \OML/cmm/m/it/12 n\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 = []\OT1/cmr/m/n/12 (\
 OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 !
  []
 
-[45]
-Overfull \hbox (48.61221pt too wide) in paragraph at lines 3033--3033
+
+Overfull \hbox (48.61221pt too wide) in paragraph at lines 3067--3067
 [] 
  []
 
 [46] [47] [48]
-Overfull \hbox (78.71704pt too wide) in paragraph at lines 3285--3285
+Overfull \hbox (78.71704pt too wide) in paragraph at lines 3319--3319
 [] 
  []
 
-[49] [50]
-Overfull \hbox (15.69585pt too wide) detected at line 3443
-[] []
- []
-
-[51]
-Overfull \hbox (63.77542pt too wide) detected at line 3480
+[49] [50] [51]
+Overfull \hbox (15.69585pt too wide) detected at line 3477
 [] []
  []
 
 
-LaTeX Warning: Reference `PCAlemma1' on page 52 undefined on input line 3509.
+Overfull \hbox (63.77542pt too wide) detected at line 3514
+[] []
+ []
 
 [52]
 
-LaTeX Warning: Reference `DSbound' on page 53 undefined on input line 3548.
-
-
-Overfull \hbox (97.76703pt too wide) detected at line 3561
-[] []
- []
+LaTeX Warning: Reference `PCAlemma1' on page 53 undefined on input line 3543.
 
 [53]
 
-LaTeX Warning: Reference `PCAlemma2' on page 54 undefined on input line 3568.
+LaTeX Warning: Reference `DSbound' on page 54 undefined on input line 3582.
 
 
-Overfull \hbox (6.8977pt too wide) detected at line 3575
+Overfull \hbox (97.76703pt too wide) detected at line 3595
+[] []
+ []
+
+[54]
+
+LaTeX Warning: Reference `PCAlemma2' on page 55 undefined on input line 3602.
+
+
+Overfull \hbox (6.8977pt too wide) detected at line 3609
 [] \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 U[]U[]U[]U[]\OT1/cmr
 /m/n/12 ) = [] \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS
 /cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 U[]U[]U[]U[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it
 /12 O\OT1/cmr/m/n/12 ([])
  []
 
-[54] [55] [56] [57] [58] (./main.bbl [59] [60] [61])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3829.
- [62]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3829.
+[55] [56] [57] [58] [59] (./main.bbl [60] [61] [62])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3863.
+ [63]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3863.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3829.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3829.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3863.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3863.
 
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 21E780277713D8DE2BE999C34DEB58C8;287.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: BCA14114C7585F70F5C14CC2C9AC024A;335
-(rerunfilecheck)             After:  21E780277713D8DE2BE999C34DEB58C8;287.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3829.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3863.
  ) 
 Here is how much of TeX's memory you used:
- 8108 strings out of 493029
- 115895 string characters out of 6136235
- 234351 words of memory out of 5000000
+ 8109 strings out of 493029
+ 115908 string characters out of 6136235
+ 234377 words of memory out of 5000000
  11329 multiletter control sequences out of 15000+600000
  14817 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,21n,45p,411b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Appendix.1.C} has been referenced but does not ex
-ist, replaced by a fixed one
-
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (62 pages, 410267 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (63 pages, 412201 bytes).
 PDF statistics:
- 749 PDF objects out of 1000 (max. 8388607)
- 653 compressed objects within 7 object streams
- 161 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 752 PDF objects out of 1000 (max. 8388607)
+ 655 compressed objects within 7 object streams
+ 162 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

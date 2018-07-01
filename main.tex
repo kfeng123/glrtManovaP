@@ -1349,7 +1349,7 @@ Let $\bU_{\bY,2}$ denote the $(r+1)$ to $n$th columns of $\bU_\bY$.
         =
         \blambda_i
         +
-        n^{-1}\sum_{i=r+1}^p\blambda_i
+        n^{-1}\mytr(\bLambda_2)
         +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right).
     \end{equation}
 And 
@@ -1357,9 +1357,7 @@ And
     \begin{split}
      &\sum_{i=r+1}^p\lambda_i(\hat{\bSigma})
     =
-\mytr(\bLambda_2)
-    -
-    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    \left(1-\frac{r}{n}\right)\mytr(\bLambda_2)
     +O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}\right)
     .
     \end{split}
@@ -1376,8 +1374,8 @@ And
         \\
         =&
         n^{-1}\bZ_1^T \bLambda_1 \bZ_1+
-        n^{-1}(\sum_{i=r+1}^p\blambda_i)\bI_n+
-        n^{-1}\left(\bZ_2^T \bLambda_2 \bZ_2-(\sum_{i=r+1}^p\blambda_i)\bI_n\right)
+        n^{-1}\mytr(\bLambda_2)\bI_n+
+        n^{-1}\left(\bZ_2^T \bLambda_2 \bZ_2-\mytr(\bLambda_2)\bI_n\right)
         .
         \end{split}
     \end{equation*}
@@ -1390,10 +1388,13 @@ And
         -
         \lambda_i(n^{-1}\bZ_1^T \bLambda_1 \bZ_1)
         -
-        n^{-1}\sum_{i=r+1}^p\blambda_i
+        n^{-1}
+        \mytr(\bLambda_2)
         \right|
         \leq
-        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|.
+        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-
+        \mytr(\bLambda_2)
+        \bI_n\right\|.
         \end{split}
     \end{equation}
     Using Weyl's inequality, we can derive the following lower bound for $\lambda_i(n^{-1}\bZ_1^T \bLambda_1 \bZ_1)$, $ i=1,\ldots, r$.
@@ -1456,11 +1457,11 @@ Combining the bounds~\eqref{eigenBoundForF} and~\eqref{eigenBoundForA} gives tha
         -
         \blambda_i
         -
-        n^{-1}\sum_{i=r+1}^p\blambda_i
+        n^{-1}\mytr(\bLambda_2)
         \right|
         \\
         \leq&
-        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|
+        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-\mytr(\bLambda_2) \bI_n\right\|
         +\blambda_i \|n^{-1}\bZ_1\bZ_1^T -\bI_r\|.
     \end{split}
 \end{equation*}
@@ -1471,7 +1472,7 @@ Combining the bounds~\eqref{eigenBoundForF} and~\eqref{eigenBoundForA} gives tha
             O_P\left(\sqrt{\frac{r}{n}}\right),
         \\
         \label{conB2B}
-        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|&=O_P\left(\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right).
+        n^{-1}\left\|\bZ_2^T \bLambda_2 \bZ_2-\mytr(\bLambda_2)\bI_n\right\|&=O_P\left(\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right).
 \end{align}
 Then~\eqref{eigenvalueProp:R1} follows.
 
@@ -1486,10 +1487,16 @@ To prove~\eqref{eigenvalueProp:R2}, we note that
     \mytr (n^{-1}\bZ^T \bLambda \bZ) -\sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
     \\
     =&
-    \mytr (n^{-1}\bZ_1^T \bLambda_1 \bZ_1)
-    +
     \mytr (n^{-1}\bZ_2^T \bLambda_2 \bZ_2)
-    -\sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    -\frac{r}{n} \mytr(\bLambda_2)
+    \\
+    &-
+    \left(
+    \sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
+    -
+    \mytr (n^{-1}\bZ_1^T \bLambda_1 \bZ_1)
+    -\frac{r}{n} \mytr(\bLambda_2)
+\right)
     .
     \end{split}
 \end{equation*}
@@ -1498,11 +1505,12 @@ It follows from inequalities~\eqref{eigenBoundForF} and~\eqref{conB2B} that
     \begin{split}
     &\left|
     \sum_{i=1}^r\lambda_i(n^{-1}\ \bZ^T \bLambda \bZ)
-    -\mytr (n^{-1}\bZ_1^T \bLambda_1 \bZ_1)- \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    -\mytr (n^{-1}\bZ_1^T \bLambda_1 \bZ_1)- 
+    \frac{r}{n}\mytr(\bLambda_2)
     \right|
     \\
     \leq & \frac{r}{n}
-    \left\|\bZ_2^T \bLambda_2 \bZ_2-(\sum_{i=r+1}^p\blambda_i)\bI_n\right\|
+    \left\|\bZ_2^T \bLambda_2 \bZ_2-\mytr(\bLambda_2)\bI_n\right\|
     =
     O_P\left(
     r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}
@@ -1516,7 +1524,7 @@ Thus,
     =
     \mytr (n^{-1}\bZ_2^T \bLambda_2 \bZ_2)
     -
-    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    \frac{r}{n}\mytr(\bLambda_2)
     +O_P\left(
     r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}
     \right)
@@ -1537,7 +1545,7 @@ Hence
     =&
 \mytr(\bLambda_2)+O_P\left(\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}\right)
     -
-    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    \frac{r}{n}\mytr(\bLambda_2)
     +O_P\left(
     r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}
 \right)
@@ -1545,7 +1553,7 @@ Hence
     =&
 \mytr(\bLambda_2)
     -
-    \frac{r}{n}\sum_{i=r+1}^p \blambda_i
+    \frac{r}{n}\mytr(\bLambda_2)
     +O_P\left(
     r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}
 \right)
@@ -1553,8 +1561,34 @@ Hence
     \end{split}
 \end{equation*}
 This completes the proof of~\eqref{eigenvalueProp:R2}.
-
 \end{proof}
+\begin{proposition}
+    Suppose that $r=o(n)$ and $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$.
+    Then
+    \begin{equation*}
+        \sum_{i=r+1}^p \lambda_i (\hat{\bSigma}^2)=
+    \end{equation*}
+    \label{eigenvalueProp:R3}
+\end{proposition}
+\begin{proof}
+    We only need to deal with $n^{-2}(\bZ^T \bLambda \bZ)^2$ since it shares the same non-zero eigenvalues as $\hat{\bSigma}^2$.
+    It can be seen that
+    \begin{equation*}
+        n^{-2}(\bZ^T \bLambda \bZ)^2
+        =
+        \bR+ n^{-2} (\bZ_2^T \bLambda_2 \bZ_2)^2,
+    \end{equation*}
+    where 
+    $
+    \bR=n^{-2}( \bZ_1^T \bLambda_1 \bZ_1)^2+n^{-2} \bZ_1^T \bLambda_1 \bZ_1\bZ_2^T \bLambda_2 \bZ_2+n^{-2} \bZ_2^T \bLambda_2 \bZ_2\bZ_1^T \bLambda_1 \bZ_1
+    $
+    is a symmetric matrix with rank at most $2r$.
+    Furthermore, the condition $r=o(n)$ and $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ imply that $\bR$ is positive definite with probability tending to $1$.
+    To see this, note that~\eqref{eigenBoundForA} and~\eqref{conB2B1} imply that $\lambda_r(n^{-2}( \bZ_1^T \bLambda_1 \bZ_1)^2)=(1+o_P(1))\blambda_r^2$, and~\eqref{} implies that
+    
+\end{proof}
+
+
 
 \begin{proposition}\label{newEigenvectorProp}
     Suppose that $r=o(n)$ and $r\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
