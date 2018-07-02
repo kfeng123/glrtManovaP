@@ -1562,30 +1562,164 @@ Hence
 \end{equation*}
 This completes the proof of~\eqref{eigenvalueProp:R2}.
 \end{proof}
+
+Define $\widehat{\mytr(\bLambda_2)}=(1-{r}/{n})^{-1}\sum_{i=r+1}^p \lambda_i (\hat{\bSigma})$ and
+$\widehat{\mytr(\bLambda_2^2)}=\sum_{i=r+1}^n (\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)})^2$.
 \begin{proposition}
-    Suppose that $r=o(n)$ and $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$.
+    \label{eigenvalueProp:R3}
+    Suppose that $r=o(n)$, $\blambda_{r+1}/\blambda_r\to 0$ and $\mytr(\bLambda_2)/n\blambda_{r}\to 0$.
     Then
     \begin{equation*}
-        \sum_{i=r+1}^p \lambda_i (\hat{\bSigma}^2)=
+\widehat{\mytr(\bLambda_2^2)}
+        =
+         \mytr(\bLambda_2^2)
+        +
+        O_P\left(rn^{-1} \mytr(\bLambda_2^2) + r  \blambda_{r+1}^2\right).
     \end{equation*}
-    \label{eigenvalueProp:R3}
 \end{proposition}
 \begin{proof}
-    We only need to deal with $n^{-2}(\bZ^T \bLambda \bZ)^2$ since it shares the same non-zero eigenvalues as $\hat{\bSigma}^2$.
-    It can be seen that
-    \begin{equation*}
-        n^{-2}(\bZ^T \bLambda \bZ)^2
+    We have
+        $
+        \sum_{i=r+1}^n (\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)})^2
         =
-        \bR+ n^{-2} (\bZ_2^T \bLambda_2 \bZ_2)^2,
+        n^{-2}\sum_{i=r+1}^n \lambda_i^2(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n)
+        $.
+        Note that Weyl's inequality implies that for $i=r+1,\ldots,n$,
+        \begin{equation*}
+            \lambda_{i}(\bZ_2^T \bLambda_2 \bZ_2 - \widehat{\mytr(\bLambda_2)}\bI_n)
+            \leq
+            \lambda_i(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n)
+            \leq
+            \lambda_{i-r}(\bZ_2^T \bLambda_2 \bZ_2 - \widehat{\mytr(\bLambda_2)}\bI_n).
+        \end{equation*}
+Define
+$
+    n^*=\max\{i:
+        \lambda_i\left(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n\right)> 0
+    \}
+    $.
+    Then for $i=r+1,\ldots, n^*$,
+    \begin{equation*}
+        \lambda_i^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n) \leq \lambda_i^2(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n)\leq \lambda_{i-r}^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n);
     \end{equation*}
-    where 
+    for $i=n^*+1,\ldots, n^*+r$,
+    \begin{equation*}
+        \lambda_i^2(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n)\leq
+        \max
+        \left(
+            \lambda_{i-r}^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n) 
+        ,
+        \lambda_{i}^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)
+    \right).
+    \end{equation*}
+    for $i=n^*+r+1,\ldots, n$,
+    \begin{equation*}
+        \lambda_{i-r}^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n) \leq \lambda_i^2(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n)\leq \lambda_{i}^2(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n).
+    \end{equation*}
+    Therefore,
+    \begin{equation}\label{abcd0}
+        \begin{split}
+            &\left|
+            \sum_{i=r+1}^n \lambda_i^2\left(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            -\mytr(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)^2
+            \right|
+            \\
+            \leq&
+            \left|
+            \sum_{i=r+1}^{n^*} \lambda_i^2\left(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            -\sum_{i=1}^{n^*}\lambda_i^2\left(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            \right|
+            \\
+            &+
+            \left|
+            \sum_{i=n^*+1}^{n^* +r} \lambda_i^2\left(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            \right|
+            \\
+            &+
+            \left|
+            \sum_{i=n^*+r+1}^{n} \lambda_i^2\left(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            -\sum_{i=n^*+1}^{n}\lambda_i^2\left(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            \right|
+            \\
+            \leq & 3r \|\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n\|^2\\
+            \leq & 3r \left(\|\bZ_2^T \bLambda_2 \bZ_2-\mytr(\bLambda_2)\bI_n\|+\left|\mytr(\bLambda_2)-\widehat{\mytr(\bLambda_2)}\right|\right)^2\\
+            = & 
+            O_P\left(rn \mytr(\bLambda_2^2) + r n^2 \blambda_{r+1}^2\right)
+            .
+        \end{split}
+    \end{equation}
+    where the last equality follows from~\eqref{conB2B}.
+
+    Now we deal with $\mytr(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)^2$.
+    Let $Z_{2,i}$ be the $i$th column of $\bZ_2$.
+    Then
+    \begin{equation*}
+        \mytr(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)^2
+        =
+        \sum_{i=1}^n (Z_{2,i}^T \bLambda_2 Z_{2,i}-\widehat{\mytr(\bLambda_2)})^2
+        +
+        2\sum_{1\leq i<j\leq n} (Z_{2,i}^T \bLambda_2 Z_{2,j})^2.
+    \end{equation*}
+    For the first term, we have 
+    \begin{equation*}
+        \sum_{i=1}^n (Z_{2,i}^T \bLambda_2 Z_{2,i}-\widehat{\mytr(\bLambda_2)})^2
+        \leq
+        2\sum_{i=1}^n (Z_{2,i}^T \bLambda_2 Z_{2,i}-\mytr(\bLambda_2))^2
+        +2n(\widehat{\mytr(\bLambda_2)}-\mytr(\bLambda_2))^2.
+    \end{equation*}
+    Then the facts $|\widehat{\mytr(\bLambda_2)}-\mytr(\bLambda_2)|=O_P(r\sqrt{\mytr(\bLambda_2^2)/n}+r\blambda_{r+1})$ and
     $
-    \bR=n^{-2}( \bZ_1^T \bLambda_1 \bZ_1)^2+n^{-2} \bZ_1^T \bLambda_1 \bZ_1\bZ_2^T \bLambda_2 \bZ_2+n^{-2} \bZ_2^T \bLambda_2 \bZ_2\bZ_1^T \bLambda_1 \bZ_1
-    $
-    is a symmetric matrix with rank at most $2r$.
-    Furthermore, the condition $r=o(n)$ and $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ imply that $\bR$ is positive definite with probability tending to $1$.
-    To see this, note that~\eqref{eigenBoundForA} and~\eqref{conB2B1} imply that $\lambda_r(n^{-2}( \bZ_1^T \bLambda_1 \bZ_1)^2)=(1+o_P(1))\blambda_r^2$, and~\eqref{} implies that
-    
+        \myE
+        \sum_{i=1}^n (Z_{2,i}^T \bLambda_2 Z_{2,i}-\mytr(\bLambda_2))^2
+        =2n \mytr(\bLambda_2^2)
+        $ lead to
+        \begin{equation}\label{abcd1}
+        \sum_{i=1}^n (Z_{2,i}^T \bLambda_2 Z_{2,i}-\widehat{\mytr(\bLambda_2)})^2
+        =O_P\left((n+r^2)\mytr(\bLambda_2^2)+r^2 n \blambda_{r+1}^2\right).
+\end{equation}
+    For the second term, it is straightforward to show that
+    $\myE 2\sum_{1\leq i<j\leq n} (Z_{2,i}^T \bLambda_2 Z_{2,j})^2=n(n-1)\mytr(\bLambda_2^2)$.
+    Furthermore, \cite{chen2010tests}, Proposition A.2 implies that
+    \begin{equation*}
+        \begin{split}
+        \myVar\left(
+            2\sum_{1\leq i<j\leq n} (Z_{2,i}^T \bLambda_2 Z_{2,j})^2
+        \right)
+        =& O\left(
+            n^2 \mytr^2 (\bLambda_2^2) + n^3 \mytr(\bLambda_2^4)
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bLambda_2^2) + n \mytr(\bLambda_{2}^2) n^2 \blambda_{r+1}^2
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bLambda_2^2) + n^4 \blambda_{r+1}^4
+        \right)
+        .
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+            2\sum_{1\leq i<j\leq n} (Z_{2,i}^T \bLambda_2 Z_{2,j})^2
+            =
+            n^2 \mytr(\bLambda_2^2)+O_P\left( n \mytr(\bLambda_2^2)+ n^{2}\blambda_{r+1}^2\right).
+    \end{equation*}
+    Combining the last display and~\eqref{abcd1} yields
+    \begin{equation*}
+        \mytr(\bZ_2^T \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)^2
+        =
+        n^2 \mytr(\bLambda_2^2)+O_P\left( (n+r^2) \mytr(\bLambda_2^2)+ (n+r^2)n\blambda_{r+1}^2\right)
+        .
+    \end{equation*}
+    Then from the last display and~\eqref{abcd0}, we have
+    \begin{equation*}
+            \sum_{i=r+1}^n \lambda_i^2\left(\bY^T \bY-\widehat{\mytr(\bLambda_2)}\bI_n\right)
+            =
+            O_P\left(rn \mytr(\bLambda_2^2) + r n^2 \blambda_{r+1}^2\right).
+    \end{equation*}
+    This completes the proof.
+
 \end{proof}
 
 
