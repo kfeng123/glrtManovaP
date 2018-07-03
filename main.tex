@@ -1567,8 +1567,8 @@ Define $\widehat{\mytr(\bLambda_2)}=(1-{r}/{n})^{-1}\sum_{i=r+1}^p \lambda_i (\h
 $\widehat{\mytr(\bLambda_2^2)}=\sum_{i=r+1}^n (\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)})^2$.
 \begin{proposition}
     \label{eigenvalueProp:R3}
-    Suppose that $r=o(n)$, $\blambda_{r+1}/\blambda_r\to 0$ and $\mytr(\bLambda_2)/n\blambda_{r}\to 0$.
-    Then
+    Suppose that $r=o(n)$,
+    then
     \begin{equation*}
 \widehat{\mytr(\bLambda_2^2)}
         =
@@ -3342,7 +3342,8 @@ This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly 
     Write $\bSigma=\bU_1 \bLambda_1 \bU_1^T+\bU_2 \bLambda_2 \bU_2^T$.
     Note that $\bU_1 \bLambda_1 \bU_1^T$ is of rank $r$.
     Then Weyl's inequality implies that for $i=r+1,\ldots,p-n$, 
-    \begin{align*}
+    \begin{align}
+        \label{yanyan1}
     &\lambda_i \left(
          (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
     \right)
@@ -3351,6 +3352,7 @@ This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly 
          (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^T (\bI_p- \bP_{\bY})
      \right),
      \\
+     \label{yanyan2}
      &
     \lambda_i \left(
          (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
@@ -3359,7 +3361,7 @@ This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly 
     \lambda_{i-r} \left(
          (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^T (\bI_p- \bP_{\bY})
      \right).
-    \end{align*}
+    \end{align}
     Hence we have
     \begin{equation}\label{jojo2}
         \begin{split}
@@ -3550,7 +3552,7 @@ This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly 
     \right)
     =o_P\left(n(\blambda_{r+1}-\blambda_p)\right).
 \end{equation*}
-It follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
+It then follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
 \begin{equation*}
     \begin{split}
         &\mytr\left(
@@ -3572,11 +3574,34 @@ Then the conclusion follows from~\eqref{jojo2} and the last display.
 
 \begin{lemma}\label{gg:Lemma2}
     \begin{equation}\label{eq:spiketrace1}
-    \mytr\big(\bLambda^{1/2} \bU^T (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2 
+        \sum_{i=r+1}^{p}\lambda_i^2\left(
+         (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)
  =(1+o_P(1))\mytr(\bLambda_2^2).
     \end{equation}
 \end{lemma}
 \begin{proof}
+    From~\eqref{yanyan1} and~\eqref{yanyan2}, we have
+    \begin{equation}\label{jojo100}
+        \begin{split}
+        &\left\|
+        \sum_{i=r+1}^{p}\lambda_i^2\left(
+         (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)
+    -
+        \mytr\left(
+         (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^T (\bI_p- \bP_{\bY})
+    \right)^2
+    \right\|
+    \\
+    \leq&
+    r\lambda_1^2 \left(
+         (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^T (\bI_p- \bP_{\bY})
+    \right)
+    \\
+    \leq & r \blambda_{r+1}^2.
+        \end{split}
+    \end{equation}
 \end{proof}
 
 \begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
