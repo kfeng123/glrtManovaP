@@ -178,18 +178,18 @@ This paper considers the problem of multivariate analysis of variance for normal
 \noindent {\bf 1. Introduction}
 
 Suppose there are $k$ ($k\geq 2$) independent samples of $p$-dimensional data.
-Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (iid) as $\mathcal{N}_p(\theta_i,\bSigma)$, the $p$-dimensional normal distribution with mean vector $\theta_i$ and common variance matrix $\bSigma$.
-%Suppose there are $k$ normal populations with possibly different means $\theta_1,\ldots,\theta_k$, but all with the same variance $\bSigma$.
-%Suppose we observe $k$ independent random samples, each from the distribution $\mathcal{N}_p(\theta_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\theta_i$ and $\bSigma$ are unknown parameters.
+Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (iid) as $\mathcal{N}_p(\xi_i,\bSigma)$, the $p$-dimensional normal distribution with mean vector $\xi_i$ and common variance matrix $\bSigma$.
+%Suppose there are $k$ normal populations with possibly different means $\xi_1,\ldots,\xi_k$, but all with the same variance $\bSigma$.
+%Suppose we observe $k$ independent random samples, each from the distribution $\mathcal{N}_p(\xi_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\xi_i$ and $\bSigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
 We would like to test the hypotheses
 \begin{equation}\label{hypothesis}
-    H_0: \theta_1=\theta_2=\cdots=\theta_k\quad \text{v.s.}\quad　H_1: \text{$\theta_i\neq \theta_j$ for some $i\neq j$}.
+    H_0: \xi_1=\xi_2=\cdots=\xi_k\quad \text{v.s.}\quad　H_1: \text{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 \end{equation}
-This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared with $N$, where $N=\sum_{i=1}^k n_i$ is the total sample size.
+This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared with $n$, where $n=\sum_{i=1}^k n_i$ is the total sample size.
 
-Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ be the sum-of-squares between groups and $\bG=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^\top$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=N^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
-   There are four classical test statistics for hypotheses~\eqref{hypothesis}, which are all based on the eigenvalues of $\bH\bG^{-1}$. 
+Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ be the sum-of-squares between groups and $\bG=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^\top$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
+   There are four classical test statistics for hypothesis~\eqref{hypothesis}, which are all based on the eigenvalues of $\bH\bG^{-1}$. 
 
    %\begin{IEEEeqnarray*}{CC}
        %\text{Wilks' Lambda:} \qquad& |G+H|/|G|\\
@@ -212,10 +212,10 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ b
 %There are four classical tests for hypothesis~\eqref{hypothesis}: Wilks' Lambda (which is also the LRT), Hotelling-Lawley trace, Pillai Trace and Roy's maximum root.
 
 
-In some modern scientific applications, people would like to test hypotheses~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $N$.
+In some modern scientific applications, people would like to test hypothesis~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $n$.
 See, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
-However, when $p\geq N$, the four classical test statistics are all not defined.
+However, when $p\geq n$, the four classical test statistics are not defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
  So far, most tests are designed for two-sample case, i.e., $k=2$.
   See, for example,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
@@ -227,11 +227,11 @@ However, when $p\geq N$, the four classical test statistics are all not defined.
   %$$
   %where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ and $\bar{\bX}=n^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$.
   $$
-  T_{SC}=\frac{1}{\sqrt{N-1}}\Big(
-  \frac{1}{k-1}\mytr\big(\bH\big)-\frac{1}{N-k}\mytr\big(\bG\big)
+  T_{SC}=\frac{1}{\sqrt{n-1}}\Big(
+  \frac{1}{k-1}\mytr\big(\bH\big)-\frac{1}{n-k}\mytr\big(\bG\big)
   \Big).
   $$
-Statistic $T_{SC}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
+Statistic $T_{SC}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\xi_i-\bar{\xi}\|^2$, where $\bar{\xi}=n^{-1}\sum_{i=1}^k n_i \xi_i$.
 See~\cite{Srivastava2013},~\cite{Yamada2015} and~\cite{Chang2017} for some other sum-of-squares type test statistics.
 In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
@@ -241,15 +241,15 @@ In another work,~\cite{Cai2014High} proposed a test statistic
   Unlike $T_{SC}$, $T_{CX}$ is an extreme value type statistic.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
-  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\theta_i,\bSigma)$ for $1\leq i\leq K$.
+  %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\xi_i,\bSigma)$ for $1\leq i\leq K$.
 %The $k$ samples are independent.
-%%$\theta_i$, $i=1\ldots, k$ and $\bSigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
+%%$\xi_i$, $i=1\ldots, k$ and $\bSigma>0$ are unknown. An interesting problem in multivariate analysis is to test the hypotheses
 %\begin{equation}
-    %H: \theta_1=\theta_2=\cdots=\theta_k\quad v.s.\quad K: \textrm{$\theta_i\neq \theta_j$ for some $i\neq j$}.
+    %H: \xi_1=\xi_2=\cdots=\xi_k\quad v.s.\quad K: \textrm{$\xi_i\neq \xi_j$ for some $i\neq j$}.
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
    The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
-    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>N-k$.
+    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>n-k$.
    In high dimensional setting, both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
     This motivates us to construct a likelihood-based test in high dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
@@ -291,9 +291,9 @@ For most existing tests, however, the asymptotic power decreases as the large ei
  
 \section{Least favorable direction test}\label{methodology}
 We introduce some notations.
- Define the $p\times N$ pooled sample matrix $\bX$ as
+ Define the $p\times n$ pooled sample matrix $\bX$ as
  $$\bX=(X_{11},X_{12},\ldots,X_{1n_1},X_{21},X_{22},\ldots,X_{2n_2},\ldots,X_{k1},X_{k2},\ldots,X_{kn_k}).$$
- The sum-of-squares within groups $\bG$ can be written as $\bG=\bX(\bI_N-\bJ\bJ^\top)\bX^\top$ where
+ The sum-of-squares within groups $\bG$ can be written as $\bG=\bX(\bI_n-\bJ\bJ^\top)\bX^\top$ where
  $$
  \bJ=\begin{pmatrix}
      \frac{1}{\sqrt{n_1}}\mathbf{1}_{n_1}&\mathbf{0} & \mathbf{0}\\
@@ -302,10 +302,9 @@ We introduce some notations.
      \mathbf{0}&\mathbf{0}&\frac{1}{\sqrt{n_k}}\mathbf{1}_{n_k}
  \end{pmatrix}
  $$
- is an $N\times k$ matrix
+ is an $n\times k$ matrix
  and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to $1$, $i=1,\ldots, k$.
- Let $n=N-k$ be the degrees of freedom of $\bG$.
- Construct an $N\times n$ matrix $\tilde{\bJ}$ as 
+ Construct an $n\times (n-k)$ matrix $\tilde{\bJ}$ as 
  $$
  \tilde{\bJ}=\begin{pmatrix}
      \tilde{\bJ}_1&\mathbf{0} & \mathbf{0}\\
@@ -324,8 +323,8 @@ We introduce some notations.
     0&0&\cdots&0&-\frac{n_i-1}{\sqrt{(n_i-1)n_i}}\\
 \end{pmatrix}.
  $$
-The matrix $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^\top\tilde{\bJ}=\bI_{n}$ and $\tilde{\bJ}\tilde{\bJ}^\top =\bI_N-\bJ\bJ^\top$.
-Define $\bY=\bX\tilde{\bJ}$.
+The matrix $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^\top\tilde{\bJ}=\bI_{n-k}$ and $\tilde{\bJ}\tilde{\bJ}^\top =\bI_n-\bJ\bJ^\top$.
+Let $\bY=\bX\tilde{\bJ}$ be a $p\times (n-k)$ random matrix.
 Then $\bG$ can be written as
 $$\bG=
 \bY \bY^\top.
@@ -333,10 +332,10 @@ $$
 
 The sum-of-squares between groups $\bH$ can be written as
 $$
-        \bH=\bX(\bJ\bJ^\top-\frac{1}{N}\mathbf{1}_N\mathbf{1}_N^\top)\bX^\top
-=\bX \bJ(\bI_k-\frac{1}{N}\bJ^\top\mathbf{1}_N \mathbf{1}_N^\top \bJ)\bJ^\top \bX^\top.
+        \bH=\bX(\bJ\bJ^\top-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^\top)\bX^\top
+=\bX \bJ(\bI_k-\frac{1}{n}\bJ^\top\mathbf{1}_n \mathbf{1}_n^\top \bJ)\bJ^\top \bX^\top.
 $$
-By some matrix algebra, we have $\bI_k-N^{-1}\bJ^\top\mathbf{1}_N \mathbf{1}_N^\top \bJ=\bC\bC^\top$
+By some matrix algebra, we have $\bI_k-\frac{1}{n}\bJ^\top\mathbf{1}_n \mathbf{1}_n^\top \bJ=\bC\bC^\top$
 where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
  $$
 \bC_1=\begin{pmatrix}
@@ -361,9 +360,9 @@ Then $\bH$ can be written as
         \bH=\bX \bJ\bC \bC^\top \bJ^\top \bX^\top.
     \end{aligned}
 \end{equation*}
- Define $\bTheta=(\sqrt{n_1}\theta_1,\ldots,\sqrt{n_k}\theta_k)$
+ Define $\bTheta=(\sqrt{n_1}\xi_1,\ldots,\sqrt{n_k}\xi_k)$
  and the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with all elements equal to $0$.
- Thus, the hypotheses~\eqref{hypothesis} are equivalent to
+ Thus, the hypotheses in~\eqref{hypothesis} are equivalent to
  $$
  H_0:\bTheta \bC=\bO_{p\times (k-1)}\quad \text{v.s.}\quad H_1: \bTheta \bC\neq \bO_{p\times (k-1)}.
  $$
@@ -488,9 +487,9 @@ Roy's maximum root is in fact the component LRT statistic along the least favora
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-Unfortunately, Roy's maximum root can only be defined when $n\geq p$, hence can not be used in the high dimensional setting.
+Unfortunately, Roy's maximum root can only be defined when $n-k\geq p$, hence can not be used in the high dimensional setting.
 %While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
-In what follows, we assume $p>n$.
+In what follows, we assume $p>n-k$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
 %Based on this idea, we have the following heuristic argument to propose a new test statistic.
 In this case,
@@ -522,14 +521,33 @@ Based on $a^*$ and likelihood $L_0(a)$, we propose a new test statistic
         a^\top \bH a.
     \end{aligned}
 \end{equation*}
-The null hypothesis is rejected when $T(\bX)$ is large enough.
+We reject the null hypothesis when $T(\bX)$ is large enough.
 We shall call $T(\bX)$ the LFD test statistic.
 Since the least favorable direction $a^*$ is obtained from the component likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
 Now we derive the explicit forms of LFD test statistic. 
-Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times n$ and $n\times n$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is an $n\times n$ diagonal matrix.
+%Let $J=\mathrm{diag}(n_1^{-1/2}\mathbf{1}_{n_1},\ldots,n_k^{-1/2}\mathbf{1}_{n_k})$.
+%Then the matrices $I_n-JJ^\top$, $JJ^\top-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^\top$ and $\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^\top$ are three $n\times n$ projection matrices which are pairwise orthogonal with rank $n-k$, $k-1$ and $1$.
+%Let $\tilde{J}$ be a $n\times (n-k)$ matrix satisfying $\tilde{J}\tilde{J}^\top =I-JJ^\top$.
+%Note that $I_k-\frac{1}{n}J^\top\mathbf{1}_n \mathbf{1}_n^\top J$ is a $k\times k$ projection matrix with rank $k-1$.
+%Let $C$ be a $k\times (k-1)$ matrix satisfying $CC^\top=I_k-\frac{1}{n}J^\top\mathbf{1}_n \mathbf{1}_n^\top J$.
+%Then 
+%$$
+%G=Z(I_n-JJ^\top)Z^\top=
+%Z\tilde{J}\tilde{J}^\top Z^\top.
+%$$
+%and
+%\begin{equation*}
+    %\begin{aligned}
+        %F=\sum_{i=1}^k n_i (\bar{\mathbf{X}}_i-\bar{\mathbf{X}})(\bar{\mathbf{X}}_i-\bar{\mathbf{X}})^\top 
+        %=Z(JJ^\top-\frac{1}{n}\mathbf{1}_n\mathbf{1}_n^\top)Z^\top
+%=ZJ(I_k-\frac{1}{n}J^\top\mathbf{1}_n \mathbf{1}_n^\top J)J^\top Z^\top
+%=ZJC C^\top J^\top Z^\top.
+    %\end{aligned}
+%\end{equation*}
+Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times (n-k)$ and $(n-k)\times(n-k)$ column orthogonal matrices, $\bD_{Y}$ is an $(n-k)\times (n-k)$ diagonal matrix.
 Let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix on the column space of $\bY$.
 Then Proposition~\ref{optProp} in Appendix implies that
 \begin{equation}\label{statisticForm1}
@@ -585,7 +603,7 @@ Thus,
 \begin{equation}\label{statisticForm2}
     \begin{aligned}
         T(\bX)=
-        \lambda_1 \Big(\bC^\top\big( \bJ^\top (\bX^\top \bX)^{-1}\bJ \big)^{-1}\bC\Big).
+        \lambda_{\max}\Big(\bC^\top\big( \bJ^\top (\bX^\top \bX)^{-1}\bJ \big)^{-1}\bC\Big).
     \end{aligned}
 \end{equation}
 Compared with~\eqref{statisticForm1},~\eqref{statisticForm2} doesn't involve $\bP_{\bY}$.
@@ -600,19 +618,34 @@ $$
 In this case, 
 the least favorable direction coincides with the maximal data piling direction proposed by~\cite{Ahn2010}.
 
-\section{Theoretical analysis}
-We now turn to the analysis of the asymptotic distributions of LFD test statistic.
-Based on these results, a test with asymptotically correct level can be constructed.
-Also, these results allow us to derive the local asymptotic power function of LFD test.
 
+Now we derive the asymptotic distribution of LFD test statistic.
 We are especially interested in the case where variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
-Our results allow the spiked covariance.
-First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the spiked covariance matrix since they play a key role in our analysis.
+To characterize this correlation pattern, we make the following assumption for the eigenvalues of $\bSigma$.
+%In this section, we investigate the asymptotic behavior of the new test statistic when $p$ is much larger than $n$.
+%In high dimensional setting, it is a common phenomenon that the asymptotic distribution of a statistic relies on the covariance structure~\citep{Ma2015A}.
+%We shall derive the asymptotic distribution of our statistic under two different covariance structures: non-spiked covariance and spiked covariance.
 
 
 
 
+\begin{assumption}\label{assumpEigen}
+    Let $\blambda_1\geq \blambda_2\geq \cdots \geq \blambda_p$ be the eigenvalues of $\bSigma$.
+    Suppose there are $r\geq 0$ eigenvalues significantly larger than the others.
+    We assume that
+    \begin{itemize}
+        \item
+     $r=o(n)$.
+\item
+ $c_1 \geq \blambda_{r+1} \geq \ldots \geq \blambda_{p} \geq c_2$ for some positive absolute constants $c_1$ and $c_2$.
+            \item
+    If $r\neq 0$, we assume 
+    $$\frac{\blambda_r n}{p}\to \infty,\quad
+    \frac{\blambda_1^2 pr^2}{\blambda_r^2 n^2}\to 0\quad
+        \frac{\log \blambda_r}{n}\to 0.$$
+    \end{itemize}
+\end{assumption}
 
 \begin{remark}
     If $r=0$, Assumption~\ref{assumpEigen} becomes
@@ -811,7 +844,7 @@ $$
 $$
 There's a random term $\bP_{\bY}$ in the expression.
 To overcome this,
-suppose $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
+suppose $\sqrt{n_i} \xi_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
 In this case,
 $
 \psi^{-1}\bC^\top \bTheta^\top \bTheta \bC$
@@ -901,7 +934,7 @@ LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 %\mytr \big(CMZJ\big)
 %$$
 %$ZJ=(\sqrt{n_1}\bar{\bX}_1,\ldots,\sqrt{n_k}\bar{\bX}_k)$.
-%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim \mathcal{N}_{k-1}(\sqrt{n_i}CM\theta_i,CM\bSigma M^\top C^\top)$.
+%Note that $CM\sqrt{n_i}\bar{\bX}_i\sim \mathcal{N}_{k-1}(\sqrt{n_i}CM\xi_i,CM\bSigma M^\top C^\top)$.
 %Hence we have that
 %$$
 %\mytr \big(CMZJ\big)
@@ -993,8 +1026,8 @@ We denote these two tests by  SC and  CX, respectively.
 %Note that the new test is invariant under orthogonal transformation.
 We take $r=2$ and $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
 We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we set $\theta_1=\kappa 1_p$, $\theta_2=-\kappa 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
-In the sparse case, we set $\theta_1=\kappa (1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
+In the non-sparse case, we set $\xi_1=\kappa 1_p$, $\xi_2=-\kappa 1_p$ and $\xi_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
+In the sparse case, we set $\xi_1=\kappa (1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\xi_2=\kappa (\mathbf{0}_{p/5}^\top, 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\xi_3=\mathbf{0}_p$.
 Again, $\kappa$ is selected to make the SNR equal to specific values.
 The empirical power is computed based on $1000$ simulations.
 The simulation results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
@@ -1006,7 +1039,7 @@ For comparison, we carry out simulations for the test of~\cite{Srivastava2007Mul
 We denote these tests by SR, CQ, CLX and FZWZ, respectively.
 Let the diagonal elements of $\Sigma$ be $1$ and the off-diagonal elements of $\Sigma$ be $\rho$ with $0\leq \rho<1$.
 The parameter $\rho$ characterizes the correlations between variables.
-We set $\theta_1=\kappa (\textbf{1}_{p/2}^\top,-\textbf{1}_{p/2}^\top)^\top$ and $\theta_2=\mathbf{0}_p$, where $\kappa$ is selected such that SNR equals to $5$.
+We set $\xi_1=\kappa (\textbf{1}_{p/2}^\top,-\textbf{1}_{p/2}^\top)^\top$ and $\xi_2=\mathbf{0}_p$, where $\kappa$ is selected such that SNR equals to $5$.
 Figure~\ref{figure1} plots the empirical power versus $\rho$, where empirical power is computed based on 1000 simulations.
 We can see that the empirical power of LFD test holds nearly constant as $\rho$ varies while the empirical powers of~\cite{Chen2010A} and~\cite{Feng2014Two}'s tests decrease as $\rho$ increases.
 When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is larger than $0.1$, LFD test outperforms all other tests.
@@ -3018,10 +3051,9 @@ This completes the proof.
     \right)
     \\
     =&\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
-    +
-    O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)
-    +r\blambda_{r+1}
-    \right).
+    +o_P\left(n(\blambda_{r+1}-\blambda_p)\right)
+    +O_P\left(r\blambda_{r+1}\right)
+    .
     \end{split}
 \end{equation*}
 \end{lemma}
@@ -3160,8 +3192,7 @@ This completes the proof.
         \right\|
     \right)
     \\
-    =&
-    O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)\right),
+    =&O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}\right)\right),
            \end{split}
        \end{equation}
        where the last equality follows from Corollary~\ref{newEigenvectorPropCor} and Corollary~\ref{eigenvectorprop3}.
@@ -3220,6 +3251,8 @@ This completes the proof.
 \leq & 2n \mytr(\bLambda_2^2) (\blambda_{r+1}-\blambda_p)^2
 \\
 \leq & 2n \blambda_{r+1}\mytr(\bLambda_2) (\blambda_{r+1}-\blambda_p)^2
+\\
+= & o_P\left(\mytr^2(\bLambda_2)(\blambda_{r+1}-\blambda_p)^2\right)
 .
            \end{split}
        \end{equation*}
@@ -3229,15 +3262,14 @@ This completes the proof.
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \left(\bP_{\bY,1}^\dagger+\bP_{\bY,2}^\dagger\right) \bU_2 
     \right)
     %=O_P\left(\frac{\sqrt{n\mytr(\bLambda_2^2)}(\blambda_{r+1}-\blambda_p)}{\mytr(\bLambda_2)}\right)
-    =O_P\left((\blambda_{r+1}-\blambda_p)\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right).
+    =o_P\left(\blambda_{r+1}-\blambda_p\right).
        \end{equation*}
        The last display, combined with~\eqref{jojo1}, leads to
 \begin{equation*}
         \mytr\left(
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \bP_{\bY} \bU_2 
     \right)
-    =
-    O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)\right).
+    =o_P\left(n(\blambda_{r+1}-\blambda_p)\right).
 \end{equation*}
 It then follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
 \begin{equation*}
@@ -3247,10 +3279,13 @@ It then follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
     \right)
     \\
     =&\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
-    +
-    O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)
-    +r\blambda_{r+1}
-    \right).
+    +o_P\left(n(\blambda_{r+1}-\blambda_p)\right)
+    +O_P\left(\frac{r\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\right)
+    \\
+    =&\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
+    +o_P\left(n(\blambda_{r+1}-\blambda_p)\right)
+    +O_P\left(r\blambda_{r+1}\right)
+    .
     \end{split}
 \end{equation*}
 Then the conclusion follows from~\eqref{jojo2} and the last display.
@@ -3303,11 +3338,12 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     For the second term, we have
     \begin{equation*}
         \begin{split}
-        \left|
+        &\left|
  \mytr(\bLambda_2^2 \bU_2^\top \bP_\bY \bU_2)
  -
  \frac{\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}\mytr( \bU_2^\top \bP_\bY \bU_2)
  \right|
+ \\
         =&\left|
         \mytr\left(\left(\bLambda_2^2-\frac{\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}\bI_{p-r}\right)  \bU_2^\top \bP_\bY \bU_2\right)
  \right|
@@ -3326,7 +3362,7 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
 +
 O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     \end{equation*}
-    For the third term, von Neumann's trace theorem implies that
+    For the third term, we have
     \begin{equation*}
         \begin{split}
      &\left|
@@ -3359,7 +3395,7 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
         .
         \end{split}
     \end{equation*}
-    Therefore, the third term satisfies
+    Therefore,
     \begin{equation*}
      \mytr(\bLambda_2 \bU_2^\top \bP_\bY \bU_2)^2
  =
