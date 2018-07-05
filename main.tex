@@ -1266,8 +1266,11 @@ We leave it for future research.
 \end{equation*}
 where $|\omega|_2=\sqrt{\sum_{i=1}^n \omega_i^2}$ and $|\omega|_{\infty}=\max_{1\leq i\leq n}|\omega_i|$.
 \end{lemma}
+\begin{remark}
+    Our proof implies that the conclusion is still valid if $\omega$ is random and is independent of $\{Z_i\}_{i=1}^n$.
+\end{remark}
 \begin{proof}
-    This proof is adapted from the proof of Theorem 5.39 in~\cite{Vershynin2010Introduction}.
+    Our proof is adapted from the proof of Theorem 5.39 in~\cite{Vershynin2010Introduction}.
     By Lemma 5.2 and Lemma 5.4 of~\cite{Vershynin2010Introduction}, there exists a set $\mathcal{C}\subset \{x\in\mathbb{R}^m: |x|_2=1\}$ satisfying $\text{Card} (\mathcal{C})\leq 9^m$ such that for any $m\times m$ symmetric matrix $\bA$,
     \begin{equation}\label{eq:b1}
     \|A\|\leq 2\max_{x\in\mathcal{C}} x^\top \bA x.
@@ -2058,7 +2061,7 @@ $
         \Big\|
         +\left\| \bU_2 \bQ \bQ^\top \bU_2^\top \right\|
         \\
-        =&2 \left\| \bQ^T \bQ\right\|
+        =&2 \left\| \bQ^\top \bQ\right\|
         .
         \end{split}
     \end{equation*}
@@ -2067,7 +2070,7 @@ $
         \begin{split}
         \|\bQ^\top \bQ \|
         =& \left\|
-        \bLambda_1^{-1/2} (\bZ_1 \bZ_1^T)^{-1/2} \bV_{\bZ_1}^T \bZ_2^T \bLambda_2 \bZ_2 \bV_{\bZ_1} (\bZ_1 \bZ_1^T)^{-1/2} \bLambda_1^{-1/2}
+        \bLambda_1^{-1/2} (\bZ_1 \bZ_1^\top)^{-1/2} \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1} (\bZ_1 \bZ_1^\top)^{-1/2} \bLambda_1^{-1/2}
         \right\|
         \\
         \leq &
@@ -2426,8 +2429,13 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
             \bP_{\bY,2}^{\dagger}
             \right\|
     = 
-    o_P(1)
-    ,
+    O_P\left(
+        \min\left(
+        \sqrt{\frac{\mytr(\bLambda_2) \blambda_1}{n\blambda_r^2}}
+    ,1\right)
+    \right)
+    +
+    O_P\left(\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right),
     \end{equation*}
     where $
             \bP_{\bY,2}^{\dagger}=
@@ -2441,14 +2449,11 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
     it can be seen that
     \begin{equation*}
         \begin{split}
-            &\Big\|
-            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
-            \left(\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}\right)^{-1}
-            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
+            \Big\|
+            \bP_{\bY,2}^{*}
             -
             \bP_{\bY,2}^{\dagger}
             \Big\|
-            \\
             =&
             \left(\mytr(\bLambda_2)\right)^{-1}
             \left\|
@@ -2456,11 +2461,17 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
             -
             \mytr(\bLambda_2)
             \bI_{n-r}
-            \right\|\\
-            =&o_P(1),
+            \right\|
+            \\
+            =&
+            O_P\left(\frac{\sqrt{n\mytr(\bLambda_2^2)}}{\mytr(\bLambda_2)}+\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}\right)
+            \\
+            =&
+            O_P\left(\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)
+            ,
         \end{split}
     \end{equation*}
-    where the last equality follows from \eqref{choc8}.
+    where the second last equality follows from \eqref{choc8} and the last equality follows from the fact ${\sqrt{n\mytr(\bLambda_2^2)}}/{\mytr(\bLambda_2)}\leq{\sqrt{n\blambda_{r+1}/\mytr(\bLambda_2)}}$ and the condition ${\sqrt{n\blambda_{r+1}/\mytr(\bLambda_2)}}\to 0$.
     Then the conclusion follows from the last display and Proposition~\ref{eigenvectorprop2}.
      
 \end{proof}
@@ -2534,7 +2545,7 @@ Then
     \bZ^{\dagger T} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}=
 \sum_{i=1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top,
 \end{equation}
-where $\eta_i\overset{iid}{\sim} \mathcal{N}(0,\bI_{k-1})$, $i=1,\ldots,p$.
+where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random variables.
 
 
 
@@ -2660,7 +2671,7 @@ Note that
          \blambda_{r+1}
          +
          \left\|
-         \bLambda_1^{1/2} (\bZ_1 \bZ_1^\top)^{-1} \bZ_1 \bZ_2^\top \bLambda_2^{1/2}
+         \bLambda_1^{1/2} (\bZ_1 \bZ_1^\top)^{-1/2} \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2}
          \right\|
          +
          \blambda_{r+1}\|\bQ^\top \bQ\|^{1/2}
@@ -2725,7 +2736,7 @@ Thus,
              \blambda_{r+1}(1+2\|\bQ^\top \bQ\|^{1/2}+\|\bQ^\top \bQ\|)
              \\
              = &
-             o_P\left(n^{-1}\mytr(\bLambda_2)\right)
+             O_P\left(\blambda_{r+1}\right)
              ,
              \end{split}
          \end{equation}
@@ -2753,7 +2764,7 @@ Thus,
                   \left\|n^{-1}\bZ_1 \bZ_1^\top -\bI_r\right\|
                   \\
                   =&
-                  o_P\left(n^{-1}\mytr(\bLambda_2)\right),
+                  O_P\left(\frac{r^{1/2}\mytr(\bLambda_2)}{n^{3/2}}\right),
      \end{split}
  \end{equation}
 where the last equality follows from~\eqref{conB2B1} and~\eqref{projCon}.
@@ -2770,11 +2781,78 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
              \right\|
              \\
              =&
-             o_P\left(n^{-1}\mytr(\bLambda_2)\right).
+             O_P\left(
+                 \left(
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     +\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}
+                     +\sqrt{\frac{r}{n}}
+                 \right)
+             \frac{\mytr(\bLambda_2)}{n}\right).
              \end{split}
          \end{equation*}
 
          Thus, the last display, together with Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
+\begin{equation*}
+    \begin{split}
+    \lambda_i\left(
+             (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+         \right)
+             =&
+             n^{-1}\lambda_i\left(
+                  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
+              \right)
+              \\
+             &+O_P\left(
+                 \left(
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     +\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}
+                     +\sqrt{\frac{r}{n}}
+                 \right)
+             \frac{\mytr(\bLambda_2)}{n}\right).
+    \end{split}
+\end{equation*}
+Note that
+\begin{equation*}
+    \begin{split}
+                  &\left\|
+                  n^{-1}\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
+              \right.
+              \\
+              &\left.
+                  -\left(
+                      n^{-1}\mytr(\bLambda_2)\bI_r
+                  -
+            \left(n\mytr(\bLambda_2)\right)^{-1}
+            \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
+                  \right)
+                  \right\|
+                  \\
+                  \leq&
+                  \left\|n^{-1}\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}-
+                      n^{-1}\mytr(\bLambda_2)\bI_r
+                  \right\|
+                  \\
+                  &+
+                  n^{-1}\left\|\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
+            \left\|\bP_{\bY,2}-
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2}
+            \right\|
+            \\
+            =& O_P\left(
+                \left(
+                    \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}
+                    +
+            \sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
+        \right)
+            \frac{\mytr(\bLambda_2)}{n}\right)
+            ,
+    \end{split}
+\end{equation*}
+where the last equality follows from \eqref{projCon} and Corollary~\ref{eigenvectorprop3}.
+Then it follows from Weyl's inequality that uniformly for $i=1,\ldots, r$,
 \begin{equation}\label{choc3}
     \begin{split}
     &\lambda_i\left(
@@ -2782,116 +2860,91 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
          \right)
          \\
              =&
-             n^{-1}\lambda_i\left(
-                  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
-              \right)
-              +o_P\left(n^{-1}\mytr(\bLambda_2)\right).
-    \end{split}
-\end{equation}
-From Corollary~\ref{eigenvectorprop3} we have
-\begin{equation}\label{jojojo}
-    \begin{split}
-                  &\left\|
-                  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
-              \right.
-              \\
-              &\left.
-                  -\left(
-                      \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
-                  -
-            \left(\mytr(\bLambda_2)\right)^{-1}
+             n^{-1}\mytr(\bLambda_2)
+             -
+             \left(n\mytr(\bLambda_2)\right)^{-1}
+                 \lambda_{r+1-i}\left(
             \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
-                  \right)
-                  \right\|
-                  \\
-                  \leq&
-                  \left\|\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
-            \left\|\bP_{\bY,2}-
-            \left(\mytr(\bLambda_2)\right)^{-1}
-            \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
-            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2}
-            \right\|
-            \\
-            =& o_P(\mytr(\bLambda_2)),
+                 \right) 
+              \\
+             &+O_P\left(
+                 \left(
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     +\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
+                     +\sqrt{\frac{r}{n}}
+                 \right)
+             \frac{\mytr(\bLambda_2)}{n}\right).
     \end{split}
 \end{equation}
-where the last equality follows from \eqref{projCon},
-Now we deal with the term $
+Now we deal with the matrix $
             \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
             $.
             Note that
-            $\bZ_2\bV_{\bZ_1}$
-            and
-            $\bZ_2\tilde{\bV}_{\bZ_1}$
-            both have iid $\mathcal{N}(0,1)$ entries and they are mutually independent.
-            So we can write
-\begin{equation*}
-    \begin{split}
-            &\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
-            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
-            \\
-            =&
-            (\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{1/2}
-            \bZ_2^{\dagger}
-            \bZ_2^{\dagger T}
-            (\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{1/2}.
-    \end{split}
-\end{equation*}
-where $
-\bZ_2^{\dagger}=
-            (\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2 \bZ_2 \bV_{\bZ_1})^{-1/2}
-            \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_{2} \tilde{\bV}_{\bZ_1}
-    $
-    is a $r\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries and is independent of $\bZ_2 \bV_{\bZ_1}$.
-            Hence
-\begin{equation*}
-    \begin{split}
-            \left\|
+        \begin{equation*}
+            
+        \end{equation*}
+            From Lemma~\ref{lemma:con} and some algebra, we have
+$
+        \|
+            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \|
+            =O_P(\mytr(\bLambda_2^2)+n\blambda_{r+1}^2)
+            $.
+Combine these bounds, we have
+    \begin{equation*}
+        \begin{split}
+            &\left\|
             \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
+            -
+            n\mytr(\bLambda_2^2)
+            \bI_r
             \right\|
-            \leq&
-            \left\|
-                \bZ_2^{\dagger}\bZ_2^{\dagger T}
-            \right\|
-            \left\|\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2 \bZ_2 \bV_{\bZ_1}\right\|
-            \\
-            \leq&
-            \blambda_{r+1}
-            \left\|
-                \bZ_2^{\dagger}\bZ_2^{\dagger T}
-            \right\|
-            \left\|\bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}\right\|
-            \\
-            =&o_P\left(\mytr^2(\bLambda_2)\right),
-    \end{split}
-\end{equation*}
-where the last equality follows from \eqref{projCon}, the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ and the fact 
-            $
-            \|
-                \bZ_2^{\dagger}\bZ_2^{\dagger T}
-            \|
-            =O_P(n)$.
-            It then follows from \eqref{projCon},~\eqref{jojojo} and the last display that
+            =
+            O_P\left(
+                \sqrt{rn}\blambda_{r+1}\mytr(\bLambda_2)
+        \right)
+        .
+        \end{split}
+    \end{equation*}
+    The last display, combined with Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
+    \begin{equation*}
+        (n\mytr(\bLambda_2))^{-1}\lambda_i\left(
+            \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1}
+        \right)
+        =
+        \frac{ \mytr(\bLambda_2^2) }{\mytr(\bLambda_2)}+O_P\left(\sqrt{\frac{r}{n}}\blambda_{r+1}\right).
+    \end{equation*}
+    Then~\eqref{choc3} and the last display implies that uniformly for $i=1,\ldots,r$,
 \begin{equation*}
     \begin{split}
-                  &\left\|
-                  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
-                  -
-                      \mytr(\bLambda_2) \bI_r
-                  \right\|
-                  = o_P\left(\mytr(\bLambda_2)\right).
-    \end{split}
-\end{equation*}
-This, together with~\eqref{choc3} and Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
-\begin{equation*}
-    \lambda_i\left(
+    &\lambda_i\left(
              (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
          \right)
-         =(1+o_P(1))n^{-1}\mytr(\bLambda_2).
+         \\
+             =&
+             n^{-1}\mytr(\bLambda_2)
+             -
+             \frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
+             +O_P\left(
+                 \left(
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     +\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
+                     +\sqrt{\frac{r}{n}}
+                 \right)
+             \frac{\mytr(\bLambda_2)}{n}\right).
+    \end{split}
 \end{equation*}
+This completes the proof.
+
+
+
+
+
+
 
 
 \end{proof}
