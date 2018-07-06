@@ -529,7 +529,7 @@ Since the least favorable direction $a^*$ is obtained from the component likelih
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
 Now we derive the explicit forms of LFD test statistic. 
-Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times n$ and $n\times n$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is an $n\times n$ diagonal matrix.
+Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times n$ and $n\times n$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is an $n\times n$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
 Let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix on the column space of $\bY$.
 Then Proposition~\ref{optProp} in Appendix implies that
 \begin{equation}\label{statisticForm1}
@@ -604,46 +604,166 @@ the least favorable direction coincides with the maximal data piling direction p
 We now turn to the analysis of the asymptotic distributions of LFD test statistic.
 Based on these results, a test with asymptotically correct level can be constructed.
 Also, these results allow us to derive the local asymptotic power function of LFD test.
-
+\subsection{Nonspiked covariance}
+\subsection{Spiked covariance}
 We are especially interested in the case where variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
-Our results allow the spiked covariance.
-First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the spiked covariance matrix since they play a key role in our analysis.
+{\color{red} Most existing high dimensional tests do not allow spiked eigenvalues.}
+Our results allow $\bSigma$ to have $r$ spiked eigenvalues, where $1\leq r\leq p$ can also diverge as $n,p\to \infty$.
+
+
+First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the sample covariance matrix $\hat{\bSigma}=n^{-1}\bG=n^{-1}\bY\bY^\top$ since they play a key role in our analysis.
+Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
+Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
+We denote $\bU=(\bU_1,\bU_2)$ where $\bU_1$ and $\bU_2$ are the first $r$ columns and the last $p-r$ columns of $\bU$.
+Denote $\bLambda_1=\mydiag(\blambda_1,\ldots,\blambda_r)$ and $\bLambda_2=\mydiag(\blambda_{r+1},\ldots,\blambda_p)$.
+Then $\bSigma=\bU_1\bLambda_1 \bU_1^\top+\bU_2\bLambda_2 \bU_2^\top$.
+We can write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ is a $p\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
+    Let $\bZ =(\bZ_1^\top,\bZ_2^\top)^\top$, where $\bZ_1$ and $\bZ_2$ are the first $r$ rows and last $p-r$ rows of $\bZ$.
+    Then $\bY=\bU_1 \bLambda_1^{1/2} \bZ_1 +\bU_2 \bLambda_2^{1/2} \bZ_2$.
 
 
 
 
+
+    The following proposition gives the asymptotic behavior of $\lambda_1(\hat{\bSigma}),\ldots, \lambda_r(\hat{\bSigma})$ and $\sum_{i=r+1}^n\lambda_i(\hat{\bSigma})$.
+\begin{proposition}
+    \label{eigenvalueProp}
+    Suppose that $r\leq n$.
+    Then uniformly for $i=1,\ldots, r$, 
+\begin{equation*}
+        %\lambda_i\left(n^{-1}\bZ^\top \bLambda \bZ\right)
+    \lambda_i(\hat{\bSigma})
+        =
+        \blambda_i
+        +
+        n^{-1}\mytr(\bLambda_2)
+        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right);
+    \end{equation*}
+        and
+\begin{equation*}
+     \sum_{i=r+1}^n\lambda_i(\hat{\bSigma})
+    =
+    \left(1-\frac{r}{n}\right)\mytr(\bLambda_2)
+    +O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}\right)
+    .
+\end{equation*}
+\end{proposition}
 
 \begin{remark}
-    If $r=0$, Assumption~\ref{assumpEigen} becomes
-    $
-   c_1 \geq \blambda_{1} \geq \ldots \geq \blambda_{p} \geq c_2
-    $.
-    This is equivalent to Condition (C1) in~\cite{Cai2014High}.
-    In fact, most existing high dimensional tests require conditions like this to avoid large eigenvalues.
-    If $r>0$, the covariance matrix is spiked.
-The spiked covariance model is commonly assumed in the study of PCA theory.
-Many existing works in PCA study assume that $r$ is fixed.
-    Here we allow $r$ to vary as a smaller order of $n$.
+    Recently, the asympotic behavior of the spiked eigenvalues of the sample covariance matrix is actively studied.
+    See, e.g., \cite{Yata2013PCA,Shen2016A,wang2017As,Cai2017Limiting}.
+    An important improvement of Proposition~\ref{eigenvalueProp} over existing results is that Proposition~\ref{eigenvalueProp} does not impose any condition for the structure of $\bSigma$ while still gives the correct convergence rate.
 \end{remark}
-%\begin{remark}
-    %The condition $\blambda_r n/p\to \infty$ requires $\blambda_r$ to be much larger than $p/n$. This is satisfied, for example, for the factor model adopted by~\citet{Ma2015A}.
-%\end{remark}
+
+Based on Proposition~\ref{eigenvalueProp}, we propose the following estimators of  $\mytr(\bLambda_2)$ and $\blambda_1,\ldots,\blambda_r$,
+\begin{equation*}
+    \widehat{\mytr(\bLambda_2)}=\left(1-\frac{r}{n}\right)^{-1}\sum_{i=r+1}^n \lambda_i (\hat{\bSigma})
+    ,\quad
+    \hat{\blambda}_i=\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)},\quad i=1,\ldots,r.
+\end{equation*}
+Moreover, our latter analysis requires an estimator of $\mytr(\bLambda_2^2)$.
+We propose the following estimator of $\mytr(\bLambda_2^2)$,
+\begin{equation*}
+    \widehat{\mytr(\bLambda_2^2)}=\sum_{i=r+1}^n \left(\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)}\right)^2.
+\end{equation*}
+The following proposition gives the convergence rate of these estimators.
+\begin{proposition}
+    \label{eigenvalueProp:R3}
+    Suppose that $r=o(n)$.
+    Then uniformly for $i=1,\ldots, r$, 
+\begin{equation*}
+        %\lambda_i\left(n^{-1}\bZ^\top \bLambda \bZ\right)
+    \hat{\blambda}_i
+        =
+        \blambda_i
+        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right);
+\end{equation*}
+and
+\begin{align*}
+    &\widehat{\mytr(\bLambda_2)}=\mytr(\bLambda_2) + O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{n}}+r\blambda_{r+1}\right),
+        \\
+&\widehat{\mytr(\bLambda_2^2)}
+        =
+         \mytr(\bLambda_2^2)
+        +
+        O_P\left(\frac{r \mytr(\bLambda_2^2)}{n} + r  \blambda_{r+1}^2\right).
+\end{align*}
+\end{proposition}
 \begin{remark}
-    If $r>0$, the harshest condition is $\blambda_1^2 p r^2 /(\blambda_r^2 n^2)\to 0$.
-    If $\blambda_1$ and $\blambda_r$ are of the same order and $r$ is fixed, this condition is equivalent to $p/n^2\to 0$.
-    We require this condition since the PCA consistency results are not valid when $p$ is too large. See, for example,~\citep{Cai2012Sparse}.
-    This condition is unavoidable and the asymptotic behavior of $T(\bX)$ is different if this condition is violated.
+    Our estimators of $\blambda_1,\ldots, \blambda_r$ and $\mytr(\bLambda_2)$ are similar to some existing estimators, e.g., the noise-reduction estimators in~\cite{YATA2012193} and the estimators in~\cite{wang2017As}.
+    However, their theoretical results require that $r$ is fixed, $p$ is not large and $\bSigma$ satisfies certain spiked covariance models.
 \end{remark}
+
+\begin{remark}
+    The estimation of $\mytr(\bLambda_2^2)$ is relatively unexplored.
+    Recently, \cite{Aoshima2018} proposed an estimator of $\mytr(\bLambda_2^2)$ by using the cross-data-matrix methodology.
+    They also proved the consistency of their estimator.
+    Their method relies, however,  on an arbitrary split of the data into two samples of equal size.
+    In comparison, our estimator does not suffer from this problem.
+    Moreover, we give the consistency rate of our estimator.
+\end{remark}
+
+Next we consider the asymptotic behavior of the eigenspaces of $\hat{\bSigma}$.
+If $p\geq n$, then the columns of $\bU_{\bY}$ are in fact the leading $n$ eigenvectors of $\hat{\bSigma}$.
+Let $\bU_{\bY,1}$ and $\bU_{\bY,2}$ denote the first $r$ columns and the last $n-r$ columns of $\bU_{\bY}$, respectively.
+Then $\bU_{\bY,1}\bU_{\bY,1}^\top$ is the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
+And $\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the next $n-r$ eigenvectors.
+{\color{red} If $p<n$, we also use $\bU_{\bY,1}\bU_{\bY,1}^\top$ to denote the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
+}
+
+The properties of $\bU_{\bY,1}\bU_{\bY,1}^\top$ and individual principal vectors have been extensively studied.
+See \cite{Cai2015Optimal}, \cite{Shen2016A}, \cite{wang2017As} and the references therein.
+Most existing work focus on the consistency of the principal subspace or the high-order asymptotic behavior of the individual principal eigenvectors.
+However, these results are not enough for our latter analysis.
+The following proposition gives the high-order asymptotic behavior of $\bU_{\bY,1}\bU_{\bY,1}^\top$.
+To the best of our knowledge, such result has never been appeared in the literature before.
+
+
+
+\begin{proposition}\label{newEigenvectorPropCor}
+    Suppose that $r=o(n)$, $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ and $r \blambda_{r+1}/\mytr(\bLambda_2)\to 0$. Then
+    \begin{equation*}
+        \left\|\bU_{\bY,1}\bU_{\bY,1}^\top - 
+        \bP_{\bY,1}^{\dagger}\right\|
+        =O_P\left(\frac{\mytr(\bLambda_2)}{n\blambda_r}+\frac{\blambda_{r+1}}{\blambda_r}\right),
+    \end{equation*}
+where
+$
+\bP_{\bY,1}^{\dagger}
+=\bU_1 \bU_1^\top + \bU_1 \bQ^\top \bU_2^\top
+            +\bU_2 \bQ \bU_1^\top
+            $ and 
+$\bQ
+       =
+       \bLambda_2^{1/2} \bZ_2 \bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1} \bLambda_1^{-1/2}
+       $.
+\end{proposition}
+\begin{remark}
+    The condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ is commonly adopted in the study of the principal subspaces.
+    In fact, when this condition is violated, the principal subspace will lose its relation to the rank $r$ eigenspace of $\bSigma$. See, e.g., \cite{Nadler2009Finite}.
+\end{remark}
+\begin{remark}
+    Recently, some high-order Davis-Kahan theorems are established, e.g., Lemma 2 in \cite{koltchinskii2016} and Lemma 2 in \cite{fan2017Dist}.
+    These general results explicitly characterizes the linear term and high-order error on rank $r$ eigenspace due to matrix perturbation.
+    By applying these results to $\hat{\bSigma}$ and $\bSigma$, one can obtain similar results as Proposition \ref{newEigenvectorPropCor}.
+    Compared with Proposition \ref{newEigenvectorPropCor},
+    however, the results so obtained are slightly weaker and requires stronger conditions. 
+    %Lemma 2 in \cite{fan2017Dist} uses Frobenius norm and Lemma 2 in \cite{koltchinskii2016} contains an extra factor.
+\end{remark}
+Our latter analysis also requires the asymptotic properties of $\bU_{\bY,2}\bU_{\bY,2}^\top $, which has not been considered in the literature.
+    Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
+    Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
+    Let $\tilde{\bV}_{\bZ_1}$ be a $n\times (n-r)$ column orthogonal matrix which satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
+    The following proposition gives the asymptotic properties of $\bU_{\bY,2}\bU_{\bY,2}^\top $.
+
+
+
 
 
 To establish the asymptotic distribution of $T(\bX)$ under Assumption~\ref{assumpEigen},
 we need following notations.
 Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ and the entries on the diagonal are iid $\mathcal{N}(0,2)$.
-Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
-We denote $\bU=(\bU_1,\bU_2)$ where $\bU_1$ is $p\times r$ and $\bU_2$ is $p\times (p-r)$.
-Denote $\bLambda_1=\mydiag(\blambda_1,\ldots,\blambda_r)$ and $\bLambda_2=\mydiag(\blambda_{r+1},\ldots,\blambda_p)$.
-Then $\bSigma=\bU_1\bLambda_1 \bU_1^\top+\bU_2\bLambda_2 \bU_2^\top$.
 
 The following theorem establishes the asymptotic distribution of LFD test statistic.
 \begin{theorem}\label{thm1}
@@ -1210,7 +1330,7 @@ We leave it for future research.
         See, for example,~\citet{Horn1985Matrix} Theorem 4.3.1.
 \end{lemma}
 \begin{lemma}[von Neumann's trace theorem]
-    Let $\bA$ and $\bB$ be two $m\times n$ matrices. Let $\sigma_1(\bA)\geq \ldots \geq \sigma_q (\bA)$ and $\sigma_1(\bB)\geq \ldots \geq \sigma_q (\bB)$ denote the non-increasingly ordered singular values of $\bA$ and $\bB$, respectively. Then
+    Let $\bA$ and $\bB$ be two $m\times n$ matrices. Let $\sigma_1(\bA)\geq \ldots \geq \sigma_q (\bA)$ and $\sigma_1(\bB)\geq \cdots \geq \sigma_q (\bB)$ denote the non-increasingly ordered singular values of $\bA$ and $\bB$, respectively. Then
     \begin{equation*}
         \mytr(\bA \bB^\top)\leq \sum_{i=1}^{\min(m,n)}\sigma_i(\bA)\sigma_i(\bB).
     \end{equation*}
@@ -1273,45 +1393,10 @@ The upper bound $2\exp\left((2\log 3 -t/4)m\right)$ can be arbitrarily small as 
 This completes the proof.
 \end{proof}
 
-Let $\bU_{\bY,1}$ and $\bU_{\bY,2}$ denote the first $r$ columns and the last $n-r$ columns of $\bU_{\bY}$, respectively.
-We can write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ be a $p\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
-    Let $\bZ =(\bZ_1^\top,\bZ_2^\top)^\top$, where $\bZ_1$ and $\bZ_2$ are the first $r$ rows and last $p-r$ rows of $\bZ$.
-    Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
-    Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
-    Let $\tilde{\bV}_{\bZ_1}$ be a $n\times (n-r)$ column orthogonal matrix which satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
-    Let $
-       \bQ=
-       \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} (\bZ_1 \bZ_1^\top)^{-1/2} \bLambda_1^{-1/2}
-       =
-       \bLambda_2^{1/2} \bZ_2 \bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1} \bLambda_1^{-1/2}
-       $.
-Let $\bU_{\bY,2}$ denote the $(r+1)$ to $n$th columns of $\bU_\bY$.
-    Let $\hat{\bSigma}=n^{-1}\bY\bY^\top$.
-\begin{proposition}
-    \label{eigenvalueProp}
-    Suppose that $r\leq n$.
-    Then uniformly for $i=1,\ldots, r$, 
-\begin{equation*}
-        %\lambda_i\left(n^{-1}\bZ^\top \bLambda \bZ\right)
-    \lambda_i(\hat{\bSigma})
-        =
-        \blambda_i
-        +
-        n^{-1}\mytr(\bLambda_2)
-        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right).
-\end{equation*}
-And 
-\begin{equation*}
-    \begin{split}
-     &\sum_{i=r+1}^p\lambda_i(\hat{\bSigma})
-    =
-    \left(1-\frac{r}{n}\right)\mytr(\bLambda_2)
-    +O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+r\blambda_{r+1}\right)
-    .
-    \end{split}
-\end{equation*}
-\end{proposition}
-\begin{proof}
+
+
+
+\begin{proof}[\textbf{Proof of Proposition~\ref{eigenvalueProp}}]
     We only need to deal with the matrix $n^{-1}\bZ^\top \bLambda \bZ$ since it shares the same non-zero eigenvalues as $\hat{\bSigma}$.
     Write
     \begin{equation*}
@@ -1437,7 +1522,7 @@ This proves the first statement.
 Next we prove the second statement. Note that
 \begin{equation*}
     \begin{split}
-     \sum_{i=r+1}^p\lambda_i(\hat{\bSigma})
+     \sum_{i=r+1}^n\lambda_i(\hat{\bSigma})
     =&
     \sum_{i=r+1}^n\lambda_i(n^{-1}\ \bZ^\top \bLambda \bZ)
     \\
@@ -1478,7 +1563,7 @@ It follows from inequalities~\eqref{eigenBoundForF} and~\eqref{conB2B} that
 \end{equation*}
 Thus,
 \begin{equation*}
-        \sum_{i=r+1}^p\lambda_i(\hat{\bSigma})
+        \sum_{i=r+1}^n\lambda_i(\hat{\bSigma})
     =
     \mytr (n^{-1}\bZ_2^\top \bLambda_2 \bZ_2)
     -
@@ -1498,7 +1583,7 @@ It is straightforward to show that
 Hence
 \begin{equation*}
     \begin{split}
-     &\sum_{i=r+1}^p\lambda_i(\hat \bSigma)
+     &\sum_{i=r+1}^n\lambda_i(\hat \bSigma)
      \\
     =&
 \mytr(\bLambda_2)+O_P\left(\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}\right)
@@ -1521,30 +1606,12 @@ Hence
 This completes the proof of the second statement.
 \end{proof}
 
-Define $\widehat{\mytr(\bLambda_2)}=(1-{r}/{n})^{-1}\sum_{i=r+1}^p \lambda_i (\hat{\bSigma})$ and
-$\widehat{\mytr(\bLambda_2^2)}=\sum_{i=r+1}^n (\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)})^2$.
-\begin{proposition}
-    \label{eigenvalueProp:R3}
-    Suppose that $r=o(n)$,
-    then
-    \begin{equation*}
-        \widehat{\mytr(\bLambda_2)}=\mytr(\bLambda_2) + O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{n}}+r\blambda_{r+1}\right)
-    \end{equation*}
-    and
-    \begin{equation*}
-\widehat{\mytr(\bLambda_2^2)}
-        =
-         \mytr(\bLambda_2^2)
-        +
-        O_P\left(rn^{-1} \mytr(\bLambda_2^2) + r  \blambda_{r+1}^2\right).
-    \end{equation*}
-\end{proposition}
-\begin{proof}
-    The first statement is a direct consequence of Proposition~\ref{eigenvalueProp} and the condition $r=o(n)$.
-    Next we prove the second statement.
+\begin{proof}[\textbf{Proof of Proposition~\ref{eigenvalueProp:R3}}]
+    The first two statements are direct consequences of Proposition~\ref{eigenvalueProp} and the condition $r=o(n)$.
+    Next we prove the third statement.
     We have
         $
-        \sum_{i=r+1}^n (\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)})^2
+        \widehat{\mytr(\bLambda_2^2)}
         =
         n^{-2}\sum_{i=r+1}^n \lambda_i^2(\bY^\top \bY-\widehat{\mytr(\bLambda_2)}\bI_n)
         $.
@@ -1907,22 +1974,7 @@ Then Lemma~\ref{lemma:con} implies that
     Then the conclusion follows from~\eqref{asd1},~\eqref{asd2} and~\eqref{asd3}.
 \end{proof}
 
-\begin{corollary}\label{newEigenvectorPropCor}
-    Suppse the conditions of Proposition~\ref{newEigenvectorProp} hold.
-    If we further assume that $\mytr(\bLambda_2)/(n\blambda_r)\to 0$, then
-    \begin{equation*}
-        \left\|\bU_{\bY,1}\bU_{\bY,1}^\top - 
-        \bP_{\bY,1}^{\dagger}\right\|
-        =O_P\left(\frac{\blambda_{r+1}}{\blambda_r}+\frac{\mytr(\bLambda_2)}{n\blambda_r}\right),
-    \end{equation*}
-where
-$
-\bP_{\bY,1}^{\dagger}
-=\bU_1 \bU_1^\top + \bU_1 \bQ^\top \bU_2^\top
-            +\bU_2 \bQ \bU_1^\top
-            $.
-\end{corollary}
-\begin{proof}
+\begin{proof}[\textbf{Proof of Proposition~\ref{newEigenvectorPropCor}}]
     Note that
     \begin{equation*}
         \begin{split}
@@ -2111,7 +2163,7 @@ $
 
     Note that $\bU_{\bY,2}$ is in fact the first $n-r$ eigenvectors of $(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)$.
     Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$,
-    Corollary~\ref{newEigenvectorPropCor} implies that 
+    Proposition~\ref{newEigenvectorPropCor} implies that 
     \begin{equation*}
         \|\bU_{\bY,1}\bU_{\bY,1}^\top - 
 \bP^\dagger_{\bY,1}
@@ -2558,7 +2610,7 @@ We first deal with
          \bSigma 
          (\bI_p-\bP_{\bY,1})
          $.
-Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$, Corollary~\ref{newEigenvectorPropCor} implies that
+Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$, Proposition~\ref{newEigenvectorPropCor} implies that
 \begin{equation*}\label{rain1}
         \|\bU_{\bY,1}\bU_{\bY,1}^\top - 
 \bP^\dagger_{\bY,1}
@@ -3164,7 +3216,7 @@ This completes the proof.
     O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)\right),
            \end{split}
        \end{equation}
-       where the last equality follows from Corollary~\ref{newEigenvectorPropCor} and Corollary~\ref{eigenvectorprop3}.
+       where the last equality follows from Proposition~\ref{newEigenvectorPropCor} and Corollary~\ref{eigenvectorprop3}.
        Note that
        \begin{equation*}
            \begin{split}
@@ -3380,7 +3432,7 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     Then the conclusion follows from the last display and~\eqref{jojo100}.
 \end{proof}
 
-\begin{proof}[\textrm{Proof of Theorem~\ref{thm1}}]
+\begin{proof}[\textbf{Proof of Theorem~\ref{thm1}}]
     Lemma~\ref{gg:Lemma1} and Lemma~\ref{gg:Lemma2} imply that the first term of~\eqref{eq:maindec} satisfies the Lyapunov condition
 $$
     \frac{\lambda_1\Big(\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}{\mytr \Big( \big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}
@@ -3459,7 +3511,7 @@ $$
     The conclusion follows by taking the maximum eigenvalue.
 \end{proof}
 
-\begin{proof}[Proof of Proposition~\ref{numberConsistency}]
+\begin{proof}[\textbf{Proof of Proposition~\ref{numberConsistency}}]
     First we consider the case of $r>0$. By the construction of $\hat{r}$,
     $$
     \{\hat{r}=r\}\supseteq 
@@ -3488,258 +3540,7 @@ $$
     $$
 \end{proof}
 
-\begin{proof}[Proof of Proposition~\ref{traceProp1}]
-    Since $\hat{r}$ is a consistent estimator of $r$, we only need to prove
-    $$
-    \frac{1 }{n-k}
-        \sum_{i=r+1}^{n-k}\lambda_i(\bY^\top\bY)
-        =\mytr(\bLambda_2)+O_P(\sqrt{p}).
-    $$
-    Note that
-$$
-\bY^\top \bY =\bZ_1^\top \bLambda \bZ_1
-=
-\bZ_{1A}^\top \bLambda_1 \bZ_{1A}+
-\bZ_{1B}^\top \bLambda_2 \bZ_{1B}.
-$$
-By Weyl's inequality, for $i=r+1,\ldots, n-k$, we have
-$$
-\lambda_{i}(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})\leq \lambda_i(\bY^\top \bY)\leq \lambda_{i-r}(\bZ_{1B}^\top \bLambda_2 \bZ_{1B}).
-$$
-It follows that
-$$
-\sum_{i=r+1}^{n-k}\lambda_{i}(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})\leq \sum_{i=r+1}^{n-k}\lambda_i(\bY^\top \bY)\leq \sum_{i=1}^{n-k-r}\lambda_{i}(\bZ_{1B}^\top \bLambda_2 \bZ_{1B}).
-$$
-Hence
-$$
- \big|\sum_{i=r+1}^{n-k}\lambda_i(\bY^\top \bY)- \mytr(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})\big|\leq r \lambda_1(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})=O_P(rp),
-$$
-    Where the last equality holds by Lemma~\ref{DSbound}.
-But central limit theorem implies that
-$$\mytr(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})-(n-k)\mytr(\bLambda_2)%=\sqrt{(n-k)\mytr(\bLambda_2^2)}O_P(1)
-=O_P(\sqrt{np}).$$
-Thus,
-$$
-    \begin{aligned}
-        &\frac{1}{n-k}\sum_{i=r+1}^{n-k}\lambda_i (\bY^\top \bY)\\
-        =&\mytr(\bLambda_2)+
-        \frac{1}{n-k}\big(\sum_{i=r+1}^{n-k}\lambda_i(\bY^\top \bY)-\mytr(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})\big) +\frac{1}{n-k}\big(\mytr(\bZ_{1B}^\top \bLambda_2 \bZ_{1B})-(n-k)\mytr(\bLambda_2)\big)\\
-        =&\mytr(\bLambda_2)+O_P(\frac{rp}{n})+O_P(\sqrt{\frac{p}{n}})
-        =\mytr(\bLambda_2)+O_P(\sqrt{p}),
-    \end{aligned}
-$$
-    where the last equality follows form Assumption~\ref{assumpEigen}.
-\end{proof}
 
-    \begin{proof}[Proof of Proposition~\ref{Taichangle}]
-        Let $\bU_{\bY,1;(i,j)}$ be the first $r$ columns of $\bU_{\bY;(i,j)}$.
-        Let $\bU_{\bY,2;(i,j)}$ be a $p\times (p-r)$ orthogonal matrix satisfying $\bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^\top= \bI_p-\bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^\top$.
-        Then by Lemma~\ref{PCAlemma2}, we have
-        $$
-        \myE\lambda_1(\bU_1^\top \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^\top \bU_1)
-        =
-        \myE\lambda_1(\bI_r-\bU_1^\top \bU_{\bY,1;(i,j)}\bU_{\bY,1;(i,j)}^\top \bU_1)
-        =
-        O(\frac{p}{\blambda_r n})
-        $$
-        and
-        $$
-        \myE\lambda_1^2(\bU_1^\top \bU_{\bY,2;(i,j)}\bU_{\bY,2;(i,j)}^\top \bU_1)
-        =
-        O(\frac{p^2}{\blambda_r^2 n^2}).
-        $$
-
-
-        First, we prove that $w_{ij}^2$ is an approximation of $Y_i^\top \bU_2 \bU_2^\top Y_j$.
-        For $1\leq i<j\leq n-k$, define $\epsilon_{ij}= w_{ij}-Y_i^\top \bU_{2} \bU_{2}^\top Y_j$, then we have
-        \begin{equation}\label{emLong}
-    \begin{aligned}
-        &\epsilon_{ij}
-        =Y_i^\top (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_2 \bU_2^\top) Y_j\\
-        =&Y_i^\top(\bU_1 \bU_1^\top+\bU_2 \bU_2^\top) (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_2 \bU_2^\top)(\bU_1 \bU_1^\top+\bU_2 \bU_2^\top) Y_j\\
-        =&Y_i^\top \bU_2 \bU_2^\top (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_2\bU_2^\top) \bU_2 \bU_2^\top Y_j\\
-        &+Y_i^\top \bU_1 \bU_1^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_2 \bU_2^\top Y_j\\
-        &+Y_i^\top \bU_2 \bU_2^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_1 \bU_1^\top Y_j\\
-        &+Y_i^\top \bU_1 \bU_1^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_1 \bU_1^\top Y_j\\
-        =&
-            Y_i^\top\bU_2 \bU_2^\top ( \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top)\bU_2 \bU_2^\top Y_j\\
-            &+
-            Y_i^\top \bU_2 \bU_2^\top(\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top-\bU_2 \bU_2^\top)\bU_2 \bU_2^\top Y_j\\
-        &+Y_i^\top \bU_1 \bU_1^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_2 \bU_2^\top Y_j\\
-        &+Y_i^\top \bU_2 \bU_2^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_1 \bU_1^\top Y_j\\
-        &+Y_i^\top \bU_1 \bU_1^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bU_1 \bU_1^\top Y_j\\
-        \overset{def}{=} &
-        \epsilon_{ij}^{(1)}+
-        \epsilon_{ij}^{(2)}+
-        \epsilon_{ij}^{(3)}+
-        \epsilon_{ij}^{(4)}+
-        \epsilon_{ij}^{(5)}.
-    \end{aligned}
-    \end{equation}
-        We deal with the five terms separately.
-        First we deal with $\epsilon_{ij}^{(1)}$.
-        Note that
-        $$
-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top
--
-        \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top
-        =
-\bU_{\bY;(i,j)} \bU_{\bY;(i,j)}^\top-
-        \bU_{\bY,1;(i,j)} \bU_{\bY,1;(i,j)}^\top
-        $$
-        is a projection matrix whose rank is not larger than $n-k-2-r$.
-        By definition, $Y_i$, $Y_j$ and $\tilde{\bU}_{\bY;(i,j)}$ are mutually independent.
-        Then
-        $$
-        \begin{aligned}
-            &\myE (\epsilon_{ij}^{(1)})^2\\
-            %&\myE\|Y_i^\top\bU_2 \bU_2^\top ( \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top)\bU_2 \bU_2^\top Y_j\|^2\\
-            =&\myE \mytr (\bLambda_2^{1/2}\bU_2^\top(\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top)\bU_2 \bLambda_2^{1/2})^2\\
-            \leq & c_1^2\myE \mytr (\tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top-\bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top)^2\\
-            \leq & c_1^2 (n-k-2-r)=o(p).
-        \end{aligned}
-        $$
-        Next we deal with $\epsilon_{ij}^{(2)}$. we have
-        $$
-        \begin{aligned}
-            &\myE (\epsilon_{ij}^{(2)})^2
-            =\myE \mytr (\bLambda_2^{1/2}\bU_2^\top(
-            \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top-\bU_2\bU_2^\top
-            )\bU_2 \bLambda_2^{1/2})^2\\
-            \leq & c_1^2 
-            \myE \mytr (\bU_2^\top(
-            \bU_{\bY,2;(i,j)} \bU_{\bY,2;(i,j)}^\top-\bU_2\bU_2^\top
-            )\bU_2 )^2\\
-            = & c_1^2 
-            \myE \mytr (\bU_2^\top(
-            \bU_1\bU_1^\top-
-\bU_{\bY,1;(i,j)} \bU_{\bY,1;(i,j)}^\top
-            )\bU_2 )^2\\
-            = & c_1^2 
-            \myE \mytr (\bU_2^\top\bU_{\bY,1;(i,j)} \bU_{\bY,1;(i,j)}^\top\bU_2 )^2\\
-            \leq  & c_1^2 
-            \myE \mytr (\bU_{\bY,1;(i,j)} \bU_{\bY,1;(i,j)}^\top)^2
-            =c_1^2 r=o(p).
-        \end{aligned}
-        $$
-
-        The terms $\epsilon_{i,j}^{(3)}$ and $\epsilon_{i,j}^{(4)}$ have the same distribution, we have
-        $$
-        \begin{aligned}
-            &\myE(\epsilon_{ij}^{(3)})^2 =
-            \myE(\epsilon_{ij}^{(4)})^2 \\
-            =&\myE \mytr ( \bLambda_1^{1/2}\bU_1^\top\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^\top \bU_2 \bLambda_2 \bU_2^\top \tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^\top \bU_1 \bLambda_1^{1/2})\\
-            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^\top\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^\top \bU_2 \bU_2^\top \tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^\top \bU_1 )\\
-            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^\top\tilde{\bU}_{\bY;(i,j)}\tilde{\bU}_{\bY;(i,j)}^\top \bU_1 )\\
-            \leq& c_1 \blambda_1  \myE \mytr ( \bU_1^\top{\bU}_{\bY,2;(i,j)}{\bU}_{\bY,2;(i,j)}^\top \bU_1 )\\
-            \leq& c_1 \blambda_1 r \frac{p}{\blambda_r n}=o(p).
-        \end{aligned}
-        $$
-        As for $\epsilon_{i,j}^{(5)}$, we have
-        $$
-        \begin{aligned}
-            \myE(\epsilon_{ij}^{(5)})^2 
-            =&\myE \mytr (\bLambda_1^{1/2}\bU_1^\top
-            \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top\bU_1 \bLambda_1^{1/2})^2\\
-            \leq & \blambda_1^2\myE \mytr (\bU_1^\top
-            \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top\bU_1 )^2\\
-            \leq&  \blambda_1^2  \myE \mytr ( \bU_1^\top{\bU}_{\bY,2;(i,j)}{\bU}_{\bY,2;(i,j)}^\top \bU_1 )^2\\
-            \leq& \blambda_1^2 r \frac{p^2}{\blambda_r^2 n^2}=o(p).
-        \end{aligned}
-        $$
-Hence we have bound $\bE (\epsilon_{ij}^2)=o(p)$.
-
-        Note that
-    $$
-        \begin{aligned}
-            &\widehat{\mytr(\bLambda_2^2)}
-            =
-        \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 \\
-            &+
-            \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}\big(2\epsilon_{ij}(Y_i^\top \bU_2 \bU_2^\top Y_j)
-            + \epsilon_{ij}^2\big).
-        \end{aligned}
-    $$
-        We have
-        $$
-            \begin{aligned}
-                &\myE\Big|\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}\big(2\epsilon_{ij}(Y_i^\top \bU_2 \bU_2^\top Y_j)
-                +
-                \epsilon_{ij}^2\big)\Big|\\
-                \leq&
-                \myE\Big|2\epsilon_{12}(Y_1^\top \bU_2 \bU_2^\top Y_2)
-            +
-            \epsilon_{12}^2\Big|\\
-            \leq&
-                2\sqrt{\myE (\epsilon_{12}^2)\myE\big(Y_1^\top \bU_2 \bU_2^\top Y_2\big)^2}
-            +
-                \myE (\epsilon_{12}^2)=o(p)=o(\mytr(\bLambda_2^2)).
-        \end{aligned}
-    $$
-    It follows that
-$$
-    \begin{aligned}
-        \widehat{\mytr(\bLambda_2^2)}
-        =
-    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-        +o_P(\mytr(\bLambda_2^2)).
-    \end{aligned}
-$$
-
-        Now we only need to prove that
-        $$
-    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-        $$
-        is ratio consistent.
-        Since $\myE (Y_i^\top \bU_2 \bU_2^\top Y_j)^2=\mytr(\bLambda_2^2)$ for $i< j$, we have
-    $$
-        \myE
-    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-        =\mytr(\bLambda_2^2).
-        $$
-        To prove the proposition, we only need to show that 
-        $$
-        \myVar
-    \Big(
-    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-    \Big)
-        =o(\mytr^2(\bLambda_2^2)).
-        $$
-         Note that
-         $$
-        \begin{aligned}
-            &\myE\Big(
-    \frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-            \Big)^2\\
-            =&
-            \frac{4}{(n-k)^2(n-k-1)^2}\Big(\sum_{1\leq i < j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2\Big)^2\\
-            =&
-            \frac{4}{(n-k)^2(n-k-1)^2}\myE\Big( \sum_{i<j}(Y_i^\top\bU_2 \bU_2^\top Y_j)^4\\
-            &+
-            \sum_{i<j,k<l:\{i,j\}\cap\{k,l\}=\emptyset}(Y_i^\top\bU_2 \bU_2^\top Y_j)^2 (Y_k^\top\bU_2 \bU_2^\top Y_l)^2\\
-            &+2\sum_{i<j<k}\big((Y_i^\top\bU_2 \bU_2^\top Y_j)^2(Y_i\bU_2 \bU_2^\top Y_k)^2\\
-            &+(Y_i^\top\bU_2 \bU_2^\top Y_j)^2(Y_j\bU_2 \bU_2^\top Y_k)^2+(Y_i^\top\bU_2 \bU_2^\top Y_k)^2(Y_j\bU_2 \bU_2^\top Y_k)^2\big) \Big)\\
-            =&
-    \frac{4}{(n-k)^2(n-k-1)^2}\Big(
-            \frac{(n-k)(n-k-1)}{2}\big(6\mytr(\bLambda_2^4)+3\mytr^2(\bLambda_2^2)\big)\\
-            &+\frac{(n-k)(n-k-1)(n-k-2)(n-k-3)}{4}\mytr^2(\bLambda_2^2)\\
-            &+(n-k)(n-k-1)(n-k-2)\big(2\mytr(\bLambda_2^4)
-            +\mytr^2(\bLambda_2^2)\big)
-            \Big)\\
-            =&
-            \mytr^2(\bLambda_2^2)(1+o(1)).
-        \end{aligned}
-         $$
-        It follows that
-        $$
-        \myVar
-    \Big(\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top \bU_2 \bU_2^\top Y_j)^2 
-    \Big)
-            =
-            o(\mytr^2(\bLambda_2^2)).
-        $$
-        This completes the proof.
-\end{proof}
 
 \end{appendices}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

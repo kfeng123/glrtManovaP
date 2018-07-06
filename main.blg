@@ -3,47 +3,51 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: chicago.bst
 Database file #1: mybibfile.bib
+Warning--no number and no volume in Cai2017Limiting
+Warning--page numbers missing in Cai2017Limiting
+Warning--no number and no volume in fan2017Dist
+Warning--page numbers missing in fan2017Dist
 Warning--no number and no volume in Vershynin2010Introduction
 Warning--page numbers missing in Vershynin2010Introduction
-You've used 25 entries,
+You've used 34 entries,
             2861 wiz_defined-function locations,
-            802 strings with 8907 characters,
-and the built_in function-call counts, 18079 in all, are:
-= -- 1523
-> -- 1311
+            862 strings with 10437 characters,
+and the built_in function-call counts, 24572 in all, are:
+= -- 2077
+> -- 1797
 < -- 0
-+ -- 390
-- -- 448
-* -- 1707
-:= -- 3252
-add.period$ -- 75
-call.type$ -- 25
-change.case$ -- 182
-chr.to.int$ -- 25
-cite$ -- 27
-duplicate$ -- 440
-empty$ -- 1117
-format.name$ -- 528
-if$ -- 3399
++ -- 538
+- -- 618
+* -- 2321
+:= -- 4422
+add.period$ -- 102
+call.type$ -- 34
+change.case$ -- 248
+chr.to.int$ -- 34
+cite$ -- 40
+duplicate$ -- 597
+empty$ -- 1499
+format.name$ -- 730
+if$ -- 4607
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 26
-newline$ -- 128
-num.names$ -- 250
-pop$ -- 111
+missing$ -- 35
+newline$ -- 173
+num.names$ -- 340
+pop$ -- 150
 preamble$ -- 1
-purify$ -- 333
+purify$ -- 453
 quote$ -- 0
-skip$ -- 477
+skip$ -- 655
 stack$ -- 0
-substring$ -- 1109
-swap$ -- 140
+substring$ -- 1467
+swap$ -- 191
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 490
-warning$ -- 2
-while$ -- 234
+type$ -- 670
+warning$ -- 6
+while$ -- 321
 width$ -- 0
-write$ -- 328
-(There were 2 warnings)
+write$ -- 445
+(There were 6 warnings)
