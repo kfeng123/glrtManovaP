@@ -47,6 +47,7 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 
 \newcommand{\bQ}{\mathbf{Q}}
+\newcommand{\bM}{\mathbf{M}}
 \newcommand{\bZ}{\mathbf{Z}}
 \newcommand{\bA}{\mathbf{A}}
 \newcommand{\bB}{\mathbf{B}}
@@ -529,9 +530,9 @@ Since the least favorable direction $a^*$ is obtained from the component likelih
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
 Now we derive the explicit forms of LFD test statistic. 
-Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times n$ and $n\times n$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is an $n\times n$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
-Let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix on the column space of $\bY$.
-Then Proposition~\ref{optProp} in Appendix implies that
+Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times \min(n,p)$ and $n \times \min(n,p)$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is a $\min(n,p)\times \min(n,p)$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
+If $p>n$, let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix onto the column space of $\bY$.
+Then Lemma~\ref{optProp} in Appendix implies that
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
     T(\bX)
@@ -605,10 +606,29 @@ We now turn to the analysis of the asymptotic distributions of LFD test statisti
 Based on these results, a test with asymptotically correct level can be constructed.
 Also, these results allow us to derive the local asymptotic power function of LFD test.
 \subsection{Nonspiked covariance}
+{\color{red} Most existing high dimensional tests do not allow spiked eigenvalues.}
+In this section, we establish the asymptotic distribution of $T(\bX)$ under the nonspiked covariance,
+Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ and the entries on the diagonal are iid $\mathcal{N}(0,2)$.
+
+The following theorem establishes the asymptotic distribution of LFD test statistic.
+\begin{theorem}
+    \label{fenTheorem1}
+    Suppose that $n\blambda_1/\mytr(\bSigma)\to 0$, $\blambda_1/\sqrt{\mytr(\bSigma^2)}\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\mytr^{1/2}(\bSigma^2))$.
+    Then
+    \begin{equation*}
+        \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)-n\mytr^2(\bSigma^2)/\mytr^2(\bSigma)}}
+        \sim
+        \lambda_1\Big(\bW_{k-1}+\mytr^{-1/2}(\bSigma^2) \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\Big)
+        +o_P(1),
+    \end{equation*}
+    where $\sim$ means having the same distribution.
+\end{theorem}
+\begin{remark}
+    The condition $n\blambda_{1}/\mytr(\bLambda_2)\to 0$ implies that $p/n \to \infty$. Hence $T(\bX)$ is well defined for large $n$.
+\end{remark}
 \subsection{Spiked covariance}
 We are especially interested in the case where variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
-{\color{red} Most existing high dimensional tests do not allow spiked eigenvalues.}
 Our results allow $\bSigma$ to have $r$ spiked eigenvalues, where $1\leq r\leq p$ can also diverge as $n,p\to \infty$.
 
 
@@ -705,18 +725,13 @@ and
 \end{remark}
 
 Next we consider the asymptotic behavior of the eigenspaces of $\hat{\bSigma}$.
-If $p\geq n$, then the columns of $\bU_{\bY}$ are in fact the leading $n$ eigenvectors of $\hat{\bSigma}$.
-Let $\bU_{\bY,1}$ and $\bU_{\bY,2}$ denote the first $r$ columns and the last $n-r$ columns of $\bU_{\bY}$, respectively.
-Then $\bU_{\bY,1}\bU_{\bY,1}^\top$ is the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
-And $\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the next $n-r$ eigenvectors.
-{\color{red} If $p<n$, we also use $\bU_{\bY,1}\bU_{\bY,1}^\top$ to denote the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
-}
-
-The properties of $\bU_{\bY,1}\bU_{\bY,1}^\top$ and individual principal vectors have been extensively studied.
+Let $\bU_{\bY,1}$ denote the first $r$ columns of $\bU_{\bY}$.
+Then the columns of $\bU_{\bY,1}$ are the principal eigenvectors of $\hat{\bSigma}$, and $\bP_{\bY,1}=\bU_{\bY,1}\bU_{\bY,1}^\top$ is the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
+The properties of $\bP_{\bY,1}$ and individual principal eigenvectors have been extensively studied.
 See \cite{Cai2015Optimal}, \cite{Shen2016A}, \cite{wang2017As} and the references therein.
-Most existing work focus on the consistency of the principal subspace or the high-order asymptotic behavior of the individual principal eigenvectors.
+The existing results include the consistency of the principal subspace and the high-order asymptotic behavior of the individual principal eigenvectors.
 However, these results are not enough for our latter analysis.
-The following proposition gives the high-order asymptotic behavior of $\bU_{\bY,1}\bU_{\bY,1}^\top$.
+The following proposition gives the high-order asymptotic behavior of $\bP_{\bY,1}$.
 To the best of our knowledge, such result has never been appeared in the literature before.
 
 
@@ -724,7 +739,7 @@ To the best of our knowledge, such result has never been appeared in the literat
 \begin{proposition}\label{newEigenvectorPropCor}
     Suppose that $r=o(n)$, $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ and $r \blambda_{r+1}/\mytr(\bLambda_2)\to 0$. Then
     \begin{equation*}
-        \left\|\bU_{\bY,1}\bU_{\bY,1}^\top - 
+        \left\|\bP_{\bY,1} - 
         \bP_{\bY,1}^{\dagger}\right\|
         =O_P\left(\frac{\mytr(\bLambda_2)}{n\blambda_r}+\frac{\blambda_{r+1}}{\blambda_r}\right),
     \end{equation*}
@@ -746,26 +761,49 @@ $\bQ
 \begin{remark}
     Recently, some high-order Davis-Kahan theorems are established, e.g., Lemma 2 in \cite{koltchinskii2016} and Lemma 2 in \cite{fan2017Dist}.
     These general results explicitly characterizes the linear term and high-order error on rank $r$ eigenspace due to matrix perturbation.
-    By applying these results to $\hat{\bSigma}$ and $\bSigma$, one can obtain similar results as Proposition \ref{newEigenvectorPropCor}.
+    By applying these results to $\hat{\bSigma}$ and $\bSigma$, one can obtain similar results to Proposition \ref{newEigenvectorPropCor}.
     Compared with Proposition \ref{newEigenvectorPropCor},
     however, the results so obtained are slightly weaker and requires stronger conditions. 
     %Lemma 2 in \cite{fan2017Dist} uses Frobenius norm and Lemma 2 in \cite{koltchinskii2016} contains an extra factor.
 \end{remark}
-Our latter analysis also requires the asymptotic properties of $\bU_{\bY,2}\bU_{\bY,2}^\top $, which has not been considered in the literature.
+
+If $p>n$, let $\bU_{\bY,2}$ be the $r+1$ to $n$ columns of $\bU_{\bY}$.
+Then $\bP_{\bY,2}=\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the $r+1$ to $n$ eigenvectors of $\hat{\bSigma}$.
+Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, which has not been considered in the literature.
     Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
     Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
     Let $\tilde{\bV}_{\bZ_1}$ be a $n\times (n-r)$ column orthogonal matrix which satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
-    The following proposition gives the asymptotic properties of $\bU_{\bY,2}\bU_{\bY,2}^\top $.
+    The following proposition gives the asymptotic properties of $\bP_{\bY,2}$.
+
+\begin{proposition}
+    \label{eigenvectorprop3}
+    Suppose that $r=o(n)$, $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
+    \begin{equation*}
+            \left\|\bP_{\bY,2}-
+            \bP_{\bY,2}^{\dagger}
+            \right\|
+    = 
+    O_P\left(
+        \sqrt{\frac{\mytr(\bLambda_2) \blambda_1}{n\blambda_r^2}}
+    +
+    \sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right),
+    \end{equation*}
+    where $
+            \bP_{\bY,2}^{\dagger}=
+            \left(\mytr(\bLambda_2)\right)^{-1}
+            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
+            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
+            $.
+\end{proposition}
+\begin{remark}
+    The condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ implies that $p/n \to \infty$.
+    Hence $\bP_{\bY,2}$ is well defined for large $n$.
+    The condition $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ is stronger than the condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ in Proposition \ref{newEigenvectorPropCor}.
+    These two conditions are equivalent if $\blambda_1$ and $\blambda_r$ are of the same order.
+\end{remark}
 
 
 
-
-
-To establish the asymptotic distribution of $T(\bX)$ under Assumption~\ref{assumpEigen},
-we need following notations.
-Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ and the entries on the diagonal are iid $\mathcal{N}(0,2)$.
-
-The following theorem establishes the asymptotic distribution of LFD test statistic.
 \begin{theorem}\label{thm1}
     Under Assumption~\ref{assumpEigen}, suppose $p/n\to \infty$ and
     $$
@@ -1320,6 +1358,95 @@ We leave it for future research.
 
 \begin{appendices}
     \section{Technical details}\label{app}
+\begin{lemma}\label{optProp}
+    Suppose $\bA$ is a $p\times r$ matrix with rank $r$ and $\bB$ is a $p\times p$  non-zero positive semi-definite matrix.
+    Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^\top$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrix, $\bD_\bA$ is a $r\times r$ diagonal matrix.
+    Let $\bP_\bA=\bU_\bA \bU_\bA^\top$ be the projection matrix on the column space of $\bA$.
+    Then
+    \begin{equation}
+        \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a=
+        \lambda_{\max}\big(\bB(\bI_p-\bP_\bA)\big).
+    \end{equation}
+\end{lemma}
+\begin{proof}
+    Note that $a^\top \bA \bA^\top a=0$ is equivalent to $\bP_\bA a=0$ which in turn is equivalent to $a= (\bI_p-\bP_\bA)a$.
+    Then
+    \begin{equation}\label{eq:prop1eq1}
+        \begin{aligned}
+        \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a
+            &=
+        \max_{a^\top a=1, \bP_\bA a=0}a^\top(\bI_p-\bP_\bA) \bB (\bI_p-\bP_\bA)a,
+        \end{aligned}
+    \end{equation}
+    which is obviously no greater than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
+    To prove that they are equal,  without loss of generality, we can assume $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)>0$.
+    Let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$.
+    Since $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)\bP_\bA=(\bI-\bP_\bA)\bB(\bP_\bA-\bP_\bA)=\bO_{p\times p}$ and $\bP_\bA$ is symmetric, the rows of $\bP_\bA$ are eigenvetors of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$ corresponding to eigenvalue $0$.
+    It follows that $\bP_\bA\alpha_1=0$.
+    Therefore, $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1} and~\eqref{eq:prop1eq1} is no less than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
+    The conclusion now follows by noting that $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)=\lambda_{\max}\big( \bB(\bI-\bP_\bA)\big)$.
+    
+\end{proof}
+
+\begin{lemma}
+    Let $\xi_{n,i}$, $i=1,\ldots, n$, $n=1,2,\ldots$, be iid $s$-dimensional random vectors with mean zero, covariance matrix $\bM$ and finite fourth moment.
+    For $n=1,2,\ldots$, let $\{a_{n,i}\}_{i=1}^n$ be real random variables which are independent of $\{\xi_{n,i}\}_{i=1}^n$ and satisfy 
+    \begin{equation}\label{lycon}
+        \frac{\max_{1\leq i\leq n}a_{n,i}^2}{\sum_{i=1}^n a_{n,i}^2}\xrightarrow{P}0.
+    \end{equation}
+    Then
+    \begin{equation*}
+    (\sum_{i=1}^n a_{n,i}^2)^{-1/2}\sum_{i=1}^n a_{n,i}\xi_{n,i} 
+    \xrightarrow{\mathcal{L}}\mathcal{N}(0,\bM).
+    \end{equation*}
+    \label{CLTLEMMA}
+\end{lemma}
+\begin{proof}
+    First we observe that if $\{a_{n,i}\}_{i=1}^n$ are fixed numbers satisfying~\eqref{lycon}, then Lyapunov central limit theoremi and continuity theorem imply that 
+    for any $t\in\mathbb{R}^s$,
+    \begin{equation*}
+        \myE\left[\exp\left(
+    (\sum_{i=1}^n a_{n,i}^2)^{-1/2}\sum_{i=1}^n a_{n,i}it^\top \xi_{n,i} 
+    \right)\right]
+    \to
+    \exp\left(-\frac{1}{2} t^\top \bM t\right).
+    \end{equation*}
+
+    We only need to prove that for every subsequence of $\{n\}$, there is a further subsequence along which the conclusion holds.
+    Let $\{m(n)\}$  be a subsequence of $\{n\}$.
+    We can find a further subsequence of $\{m(n)\}$ along which~\eqref{lycon} holds almost surely.
+    Then along this subsequence, our previous argument implies that
+    for any $t\in\mathbb{R}^s$,
+    \begin{equation*}
+        \myE
+       \left[ 
+        \exp\left(
+    (\sum_{i=1}^n a_{n,i}^2)^{-1/2}\sum_{i=1}^n a_{n,i}it^\top \xi_{n,i} 
+    \right)
+    \bigg| a_{n,1},\ldots, a_{n,n}
+\right]
+    \to
+    \exp\left(-\frac{1}{2} t^\top \bM t\right)
+    \end{equation*}
+    almost surely.
+    Then by dominated convergence theorem,
+    \begin{equation*}
+        \myE
+       \left[ 
+        \exp\left(
+    (\sum_{i=1}^n a_{n,i}^2)^{-1/2}\sum_{i=1}^n a_{n,i}it^\top \xi_{n,i} 
+    \right)
+\right]
+    \to
+    \exp\left(-\frac{1}{2} t^\top \bM t\right)
+    \end{equation*}
+    holds along this further subsequence. This implies the conclusion holds along this further subsequence, which completes the proof.
+
+
+
+
+ 
+\end{proof}
 
     \begin{lemma}[Weyl's inequality]
         Let $\bA$ and $\bB$ be two symmetric $n\times n$ matrices. If $r+s-1\leq i \leq j+k-n$, we have
@@ -1765,7 +1892,7 @@ for $i\in \mathcal{C}_2$,
 \begin{proposition}\label{newEigenvectorProp}
     Suppose that $r=o(n)$ and $r\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
     \begin{equation*}
-        \|\bU_{\bY,1}\bU_{\bY,1}^\top -\bP_{\bY,1}^* \|
+        \|\bP_{\bY,1} -\bP_{\bY,1}^* \|
         =O_P\left(\frac{\blambda_{r+1}+n^{-1}\mytr(\bLambda_2)}{\blambda_r +n^{-1}\mytr(\bLambda_2)}\right),
     \end{equation*}
     where
@@ -1819,7 +1946,7 @@ for $i\in \mathcal{C}_2$,
 
     From~\cite{Cai2015Optimal}, Proposition 1, we have
     \begin{equation}\label{asd1}
-        \|\bU_{\bY,1}\bU_{\bY,1}^\top -\bP_{\bY,1}^* \|
+        \|\bP_{\bY,1} -\bP_{\bY,1}^* \|
         \leq 
         \frac{2\|\hat{\bSigma}-\hat{\bSigma}_0\|}{\lambda_r(\hat{\bSigma}_0)}.
     \end{equation}
@@ -1980,11 +2107,14 @@ Then Lemma~\ref{lemma:con} implies that
         \begin{split}
         &
         \left\|
-        \bU_{\bY,1}\bU_{\bY,1}^\top - 
+\bP_{\bY,1}
+         - 
 \bP_{\bY,1}^{\dagger}
         \right\|
         \leq
-        \left\|\bU_{\bY,1}\bU_{\bY,1}^\top - 
+        \left\|
+\bP_{\bY,1}
+-
         \bP_{\bY,1}^*
         \right\|
         +
@@ -1998,7 +2128,7 @@ Then Lemma~\ref{lemma:con} implies that
     Under the condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$, Proposition~\ref{newEigenvectorProp} implies that
     \begin{equation*}
         \left\|
-        \bU_{\bY,1}\bU_{\bY,1}^\top - 
+\bP_{\bY,1}-
         \bP_{\bY,1}^*
         \right\|
     =O_P\left(\frac{\blambda_{r+1}}{\blambda_r}+\frac{\mytr(\bLambda_2)}{n\blambda_r}\right).
@@ -2117,7 +2247,9 @@ Then Lemma~\ref{lemma:con} implies that
     \label{eigenvectorprop2}
     Suppose that $r=o(n)$ and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
     \begin{equation*}
-            \left\|\bU_{\bY,2}\bU_{\bY,2}^{T}-
+            \left\|
+            \bP_{\bY,2}
+            -
             \bP_{\bY,2}^*
             \right\|
     = 
@@ -2136,22 +2268,24 @@ $
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
             $.
 \end{proposition}
-\begin{remark}
-    The condition $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$ implies $n/\myrank(\bLambda_2) \to 0$.
-    Consequently, the matrix $\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}$ is invertible with probability $1$ for large $n$.
-\end{remark}
+%\begin{remark}
+    %The condition $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$ implies $n/\myrank(\bLambda_2) \to 0$.
+    %Consequently, the matrix $\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}$ is invertible with probability $1$ for large $n$.
+%\end{remark}
 \begin{proof}
     We only need to prove that for any subsequence of $\{n\}$, there is a further subsequence along which the conclusion holds.
     Thus, without loss of generality, we assume $\mytr(\bLambda_2)\blambda_1 /{(n \blambda_r^2)}\to c\in [0,+\infty]$.
     Since $
-            \bU_{\bY,2}\bU_{\bY,2}^{T}
+    \bP_{\bY,2}
     $ and 
     $
     \bP_{\bY,2}^*
             $
             are both projection matrices, we have
             $
-            \left\|\bU_{\bY,2}\bU_{\bY,2}^{T}-
+            \left\|
+    \bP_{\bY,2}
+    -
             \bP_{\bY,2}^*
             \right\|
             \leq 2
@@ -2161,31 +2295,33 @@ $
     In the rest of the proof, we assume $c=0$, that is $\mytr(\bLambda_2)\blambda_1 /{(n \blambda_r^2)}\to 0$.
 
 
-    Note that $\bU_{\bY,2}$ is in fact the first $n-r$ eigenvectors of $(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)$.
+    Note that $\bU_{\bY,2}$ is in fact the leading $n-r$ eigenvectors of $(\bI_p -\bP_{\bY,1})\hat{\bSigma}(\bI_p -\bP_{\bY,1})$.
     Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$,
     Proposition~\ref{newEigenvectorPropCor} implies that 
     \begin{equation*}
-        \|\bU_{\bY,1}\bU_{\bY,1}^\top - 
+        \left\|
+        \bP_{\bY,1}
+        - 
 \bP^\dagger_{\bY,1}
-        \|
+        \right\|
     =O_P\left(\frac{\mytr(\bLambda_2)}{n\blambda_r}\right).
     \end{equation*}
     It can be seen that
     \begin{equation*}
         \begin{split}
              &
-             \left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)
+             \left\|(\bI_p -\bP_{\bY,1})\hat{\bSigma}(\bI_p -\bP_{\bY,1})
              -
              (\bI_p -\bP^\dagger_{\bY,1})\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})
              \right\|
              \\
              \leq&
              \left\|
-             (\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)
+             (\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bP^\dagger_{\bY,1}-\bP_{\bY,1})
              \right\|
              +
              2\left\|
-             (\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})
+             (\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})
              \right\|
              .
         \end{split}
@@ -2202,16 +2338,14 @@ $
      \begin{equation}\label{aiBound1}
         \begin{split}
              &\left\|
-             (\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)
+             (\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bP^\dagger_{\bY,1}-\bP_{\bY,1})
              \right\|
-             \\
-             \leq&
+             \leq
              \|\hat{\bSigma}\|
              \left\|
-             \bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top
+             \bP^\dagger_{\bY,1}-\bP_{\bY,1}
              \right\|^2
-             \\
-                 =&
+                 =
             O_P
                 \left(
                     \frac{\mytr^2(\bLambda_2)\blambda_1}{n^2 \blambda_r^2}
@@ -2222,15 +2356,15 @@ $
     On the other hand, we have
     \begin{equation*}
         \begin{split}
-             &\left\|(\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})\right\|
+             &\left\|(\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})\right\|
              \\
              \leq &
-             \left\|\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top\right\|
+             \left\|\bP^\dagger_{\bY,1}-\bP_{\bY,1}\right\|
              \left\|n^{-1}\bU \bLambda^{1/2} \bZ\right\|
              \left\|\bZ^\top \bLambda^{1/2} \bU^\top (\bI_p-\bP^\dagger_{\bY,1})\right\|
              \\
              = &
-             n^{-1/2}\left\|\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top\right\|
+             n^{-1/2}\left\|\bP^\dagger_{\bY,1}-\bP_{\bY,1}\right\|
              \left\|\hat{\bSigma}\right\|^{1/2}
              \left\|\bZ^\top \bLambda^{1/2} \bU^\top (\bI_p-\bP^\dagger_{\bY,1})\right\|
              \\
@@ -2284,7 +2418,7 @@ $
     \end{equation*}
     Thus,
     \begin{equation}\label{aiBound2}
-    \left|(\bP^\dagger_{\bY,1}-\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})\right|
+    \left\|(\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})\right\|
              =O_P\left(
                  \frac{\mytr^{3/2}(\bLambda_2)\blambda_1^{1/2}}{n^{3/2}\blambda_r}
                 \right).
@@ -2292,7 +2426,7 @@ $
     Combine~\eqref{aiBound1} and~\eqref{aiBound2}, we obtain
     \begin{equation*}
         \begin{split}
-             &\left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)
+             &\left\|(\bI_p -\bP_{\bY,1})\hat{\bSigma}(\bI_p -\bP_{\bY,1})
              -
              (\bI_p-\bP^\dagger_{\bY,1})\hat{\bSigma}(\bI_p-\bP^\dagger_{\bY,1})\right\|
              \\
@@ -2358,7 +2492,7 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
     Combine the above bounds, we obtain
     \begin{equation}\label{haoqilai1}
         \begin{split}
-             &\left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)
+             &\left\|(\bI_p -\bP_{\bY,1})\hat{\bSigma}(\bI_p -\bP_{\bY,1})
              -
          n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top  \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
              \right\|
@@ -2405,13 +2539,13 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
             Therefore,~\cite{Cai2015Optimal}, Proposition 1 implies that
     \begin{equation*}
         \begin{split}
-            &\left\|\bU_{\bY,2}\bU_{\bY,2}^{T}-
+            &\left\|\bP_{\bY,2}-
             \bP_{\bY,2}^*
             \right\|
             \\
              \leq&
              \frac{
-                 2\left\|(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)\hat{\bSigma}(\bI_p -\bU_{\bY,1}\bU_{\bY,1}^\top)
+                 2\left\|(\bI_p -\bP_{\bY,1})\hat{\bSigma}(\bI_p -\bP_{\bY,1})
              -
          n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top  \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
              \right\|
@@ -2437,33 +2571,10 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
     \end{equation*}
     where the second last equality follows from~\eqref{haoqilai1} and~\eqref{haoqilai2}.
     This completes the proof.
-
-
 \end{proof}
-\begin{corollary}
-    \label{eigenvectorprop3}
-    Under the conditions of Proposition \ref{eigenvectorprop2}, we have
-    \begin{equation*}
-            \left\|\bP_{\bY,2}-
-            \bP_{\bY,2}^{\dagger}
-            \right\|
-    = 
-    O_P\left(
-        \min\left(
-        \sqrt{\frac{\mytr(\bLambda_2) \blambda_1}{n\blambda_r^2}}
-    ,1\right)
-    \right)
-    +
-    O_P\left(\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right),
-    \end{equation*}
-    where $
-            \bP_{\bY,2}^{\dagger}=
-            \left(\mytr(\bLambda_2)\right)^{-1}
-            \bU_2 \bLambda_2^{1/2}\bZ_{2} \tilde{\bV}_{\bZ_1}
-            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
-            $.
-\end{corollary}
-\begin{proof}
+
+
+\begin{proof}[\textbf{Proof of Proposition \ref{eigenvectorprop3}}]
     By some algebra,
     it can be seen that
     \begin{equation*}
@@ -2499,55 +2610,12 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
 
 
 \section{Proofs of the main results}\label{app2}
-
-\begin{proposition}\label{optProp}
-    Suppose $\bA$ is a $p\times r$ matrix with rank $r$ and $\bB$ is a $p\times p$  non-zero positive semi-definite matrix.
-    Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^\top$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrix, $\bD_\bA$ is a $r\times r$ diagonal matrix.
-    Let $\bP_\bA=\bU_\bA \bU_\bA^\top$ be the projection matrix on the column space of $\bA$.
-    Then
-    \begin{equation}
-        \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a=
-        \lambda_{\max}\big(\bB(\bI_p-\bP_\bA)\big).
-    \end{equation}
-\end{proposition}
-\begin{proof}
-    Note that $a^\top \bA \bA^\top a=0$ is equivalent to $\bP_\bA a=0$ which in turn is equivalent to $a= (\bI_p-\bP_\bA)a$.
-    Then
-    \begin{equation}\label{eq:prop1eq1}
-        \begin{aligned}
-        \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a
-            &=
-        \max_{a^\top a=1, \bP_\bA a=0}a^\top(\bI_p-\bP_\bA) \bB (\bI_p-\bP_\bA)a,
-        \end{aligned}
-    \end{equation}
-    which is obviously no greater than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
-    To prove that they are equal,  without loss of generality, we can assume $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)>0$.
-    Let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$.
-    Since $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)\bP_\bA=(\bI-\bP_\bA)\bB(\bP_\bA-\bP_\bA)=\bO_{p\times p}$ and $\bP_\bA$ is symmetric, the rows of $\bP_\bA$ are eigenvetors of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$ corresponding to eigenvalue $0$.
-    It follows that $\bP_\bA\alpha_1=0$.
-    Therefore, $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1} and~\eqref{eq:prop1eq1} is no less than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
-    The conclusion now follows by noting that $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)=\lambda_{\max}\big( \bB(\bI-\bP_\bA)\big)$.
-    
-\end{proof}
-
-
-
 It can be seen that $\bX\bJ\bC$ is independent of $\bY$.
-Since
-$
-\myE \bY = \bO_{p\times (n-k)}
-$,
-we can write
-$
-\bY = \bU\bLambda^{1/2} \bZ
-$,
-where $\bZ$ is a $p\times (n-k)$ matrix with iid $\mathcal{N}(0,1)$ entries.
 We write
 $
 \bX\bJ\bC = \bTheta \bC + \bU\bLambda^{1/2} \bZ^{\dagger}
 $, 
-where $\bZ^{\dagger}$ is a $p\times (k-1)$ matrix with iid $\mathcal{N}(0,1)$ entries.
-
+where $\bZ^{\dagger}$ is a $p\times (k-1)$ matrix with iid $\mathcal{N}(0,1)$ entries and is independent of $\bZ$.
 Then 
 \begin{equation}\label{eq:maindec}
 \begin{aligned}
@@ -2564,7 +2632,303 @@ Then
     \bZ^{\dagger T} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}=
 \sum_{i=1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top,
 \end{equation}
-where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random variables.
+where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random vectors and are independent of $\bP_{\bY}$.
+
+\begin{lemma}
+    \label{fenLemma1}
+    Suppose that $n\blambda_1/\mytr(\bSigma)\to 0$.
+    Then
+    \begin{equation*}
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)=
+        \mytr(\bSigma)-\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
+        +O_P\left(n(\blambda_1-\blambda_p)\sqrt{\frac{n\blambda_1}{\mytr(\bSigma)}}\right)
+    \end{equation*}
+    And
+    \begin{equation*}
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2=
+        \mytr(\bSigma^2)-\frac{n\mytr^2 (\bSigma^2)}{\mytr^2(\bSigma)}+O_P(n\blambda_1(\blambda_1-\blambda_p)).
+    \end{equation*}
+\end{lemma}
+\begin{proof}
+    First we approximate $\bP_{\bY}$ by a simple expression.
+    We have
+        \begin{equation*}
+            \begin{split}
+        \left\|
+        \bP_{\bY}
+        -(\mytr(\bSigma))^{-1} \bY \bY^\top
+        \right\|
+        =  
+        &
+        \left\|
+        \bY (\bY^\top \bY)^{-1} \bY^\top
+    -(\mytr(\bSigma))^{-1} \bY \bY^\top
+        \right\|
+        \\
+        =&
+        \left\|
+        \bY \left(
+            (\bY^\top \bY)^{-1}
+            -(\mytr(\bSigma))^{-1} \bI_n
+        \right)
+            \bY^\top
+        \right\|
+        \\
+        =&
+        (\mytr(\bSigma))^{-1}
+        \left\|
+        \bY^\top \bY -\mytr(\bSigma)\bI_n
+        \right\|.
+            \end{split}
+        \end{equation*}
+        Then from Lemma~\ref{lemma:con}, we have
+        \begin{equation}\label{fenEq1}
+            \begin{split}
+        \left\|
+        \bP_{\bY}
+        -(\mytr(\bSigma))^{-1} \bY \bY^\top
+        \right\|
+        =&
+        (\mytr(\bSigma))^{-1}
+        \left\|
+        \bZ^\top \bSigma \bZ -\mytr(\bSigma)\bI_n
+        \right\|
+        \\
+        =&O_P\left(
+            \frac{\sqrt{n\mytr(\bSigma^2)}} {\mytr(\bSigma)}
+            +\frac{n\blambda_1}{\mytr(\bSigma)}
+        \right)
+        \\
+        =&O_P\left(
+            \frac{\sqrt{n\blambda_1\mytr(\bSigma)}} {\mytr(\bSigma)}
+            +\frac{n\blambda_1}{\mytr(\bSigma)}
+        \right)
+        \\
+        =&O_P\left(
+            \sqrt{\frac{n\blambda_1} {\mytr(\bSigma)}}
+        \right).
+        \end{split}
+        \end{equation}
+
+        Now we deal with $
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)
+        $.
+        It can be seen that
+        \begin{equation}\label{fenEq2}
+        \begin{split}
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)
+        =&
+        \mytr \left(\bSigma \right)-
+        \mytr \left(\bSigma\bP_{\bY}\right)
+        \\
+        =&
+        \mytr \left(\bSigma \right)-
+        \mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bP_{\bY}\right)
+        -\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
+        .
+        \end{split}
+    \end{equation}
+    For the second term, we have
+    \begin{equation*}
+        \begin{split}
+        &\left|
+        \mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bP_{\bY}\right)
+        -
+        \left(\mytr(\bSigma)\right)^{-1}\mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bY \bY^\top\right)
+        \right|
+        \\
+        =&\left|\mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\left(\bP_{\bY}- \left(\mytr(\bSigma)\right)^{-1}\bY\bY^\top \right)\right)
+        \right|
+        \\
+        \leq&
+2n 
+\left\|
+\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p
+\right\|
+\left\|
+\bP_{\bY}- \left(\mytr(\bSigma)\right)^{-1}\bY\bY^\top 
+\right\|
+        \\
+        =&
+        O_P\left(
+            n(\blambda_1-\blambda_p)\sqrt{\frac{n\blambda_1}{\mytr(\bSigma)}}
+        \right)
+,
+        \end{split}
+    \end{equation*}
+    where the last inequality follows from von Neumann's trace theorem and the fact $\myrank\left( \bP_{\bY}-\left(\mytr(\bSigma)\right)^{-1}\bY\bY^\top \right)\leq 2n$, and the last equality follows from \eqref{fenEq1}
+    and the fact $\mytr(\bSigma^2)/\mytr(\bSigma)\in [\blambda_p, \blambda_1]$.
+    On the other hand, it is straightforward to show that
+    \begin{equation*}
+        \myE \left(
+        \left(\mytr(\bSigma)\right)^{-1}\mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bY \bY^\top\right)
+    \right)=0,
+    \end{equation*}
+and
+    \begin{equation*}
+        \begin{split}
+        &\myVar \left(
+        \left(\mytr(\bSigma)\right)^{-1}\mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bY \bY^\top\right)
+    \right)\\
+    =
+    &
+    \frac{2n}{\mytr^2(\bSigma)}
+    \mytr
+    \left(
+\bSigma^2 - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bSigma
+    \right)^2
+    \\
+    =&
+    \frac{2n}{\mytr^2(\bSigma)}
+    \sum_{i=1}^p \blambda_i^2\left(\blambda_i-\frac{\mytr(\bSigma^2)}{\mytr(\bSigma)}\right)^2
+    \\
+    \leq&
+    \frac{2n\blambda_1(\blambda_1-\blambda_p)^2}{\mytr(\bSigma)}
+    .
+        \end{split}
+    \end{equation*}
+    Thus,
+    \begin{equation*}
+        \mytr \left(\bP_{\bY}\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\right)
+        =
+        O_P\left(
+            n(\blambda_1-\blambda_p)\sqrt{\frac{n\blambda_1}{\mytr(\bSigma)}}
+        \right).
+    \end{equation*}
+    Then the first statement follows from the last display and \eqref{fenEq2}.
+
+    Next we deal with $
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2
+        $.
+        We have
+    \begin{equation*}
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2
+        =
+        \mytr(\bSigma^2)-2\mytr(\bSigma^2 \bP_\bY)+\mytr((\bSigma \bP_\bY)^2).
+    \end{equation*}
+    From von Neumann's trace theorem, the second term satisfies
+    \begin{equation*}
+        \left|
+        \mytr(\bSigma^2 \bP_\bY)- \frac{n\mytr^2(\bSigma^2)}{\mytr^2(\bSigma)}
+        \right|
+        =
+        \left|
+        \mytr\left(
+        \left(
+        \bSigma^2
+        -\frac{\mytr^2(\bSigma^2)}{\mytr^2(\bSigma)}\bI_p
+    \right)
+        \bP_\bY
+    \right)
+        \right|
+        \leq n \blambda_1(\blambda_1-\blambda_p),
+    \end{equation*}
+    and the third term satisfies
+    \begin{equation*}
+        \begin{split}
+        \left|
+        \mytr((\bSigma \bP_\bY)^2)
+        -\frac{n\mytr^2(\bSigma^2)}{\mytr^2(\bSigma)}
+        \right|
+        =&
+        \left|
+        \mytr\left(\left(\bSigma +\frac{\mytr(\bSigma^2)}{\mytr(\bSigma)}\bI_p\right)\bP_\bY
+        \left(\bSigma -\frac{\mytr(\bSigma^2)}{\mytr(\bSigma)}\bI_p\right)\bP_\bY\right)
+        \right|
+        \\
+        \leq &
+        2n \blambda_1 (\blambda_1-\blambda_p). 
+        \end{split}
+    \end{equation*}
+    This completes the proof of the second statement.
+\end{proof}
+
+
+\begin{proof}[\textbf{Proof of Theorem~\ref{fenTheorem1}}]
+    In the current context, Lemma~\ref{fenLemma1} implies that
+    \begin{align}
+        &\mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)=
+        \mytr(\bSigma)-\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
+        +o_P(\sqrt{\mytr(\bSigma^2)}),
+        \label{fenEq4}
+        \\
+        &
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2=
+        (1+o_P(1))\mytr(\bSigma^2).
+        \label{fenEq5}
+    \end{align}
+The fact $\lambda_1\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)\leq \blambda_1$ and \eqref{fenEq5} imply that the first term of~\eqref{eq:maindec} satisfies the Lyapunov condition
+$$
+\frac{\lambda_1\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)}{\sqrt{\mytr\left(\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)^2\right)}}
+\leq
+\frac{
+    \blambda_1
+}{
+    \sqrt{(1+o_P(1))\mytr^2(\bSigma)}
+}
+\xrightarrow{P} 0.
+$$
+Apply Lyapunov central limit theorem conditioning on $\bP_{\bY}$, we have
+$$
+\begin{aligned}
+    &\Big(\mytr \Big(\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big) \Big)^{-1/2}\\
+    &\big( \bZ_2^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
+    -\mytr\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
+     \bI_{k-1} \big)
+\xrightarrow{\mathcal{L}} \bW_{k-1}.
+\end{aligned}
+$$
+%where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid\ $\mathcal{N}(0,1)$ and the entries on the diagonal are iid\ $\mathcal{N}(0,2)$.
+    This, combined with Lemma~\ref{gg:Lemma2} and Slutsky's theorem, yields
+$$
+\begin{aligned}
+    \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
+    \big( \bZ_2^\top \bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
+    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} \big)
+\xrightarrow{\mathcal{L}} \bW_{k-1}.
+\end{aligned}
+$$
+
+Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
+$$
+\begin{aligned}
+    &\myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2|\bY]\\
+    = &
+    (k-1)\mytr(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\bTheta \bC)\\
+    \leq &
+    (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\big)\|\bTheta \bC\|^2_F\\
+    \leq &
+    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^\top (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\bTheta \bC\|^2_F\\
+    = &
+    (k-1) O_P(\frac{\blambda_1 p}{\blambda_r n})  \|\bTheta \bC\|^2_F\\
+    = &
+    (k-1) O_P\big(\frac{\blambda_1 \sqrt{p}}{\blambda_r n}\big) \sqrt{p}  \|\bTheta \bC\|^2_F=o_P(p),
+\end{aligned}
+$$
+where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1)$.
+Hence $\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2=o_P(p)$. Now,
+$$
+\begin{aligned}
+\frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
+    \big( \bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC
+    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} -\bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\big)
+\xrightarrow{\mathcal{L}} \bW_{k-1}.
+\end{aligned}
+$$
+    Equivalently,
+    $$
+    \begin{aligned}
+        &\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} {\Big(\bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC- \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1}}\Big)\\
+        \sim&
+\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC
+        +\bW_{k-1}+o_P(1).
+    \end{aligned}
+    $$
+    The conclusion follows by taking the maximum eigenvalue.
+    
+\end{proof}
+
+
 
 
 
@@ -2883,7 +3247,7 @@ Note that
             ,
     \end{split}
 \end{equation*}
-where the last equality follows from \eqref{projCon} and Corollary~\ref{eigenvectorprop3}.
+where the last equality follows from \eqref{projCon} and Proposition~\ref{eigenvectorprop3}.
 Then it follows from Weyl's inequality that uniformly for $i=1,\ldots, r$,
 \begin{equation}\label{choc3}
     \begin{split}
@@ -3216,7 +3580,7 @@ This completes the proof.
     O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)\right),
            \end{split}
        \end{equation}
-       where the last equality follows from Proposition~\ref{newEigenvectorPropCor} and Corollary~\ref{eigenvectorprop3}.
+       where the last equality follows from Proposition~\ref{newEigenvectorPropCor} and Proposition~\ref{eigenvectorprop3}.
        Note that
        \begin{equation*}
            \begin{split}
