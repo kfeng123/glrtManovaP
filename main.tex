@@ -79,6 +79,7 @@
 \def\bLambda {\bfsym {\Lambda}} 
 \def\bSigma {\bfsym {\Sigma}} 
 \def\bTheta {\bfsym {\Theta}} 
+\def\bPsi {\bfsym {\Psi}} 
 
 
 
@@ -614,17 +615,18 @@ The following theorem establishes the asymptotic distribution of LFD test statis
 \begin{theorem}
     \label{fenTheorem1}
     Suppose that $n\blambda_1/\mytr(\bSigma)\to 0$, $\blambda_1/\sqrt{\mytr(\bSigma^2)}\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\mytr^{1/2}(\bSigma^2))$.
-    Then
+    Then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{\mytr(\bSigma^2)})$,
     \begin{equation*}
-        \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)-n\mytr^2(\bSigma^2)/\mytr^2(\bSigma)}}
+        \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)}}
         \sim
-        \lambda_1\Big(\bW_{k-1}+\mytr^{-1/2}(\bSigma^2) \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\Big)
+        \lambda_1\left(\bW_{k-1}+\frac{\bC^\top \bTheta^\top \bTheta \bC}{\sqrt{\mytr(\bSigma^2)} }\right)
         +o_P(1),
     \end{equation*}
     where $\sim$ means having the same distribution.
 \end{theorem}
 \begin{remark}
-    The condition $n\blambda_{1}/\mytr(\bLambda_2)\to 0$ implies that $p/n \to \infty$. Hence $T(\bX)$ is well defined for large $n$.
+    The condition $n\blambda_{1}/\mytr(\bSigma)\to 0$ implies $p/n \to \infty$.
+    Hence $T(\bX)$ is well defined for large $n$.
 \end{remark}
 \subsection{Spiked covariance}
 We are especially interested in the case where variables are correlated.
@@ -796,33 +798,114 @@ Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, wh
             $.
 \end{proposition}
 \begin{remark}
-    The condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ implies that $p/n \to \infty$.
-    Hence $\bP_{\bY,2}$ is well defined for large $n$.
     The condition $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ is stronger than the condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ in Proposition \ref{newEigenvectorPropCor}.
     These two conditions are equivalent if $\blambda_1$ and $\blambda_r$ are of the same order.
 \end{remark}
 
 
-
+Now we are ready to derive the asymptotc properties of $T(\bX)$ under the spiked covariance.
+Let $\bW^*_{k-1}$ be a $(k-1)\times (k-1)$ symmetric random matrix distributed as $\textrm{Wishart}(r,\bI_{k-1})$ and is independent of $\bW_{k-1}$, where $\textrm{Wishart}(m,\bPsi)$ is the Wishart distribution with parameter $\bPsi$ and $m$ degrees of freedom.
+The following theorem gives the asymptotic distribution of $T(\bX)$ under the null and the local alternative hypothesis.
 \begin{theorem}\label{thm1}
-    Under Assumption~\ref{assumpEigen}, suppose $p/n\to \infty$ and
-    $$
-    \mytr\Big(\bLambda_2-\frac{1}{p-r}\mytr (\bLambda_2)\bI_{p-r}\Big)^2=o\big(\frac{p}{n}\big).
-    $$
-    Then under local alternative hypothesis
-    \begin{equation*}
-        \frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1),
-    \end{equation*}
-    we have
-    $$
-    \begin{aligned}
-        \frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{\mytr (\bLambda_2^2)}}
-        \sim
-        \lambda_{\max}\Big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\Big)
-        +o_P(1),
-    \end{aligned}
-    $$
-    where $\sim$ means having the same distribution.
+    Suppose that $r=o(\sqrt{n})$, $r\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$, $rn\blambda_{r+1} /\mytr(\bLambda_2)\to 0$,
+    $r\blambda_{r+1}/\sqrt{\mytr(\bLambda_2^2)}\to 0$ and $\blambda_{r+1}-\blambda_p=O(n^{-1}\mytr^{1/2}(\bLambda_2^2))$.
+    Then
+    \begin{enumerate}[(i)]
+        \item 
+            under the null hypothesis $\bTheta \bC=\bO_{p\times (k-1)}$,
+\begin{equation*}
+    \begin{split}
+&
+\frac{
+    T(\bX)
+    -
+    \left((1+r/n)\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)
+}{
+    \sqrt{
+        rn^{-2}\mytr^2(\bLambda_2)+ 
+        \mytr(\bLambda_2^2)
+    }
+}
+\\
+=&
+\lambda_1
+\left(
+\frac{
+    n^{-1} \mytr(\bLambda_2)
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+(\bW_{k-1}^* - r\bI_{k-1})
++
+\frac{
+    \sqrt{\mytr(\bLambda_2^2)}
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\bW_{k-1}
+\right)
++o_P(1);
+    \end{split}
+\end{equation*}
+        \item
+            if $r\to \infty$ or $\mytr(\bLambda_2)/(n \sqrt{\mytr(\bLambda_2^2)})\to 0$, then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+            })$,
+\begin{equation*}
+    \begin{split}
+&
+\frac{
+    T(\bX)
+    -
+    \left((1+r/n)\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)
+}{
+    \sqrt{
+        rn^{-2}\mytr^2(\bLambda_2)+ 
+        \mytr(\bLambda_2^2)
+    }
+}
+\\
+=&
+\lambda_1
+\left(
+\frac{
+    n^{-1} \mytr(\bLambda_2)
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+(\bW_{k-1}^* - r\bI_{k-1})
++
+\frac{
+    \sqrt{\mytr(\bLambda_2^2)}
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\bW_{k-1}
+\right.
+\\
+&
++\left.
+\frac{
+    \bC^\top \bTheta^\top \bTheta \bC
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\right)
++o_P(1);
+    \end{split}
+\end{equation*}
+    \end{enumerate}
+    
 \end{theorem}
 To gain some insight into the asymptotic behavior of $T(\bX)$, suppose the null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
 $$
@@ -2621,17 +2704,17 @@ Then
 \begin{aligned}
 \bC^\top\bJ^\top \bX^\top(\bI_p-\bP_{\bY}) \bX\bJ\bC
 =&
-\bZ^{\dagger T} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
- \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC+\\
- & \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
- \bZ^{\dagger T} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bTheta \bC.
+\bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
+ \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC\\
+ &+ \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
+ \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bTheta \bC.
 \end{aligned}
 \end{equation}
-    The first term of~\eqref{eq:maindec} can be written as
-\begin{equation}\label{eq:firstTerm}
-    \bZ^{\dagger T} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}=
+    It can be seen that the first term of~\eqref{eq:maindec} can be written as
+\begin{equation*}
+    \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}=
 \sum_{i=1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top,
-\end{equation}
+\end{equation*}
 where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random vectors and are independent of $\bP_{\bY}$.
 
 \begin{lemma}
@@ -2853,78 +2936,320 @@ and
         \label{fenEq4}
         \\
         &
-        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2=
-        (1+o_P(1))\mytr(\bSigma^2).
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2
+        =
+        (1+o_P(1))
+        \mytr(\bSigma^2)
+        .
         \label{fenEq5}
     \end{align}
 The fact $\lambda_1\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)\leq \blambda_1$ and \eqref{fenEq5} imply that the first term of~\eqref{eq:maindec} satisfies the Lyapunov condition
-$$
+\begin{equation*}
+\begin{split}
 \frac{\lambda_1\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)}{\sqrt{\mytr\left(\left((\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY)\right)^2\right)}}
-\leq
+\leq &
 \frac{
     \blambda_1
 }{
     \sqrt{(1+o_P(1))\mytr^2(\bSigma)}
 }
 \xrightarrow{P} 0.
-$$
-Apply Lyapunov central limit theorem conditioning on $\bP_{\bY}$, we have
-$$
-\begin{aligned}
-    &\Big(\mytr \Big(\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big) \Big)^{-1/2}\\
-    &\big( \bZ_2^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
-    -\mytr\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
-     \bI_{k-1} \big)
+\end{split}
+\end{equation*}
+From Lemma \ref{CLTLEMMA}, we have
+\begin{equation*}
+    \frac{
+    \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+    -
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)
+     \bI_{k-1}
+ }{
+     \sqrt{
+        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)^2
+}
+ }
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
-%where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid\ $\mathcal{N}(0,1)$ and the entries on the diagonal are iid\ $\mathcal{N}(0,2)$.
-    This, combined with Lemma~\ref{gg:Lemma2} and Slutsky's theorem, yields
-$$
-\begin{aligned}
-    \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
-    \big( \bZ_2^\top \bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
-    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} \big)
+\end{equation*}
+Then it follows from \eqref{fenEq4}, \eqref{fenEq5} and Slutsky's theorem that
+\begin{equation}
+    \frac{
+     \bZ^{\dagger\top} \bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+ -\left(\mytr(\bSigma)-{n\mytr(\bSigma^2)}/{\mytr(\bSigma)}\right)\bI_{k-1} 
+ }{
+     \sqrt{\mytr(\bSigma^2)}
+ }
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
+    \label{bufenEq1}
+\end{equation}
 
-Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
+Next we consider the second term of~\eqref{eq:maindec}.
+Note that 
+\begin{equation*}
+    \begin{split}
+    \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC=&
+    \bC^\top \bTheta^\top\bTheta \bC-\bC^\top \bTheta^\top \bY (\bY^\top \bY)^{-1} \bY^\top \bTheta \bC
+    \\
+    =&
+    \bC^\top \bTheta^\top\bTheta \bC-
+    \bC^\top \bTheta^\top 
+    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC.
+    \end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+    &\left\|
+    \bC^\top \bTheta^\top 
+    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    -{\mytr(\bSigma)}^{-1}
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    \right\|
+    \\
+    \leq&
+    \left\|
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    \right\|
+    \left\|
+   (\bZ^\top \bLambda \bZ)^{-1} -{\mytr(\bSigma)}^{-1}\bI_{n}
+    \right\|
+    \\
+    \leq&
+    \left\|
+{\mytr(\bSigma)}^{-1}
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    \right\|
+    \left\|
+(\bZ^\top \bLambda \bZ)^{-1}
+    \right\|
+    \left\|
+   \bZ^\top \bLambda \bZ -\mytr(\bSigma)\bI_{n}
+   \right\|.
+    \end{split}
+\end{equation*}
+From Lemma \ref{lemma:con}, we have
+$
+    \left\|
+   \bZ^\top \bLambda \bZ -\mytr(\bSigma)\bI_{n}
+   \right\|=
+   O_P(\sqrt{n\mytr(\bSigma^2)}+n\blambda_1)=o_P(\mytr(\bSigma))
+   $.
+   Then
+   $
+    \left\|
+(\bZ^\top \bLambda \bZ)^{-1}
+    \right\|
+    =\lambda_n^{-1}
+    (\bZ^\top \bLambda \bZ)=(1+o_P(1))\mytr(\bSigma)
+    $.
+    Therefore,
+\begin{equation*}
+    \begin{split}
+    &\left\|
+    \bC^\top \bTheta^\top 
+    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    -{\mytr(\bSigma)}^{-1}
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    \right\|
+    \\
+    =&
+    o_P\left(
+    \left\|
+{\mytr(\bSigma)}^{-1}
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    \right\|
+\right)
+.
+    \end{split}
+\end{equation*}
+Since the columns of $\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ$ are iid $\mathcal{N}(0,\bC^\top \bTheta^\top \bSigma \bTheta \bC)$ random vectors, we write
+$\bC^\top \bTheta^\top\bU \bLambda^{1/2} \bZ = (\bC^\top \bTheta^\top \bSigma \bTheta \bC)^{1/2}\bZ^*$, where $\bZ^*$ is a $(k-1)\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
+Then
+\begin{equation*}
+    \begin{split}
+    &\left\|
+    {\mytr(\bSigma)}^{-1}
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+    \bTheta \bC
+    -\frac{n}{\mytr(\bSigma)}
+\bC^\top \bTheta^\top \bSigma \bTheta \bC
+    \right\|
+    \\
+    \leq&
+\frac{n}{\mytr(\bSigma)}
+\left\|
+\bC^\top \bTheta^\top \bSigma \bTheta \bC
+    \right\|
+    \left\|
+    n^{-1}\bZ^* \bZ^{*\top}
+    -\bI_{k-1}
+    \right\|
+\\
+=&o_P\left(
+\frac{n}{\mytr(\bSigma)}
+\left\|
+\bC^\top \bTheta^\top \bSigma \bTheta \bC
+    \right\|
+\right),
+    \end{split}
+\end{equation*}
+where the last equality follows from the law of large numbers.
+Combine the above arguments, we have
+\begin{equation}\label{bufenEq2}
+    \begin{split}
+    \left\|
+    \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC
+    -
+    \bC^\top \bTheta^\top \bTheta \bC
+    \right\|
+    \leq &
+    \left(1+o_P\left(1\right)\right)
+\frac{n}{\mytr(\bSigma)}
+\left\|
+\bC^\top \bTheta^\top \bSigma \bTheta \bC
+    \right\|
+\\
+\leq&
+    \left(1+o_P\left(1\right)\right)
+\frac{n\blambda_1}{\mytr(\bSigma)}
+\left\|
+\bC^\top \bTheta^\top \bTheta \bC
+\right\|
+\\
+=&
+o_P\left(
+    \sqrt{\mytr(\bSigma^2)}
+\right)
+.
+    \end{split}
+\end{equation}
+
+
+
+
+Now we deal with the cross term of~\eqref{eq:maindec}. Note that
 $$
 \begin{aligned}
-    &\myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2|\bY]\\
+    \myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}\|_F^2|\bY]
     = &
-    (k-1)\mytr(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\bTheta \bC)\\
+    (k-1)\mytr\left(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bSigma (\bI_p -\bP_{\bY})\bTheta \bC\right)\\
     \leq &
-    (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\big)\|\bTheta \bC\|^2_F\\
-    \leq &
-    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^\top (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\bTheta \bC\|^2_F\\
-    = &
-    (k-1) O_P(\frac{\blambda_1 p}{\blambda_r n})  \|\bTheta \bC\|^2_F\\
-    = &
-    (k-1) O_P\big(\frac{\blambda_1 \sqrt{p}}{\blambda_r n}\big) \sqrt{p}  \|\bTheta \bC\|^2_F=o_P(p),
+    (k-1)\blambda_1
+    \mytr\left(\bC^\top \bTheta^\top \bTheta \bC\right).
 \end{aligned}
 $$
-where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1)$.
-Hence $\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2=o_P(p)$. Now,
-$$
-\begin{aligned}
-\frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
-    \big( \bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC
-    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} -\bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\big)
-\xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
-    Equivalently,
-    $$
-    \begin{aligned}
-        &\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} {\Big(\bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC- \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1}}\Big)\\
-        \sim&
-\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC
-        +\bW_{k-1}+o_P(1).
-    \end{aligned}
-    $$
-    The conclusion follows by taking the maximum eigenvalue.
+Therefore,
+\begin{equation}\label{bufenEq3}
+    \begin{split}
+\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}\|
+=&O_P\left(
+    \sqrt{
+        \blambda_1
+    \mytr\left(\bC^\top \bTheta^\top \bTheta \bC\right)
+}
+\right)
+\\
+=&o_P\left(\sqrt{\mytr(\bSigma^2)}\right),
+    \end{split}
+\end{equation}
+where the last equality follows from the conditions $\blambda_1/\sqrt{\mytr(\bSigma^2)}\to 0$ and 
+$
+    \mytr\left(\bC^\top \bTheta^\top \bTheta \bC\right)
+    \leq (k-1)
+    \left\|\bC^\top \bTheta^\top \bTheta \bC\right\|=O(\sqrt{\mytr(\bSigma^2)})
+    $.
+
+It follows from \eqref{bufenEq2}, \eqref{bufenEq3} and Weyl's inequality that
+\begin{equation*}
+    \begin{split}
+        &\left|
+        T(\bX)-
+        \left(
+        \lambda_1\left(
+\bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
+ \bC^\top \bTheta^\top \bTheta \bC
+        \right)
+    \right)
+        \right|
+        \\
+        \leq
+        &
+ \left\|
+ \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC
+ -
+ \bC^\top \bTheta^\top \bTheta \bC
+ +
+  \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
+ \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bTheta \bC
+ \right\|
+ \\
+ \leq&
+ \left\|
+ \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC
+ -
+ \bC^\top \bTheta^\top \bTheta \bC
+ \right\|
+ +
+ 2\left\|
+  \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+ \right\|
+ \\
+=&o_P\left(
+\sqrt{\mytr(\bSigma^2)}
+\right)
+ .
+    \end{split}
+\end{equation*}
+But \eqref{bufenEq1} implies that
+\begin{equation*}
+    \begin{split}
+&\frac{
+        \lambda_1\left(
+\bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
+ \bC^\top \bTheta^\top \bTheta \bC
+ \right)
+ -\left(\mytr(\bSigma)-{n\mytr(\bSigma^2)}/{\mytr(\bSigma)}\right)
+ }{
+     \sqrt{\mytr(\bSigma^2)}
+ }
+ \\
+    =&
+    \lambda_1\left(
+    \frac{
+     \bZ^{\dagger\top} \bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+ -\left(\mytr(\bSigma)-{n\mytr(\bSigma^2)}/{\mytr(\bSigma)}\right)\bI_{k-1} 
+ }{
+     \sqrt{\mytr(\bSigma^2)}
+ }
+ +
+ \frac{\bC^\top \bTheta^\top \bTheta \bC}{
+     \sqrt{\mytr(\bSigma^2)}
+ }
+ \right)
+ \\
+ \sim& \lambda_1\left(\bW_{k-1}+
+ \frac{\bC^\top \bTheta^\top \bTheta \bC}{
+     \sqrt{\mytr(\bSigma^2)}
+ }
+ \right)+o_P(1).
+    \end{split}
+\end{equation*}
+This completes the proof.
+
     
 \end{proof}
 
@@ -2937,8 +3262,9 @@ $$
 
 
 \begin{lemma}\label{gg:Lemma1}
-    Suppose the conditions of Proposition~\ref{eigenvectorprop2} hold.
-    Suppose that $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$.
+    Suppose that
+    $r=o(n)$, $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$,
+    $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
     Then uniformly for $i=1,\ldots, r$,
 \begin{equation*}
     \lambda_i\left(
@@ -2948,7 +3274,7 @@ $$
              n^{-1}\mytr(\bLambda_2)
              \left(1
              +O_P\left(
-                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}  
                      +\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
                      +\sqrt{\frac{r}{n}}
              \right)
@@ -3200,7 +3526,7 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
               \\
              &+O_P\left(
                  \left(
-                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}  
                      +\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}
                      +\sqrt{\frac{r}{n}}
                  \right)
@@ -3266,7 +3592,7 @@ Then it follows from Weyl's inequality that uniformly for $i=1,\ldots, r$,
               \\
              &+O_P\left(
                  \left(
-                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}  
                      +\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
                      +\sqrt{\frac{r}{n}}
                  \right)
@@ -3405,7 +3731,7 @@ Combine these bounds, we have
              %-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
              +O_P\left(
                  \left(
-                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}  
                      +\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}
                      +\sqrt{\frac{r}{n}}
                  \right)
@@ -3414,17 +3740,12 @@ Combine these bounds, we have
 \end{equation*}
 This completes the proof.
 
-
-
-
-
-
-
-
 \end{proof}
-\begin{lemma}
-    Suppose the conditions of Proposition~\ref{eigenvectorprop2} hold.
-    Suppose that $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$.
+
+\begin{lemma}\label{gg:Lemmac}
+    Suppose that
+    $r=o(n)$, $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$,
+    $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
     Then
 \begin{equation*}
     \begin{split}
@@ -3797,82 +4118,258 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Theorem~\ref{thm1}}]
-    Lemma~\ref{gg:Lemma1} and Lemma~\ref{gg:Lemma2} imply that the first term of~\eqref{eq:maindec} satisfies the Lyapunov condition
-$$
-    \frac{\lambda_1\Big(\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}{\mytr \Big( \big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big)}
-%\leq
-%\frac{
-%\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
-%}{\sum_{i=1}^{p-r-n+k}\lambda_{i+n-k}^2}
-%\leq
-%\frac{
-%\big( O_P(\frac{\lambda_1 p}{\lambda_r n})+C\big)^2
-%}{c(p-r-n+k)}
+    We have
+    \begin{equation*}
+        \begin{split}
+&\bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+\\
+=&
+\sum_{i=1}^r \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
++
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top.
+        \end{split}
+    \end{equation*}
+    From Lemma~\ref{gg:Lemma1}, we have
+    \begin{equation*}
+\sum_{i=1}^r \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
 =
-\frac{
-\big( O_P(\frac{\blambda_1 p}{\blambda_r n})+c_1\big)^2
+(1+o_P(r^{-1/2}))n^{-1}\mytr(\bLambda_2)\sum_{i=1}^r \eta_i \eta_i^\top.
+    \end{equation*}
+    Then
+    \begin{equation}\label{lushang1}
+        \frac{
+\sum_{i=1}^r \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+-rn^{-1}\mytr(\bLambda_2)\bI_{k-1}
 }{
-    (1+o_P(1))\mytr(\bLambda_2)
+    \sqrt r n^{-1}\mytr(\bLambda_2)
+}
+=\frac{\sum_{i=1}^r \eta_i \eta_i^\top- r\bI_{k-1}}{\sqrt r}
++o_P(1).
+    \end{equation}
+
+
+    Next we deal with
+    $
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+$.
+By Weyl's inequality, 
+\begin{equation*}
+    \begin{split}
+    &\lambda_{r+1} ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))
+    \\
+    =&
+    \lambda_{r+1} \left( (\bI_p-\bP_{\bY})\bU_1 \bLambda_1 \bU_1^\top (\bI_p-\bP_{\bY})
+        +
+     (\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)
+     \\
+     \leq&
+     \lambda_{1}\left((\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)
+     \\
+     \leq& \blambda_{r+1}.
+    \end{split}
+\end{equation*}
+The last display and Lemma~\ref{gg:Lemma2} imply that
+$$
+\frac{\lambda_{r+1}^2\left((\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)}{\sum_{i=r+1}^p\lambda_{i}^2\left((\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)}
+\leq
+\frac{
+    \blambda_{r+1}^2
+}{
+    \mytr(\bLambda_2^2)
 }
 \xrightarrow{P} 0.
 $$
-Apply Lyapunov central limit theorem conditioning on $\bP_{\bY}$, we have
-$$
-\begin{aligned}
-    &\Big(\mytr \Big(\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)^2\Big) \Big)^{-1/2}\\
-    &\big( \bZ_2^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
-    -\mytr\big(\bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU \bLambda^{1/2}\big)
-     \bI_{k-1} \big)
+From Lemma \ref{CLTLEMMA}, we have
+\begin{equation*}
+    \frac{
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+-
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})) \bI_{k-1}
+}{
+    \sqrt{\sum_{i=r+1}^p \lambda_i^2 ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))}
+}
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
-%where $\bW_{k-1}$ is a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid\ $\mathcal{N}(0,1)$ and the entries on the diagonal are iid\ $\mathcal{N}(0,2)$.
-    This, combined with Lemma~\ref{gg:Lemma2} and Slutsky's theorem, yields
-$$
-\begin{aligned}
-    \frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
-    \big( \bZ_2^\top \bLambda^{1/2} \bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ_2
-    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} \big)
+\end{equation*}
+Then it follows from Lemma \ref{gg:Lemmac} and Lemma \ref{gg:Lemma2} and Slutsky's theorem that
+\begin{equation}\label{lushang2}
+    \frac{
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+-
+\left(\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)\bI_{k-1}
+}{
+    \sqrt{\mytr(\bLambda_2^2)}
+}
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
+\end{equation}
 
-Next we show that the cross term of~\eqref{eq:maindec} is negligible. Note that
+Since $\sum_{i=1}^r \eta_i \eta_i^\top$ is independent of $
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+$, \eqref{lushang1} and \eqref{lushang2} implies that
+\begin{equation*}
+    \begin{split}
+&
+\frac{
+    \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}
+    -
+    \left((1+r/n)\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)\bI_{k-1}
+}{
+    \sqrt{
+        rn^{-2}\mytr^2(\bLambda_2)+ 
+        \mytr(\bLambda_2^2)
+    }
+}
+\\
+=&
+\frac{
+    n^{-1} \mytr(\bLambda_2)
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+(\bW_{k-1}^* - r\bI_{k-1})
++
+\frac{
+    \sqrt{\mytr(\bLambda_2^2)}
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\bW_{k-1}
++o_P(1).
+    \end{split}
+\end{equation*}
+This completes the proof of the first statement.
+
+Now we prove the second statement.
+For the second term of~\eqref{eq:maindec}, we have
+$
+    \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC=
+    \bC^\top \bTheta^\top\bTheta \bC-\bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC
+    $.
+    Note that Proposition \ref{newEigenvectorPropCor} implies that
+    \begin{equation*}
+\left\| \bP_{\bY,1}-\bU_1\bU_1^\top\right\|
+\leq
+\left\| \bP_{\bY,1}-\bP_{\bY,1}^\dagger\right\|+2\left\|\bQ\right\|=o_P(1)
+.
+    \end{equation*}
+    It follows from the last display and Proposition \ref{eigenvectorprop3} that
+    \begin{equation*}
+        \begin{split}
+        &\left\|
+        \bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC
+        -
+        \bC^\top \bTheta^\top \bU_1 \bU_1^\top \bTheta \bC
+        -
+        \bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC
+        \right\|
+        \\
+        \leq
+        &
+        \left\|
+        \bC^\top \bTheta^\top \bP_{\bY,1} \bTheta \bC
+        -
+        \bC^\top \bTheta^\top \bU_1 \bU_1^\top  \bTheta \bC
+        \right\|
+        +
+        \left\|
+        \bC^\top \bTheta^\top \bP_{\bY,2} \bTheta \bC
+        -
+        \bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC
+        \right\|
+        \\
+        \leq &
+\left\|
+        \bC^\top \bTheta^\top \bTheta \bC
+\right\|
+\left(
+\left\| \bP_{\bY,1}-\bU_1\bU_1^\top\right\|
+    +
+    \left\| \bP_{\bY,2}-\bP_{\bY,2}^\dagger\right\|
+\right)
+\\
+=&
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right).
+        \end{split}
+    \end{equation*}
+    We have
+\begin{equation*}
+        \bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC
+        =
+        \left(\mytr(\bLambda_2)\right)^{-1}
+        \bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}  \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top   \bTheta \bC.
+\end{equation*}
+Note that $\bZ_{2} \tilde{\bV}_{\bZ_1}$ is a $(p-r) \times (n-r) $ matrix with iid $\mathcal{N}(0,1)$ entries.
+Then the columns of $\bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}$ are iid $\mathcal{N}(0,\bC^\top \bTheta^\top \bU_2 \bLambda_2 \bU_2^\top \bTheta \bC)$ random vectors.
+Write $\bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}=(\bC^\top \bTheta^\top \bU_2 \bLambda_2 \bU_2^\top \bTheta \bC)^{1/2} \bZ^*$, where $\bZ^*$ is a $(k-1)\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries. 
+Then
+\begin{equation*}
+    \begin{split}
+        &\left\|
+        \bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC
+        -
+        \frac{n}{\mytr(\bLambda_2)}\bC^\top \bTheta^\top \bU_{2}\bLambda_2\bU_{2}^\top \bTheta \bC
+        \right\|
+        \\
+        \leq &
+        \frac{n}{\mytr(\bLambda_2)}\left\|\bC^\top \bTheta^\top \bU_{2}\bLambda_2\bU_{2}^\top \bTheta \bC
+        \right\|
+        \left\|
+        n^{-1}\bZ^*\bZ^{*\top}-\bI_{k-1}
+        \right\|
+        \\
+=&    
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right)
+    ,
+    \end{split}
+\end{equation*}
+where the last equality follows from the law of large numbers, the local alternative condition and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+
+
+
+Next we consider the cross term of~\eqref{eq:maindec}. Note that
 $$
 \begin{aligned}
-    &\myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2|\bY]\\
+    & \myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^\dagger\|_F^2|\bY]
+    \\
     = &
-    (k-1)\mytr(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\bTheta \bC)\\
+    (k-1)\mytr(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bSigma (\bI_p -\bP_{\bY})\bTheta \bC)\\
     \leq &
-    (k-1)\lambda_1\big((\bI_p -\bP_{\bY})\bU\bLambda \bU^\top (\bI_p -\bP_{\bY})\big)\|\bTheta \bC\|^2_F\\
-    \leq &
-    (k-1)\lambda_1\big(\bLambda^{1/2} \bU^\top (\bI_p -\bP_{\bY})\bU \bLambda^{1/2}\big)\|\bTheta \bC\|^2_F\\
-    = &
-    (k-1) O_P(\frac{\blambda_1 p}{\blambda_r n})  \|\bTheta \bC\|^2_F\\
-    = &
-    (k-1) O_P\big(\frac{\blambda_1 \sqrt{p}}{\blambda_r n}\big) \sqrt{p}  \|\bTheta \bC\|^2_F=o_P(p),
+    (k-1)
+    \lambda_1\left((\bI_p -\bP_{\bY})\bSigma (\bI_p -\bP_{\bY})\right)
+    \mytr(\bC^\top \bTheta^\top  \bTheta \bC)\\
+    =&
+    O_P\left(
+    n^{-1}\mytr(\bLambda_2)
+    \left\|\bC^\top \bTheta^\top  \bTheta \bC\right\|
+\right),
 \end{aligned}
 $$
-where the last equality holds since we have assumed $\frac{1}{\sqrt{p}}\|\bTheta \bC\|_F^2=O(1)$.
-Hence $\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ_2\|_F^2=o_P(p)$. Now,
-$$
-\begin{aligned}
-\frac{1}{\sqrt{\mytr(\bLambda_2^2)}}
-    \big( \bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC
-    -\tfrac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1} -\bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\big)
-\xrightarrow{\mathcal{L}} \bW_{k-1}.
-\end{aligned}
-$$
-    Equivalently,
-    $$
-    \begin{aligned}
-        &\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} {\Big(\bC^\top\bY^\top(\bI_p-\bP_{\bY}) \bY \bC- \frac{p-r-n+k}{p-r}\mytr(\bLambda_2)\bI_{k-1}}\Big)\\
-        \sim&
-\frac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC
-        +\bW_{k-1}+o_P(1).
-    \end{aligned}
-    $$
-    The conclusion follows by taking the maximum eigenvalue.
+where the last equality follows from Lemma \ref{gg:Lemma1}.
+Under the condition $r\to \infty$ or $\mytr(\bLambda_2)/(n \sqrt{\mytr(\bLambda_2^2)})\to 0$, we have
+$n^{-1}\mytr(\bLambda_2)=o_P\left(\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}\right)$.
+Then
+$
+\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^\dagger\|=
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right)
+$.
+
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{numberConsistency}}]
