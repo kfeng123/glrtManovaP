@@ -628,13 +628,27 @@ The following theorem establishes the asymptotic distribution of LFD test statis
     The condition $n\blambda_{1}/\mytr(\bSigma)\to 0$ implies $p/n \to \infty$.
     Hence $T(\bX)$ is well defined for large $n$.
 \end{remark}
+To formulate a test procedure with asymptotically correct level, the parameters $\mytr(\bSigma)$ and $\mytr(\bSigma^2)$ should be estimated.
+Let $\hat{\bSigma}=n^{-1}\bG=n^{-1}\bY\bY^\top$ be the sample covariance matrix.
+Consider the following simple estimators,
+\begin{equation*}
+    \widehat{\mytr(\bSigma)}=\mytr(\hat{\bSigma}),
+    \quad
+    \widehat{\mytr(\bSigma^2)}=\mytr ( \hat{\bSigma}^2 )-n^{-1}\mytr^2(\hat \bSigma).
+\end{equation*}
+It is not hard to show that $\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$ and
+$
+\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+n^{-1/2} \mytr^{1/2}(\bSigma^4)).
+$
+
+
 \subsection{Spiked covariance}
 We are especially interested in the case where variables are correlated.
 For some real world problems, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
 Our results allow $\bSigma$ to have $r$ spiked eigenvalues, where $1\leq r\leq p$ can also diverge as $n,p\to \infty$.
 
 
-First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the sample covariance matrix $\hat{\bSigma}=n^{-1}\bG=n^{-1}\bY\bY^\top$ since they play a key role in our analysis.
+First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the sample covariance matrix $\hat{\bSigma}$ since they play a key role in our analysis.
 Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
 Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
 We denote $\bU=(\bU_1,\bU_2)$ where $\bU_1$ and $\bU_2$ are the first $r$ columns and the last $p-r$ columns of $\bU$.
@@ -4205,7 +4219,7 @@ Then it follows from Lemma \ref{gg:Lemmac} and Lemma \ref{gg:Lemma2} and Slutsky
 Since $\sum_{i=1}^r \eta_i \eta_i^\top$ is independent of $
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
 $, \eqref{lushang1} and \eqref{lushang2} implies that
-\begin{equation*}
+\begin{equation}\label{lushang3}
     \begin{split}
 &
 \frac{
@@ -4239,7 +4253,7 @@ $, \eqref{lushang1} and \eqref{lushang2} implies that
 \bW_{k-1}
 +o_P(1).
     \end{split}
-\end{equation*}
+\end{equation}
 This completes the proof of the first statement.
 
 Now we prove the second statement.
@@ -4334,6 +4348,46 @@ o_P\left(
     \end{split}
 \end{equation*}
 where the last equality follows from the law of large numbers, the local alternative condition and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+But
+\begin{equation*}
+\frac{n}{\mytr(\bLambda_2)}
+        \left\|
+        \bC^\top \bTheta^\top \bU_{2}\bLambda_2\bU_{2}^\top \bTheta \bC
+        \right\|
+        \leq
+\frac{n\blambda_2}{\mytr(\bLambda_2)}
+        \left\|
+        \bC^\top \bTheta^\top  \bTheta \bC
+        \right\|
+        =
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right).
+\end{equation*}
+Hence
+        $\left\|\bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC\right\|=
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right)$.
+Combine the above arguments, we have
+\begin{equation}\label{lushang5}
+        \left\|
+\bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC
+        -
+        \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
+        \right\|
+        =
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right).
+\end{equation}
+
 
 
 
@@ -4360,15 +4414,38 @@ Under the condition $r\to \infty$ or $\mytr(\bLambda_2)/(n \sqrt{\mytr(\bLambda_
 $n^{-1}\mytr(\bLambda_2)=o_P\left(\sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }\right)$.
-Then
-$
+Therefore
+\begin{equation*}
 \|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^\dagger\|=
 o_P\left(
 \sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }
 \right)
-$.
+.
+\end{equation*}
+It follows from the last display, \eqref{lushang5} and Weyl's inequality that
+\begin{equation*}
+    \begin{split}
+    &\left|
+    T(\bX)
+    -
+    \lambda_1\left(
+        \bZ^{\dagger\top} \bLambda^{1/2} \bU^\dagger (\bI_p-\bP_\bY) \bU \bLambda^{1/2} \bZ^\dagger 
+        +
+        \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
+    \right)
+    \right|
+    \\
+    =&
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right).
+    \end{split}
+\end{equation*}
+Then the second statement follows from the last display and \eqref{lushang3}.
 
 \end{proof}
 
