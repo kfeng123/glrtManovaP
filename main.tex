@@ -636,10 +636,83 @@ Consider the following simple estimators,
     \quad
     \widehat{\mytr(\bSigma^2)}=\mytr ( \hat{\bSigma}^2 )-n^{-1}\mytr^2(\hat \bSigma).
 \end{equation*}
-It is not hard to show that $\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$ and
+Let 
+$$
+Q_1=
+\frac{T(\bX)-\left(\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}\right)}{\sqrt{\widehat{\mytr(\bSigma^2)}}}
+$$
+Let $F_1(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
+Then we reject the null hypothesis if $Q> F^{-1}(1-\alpha)$.
+The following corollary shows that this test procedure has asymptotically correct leve and gives the asymptotic local power function.
+\begin{corollary}\label{kuCor1}
+    Under the conditions of Theorem \ref{fenTheorem1}, 
+    \begin{equation*}
+        \Pr\left(
+            Q_1>F^{-1}(1-\alpha)
+        \right) 
+        =
+        \Pr\left(
+        \lambda_1\left(\bW_{k-1}+\frac{\bC^\top \bTheta^\top \bTheta \bC}{\sqrt{\mytr(\bSigma^2)} }\right)
+        >F^{-1}(1-\alpha)
+    \right).
+    \end{equation*}
+\end{corollary}
+\begin{proof}[\textbf{Proof of Corollary \ref{kuCor1}}]
+It is straightforward to show that 
+$\myE \widehat{\mytr(\bSigma)}=\mytr(\bSigma)$ and 
+$\myVar \left(\widehat{\mytr(\bSigma)}\right)=2\mytr(\bSigma^2)$.
+Then
+$\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$.
+Let $Z_1,\ldots, Z_n$ be the columns of $\bZ$.
+Then we have
+\begin{equation*}
+    \begin{split}
+\widehat{\mytr(\bSigma^2)}=&
+n^{-2} \mytr(\bZ^\top \bLambda \bZ-n^{-1}\mytr(\bZ^\top \bLambda \bZ)\bI_n)^2
+\\
+=&
+n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
++
+2n^{-2} \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2.
+    \end{split}
+\end{equation*}
+It can be seen that
 $
-\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+n^{-1/2} \mytr^{1/2}(\bSigma^4)).
+n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
+=O_P(n^{-1}\mytr^2(\bSigma^2))
+$.
+    On the other hand, we have $
+\myE 2 \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2
+=n(n-1)\mytr(\bSigma^2)
+$.
+    Furthermore, \cite{chen2010tests}, Proposition A.2 implies that
+    \begin{equation*}
+        \begin{split}
+        \myVar\left(
+            2\sum_{1\leq i<j\leq n} (Z_{i}^\top \bLambda Z_{j})^2
+        \right)
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n^3 \mytr(\bSigma^4)
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n \mytr(\bSigma_{2}^2) n^2 \blambda_{1}^2
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n^4 \blambda_{1}^4
+        \right)
+        .
+        \end{split}
+    \end{equation*}
+    Hence
 $
+\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+\blambda_1^2).
+$
+\end{proof}
+
+
+
 
 
 \subsection{Spiked covariance}
