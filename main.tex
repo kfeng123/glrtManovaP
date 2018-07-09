@@ -648,69 +648,17 @@ The following corollary shows that this test procedure has asymptotically correc
     Under the conditions of Theorem \ref{fenTheorem1}, 
     \begin{equation*}
         \Pr\left(
-            Q_1>F^{-1}(1-\alpha)
+            Q_1>F_1^{-1}(1-\alpha)
         \right) 
         =
         \Pr\left(
         \lambda_1\left(\bW_{k-1}+\frac{\bC^\top \bTheta^\top \bTheta \bC}{\sqrt{\mytr(\bSigma^2)} }\right)
-        >F^{-1}(1-\alpha)
-    \right).
+        >F_1^{-1}(1-\alpha)
+    \right)+o(1).
     \end{equation*}
 \end{corollary}
-\begin{proof}[\textbf{Proof of Corollary \ref{kuCor1}}]
-It is straightforward to show that 
-$\myE \widehat{\mytr(\bSigma)}=\mytr(\bSigma)$ and 
-$\myVar \left(\widehat{\mytr(\bSigma)}\right)=2\mytr(\bSigma^2)$.
-Then
-$\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$.
-Let $Z_1,\ldots, Z_n$ be the columns of $\bZ$.
-Then we have
-\begin{equation*}
-    \begin{split}
-\widehat{\mytr(\bSigma^2)}=&
-n^{-2} \mytr(\bZ^\top \bLambda \bZ-n^{-1}\mytr(\bZ^\top \bLambda \bZ)\bI_n)^2
-\\
-=&
-n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
-+
-2n^{-2} \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2.
-    \end{split}
-\end{equation*}
-It can be seen that
-$
-n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
-=O_P(n^{-1}\mytr^2(\bSigma^2))
-$.
-    On the other hand, we have $
-\myE 2 \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2
-=n(n-1)\mytr(\bSigma^2)
-$.
-    Furthermore, \cite{chen2010tests}, Proposition A.2 implies that
-    \begin{equation*}
-        \begin{split}
-        \myVar\left(
-            2\sum_{1\leq i<j\leq n} (Z_{i}^\top \bLambda Z_{j})^2
-        \right)
-        =& O\left(
-            n^2 \mytr^2 (\bSigma^2) + n^3 \mytr(\bSigma^4)
-        \right)
-        \\
-        =& O\left(
-            n^2 \mytr^2 (\bSigma^2) + n \mytr(\bSigma_{2}^2) n^2 \blambda_{1}^2
-        \right)
-        \\
-        =& O\left(
-            n^2 \mytr^2 (\bSigma^2) + n^4 \blambda_{1}^4
-        \right)
-        .
-        \end{split}
-    \end{equation*}
-    Hence
-$
-\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+\blambda_1^2).
-$
-\end{proof}
-
+Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test has similar power behavior to existing tests.
+In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{kuCor1} equals the asymptotic local power function of the tests in~\citet{Bai1996Efiect} and~\citet{Chen2010A}.
 
 
 
@@ -914,7 +862,7 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     }
 }
 \\
-=&
+\sim &
 \lambda_1
 \left(
 \frac{
@@ -956,7 +904,7 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     }
 }
 \\
-=&
+\sim &
 \lambda_1
 \left(
 \frac{
@@ -981,7 +929,7 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
 &
 +\left.
 \frac{
-    \bC^\top \bTheta^\top \bTheta \bC
+    \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
 }{
     \sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
@@ -992,22 +940,209 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     \end{split}
 \end{equation*}
     \end{enumerate}
-    
 \end{theorem}
-To gain some insight into the asymptotic behavior of $T(\bX)$, suppose the null hypothesis holds and $k=2$, then Theorem~\ref{thm1} implies that
-$$
-\frac{T(\bX)-\frac{p-r-n+k}{p-r}\mytr(\bLambda_2)}{\sqrt{2\mytr (\bLambda_2^2)}}\xrightarrow{\mathcal{L}}\mathcal{N}(0,1).
-$$
-The asymptotic variance of $T(\bX)$ is ${2\mytr (\bLambda_2^2)}$.
-If $r=0$, it equals to ${2\mytr (\bSigma^2)}$ which is also the asymptotic variance of~\citet{Bai1996Efiect} and~\citet{Chen2010A}'s statistics.
-In comparison, if $r>0$, ${2\mytr (\bLambda_2^2)}$ tends to be smaller than $2\mytr(\bSigma^2)$.
-In fact, if $\liminf_{n\to \infty} \blambda_1/p \in (0,+\infty]$, we have
-$$
-\liminf_{n\to \infty}\frac{2\mytr(\bSigma^2)}{2\mytr(\bLambda_2^2)}\in (1,+\infty].
-$$
-The reason for this is because the projection matrix $\bI_p-\bP_{\bY}$ appeared in expression~\eqref{statisticForm1} can remove large variance terms of $\bX\bJ \bC$.
 
-To formulate a test procedure with asymptotically correct level, the unknown parameters $r$, $\mytr(\bLambda_2)$ and $\mytr(\bLambda_2^2)$ should be estimated.
+Now we formulate a test procedure with asymptotically correct level.
+Define the standardized statistic as
+\begin{equation*}
+    Q_2=
+\frac{
+    T(\bX)
+    -
+    \left((1+r/n)\widehat{\mytr(\bLambda_2)}-n\widehat{\mytr(\bLambda_2^2)}/\widehat{\mytr(\bLambda_2)}\right)
+}{
+    \sqrt{
+        rn^{-2}(\widehat{\mytr(\bLambda_2)})^2+ 
+        \widehat{\mytr(\bLambda_2^2)}
+    }
+}.
+\end{equation*}
+Let $
+F_2(x;\mytr(\bLambda_2),\mytr(\bLambda_2^2))
+$ be the cumulative distribution function of
+\begin{equation*}
+\lambda_1
+\left(
+\frac{
+    n^{-1} \mytr(\bLambda_2)
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+(\bW_{k-1}^* - r\bI_{k-1})
++
+\frac{
+    \sqrt{\mytr(\bLambda_2^2)}
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\bW_{k-1}
+\right).
+\end{equation*}
+Then we reject the null hypothesis if
+\begin{equation*}
+    Q_2
+    >
+    F_2^{-1}\left(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)}\right).
+\end{equation*}
+The following corollary shows that this test procedure has asymptotically correct level and gives the asymptotic local power function.
+\begin{corollary}
+    Suppose the conditions of Theorem \ref{thm1} hold.
+    Then
+    \begin{enumerate}[(i)]
+        \item 
+            under the null hypothesis $\bTheta \bC=\bO_{p\times (k-1)}$,
+\begin{equation*}
+    \Pr
+    \left(
+        Q_2
+    >
+    F_2^{-1}\left(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)}\right)
+\right)=\alpha +o_P(1)
+        ;
+\end{equation*}
+        \item
+            if $r\to \infty$ or $\mytr(\bLambda_2)/(n \sqrt{\mytr(\bLambda_2^2)})\to 0$, then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+            })$,
+\begin{equation*}
+\begin{split}
+    &\Pr
+    \left(
+        Q_2
+    >
+    F_2^{-1}\left(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)}\right)
+\right)
+\\
+=
+    &\Pr
+    \left(
+\lambda_1
+\left(
+\frac{
+    n^{-1} \mytr(\bLambda_2)
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+(\bW_{k-1}^* - r\bI_{k-1})
++
+\frac{
+    \sqrt{\mytr(\bLambda_2^2)}
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\bW_{k-1}
+\right.\right.
+\\
+&
++\left.\left.
+\frac{
+    \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+\right)
+    >
+    F_2^{-1}\left(1-\alpha;\mytr(\bLambda_2),\mytr(\bLambda_2^2)\right)
+\right)
+.
+\end{split}
+\end{equation*}
+    \end{enumerate}
+    \label{kuCor2}
+\end{corollary}
+
+
+To gain some insight into the asymptotic behavior of $T(\bX)$, we consider $k=2$ and comare the LFD test with the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
+Corollary \ref{kuCor2} implies that if
+\begin{equation*}
+    \liminf_{n\to \infty}\frac{
+    \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+>0,
+\end{equation*}
+then the LFD test has nontrivial power asymptotically.
+In contrast, if
+\begin{equation*}
+    \limsup_{n\to \infty}\frac{
+    \bC^\top \bTheta^\top \bTheta \bC
+}{
+    \sqrt{
+        \mytr(\bSigma^2)
+    }
+}
+=0,
+\end{equation*}
+then the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
+It is not hard to see that
+\begin{equation*}
+    \frac{rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)}{
+        \mytr(\bSigma^2)
+    }\to 0.
+\end{equation*}
+To compare 
+$
+    \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
+$
+and
+$
+    \bC^\top \bTheta^\top \bTheta \bC
+$,
+we temporarily play a prior on $\bTheta$.
+Suppose that $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
+Then
+$
+\psi^{-1}\bC^\top \bTheta^\top \bTheta \bC$
+is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
+%$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $(k-1)$-dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
+On the other hand,
+$\psi^{-1}\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC$  is distributed as 
+%$\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
+$\chi^2$ distribution with $p-r$ degrees of freedom.
+Then we have
+$$
+\frac{\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC}{\bC^\top \bTheta^\top \bTheta \bC}\xrightarrow{P}1.
+$$
+Thus, if $\bTheta$ satisfies
+\begin{equation*}
+    \liminf_{n\to \infty}\frac{
+    \bC^\top \bTheta^\top \bTheta \bC
+}{
+    \sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+    }
+}
+>0,
+\quad
+    \limsup_{n\to \infty}\frac{
+    \bC^\top \bTheta^\top \bTheta \bC
+}{
+    \sqrt{
+        \mytr(\bSigma^2)
+    }
+}
+=0,
+\end{equation*}
+the LFD test has nontrivial power while  the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} has trivial power.
+Hence LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
+
+
+In practice, one may not know if the covariance matrix is spiked. Even if it is known that the covariance matrix is spiked, the spike number $r$ may be unknown.
+Now we consider the detection of spiked covariance and the estimation of $r$.
+Note that Theorem \ref{fenTheorem1} requires $n\blambda_1/\mytr(\bSigma)\to 0$ while Theorem \ref{thm1} requires $\mytr(\bLambda_2)/n\blambda_r\to 0$ and $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
 We use the following statistic to estimate $r$:
     $$
     \begin{aligned}
@@ -1027,138 +1162,6 @@ The following proposition establishes the consistency of $\hat{r}$.
 \begin{remark}
     For the factor model adopted by~\cite{Ma2015A}, $\lambda_r$ is of order $p$. Hence we can take $\gamma_n=\sqrt{n}$.
 \end{remark}
-    We use the following statistic to estimate $\mytr(\bLambda_2)$:
-    $$\widehat{\mytr(\bLambda_2)}=\frac{1}{n-k}\sum_{i=\hat{r}+1}^{n-k}\lambda_i(\bY^\top \bY).$$
-\begin{proposition}\label{traceProp1}
-    Under the assumptions of Theorem~\ref{thm1}, suppose $\gamma_n\to \infty$ and $\gamma_n=o({n\blambda_r}/{p})$, then
-    $$\widehat{\mytr(\bLambda_2)}=\mytr(\bLambda_2)+o_P(\sqrt{p}).$$
-\end{proposition}
-
-
-
-%    Under non-spiked covariance, an unbiased estimator of $\mytr(\bSigma^2)$ is
-%    $$
-%    \widehat{\mytr(\bSigma^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}(Y_i^\top Y_j)^2.
-%    $$
-%    \begin{proposition}\label{prop:nonSpiked}
-%    As $n\to \infty$,
-%    $$
-%    \frac{\widehat{\mytr(\bSigma^2)}}{\mytr(\bSigma^2)}\xrightarrow{P} 1.
-%    $$
-%    \end{proposition}
-   % \begin{proof}
-   %     Since $\myE (Y_i^\top Y_j)^2=\mytr(\bSigma^2)$, $i\leq j$, we have
-   % $$
-   %     \myE\big(\widehat{\mytr(\bSigma^2)}\big)=\mytr(\bSigma^2).
-   %     $$
-   %     To prove the proposition, we only need to show that 
-   %     $$
-   %     \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =o(\mytr^2(\bSigma^2)).
-   %     $$
-   %      Note that
-   %      $$
-   %     \begin{aligned}
-   %         &\myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 =
-   %         \frac{4}{(n-k)^2(n-k-1)^2}\Big(\sum_{1\leq i < j\leq n-k}(Y_i^\top Y_j)^2\Big)^2\\
-   %         =&
-   %         \frac{4}{(n-k)^2(n-k-1)^2}\myE\Big( \sum_{i<j}(Y_i^\top Y_j)^4+
-   %         \sum_{i<j,k<l:\{i,j\}\{k,l\}=\emptyset}(Y_i^\top Y_j)^2 (Y_k^\top Y_l)^2\\
-   %         &+2\sum_{i<j<k}\big((Y_i^\top Y_j)^2(Y_i Y_k)^2+(Y_i^\top Y_j)^2(Y_j Y_k)^2+(Y_i^\top Y_k)^2(Y_j Y_k)^2\big) \Big)\\
-   %         =&
-   % \frac{4}{(n-k)^2(n-k-1)^2}\Big(
-   %         \frac{(n-k)(n-k-1)}{2}\big(6\mytr(\bSigma^4)+3\mytr^2(\bSigma^2)\big)\\
-   %         &+\frac{(n-k)(n-k-1)(n-k-2)(n-k-3)}{4}\mytr^2(\bSigma^2)\\
-   %         &+(n-k)(n-k-1)(n-k-2)\big(2\mytr(\bSigma^4)
-   %         +\mytr^2(\bSigma^2)\big)
-   %         \Big)\\
-   %         =&
-   %         \mytr^2(\bSigma^2)(1+o(1)).
-   %     \end{aligned}
-   %      $$
-   %      Then
-   %     $$
-   %     \myVar\big(\widehat{\mytr(\bSigma^2)}\big) =
-   %         \myE\big(\widehat{\mytr(\bSigma^2)}\big)^2 - 
-   %         \big(\myE\big(\widehat{\mytr(\bSigma^2)}\big)\big)^2=
-   %         o(\mytr^2(\bSigma^2)).
-   %     $$
-   %     This completes the proof.
-   % \end{proof}
-    %Under the assumptions of Theorem~\ref{nonSpiked}.
-
-
- To estimate $\mytr(\bLambda_2^2)$,
-    we use the idea of leave-two-out.
-    Let $\bY_{(i,j)}$ be a $p\times (n-k-2)$ matrix obtained by deleting the $i$th and $j$th columns from $\bY$.
-    Let $\bY_{(i,j)}=\bU_{\bY;{(i,j)}}\bD_{\bY;{(i,j)}}\bV_{\bY;{(i,j)}}^\top$ denote the singular value decomposition of $\bY_{(i,j)}$.
-    Here $\bU_{\bY;{(i,j)}}$ is a $p\times (n-k-2)$ column orthogonal matrix.
-    Let $\tilde{\bU}_{\bY;{(i,j)}}$ be a $p\times (p-n+k+2)$ orthogonal matrix satisfying $\tilde{\bU}_{\bY;{(i,j)}}\tilde{\bU}_{\bY;{(i,j)}}^\top=\bI_{p}-\bU_{\bY;{(i,j)}}\bU_{\bY;{(i,j)}}^\top$.
-
-
-
-    Let $w_{ij}$ be the $(i,j)$th element of $\bY^\top \tilde{\bU}_{\bY;(i,j)} \tilde{\bU}_{\bY;(i,j)}^\top \bY$.
-    Define
-    $$
-    \widehat{\mytr(\bLambda_2^2)}=\frac{2}{(n-k)(n-k-1)}\sum_{1\leq i<j\leq n-k}w_{ij}^2.
-    $$
-    We use $\widehat{\mytr(\bLambda_2^2)}$ to estimate $\mytr(\bLambda_2^2)$.
-    The following proposition shows that $\widehat{\mytr(\bLambda_2^2)}$ is  ratio consistent.
-    \begin{proposition}\label{Taichangle}
-        Under the assumptions of Theorem~\ref{thm1}, we have
-        $$
-        \frac{\widehat{\mytr(\bLambda^2_2)}}{\mytr(\bLambda^2_2)} \xrightarrow{P} 1.
-        $$
-
-    \end{proposition}
-
-
-Now we can construct LFD test procedure with asymptotic correct level $\alpha$. Let 
-$$
-Q=\frac{T(\bX)-\frac{p-\hat{r}-n+k}{p-\hat{r}}\widehat{\mytr(\bLambda_2)}}{\sqrt{\widehat{\mytr(\bLambda_2^2)}}}.
-$$
-Let $F(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
-LFD test reject the null hypothesis if $Q> F^{-1}(1-\alpha)$.
-
-Theorem~\ref{thm1}, Proposition~\ref{traceProp1} and Proposition~\ref{Taichangle} implies that the resulting test procedure has asymptotic correct level under the assumptions of Theorem~\ref{thm1}.
-Moreover, by Theorem~\ref{thm1}, the asymptotic local power function of LFD test procedure is
-$$
-\Pr\Big(
-        \lambda_{1}\big(\bW_{k-1}+\tfrac{1}{\sqrt{\mytr(\bLambda_2^2)}} \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
-\Big).
-$$
-If $k=2$, the asymptotic local power function of~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method can be written as
-$$
-\Pr\Big(
-        \lambda_{1}\big(\bW_{1}+\tfrac{1}{\sqrt{\mytr(\bSigma^2)}} \bC^\top \bTheta^\top \bTheta \bC\big)\geq F_{\bW}^{-1}(1-\alpha)
-\Big).
-$$
-Hence the asymptotic relative efficiency between LFD test and~\cite{Bai1996Efiect} and~\cite{Chen2010A}'s method is
-$$
- \sqrt{\frac{{{\mytr(\bSigma^2)}}}{{\mytr(\bLambda_2^2)}}}
-\frac{ \bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC}{ {\bC^\top \bTheta^\top \bTheta \bC}}.
-$$
-There's a random term $\bP_{\bY}$ in the expression.
-To overcome this,
-suppose $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
-In this case,
-$
-\psi^{-1}\bC^\top \bTheta^\top \bTheta \bC$
-is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
-%$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $(k-1)$-dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
-On the other hand,
-$\bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC$  is distributed as 
-%$\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
-$\chi^2$ distribution with $p-n+k$ degrees of freedom.
-In this case, we have
-$$
-\frac{\bC^\top \bTheta^\top (\bI_p-\bP_{\bY})\bTheta \bC}{\bC^\top \bTheta^\top \bTheta \bC}\xrightarrow{P}1.
-$$
-Thus, when
-$$
-\liminf_{n\to \infty}\frac{{{\mytr(\bSigma^2)}}}{{\mytr(\bLambda_2^2)}}\in(1,+\infty],
-$$
-LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
-
 
 
 %\section{Schott's method}
@@ -3339,6 +3342,93 @@ This completes the proof.
 
     
 \end{proof}
+\begin{proof}[\textbf{Proof of Corollary \ref{kuCor1}}]
+It is straightforward to show that 
+$\myE \widehat{\mytr(\bSigma)}=\mytr(\bSigma)$ and 
+$\myVar \left(\widehat{\mytr(\bSigma)}\right)=2\mytr(\bSigma^2)$.
+Then
+$\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$.
+Let $Z_1,\ldots, Z_n$ be the columns of $\bZ$.
+Then we have
+\begin{equation*}
+    \begin{split}
+\widehat{\mytr(\bSigma^2)}=&
+n^{-2} \mytr(\bZ^\top \bLambda \bZ-n^{-1}\mytr(\bZ^\top \bLambda \bZ)\bI_n)^2
+\\
+=&
+n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
++
+2n^{-2} \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2.
+    \end{split}
+\end{equation*}
+It can be seen that
+$
+n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
+=O_P(n^{-1}\mytr^2(\bSigma^2))
+$.
+    On the other hand, we have $
+\myE 2 \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2
+=n(n-1)\mytr(\bSigma^2)
+$.
+    Furthermore, \cite{chen2010tests}, Proposition A.2 implies that
+    \begin{equation*}
+        \begin{split}
+        \myVar\left(
+            2\sum_{1\leq i<j\leq n} (Z_{i}^\top \bLambda Z_{j})^2
+        \right)
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n^3 \mytr(\bSigma^4)
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n \mytr(\bSigma_{2}^2) n^2 \blambda_{1}^2
+        \right)
+        \\
+        =& O\left(
+            n^2 \mytr^2 (\bSigma^2) + n^4 \blambda_{1}^4
+        \right)
+        .
+        \end{split}
+    \end{equation*}
+    Hence
+$
+\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+\blambda_1^2).
+$
+
+
+Thus, we have $
+\widehat{\mytr(\bSigma^2)}
+= (1+o(1))\mytr(\bSigma^2) 
+$
+and
+\begin{equation*}
+    \begin{split}
+    &\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}
+    \\
+    =
+    &\mytr(\bSigma) +O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})
+    -\frac{n\mytr(\bSigma^2)(1+O_P(n^{-1}+\blambda_1^2/\mytr(\bSigma^2)))}{\mytr(\bSigma)(1+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)/\mytr^2(\bSigma)}))}
+    \\
+    =
+    &\mytr(\bSigma) +O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})
+    -\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
+    \left(1+O_P \left(\frac{1}{n}+\frac{\blambda_1^2}{\mytr(\bSigma^2)}+\sqrt{\frac{\mytr(\bSigma^2)}{n\mytr^2(\bSigma)}}\right)\right)
+    \\
+    =
+    &\mytr(\bSigma)
+    -\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
+    +o_P(\sqrt{\mytr(\bSigma^2)}).
+    \\
+    \end{split}
+\end{equation*}
+Therefore,
+\begin{equation*}
+    Q_1=
+        \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)}}
+        +o_P(1).
+\end{equation*}
+Then the conclusion follows from Theorem \ref{fenTheorem1}.
+\end{proof}
 
 
 
@@ -4520,6 +4610,56 @@ o_P\left(
 \end{equation*}
 Then the second statement follows from the last display and \eqref{lushang3}.
 
+\end{proof}
+\begin{proof}[\textbf{Proof of Corollary~\ref{kuCor2}}]
+    From Proposition \ref{eigenvalueProp:R3},
+    we have
+    $$
+rn^{-2} (\widehat{\mytr ( \bLambda_2 )})^2 +\widehat{\mytr(\bLambda_2^2)}
+=
+(1+o_P(1))(rn^{-2} \mytr^2 ( \bLambda_2 ) + \mytr(\bLambda_2^2)),
+    $$
+    and
+    \begin{equation*}
+        \begin{split}
+    &(1+r/n)\widehat{\mytr(\bLambda_2)}-n\widehat{\mytr(\bLambda_2^2)}/\widehat{\mytr(\bLambda_2)}
+    \\
+    =&(1+r/n)\mytr(\bLambda_2)
+    +O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{n}}+r\blambda_{r+1}\right)
+    \\
+    &-\frac{n\mytr(\bLambda_2^2)\left(1+O_P\left(r/n +{r\blambda_{r+1}^2}/{\mytr(\bLambda_2^2)}\right)\right)}
+    {\mytr(\bLambda_2)\left(1+O_P\left(r\sqrt{\mytr(\bLambda_2^2)/n\mytr^2(\bLambda_2)}+r\blambda_{r+1}/\mytr(\bLambda_2)\right)\right)}
+    \\
+    =&(1+r/n)\mytr(\bLambda_2)
+    +O_P\left(r\sqrt{\frac{\mytr(\bLambda_2^2)}{n}}+r\blambda_{r+1}\right)
+    \\
+    &-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
+\left(1+O_P\left(\frac r n +\frac{r\blambda_{r+1}^2}{\mytr(\bLambda_2^2)}
++r\sqrt{\frac{\mytr(\bLambda_2^2)}{n\mytr^2(\bLambda_2)}}+\frac{r\blambda_{r+1}}{\mytr(\bLambda_2)}\right)\right)
+\\
+    =&(1+r/n)\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
+    +o_P\left(\sqrt{\mytr(\bLambda_2^2)}\right).
+        \end{split}
+    \end{equation*}
+Therefore,
+    \begin{equation*}
+        Q_2=
+\frac{
+    T(\bX)
+    -
+    \left((1+r/n)\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)
+}{
+    \sqrt{
+        rn^{-2}\mytr^2(\bLambda_2)+ 
+        \mytr(\bLambda_2^2)
+    }
+}
++o_P(1).
+    \end{equation*}
+    On the other hand,
+    it is not hard to see that the ratio consistency of $\widehat{\mytr(\blambda_2)}$ and $\widehat{\mytr(\bLambda_2^2)}$ imply
+     $F_2^{-1}(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)})=F_2^{-1}(1-\alpha;\mytr(\bLambda_2),\mytr(\bLambda_2^2))+o_P(1)$.
+     Then the conclusion follows Theorem \ref{thm1} and Slutsky's theorem.
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{numberConsistency}}]
