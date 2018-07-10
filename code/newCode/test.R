@@ -36,6 +36,7 @@ doit <- function() {
     jCX <- rep(0, repTime)
     jSC <- rep(0, repTime)
     jHBWW <- rep(0,repTime)
+    jZGZ <- rep(0,repTime)
     jAsy <- rep(0,repTime)
     for (myIterator in 1:repTime) {
         X <- lapply(1:K, function(k) {
@@ -50,6 +51,8 @@ doit <- function() {
         HBWWt<- HBWWtest(n,p,K,X)
         jHBWW[myIterator] <- (HBWWt <= 0.05)
         
+        ZGZt<- ZGZtest(n,p, K, X, NEW.J= NEW.J)
+        jZGZ[myIterator] <- (ZGZt <= 0.05)
         
         myAsy <- newTest(n,p, K, X, NEW.J= NEW.J, C=C)
         jAsy[myIterator] <- (myAsy <= 0.05)
@@ -62,6 +65,7 @@ doit <- function() {
         CX = mean(jCX),
         SC = mean(jSC),
         HBWW = mean(jHBWW),
+        ZGZ = mean(jZGZ),
         Asy = mean(jAsy)
     ))
 }
@@ -72,8 +76,8 @@ for(SNR in seq(0,1)){
     B = 5
     # sample number
     K = 3
-    n <- c(20, 20, 20)
-    p = 400
+    n <- c(15, 15, 15)
+    p = 200
     Sigma <- diag(p)
     Sigma[1,1]<- 1#2*p
     Sigma[2,2]<- 1#p

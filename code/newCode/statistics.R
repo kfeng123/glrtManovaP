@@ -97,25 +97,40 @@ HBWWtest <-function(n,p,K,X){
 }
 
 
+#Jin-Ting Zhang, Jia Guo, Bu Zhou
+ZGZtest <- function(n,p,K,X,NEW.J){
+    tmp <- lapply(X,colMeans)
+    Mhat <- do.call(rbind,tmp)
+    tG <- rep(0,(K-1)* K)
+    dim(tG) <- c(K-1,K)
+    for(i in 1:(K-1)){
+        tG[i,i] <- 1
+        tG[i,i+1] <- -1
+    }
+    theD <- diag(1/n)
+    Tn <- sum(diag(
+        t(Mhat)%*% t(tG) %*% solve(tG %*% theD %*% t(tG)) %*% tG %*% Mhat
+    ))
+    
+    # eigenvalues
+    N <- sum(n)
+    nn <- N-K
+    bindX <- do.call(rbind, X)
+    estEigen <- eigen(
+    (diag(N)- NEW.J%*%t(NEW.J)) %*% bindX %*% t(bindX) %*% (diag(N)- NEW.J%*%t(NEW.J)),
+    symmetric = TRUE , only.values =TRUE
+    )$values[1:nn]/nn
+    
+    tr1 <- nn*(nn+1)/(nn-1)/(nn+2)*(sum(estEigen)^2-2/(nn+1)*sum(estEigen^2))
+    tr2 <- nn^2 / (nn-1)/ (nn+2)*(sum(estEigen^2)-1/nn*sum(estEigen)^2)
+    betahat <- tr2/sum(estEigen) 
+    dhat <- (K-1)*tr1/tr2
+    1- pchisq(Tn/betahat,df=dhat)
+}
+
 
 
 # the New stat
-
-
-NEWstat <- function(n,p,K,X,Zinv=NULL,NEW.J,C){
-    out <- list()
-    if(is.null(Zinv)){
-        bindX <- do.call(rbind, X)
-        Zinv <- solve(bindX%*%t(bindX))
-        out$Zinv <- Zinv
-    }
-    tmp <- t(C)%*%solve(t(NEW.J)%*%Zinv%*%NEW.J)%*%C
-    out$stat <- eigen(tmp)$values[1]
-    #out$stat <- sum(eigen(tmp)$values)
-    return(out)
-}
-
-# revised paper
 
 # reference distributions
 jojo <- 1000
