@@ -642,7 +642,7 @@ Q_1=
 \frac{T(\bX)-\left(\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}\right)}{\sqrt{\widehat{\mytr(\bSigma^2)}}}
 $$
 Let $F_1(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
-Then we reject the null hypothesis if $Q> F^{-1}(1-\alpha)$.
+Then we reject the null hypothesis if $Q_1> F_1^{-1}(1-\alpha)$.
 The following corollary shows that this test procedure has asymptotically correct leve and gives the asymptotic local power function.
 \begin{corollary}\label{kuCor1}
     Under the conditions of Theorem \ref{fenTheorem1}, 
@@ -682,6 +682,7 @@ We can write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ is a $p\times n$ random mat
 
 
 
+    We shall first assume the spiked number $r$ is known. Adaptation to $r$ will be considered latter.
 
     The following proposition gives the asymptotic behavior of $\lambda_1(\hat{\bSigma}),\ldots, \lambda_r(\hat{\bSigma})$ and $\sum_{i=r+1}^n\lambda_i(\hat{\bSigma})$.
 \begin{proposition}
@@ -1140,28 +1141,70 @@ the LFD test has nontrivial power while  the tests in~\cite{Bai1996Efiect} and~\
 Hence LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
 
 
-In practice, one may not know if the covariance matrix is spiked. Even if it is known that the covariance matrix is spiked, the spike number $r$ may be unknown.
-Now we consider the detection of spiked covariance and the estimation of $r$.
+In practice, one may not know weather the covariance matrix is spiked. Even if it is known that the covariance matrix is spiked, the spike number $r$ may be unknown.
+So we would like to propose an adaptive test procedure.
+%Now we consider the detection of the spiked covariance and the estimation of $r$.
 Note that Theorem \ref{fenTheorem1} requires $n\blambda_1/\mytr(\bSigma)\to 0$ while Theorem \ref{thm1} requires $\mytr(\bLambda_2)/n\blambda_r\to 0$ and $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
-We use the following statistic to estimate $r$:
-    $$
-    \begin{aligned}
-    \hat{r}=
-            \begin{cases}
-                \argmax_{1\leq i\leq n-k-1} \frac{\lambda_i(\bY^\top \bY)}{\lambda_{i+1}(\bY^\top \bY)}\geq \gamma_n\quad& \text{if } \max_{1\leq i\leq n-k-1}\frac{\lambda_i(\bY^\top \bY)}{\lambda_{i+1}(\bY^\top \bY)}\geq \gamma_n\\
-                0\quad&\text{otherwise}\\
-            \end{cases}
-    \end{aligned}
-    $$
-where $\gamma_n$ is a hyper parameter slowly tending to $+\infty$ as $n\to \infty$.
-The following proposition establishes the consistency of $\hat{r}$.
+This motivates us to consider the following adaptive test procedure.
+Let $\tau>1$ be a hyperparameter.
+If
+\begin{equation*}
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+\mytr(\hat{\bSigma})}
+<\tau,
+\end{equation*}
+then we reject the null hypothesis if $Q_1 > F^{-1}(1-\alpha)$.
+Otherwise, we reject the null hypothesis if $Q_2> F_2^{-1}(1-\alpha;\widehat{\mytr(\bLambda_2,)},\widehat{\mytr(\bLambda_2^2)})$ where the unknown $r$ is substituted by the estimator
+\begin{equation*}
+    \hat{r}=\min
+    \left\{
+1\leq i< n:
+    \frac{
+        n\lambda_{i+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=i+1}^n
+\lambda_j(\hat{\bSigma})}
+<
+\tau
+\right\}
+.
+\end{equation*}
+We have the following proposition.
 \begin{proposition}\label{numberConsistency}
-    Suppose $p/n\to \infty$, $r=o(n)$, $\blambda_r n/p\to \infty$ and $c_1\geq\blambda_{r+1}\geq \ldots \geq \blambda_p\geq c_2$. If $\gamma_n\to \infty$ and $\gamma_n = o(n\blambda_r/p)$, then
- $\Pr(\hat{r}=r)\to 1$.
+    Let $\tau>1$ be a constant.
+    \begin{enumerate}[(i)]
+        \item 
+    Under the conditions of Theorem \ref{fenTheorem1}, 
+    \begin{equation*}
+        \Pr\left(
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+    \mytr(\hat{\bSigma})}
+<\tau
+\right)\to 1
+;
+    \end{equation*}
+\item
+    Under the conditions of Theorem \ref{thm1},
+    \begin{equation*}
+        \Pr\left(
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+    \mytr(\hat{\bSigma})}
+<\tau
+\right)\to 0,\quad
+\Pr(\hat{r}= r)\to 1
+.
+    \end{equation*}
+    \end{enumerate}
 \end{proposition}
-\begin{remark}
-    For the factor model adopted by~\cite{Ma2015A}, $\lambda_r$ is of order $p$. Hence we can take $\gamma_n=\sqrt{n}$.
-\end{remark}
+Proposition \ref{numberConsistency} implies that the spiked covariance structure can be consistently detected.
+So the proposed adptive test procedure can indeed adapt to the unknown covariance structure.
 
 
 %\section{Schott's method}
@@ -1313,7 +1356,7 @@ Here $M$ is the permutation times.
 Now we evaluate the empirical power performance of LFD test and competing tests.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\bLambda_2^2}}.
+\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\mytr(\bLambda_2^2)}}.
 $$
 We use SNR to characterize the signal strength.
 %Since the critical values of most existing tests can not guarantee correct test level under spiked covariance model, we use permutation method to determine the critical value in the simulations.
@@ -1525,6 +1568,20 @@ We leave it for future research.
 %In Section~\label{sc:compare}, we consider a random projection test.
 %The theoretical properties of random projection test may be a.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vskip 14pt
+%\noindent {\large\bf Supplementary Materials}
+%
+%Contain
+%the brief description of the online supplementary materials.
+%\par
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vskip 14pt
+\noindent {\large\bf Acknowledgements}
+This work was supported by the National Natural Science Foundation of
+China under Grant Nos. 11471035, 11471030.
+\par
 
 
 
@@ -4663,51 +4720,164 @@ Therefore,
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{numberConsistency}}]
-    First we consider the case of $r>0$. By the construction of $\hat{r}$,
+    Under the conditions of Theorem \ref{fenTheorem1}, we have
+    $n\blambda_1/\mytr(\bSigma)\to 0$.
+    From Lemma \ref{lemma:con} and Weyl's inequality, we have
+    \begin{equation*}
+        \lambda_1(\hat \bSigma) 
+        =
+        n^{-1}\lambda_1(\bZ^\top \bLambda \bZ) 
+        =
+        n^{-1}\mytr( \bSigma ) +O_P\left(\sqrt{\frac{\mytr(\bSigma^2)}{n}}+\blambda_1\right)
+        =
+        (1+o_P(1)) n^{-1}\mytr( \bSigma ) 
+        .
+    \end{equation*}
+    From the proof of Corollary \ref{kuCor1}, we have $\mytr(\hat{\bSigma})=(1+o_P(1))\mytr(\bSigma)$.
+    Therefore,
+\begin{equation*}
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+\mytr(\hat{\bSigma})}
+\xrightarrow{P}1.
+\end{equation*}
+This completes the proof of (i).
+
+Now we prove (ii).
+Under the conditions of Theorem \ref{thm1}, 
+Proposition \ref{eigenvalueProp} implies that
+\begin{equation*}
+\begin{split}
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+\mytr(\hat{\bSigma})}
+=&
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+    \sum_{i=1}^r \lambda_i(\hat{\bSigma})
+    +
+    \sum_{i=r+1}^n \lambda_i(\hat{\bSigma})
+}
+\\
+=&
+        (1+o_P(1))
+    \frac{
+        n\blambda_1+ \mytr(\bLambda_2)
+    }{
+        \sum_{i=1}^r \blambda_i+ \mytr(\bLambda_2)
+}
+\\
+\geq
+&
+        (1+o_P(1))
+    \frac{
+        n\blambda_1
+    }{
+        r \blambda_1+ \mytr(\bLambda_2)
+}
+\xrightarrow{P}\infty.
+\end{split}
+\end{equation*}
+It follows that
+    \begin{equation*}
+        \Pr\left(
+    \frac{
+        n\lambda_1(\hat{\bSigma})
+    }{
+    \mytr(\hat{\bSigma})}
+<\tau
+\right)\to 0
+.
+    \end{equation*}
+Next we consider the consistency of $\hat r $.
+Note that
     $$
-    \{\hat{r}=r\}\supseteq 
-    \{\frac{\lambda_{r}(\bY^\top \bY)}{\lambda_{r+1}(\bY^\top \bY)}\geq \gamma_n\}
+    \{\hat{r}=r\}=
+    \left\{  
+    \frac{
+        n\lambda_{i+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=i+1}^n
+\lambda_j(\hat{\bSigma})}
+    \geq \tau, i=1,\ldots, r-1 \right\}
     \cap
-    \{\frac{\lambda_{r+1}(\bY^\top \bY)}{\lambda_{n-k}(\bY^\top \bY)}< \gamma_n\}.
+    \left\{
+    \frac{
+        n\lambda_{r+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=r+1}^n
+\lambda_j(\hat{\bSigma})}
+    < \tau \right\}.
     $$
-    Suppose $0<\epsilon< 1$ is a fixed number.
-    By assumption, there exists an $n_0^*$ such that $n\geq n_0^*$ implies $\gamma_n\leq (1-\epsilon)n\blambda_r/(c_1 p)$ and $\gamma_n> (1+\epsilon) c_1/c_2 $. Thus,
-    $$
-    \{\hat{r}=r\}\supseteq 
-    \{\frac{\lambda_{r}(\bY^\top \bY)}{\lambda_{r+1}(\bY^\top \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p}\}
-    \cap
-    \{\frac{\lambda_{r+1}(\bY^\top \bY)}{\lambda_{n-k}(\bY^\top \bY)}\leq (1+\epsilon) \frac{c_1}{c_2} \}.
-    $$
-     Lemma~\ref{PCAlemma1} implies that almost surely, there exists an $n_0$ such that $n\geq n_0$ implies
-    $$\frac{\lambda_r(\bY^\top \bY)}{\lambda_{r+1}(\bY^\top \bY)}\geq (1-\epsilon)\frac{n\blambda_r}{c_1 p},
-    \quad
-    \frac{\lambda_{r+1}(\bY^\top \bY)}{\lambda_{n-k}(\bY^\top \bY)}\leq (1+\epsilon)\frac{c_1}{c_2}.
-    $$
-    This yields $\Pr(\hat{r}=r)\to 1$ for $r>0$.
-    The case of $r=0$ can be similarly proved by noting that
-    $$
-    \{\hat{r}=0\}\supseteq 
-    \{\frac{\lambda_{1}(\bY^\top \bY)}{\lambda_{n-k}(\bY^\top \bY)}\leq \gamma_n\}.
-    $$
+    But Proposition \ref{eigenvalueProp} implies that uniformly for $i=1,\ldots, r-1$,
+    \begin{equation*}
+        \begin{split}
+    \frac{
+        n\lambda_{i+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=i+1}^n
+\lambda_j(\hat{\bSigma})}
+\geq
+&
+    \frac{
+        n\lambda_{i+1}(\hat{\bSigma})
+}
+{
+    (r-i)\lambda_{i+1}(\hat{\bSigma})    
+    +
+    \sum_{j=r+1}^n
+\lambda_j(\hat{\bSigma})}
+\\
+=&
+(1+o_P(1))
+\frac{
+    n\blambda_{i+1}+\mytr(\bLambda_2)
+}{
+    (r-i) \blambda_{i+1}+ (1-i/n) \mytr(\bLambda_2)
+}\xrightarrow{P} \infty.
+        \end{split}
+    \end{equation*}
+    Thus, we only need to prove that
+    \begin{equation*}
+    \Pr
+    \left(
+    \frac{
+        n\lambda_{r+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=r+1}^n
+\lambda_j(\hat{\bSigma})}
+    < \tau \right)\to 1.
+    \end{equation*}
+    Weyl' inequality implies that $n\lambda_{r+1}(\hat{\bSigma})=\lambda_{r+1}(\bZ_1^\top \bLambda_1 \bZ_1+\bZ_2^\top \bLambda_2 \bZ_2)
+    \leq \lambda_1(\bZ_2^\top \bLambda_2 \bZ_2).
+    $
+    Then using Lemma \ref{lemma:con}, we have $n\lambda_{r+1}(\hat \bSigma)\leq (1+o_P(1)) \mytr(\bLambda_2)$.
+    Thus,
+    \begin{equation*}
+    \frac{
+        n\lambda_{r+1}(\hat{\bSigma})
+}
+{    
+    \sum_{j=r+1}^n
+\lambda_j(\hat{\bSigma})}
+\leq
+(1+o_P(1))
+.
+    \end{equation*}
+    This completes the proof.
+
 \end{proof}
 
 
 
 \end{appendices}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\vskip 14pt
-%\noindent {\large\bf Supplementary Materials}
-%
-%Contain
-%the brief description of the online supplementary materials.
-%\par
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vskip 14pt
-\noindent {\large\bf Acknowledgements}
-This work was supported by the National Natural Science Foundation of
-China under Grant No. 11471035, 11471030.
-\par
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \markboth{\hfill{\footnotesize\rm FIRSTNAME1 LASTNAME1 AND FIRSTNAME2 LASTNAME2} \hfill}
 {\hfill {\footnotesize\rm GENERALIZED LIKELIHOOD RATIO TEST} \hfill}
