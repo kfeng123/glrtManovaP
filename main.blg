@@ -13,45 +13,45 @@ Warning--no number and no volume in fan2017Dist
 Warning--page numbers missing in fan2017Dist
 Warning--no number and no volume in Vershynin2010Introduction
 Warning--page numbers missing in Vershynin2010Introduction
-You've used 34 entries,
+You've used 35 entries,
             2861 wiz_defined-function locations,
-            862 strings with 10437 characters,
-and the built_in function-call counts, 24572 in all, are:
-= -- 2077
-> -- 1797
+            868 strings with 10656 characters,
+and the built_in function-call counts, 25589 in all, are:
+= -- 2154
+> -- 1910
 < -- 0
-+ -- 538
-- -- 618
-* -- 2321
-:= -- 4422
-add.period$ -- 102
-call.type$ -- 34
-change.case$ -- 248
-chr.to.int$ -- 34
-cite$ -- 40
-duplicate$ -- 597
-empty$ -- 1499
-format.name$ -- 730
-if$ -- 4607
++ -- 574
+- -- 650
+* -- 2444
+:= -- 4602
+add.period$ -- 105
+call.type$ -- 35
+change.case$ -- 259
+chr.to.int$ -- 35
+cite$ -- 41
+duplicate$ -- 614
+empty$ -- 1542
+format.name$ -- 770
+if$ -- 4801
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 35
-newline$ -- 173
-num.names$ -- 340
-pop$ -- 150
+missing$ -- 36
+newline$ -- 178
+num.names$ -- 350
+pop$ -- 158
 preamble$ -- 1
-purify$ -- 453
+purify$ -- 470
 quote$ -- 0
-skip$ -- 655
+skip$ -- 672
 stack$ -- 0
-substring$ -- 1467
-swap$ -- 191
+substring$ -- 1512
+swap$ -- 196
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 670
+type$ -- 690
 warning$ -- 6
-while$ -- 321
+while$ -- 325
 width$ -- 0
-write$ -- 445
+write$ -- 458
 (There was 1 error message)

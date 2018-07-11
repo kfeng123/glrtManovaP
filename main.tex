@@ -1204,7 +1204,7 @@ We have the following proposition.
     \end{enumerate}
 \end{proposition}
 Proposition \ref{numberConsistency} implies that the spiked covariance structure can be consistently detected.
-So the proposed adptive test procedure can indeed adapt to the unknown covariance structure.
+So the proposed adptive LFD test procedure can indeed adapt to the unknown covariance structure.
 
 
 %\section{Schott's method}
@@ -1313,65 +1313,34 @@ So the proposed adptive test procedure can indeed adapt to the unknown covarianc
 %====================
 \section{Numerical study}\label{numerical}
 
-In this section, we compare the numerical performance of LFD test with some existing tests, including the MANOVA tests of~\citet{Schott2007Some} and~\citet{Cai2014High} and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
- Note that the critical values of these existing tests are not valid under spiked covariance model.
-Hence we use permutation method to determine the critical values throughout our simulations.
-   The test procedures resulting from permutation method have exact levels as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
-   The major down-side to permutation method is that it can be computationally intensive.
-   Fortunately, for LFD test statistic,  the permutation method has a simple implementation.
-    By expression~\eqref{statisticForm2}, a permuted statistic can be written as
-    \begin{equation}\label{permutedStatistic}
-        T(\bX\Gamma)=\lambda_{\max}\Big(\bC^\top{\big( \bJ^\top \Gamma^\top {(\bX^\top \bX)}^{-1} \Gamma \bJ \big)}^{-1}  \bC\Big),
-    \end{equation}
-where $\Gamma$ is an $n\times n$ permutation matrix.
-   Note that ${(\bX^\top \bX)}^{-1}$, the most time-consuming component, can be calculated aforehand.
-   The permutation procedure for LFD test statistic can be summarized as:
-   \begin{enumerate}
-       \item
-           Calculate $T(\bX)$ according to~\eqref{statisticForm2}, keep intermediate result ${(\bX^\top \bX)}^{-1}$.
-       \item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(\bX\Gamma_1),\ldots,T(\bX\Gamma_M)$ according to~\eqref{permutedStatistic}. 
-       \item Calculate the $p$-value by
-           $
-           \tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^M I\{T(\bX\Gamma_i)\geq T(\bX)\}\big]
-           $.
-           Reject the null hypothesis if $\tilde{p}\leq \alpha$.
-   \end{enumerate}
+In this section, we compare the numerical performance of the adaptive LFD test procedure with some existing tests, including the MANOVA tests in~\citet{Schott2007Some},~\citet{Cai2014High}, \cite{Hu2017} and \cite{ZHANG2017200}.
+The last four tests are denoted by Sc, CX, HBWW and ZGZ, respectively.
+For CX, we use their oracle procedure.
 
-Here $M$ is the permutation times. 
-   %It can be shown that for any integer $M>0$, the resulting test controls the Type I error. More precisely, we have $\Pr(\tilde{p}\leq u)\leq u$ for all $0\leq u\leq 1$.
-   %Moreover, as $M$ tends to $\infty$, $\lim_{M\to \infty}\Pr(\tilde{p}\leq u)= u$.
-   %See, for example,~\cite{Lehmann}, Chapter $15$.
-   It can be seen that  step 1 and step 2 cost $O(n^2 p +n^3)$ and $O(n^2 M)$ operations respectively.
-   In large sample or high dimensional setting, step 2 has a negligible effect on total computational complexity.
-
-
-
-
-   
-   
-   
-
-
-
-Now we evaluate the empirical power performance of LFD test and competing tests.
+First, we simulate the empirical level and power under various models for $\bSigma$ and $\bTheta$.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\mytr(\bLambda_2^2)}}.
+\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\mytr(\bSigma^2)}}.
 $$
 We use SNR to characterize the signal strength.
-%Since the critical values of most existing tests can not guarantee correct test level under spiked covariance model, we use permutation method to determine the critical value in the simulations.
-
-In the first simulation study, we take $k=3$.
-For comparison, we also carry out simulations for the tests of~\citet{Schott2007Some} and~\citet{Cai2014High}.
-We denote these two tests by  SC and  CX, respectively.
-%Note that the new test is invariant under orthogonal transformation.
-We take $r=2$ and $\bSigma=\mydiag(1.5p,p,1,1,\ldots,1)$.
-We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we set $\theta_1=\kappa 1_p$, $\theta_2=-\kappa 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
-In the sparse case, we set $\theta_1=\kappa (1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
+We consider the following four models for $\bSigma$.
+\begin{itemize}
+    \item Model $1$:
+        $\bSigma= \bI_p$.
+    \item Model $2$:
+        $\bSigma = (\sigma_{ij})$ where $\sigma_{ij}=0.6^{|i-j|}$.
+    \item Model $3$:
+        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,1p,1,\ldots,1)$.
+    \item Model $4$:
+        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(p,p-1,\ldots,1)$.
+\end{itemize}
+%and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
+Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
+In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
+In the sparse case, we set $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
 Again, $\kappa$ is selected to make the SNR equal to specific values.
-The empirical power is computed based on $1000$ simulations.
-The simulation results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
+The empirical power is computed based on $2000$ simulations.
+The results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
 This verifies our theoretical results that LFD test performs well under spiked covariance.
 
 In our second simulation study, we would like to investigate the effect of correlations between variables.
@@ -1565,8 +1534,41 @@ On the other hand, if we know some prior knowledge of $\Sigma$, for example, $\S
 We leave it for future research.
 
 
-%In Section~\label{sc:compare}, we consider a random projection test.
-%The theoretical properties of random projection test may be a.
+
+%Hence we use permutation method to determine the critical values throughout our simulations.
+   %The test procedures resulting from permutation method have exact levels as long as the null distribution of observations are exchangeable~\citep{Romano1990On}.
+   %The major down-side to permutation method is that it can be computationally intensive.
+   %Fortunately, for LFD test statistic,  the permutation method has a simple implementation.
+    %By expression~\eqref{statisticForm2}, a permuted statistic can be written as
+    %\begin{equation}\label{permutedStatistic}
+        %T(\bX\Gamma)=\lambda_{\max}\Big(\bC^\top{\big( \bJ^\top \Gamma^\top {(\bX^\top \bX)}^{-1} \Gamma \bJ \big)}^{-1}  \bC\Big),
+    %\end{equation}
+%where $\Gamma$ is an $n\times n$ permutation matrix.
+   %Note that ${(\bX^\top \bX)}^{-1}$, the most time-consuming component, can be calculated aforehand.
+   %The permutation procedure for LFD test statistic can be summarized as:
+   %\begin{enumerate}
+       %\item
+           %Calculate $T(\bX)$ according to~\eqref{statisticForm2}, keep intermediate result ${(\bX^\top \bX)}^{-1}$.
+       %\item For a large $M$, independently generate $M$ random permutation matrix $\Gamma_1,\ldots,\Gamma_M$ and calculate $T(\bX\Gamma_1),\ldots,T(\bX\Gamma_M)$ according to~\eqref{permutedStatistic}. 
+       %\item Calculate the $p$-value by
+           %$
+           %\tilde{p}={(M+1)}^{-1}\big[1+\sum_{i=1}^M I\{T(\bX\Gamma_i)\geq T(\bX)\}\big]
+           %$.
+           %Reject the null hypothesis if $\tilde{p}\leq \alpha$.
+   %\end{enumerate}
+%
+%Here $M$ is the permutation times. 
+   %It can be seen that  step 1 and step 2 cost $O(n^2 p +n^3)$ and $O(n^2 M)$ operations respectively.
+   %In large sample or high dimensional setting, step 2 has a negligible effect on total computational complexity.
+
+
+
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

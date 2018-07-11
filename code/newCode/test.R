@@ -1,7 +1,7 @@
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
 K <- 3
-repTime <- 200
+repTime <- 2000
 
 doit <- function() {
     # J
@@ -62,8 +62,8 @@ doit <- function() {
     close(pb)
     return(data.frame(
         SNR=SNR,
-        CX = mean(jCX),
         SC = mean(jSC),
+        CX = mean(jCX),
         HBWW = mean(jHBWW),
         ZGZ = mean(jZGZ),
         Asy = mean(jAsy)
@@ -73,14 +73,13 @@ doit <- function() {
 ######################################################
 tmpList<-NULL
 for(SNR in seq(0,1)){
-    B = 5
-    # sample number
     K = 3
     n <- c(15, 15, 15)
     p = 200
     Sigma <- diag(p)
-    Sigma[1,1]<- 1#2*p
-    Sigma[2,2]<- 1#p
+    Sigma[1,1]<- 3*p
+    Sigma[2,2]<- 2*p
+    Sigma[3,3]<- 1*p
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
     #mu <- list(c(rep(1, p/5),rep(0,4*p/5)), c(rep(0, p/5),rep(1, p/5),rep(0, 3*p/5)), rep(0, p))

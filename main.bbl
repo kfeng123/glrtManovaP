@@ -89,6 +89,14 @@ Horn, R.~A. and C.~R. Johnson (2012).
 \newblock {\em Matrix Analysis\/} (2nd ed.).
 \newblock New York: Cambridge University Press.
 
+\bibitem[\protect\citeauthoryear{Hu, Bai, Wang, and Wang}{Hu
+  et~al.}{2017}]{Hu2017}
+Hu, J., Z.~Bai, C.~Wang, and W.~Wang (2017, Apr).
+\newblock On testing the equality of high dimensional mean vectors with unequal
+  covariance matrices.
+\newblock {\em Annals of the Institute of Statistical Mathematics\/}~{\em
+  69\/}(2), 365--387.
+
 \bibitem[\protect\citeauthoryear{Koltchinskii and Lounici}{Koltchinskii and
   Lounici}{2016}]{koltchinskii2016}
 Koltchinskii, V. and K.~Lounici (2016, 11).
@@ -114,13 +122,6 @@ Nadler, B. ({2008}).
 \newblock Finite sample approximation results for principal component analysis:
   A matrix perturbation approach.
 \newblock {\em The Annals of Statistics\/}~{\em {36}\/}({6}), {2791--2817}.
-
-\bibitem[\protect\citeauthoryear{ROMANO}{ROMANO}{1990}]{Romano1990On}
-ROMANO, J. ({1990}).
-\newblock On the behavior of randomization tests without a group invariance
-  assumption.
-\newblock {\em Journal of the American Statistical Association\/}~{\em
-  {85}\/}({411}), {686--692}.
 
 \bibitem[\protect\citeauthoryear{ROY}{ROY}{1953}]{Roy1953}
 ROY, S. ({1953}).
@@ -204,6 +205,12 @@ Yata, K. and M.~Aoshima (2013).
 \newblock Pca consistency for the power spiked model in high-dimensional
   settings.
 \newblock {\em Journal of Multivariate Analysis\/}~{\em 122}, 334 -- 354.
+
+\bibitem[\protect\citeauthoryear{Zhang, Guo, and Zhou}{Zhang
+  et~al.}{2017}]{ZHANG2017200}
+Zhang, J.-T., J.~Guo, and B.~Zhou (2017).
+\newblock Linear hypothesis testing in high-dimensional one-way manova.
+\newblock {\em Journal of Multivariate Analysis\/}~{\em 155}, 200 -- 216.
 
 \bibitem[\protect\citeauthoryear{Zhao and Xu}{Zhao and Xu}{2016}]{Zhao2016A}
 Zhao, J. and X.~Xu ({2016}).
