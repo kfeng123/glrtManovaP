@@ -24,7 +24,7 @@ CXtest <- function(n,p,K,X){
     MOMG <- max(mySum)
     tmp <- MOMG - 4*log(p) + 2* log(log(p))
     return(
-        1-exp(-1/sqrt(pi)*4/3*exp(-tmp/4))
+        1-exp(-1/sqrt(pi)*2/3*exp(-tmp/4))
     )
 }
 
@@ -132,6 +132,24 @@ ZGZtest <- function(n,p,K,X,NEW.J){
 
 # the New stat
 
+# generate wishart
+myWishart <- function (n,df,Sigma){
+    if(df >= dim(Sigma)[1]){
+        return(rWishart(n,df,Sigma))
+    }
+    else{
+        tmp <- list()
+        for ( i in 1:n){
+            tmp2 <- rnorm(df*(dim(Sigma)[1]))
+            dim(tmp2) <- c(df,dim(Sigma)[1])
+            tmp[[i]] <- t(tmp2) %*% tmp2
+        }
+        myRes <- do.call(c,tmp)
+        dim(myRes) <- c(dim(Sigma)[1],dim(Sigma)[1],n)
+        return(myRes)
+    }
+}
+
 # reference distributions
 jojo <- 1000
 temp <- lapply(1:jojo, function(i){
@@ -208,7 +226,7 @@ newTest <- function(n,p,K,X,NEW.J, C){
         tempb <- sqrt(trEst2  ) /sqrt(myR*trEst^2/nn^2 + trEst2  )
         
         tmpRef <- apply(
-            tempa *( rWishart(jojo, myR, diag(K-1)) -myR * array(rep(diag(K-1),jojo),c(K-1,K-1,jojo)))  + tempb * refW,
+            tempa *( myWishart(jojo, myR, diag(K-1)) -myR * array(rep(diag(K-1),jojo),c(K-1,K-1,jojo)))  + tempb * refW,
                         3,
                         function(ele){
                         eigen(ele,symmetric = TRUE, only.values = TRUE)$values[1]

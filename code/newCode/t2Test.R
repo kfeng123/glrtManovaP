@@ -59,9 +59,9 @@ for(SNR in seq(0,3)){
     dim(tmp) <- c(p,p)
     myU<-svd(tmp)$u
     tmp2 <- diag(p)
-    tmp2[1,1] <- 3*p
-    tmp2[2,2] <- 2*p
-    tmp2[3,3] <- 1*p
+    for(i in 1:p){
+        tmp2[i,i] <- p+1-i
+    }
     Sigma <- myU %*% tmp2 %*% t(myU)
     
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
@@ -86,9 +86,9 @@ for(SNR in seq(0,3)){
     dim(tmp) <- c(p,p)
     myU<-svd(tmp)$u
     tmp2 <- diag(p)
-    tmp2[1,1] <- 3*p
-    tmp2[2,2] <- 2*p
-    tmp2[3,3] <- 1*p
+    for(i in 1:p){
+        tmp2[i,i] <- p+1-i
+    }
     Sigma <- myU %*% tmp2 %*% t(myU)
     
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
