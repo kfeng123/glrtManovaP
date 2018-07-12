@@ -23,7 +23,7 @@ doit <- function() {
     }
     tmpMuF <- tmpMu%*%C
         
-    tmpSigEig <- eigen(Sigma)$values[-c(1,2)]
+    tmpSigEig <- eigen(Sigma)$values#[-c(1,2)]
     tmpCon <- sqrt(SNR*sqrt(sum(tmpSigEig^2))/sum(tmpMuF^2))
     for(i in 1:length(mu)){
         mu[[i]] <- mu[[i]]*tmpCon

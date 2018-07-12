@@ -7,51 +7,63 @@ Repeated entry---line 647 of file mybibfile.bib
  : @article{Nadler2009Finite
  :                          ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 711 of file mybibfile.bib
+ : @article{2017arXiv171007878C
+ :                             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 739 of file mybibfile.bib
+ : @article{Aoshima2018
+ :                     ,
+I'm skipping whatever remains of this entry
 Warning--no number and no volume in Cai2017Limiting
 Warning--page numbers missing in Cai2017Limiting
+Warning--no number and no volume in 2017arXiv171007878C
+Warning--page numbers missing in 2017arXiv171007878C
 Warning--no number and no volume in fan2017Dist
 Warning--page numbers missing in fan2017Dist
 Warning--no number and no volume in Vershynin2010Introduction
 Warning--page numbers missing in Vershynin2010Introduction
-You've used 35 entries,
+Warning--no number and no volume in WANG2018
+Warning--page numbers missing in WANG2018
+You've used 38 entries,
             2861 wiz_defined-function locations,
-            868 strings with 10656 characters,
-and the built_in function-call counts, 25589 in all, are:
-= -- 2154
-> -- 1910
+            881 strings with 10990 characters,
+and the built_in function-call counts, 27568 in all, are:
+= -- 2323
+> -- 2065
 < -- 0
-+ -- 574
-- -- 650
-* -- 2444
-:= -- 4602
-add.period$ -- 105
-call.type$ -- 35
-change.case$ -- 259
-chr.to.int$ -- 35
-cite$ -- 41
-duplicate$ -- 614
-empty$ -- 1542
-format.name$ -- 770
-if$ -- 4801
-int.to.chr$ -- 1
++ -- 624
+- -- 704
+* -- 2623
+:= -- 4966
+add.period$ -- 114
+call.type$ -- 38
+change.case$ -- 281
+chr.to.int$ -- 37
+cite$ -- 48
+duplicate$ -- 661
+empty$ -- 1651
+format.name$ -- 835
+if$ -- 5167
+int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 36
-newline$ -- 178
-num.names$ -- 350
-pop$ -- 158
+missing$ -- 39
+newline$ -- 193
+num.names$ -- 378
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 470
+purify$ -- 508
 quote$ -- 0
-skip$ -- 672
+skip$ -- 728
 stack$ -- 0
-substring$ -- 1512
-swap$ -- 196
+substring$ -- 1598
+swap$ -- 210
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 690
-warning$ -- 6
-while$ -- 325
+type$ -- 746
+warning$ -- 10
+while$ -- 350
 width$ -- 0
-write$ -- 458
-(There was 1 error message)
+write$ -- 497
+(There were 3 error messages)

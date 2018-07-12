@@ -52,6 +52,13 @@ Cai, T.~T. and Y.~Xia ({2014}).
 \newblock {High-dimensional sparse MANOVA}.
 \newblock {\em Journal of Multivariate Analysis\/}~{\em {131}}, {174--196}.
 
+\bibitem[\protect\citeauthoryear{{Cao}, {Park}, and {He}}{{Cao}
+  et~al.}{2017}]{2017arXiv171007878C}
+{Cao}, M., J.~{Park}, and D.~{He} (2017, October).
+\newblock {A test for k sample Behrens-Fisher problem in high dimensional
+  data}.
+\newblock {\em ArXiv e-prints\/}.
+
 \bibitem[\protect\citeauthoryear{Chen and Qin}{Chen and Qin}{2010}]{Chen2010A}
 Chen, S.~X. and Y.-L. Qin ({2010}).
 \newblock A two-sample test for high-dimensional data with applications to
@@ -178,6 +185,16 @@ Verstynen, T., J.~Diedrichsen, N.~Albert, P.~Aparicio, and R.~Ivry ({2005}).
 \newblock {Ipsilateral motor cortex activity during unimanual hand movements
   relates to task complexity}.
 \newblock {\em Journal of Neurophysiology\/}~{\em {93}\/}({3}), {1209--1222}.
+
+\bibitem[\protect\citeauthoryear{Wang and Xu}{Wang and Xu}{2018a}]{WANG2018}
+Wang, R. and X.~Xu (2018a).
+\newblock A feasible high dimensional randomization test for the mean vector.
+\newblock {\em Journal of Statistical Planning and Inference\/}.
+
+\bibitem[\protect\citeauthoryear{Wang and Xu}{Wang and Xu}{2018b}]{WANG2018225}
+Wang, R. and X.~Xu (2018b).
+\newblock On two-sample mean tests under spiked covariances.
+\newblock {\em Journal of Multivariate Analysis\/}~{\em 167}, 225 -- 249.
 
 \bibitem[\protect\citeauthoryear{Wang and Fan}{Wang and Fan}{2017}]{wang2017As}
 Wang, W. and J.~Fan (2017, 06).
