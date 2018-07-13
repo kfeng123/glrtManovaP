@@ -1369,7 +1369,7 @@ For CX, we use their oracle procedure.
 First, we simulate the empirical level and power under various models for $\bSigma$ and $\bTheta$.
 Define signal-to-noise ratio (SNR) as
 $$
-\textrm{SNR}=\frac{\|\bTheta\bC\|_F^2}{\sqrt{\mytr(\bSigma^2)}}.
+\textrm{SNR}=\frac{ \bC^\top \bTheta^\top \bTheta\bC}{\sqrt{\mytr(\bSigma^2)}}.
 $$
 We use SNR to characterize the signal strength.
 We consider the following four models for $\bSigma$.
@@ -1379,9 +1379,9 @@ We consider the following four models for $\bSigma$.
     \item Model $2$:
         $\bSigma = (\sigma_{ij})$ where $\sigma_{ij}=0.6^{|i-j|}$.
     \item Model $3$:
-        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,1p,1,\ldots,1)$.
+        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
     \item Model $4$:
-        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(p,p-1,\ldots,1)$.
+        $\bSigma= \bSigma_1+\bSigma_2$ where $\bSigma_1= \bU \bLambda \bU^\top$, $\bU$ is an orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,0,\ldots,0)$, the diagonal elements of $\bSigma_2$ are independently generated from $\chi^2$ distribution with degrees of freedom $3$ and the upper diagonal elements of $\bSigma_2$ are independently generated from Bernoulli distribution with success probability $0.1$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
 Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
