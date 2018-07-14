@@ -152,7 +152,7 @@ Beijing Institute of Technology
 This paper considers the problem of multivariate analysis of variance for normal samples.
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
     Based on the unboundedness of the likelihood function, we propose a new test called least favorable direction test.
-    The asymptotic distributions of the test statistic are derived under both nonspiked and spiked covariance.
+    The asymptotic distributions of the test statistic are derived under both nonspiked and spiked covariances.
     The local asymptotic power function of the test is also given.
     %{\color{red}
     %These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
@@ -235,7 +235,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
   where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, it is substituted by an estimator.
-  Unlike $T_{Sc}$, $T_{CX}$ is an extreme value type statistic.
+  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\theta_i,\bSigma)$ for $1\leq i\leq K$.
@@ -279,8 +279,8 @@ In fact, \cite{WANG2018225} requires $p/n^2\to 0$, while under the factor model 
 
 
     In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis} called least favorable direction (LFD) test statistic, which is a generalization of the test in \cite{Zhao2016A}.
-    We gives the asymptotic distributions of the test statistic under both nonspiked covariance and spiked covariance.
-    An adaptive LFD test procedure is constructed by consistently estimating unknown parameters and detect unknown covariance structure.
+    We gives the asymptotic distributions of the test statistic under both nonspiked and spiked covariances.
+    An adaptive LFD test procedure is constructed by consistently detecting unknown covariance structure and estimating unknown parameters.
     The asymptotic local power function of the LFD test is also given.
     Our theoretical results show that the LFD test is particularly powerful under the spiked covariance.
     This can explain the simulation results of~\cite{Zhao2016A}.
@@ -292,7 +292,7 @@ In fact, \cite{WANG2018225} requires $p/n^2\to 0$, while under the factor model 
 
     The rest of the paper is organized  as follows.
     In Section~\ref{methodology}, we propose the LFD test statistic and derive its explicit forms.
-    The asymptotic distributions of the LFD test statistic under both nonspiked covariance and spiked covariance are given in Section \ref{THEO}.
+    The asymptotic distributions of the LFD test statistic under both nonspiked and spiked covariances are given in Section \ref{THEO}.
     Based on these theoretical results, an adaptive LFD test procedure is proposed.
      Section~\ref{numerical} complements our study with numerical simulations.
      In Section~\ref{concluding}, we give a short discussion.
@@ -400,11 +400,11 @@ A classical test statistic is Roy's maximum root which is constructed by~\cite{R
  $H_{0a}: a^\top \bTheta \bC = \bO_{1\times (k-1)}$ and  $H_{1a} : a^\top \bTheta \bC \neq \bO_{1\times (k-1)}$.
 Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
 For each $a$ satisfying $a^\top a=1$, the component LRT statistic
-$$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^\top(\bG+\bH) a}{a^\top \bG a}\Big)^{n/2}$$
+$$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^\top(\bG+\bH) a}{a^\top \bG a}\Big)^{N/2}$$
 can be used to test $H_{0a}$ v.s. $H_{1a}$. 
 Using union intersection principle, Roy proposed the test statistic
 $
-\max_{a^\top a=1}  {L_1(a)}/{L_0(a)}=\lambda_{1}^{n/2}(\bH\bG^{-1}),
+\max_{a^\top a=1}  {L_1(a)}/{L_0(a)}=\lambda_{1}^{N/2}(\bH\bG^{-1}),
 $
 where $\lambda_{i}(\cdot)$ means the $i$th largest eigenvalue.
 This statistic is an increasing function of Roy's maximum root.
@@ -621,7 +621,7 @@ the least favorable direction coincides with the maximal data piling direction p
 
 \section{Theoretical analysis}\label{THEO}
 We now turn to the analysis of the asymptotic distributions of LFD test statistic.
-We shall give theoretical results under both nonspiked covariance and spiked covariance.
+We shall give theoretical results under both nonspiked and spiked covariances.
 Based on these results, an adaptive test with asymptotically correct level can be constructed.
 Also, these results allow us to derive the local asymptotic power function of LFD test.
 
@@ -693,7 +693,7 @@ In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{k
 \subsection{Spiked covariance}
 
 
-Now we derive the theoretical results under the spiked covariance, which are much more involved than the nonspiked case.
+Now we derive the asymptotic results under the spiked covariance, which are much more involved than the nonspiked case.
 Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
 Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
 Suppose that $\bSigma$ has $r$ spiked eigenvalues, where $1\leq r\leq p$ can also vary as $n,p\to \infty$.
@@ -810,6 +810,7 @@ Write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ is a $p\times n$ random matrix wit
         =O_P\left(\frac{\mytr(\bLambda_2)}{n\blambda_r}+\frac{\blambda_{r+1}}{\blambda_r}\right),
     \end{equation*}
 where
+$\|\cdot\|$ is the spectral norm,
 $
 \bP_{\bY,1}^{\dagger}
 =\bU_1 \bU_1^\top + \bU_1 \bQ^\top \bU_2^\top
@@ -833,8 +834,8 @@ $\bQ
     %Lemma 2 in \cite{fan2017Dist} uses Frobenius norm and Lemma 2 in \cite{koltchinskii2016} contains an extra factor.
 \end{remark}
 
-If $p>n$, let $\bU_{\bY,2}$ be the $r+1$ to $n$ columns of $\bU_{\bY}$.
-Then $\bP_{\bY,2}=\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the $r+1$ to $n$ eigenvectors of $\hat{\bSigma}$.
+If $p>n$, let $\bU_{\bY,2}$ be the $r+1$ to $n$th columns of $\bU_{\bY}$.
+Then $\bP_{\bY,2}=\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the $r+1$ to $n$th eigenvectors of $\hat{\bSigma}$.
 Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, which has not been considered in the literature.
     Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
     Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
@@ -1040,7 +1041,7 @@ The following corollary shows that this test procedure has asymptotically correc
         Q_2
     >
     F_2^{-1}\left(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)}\right)
-\right)=\alpha +o_P(1)
+\right)=\alpha +o(1)
         ;
 \end{equation*}
         \item
@@ -1093,6 +1094,7 @@ The following corollary shows that this test procedure has asymptotically correc
     >
     F_2^{-1}\left(1-\alpha;\mytr(\bLambda_2),\mytr(\bLambda_2^2)\right)
 \right)
++o(1)
 .
 \end{split}
 \end{equation*}
@@ -1158,7 +1160,7 @@ It is not hard to see that
     }\to 0.
 \end{equation*}
 That is, the asymptotic variance of $T(\bX)$ is much smaller than the sum-of-squares tests.
-To intuitively understand this phenomenon,  we note that % in \ref{statisticForm1} 
+To appreciate this phenomenon,  we note that % in \ref{statisticForm1} 
 for $k=2$, 
 $(\bI_p-\bP_\bY)\bX \bJ \bC|\bP_{\bY}\sim \mathcal{N}_p(0,(\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY))$.
 But $\bI_p-\bP_\bY$ tends to be orthogonal to $\bU_1 \bU_1^\top$, the eigenspace corresponding to the leading eigenvalues of $\bSigma$.
@@ -1410,7 +1412,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 
 
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
     \label{table1}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1418,7 +1420,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $1$}&
     \multicolumn{5}{c}{Model $2$} \\
         \cmidrule(r){2-6}\cmidrule(r){7-11}
-& Sc & CX & HBWW & ZGZ & NEW & Sc & CX & HBWW & ZGZ & NEW \\ 
+& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
     \midrule
     \multicolumn{5}{l}{Non-sparse case}
     \\
@@ -1439,7 +1441,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
     \label{table2}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1447,7 +1449,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $3$}&
     \multicolumn{5}{c}{Model $4$} \\
         \cmidrule(r){2-6}\cmidrule(r){7-11}
-& Sc & CX & HBWW & ZGZ & NEW & Sc & CX & HBWW & ZGZ & NEW \\ 
+& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
     \midrule
     \multicolumn{5}{l}{Non-sparse case}
     \\
@@ -1468,7 +1470,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
     \label{table3}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1476,7 +1478,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $1$}&
     \multicolumn{5}{c}{Model $2$} \\
         \cmidrule(r){2-6}\cmidrule(r){7-11}
-& Sc & CX & HBWW & ZGZ & NEW & Sc & CX & HBWW & ZGZ & NEW \\ 
+& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
     \midrule
     \multicolumn{5}{l}{Non-sparse case}
     \\
@@ -1505,7 +1507,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
     \label{table4}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1513,7 +1515,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $3$}&
     \multicolumn{5}{c}{Model $4$} \\
         \cmidrule(r){2-6}\cmidrule(r){7-11}
-& Sc & CX & HBWW & ZGZ & NEW & Sc & CX & HBWW & ZGZ & NEW \\ 
+& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
     \midrule
     \multicolumn{5}{l}{Non-sparse case}
     \\
@@ -1544,7 +1546,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=12cm,height=12cm]{figure1}
-    \caption{The empirical powers of tests. $\alpha=0.05$, $k=2$, $n_1=n_2=20$, $p=150$.}\label{figure1}
+    \caption{Empirical powers of tests. $\alpha=0.05$, $k=2$, $n_1=n_2=20$, $p=150$.}\label{figure1}
 \end{figure}
 
 
@@ -1602,13 +1604,17 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 
 \section{Concluding remarks}\label{concluding}
 In this paper, using the idea of least favorable direction, we proposed the LFD test for MANOVA in high dimensional setting.
-We derived the asymptotic distribution of the LFD test statistic under both nonspiked covariance and spiked covariance.
-We also gave the asymptotic local power function.
+We derived the asymptotic distribution of the LFD test statistic under both nonspiked and spiked covariances.
+The asymptotic local power functions are also given.
 From our theoretic results and simulation studies, it is seen that the LFD test has similar power behavior to existing tests when the covariance matrix is nonspiked, while tends to be much more powerful than existing tests when the covariance matrix is spiked.
 
-Our proof relies on the normality of the observations.
-It is interesting to investigate whether the theorems are still valid without normal assumption.
-We leave it for future research.
+For the case where the covariance structure is unknown,
+we proposed an adaptive LFD test procedure by consistently detecting unknown covariance structure and estimating the unknown $r$.
+However, this procedure relies on a hyperparameter $\tau$. 
+How to choose an optimal $\tau$ is an interesting problem.
+In addition, our proof relies on the normality of the observations.
+It is unclear whether the same results hold without normal assumption.
+We leave these topics for future research.
 
 
 
