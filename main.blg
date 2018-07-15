@@ -3,17 +3,21 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: chicago.bst
 Database file #1: mybibfile.bib
-Repeated entry---line 622 of file mybibfile.bib
+Repeated entry---line 608 of file mybibfile.bib
  : @article{Nadler2009Finite
  :                          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 686 of file mybibfile.bib
+Repeated entry---line 672 of file mybibfile.bib
  : @article{2017arXiv171007878C
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 714 of file mybibfile.bib
+Repeated entry---line 700 of file mybibfile.bib
  : @article{Aoshima2018
  :                     ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 740 of file mybibfile.bib
+ : @article{Katayama2013Asymptotic
+ :                                ,
 I'm skipping whatever remains of this entry
 Warning--no number and no volume in Cai2017Limiting
 Warning--page numbers missing in Cai2017Limiting
@@ -25,45 +29,45 @@ Warning--no number and no volume in Vershynin2010Introduction
 Warning--page numbers missing in Vershynin2010Introduction
 Warning--no number and no volume in WANG2018
 Warning--page numbers missing in WANG2018
-You've used 36 entries,
+You've used 37 entries,
             2861 wiz_defined-function locations,
-            870 strings with 10720 characters,
-and the built_in function-call counts, 26006 in all, are:
-= -- 2195
-> -- 1943
+            876 strings with 10945 characters,
+and the built_in function-call counts, 26765 in all, are:
+= -- 2257
+> -- 2004
 < -- 0
-+ -- 588
-- -- 668
-* -- 2461
-:= -- 4692
-add.period$ -- 108
-call.type$ -- 36
-change.case$ -- 265
-chr.to.int$ -- 35
-cite$ -- 46
-duplicate$ -- 626
-empty$ -- 1556
-format.name$ -- 791
-if$ -- 4866
++ -- 606
+- -- 686
+* -- 2538
+:= -- 4827
+add.period$ -- 111
+call.type$ -- 37
+change.case$ -- 273
+chr.to.int$ -- 36
+cite$ -- 47
+duplicate$ -- 643
+empty$ -- 1601
+format.name$ -- 813
+if$ -- 5012
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 37
-newline$ -- 183
-num.names$ -- 358
-pop$ -- 161
+missing$ -- 38
+newline$ -- 188
+num.names$ -- 368
+pop$ -- 166
 preamble$ -- 1
-purify$ -- 480
+purify$ -- 494
 quote$ -- 0
-skip$ -- 694
+skip$ -- 711
 stack$ -- 0
-substring$ -- 1492
-swap$ -- 199
+substring$ -- 1539
+swap$ -- 204
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 706
+type$ -- 726
 warning$ -- 10
-while$ -- 336
+while$ -- 343
 width$ -- 0
-write$ -- 471
-(There were 3 error messages)
+write$ -- 484
+(There were 4 error messages)

@@ -256,9 +256,10 @@ where $\blambda_1$ is the largest eigenvalue of $\bSigma$.
 The condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
 In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
-In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares test statistics may not have correct level.
-Some adjusted sum-of-squares tests have been proposed to solve the problem.
-See, e.g., \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
+In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type test statistics may not have correct level.
+Some adjusted sum-of-squares type tests have been proposed to solve the problem.
+See, e.g.,
+\cite{Katayama2013Asymptotic}, \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
 However, the power behavior of these corrected tests may not be satisfied.
 
 
@@ -1383,27 +1384,35 @@ We consider the following four models for $\bSigma$.
     \item Model $2$:
         $\bSigma = (\sigma_{ij})$ where $\sigma_{ij}=0.6^{|i-j|}$.
     \item Model $3$:
-        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
+        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
     \item Model $4$:
-        $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$ and $\bA$ is a $p\times p$ matrix whose elements are independently generated from Bernoulli distribution with success probability $0.01$.
+        $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$ and $\bA$ is a $p\times p$ matrix whose elements are independently generated from Bernoulli distribution with success probability $0.01$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
 Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
 In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
-In the sparse case, we set $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
+In the sparse case, we take $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
 Again, $\kappa$ is selected to make the SNR equal to specific values.
-The empirical power is computed based on $2000$ simulations.
-The results are summarized in Tables~\ref{table1}-\ref{table4}. It can be seen from the results that the proposed test outperforms the other two tests for both non-sparse and sparse alternatives.
-This verifies our theoretical results that LFD test performs well under spiked covariance.
+The empirical power is computed based on $5000$ simulations.
+The simulation results under Model $1$ and Model $2$ are summarized in Tables \ref{table1} and \ref{table3}.
+The covariance matrices are nonspiked under these two models.
+It can be seen that the LFD test is less powerful than the sum-of-squares type tests under the nonspiked covariances.
+Nevertheless, the power performance of the LFD test improves as $n$ and $p$ increase.
+The simulation results under Model $3$ and Model $4$ are summarized in Tables \ref{table2} and \ref{table4}.
+The covariance matrices are spiked under these two models.
+It can be seen that the LFD test outperforms the competing tests significantly in most cases.
+This verifies our theoretical results that the LFD test is particularly powerful under the spiked covariance.
 
 In our second simulation study, we would like to investigate the effect of correlations between variables.
-We take $k=2$ so that we can compare our test with some existing two sample tests.
-For comparison, we carry out simulations for the test of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
-We denote these tests by SR, CQ, CLX and FZWZ, respectively.
-Let the diagonal elements of $\Sigma$ be $1$ and the off-diagonal elements of $\Sigma$ be $\rho$ with $0\leq \rho<1$.
+%We take $k=2$ so that we can compare our test with some existing two sample tests.
+%For comparison, we carry out simulations for the test of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
+%We denote these tests by Sr, CQ, CLX and FZWZ, respectively.
+We consider the compound symmetry structure, that is, the diagonal elements of $\bSigma$ are $1$ and the off-diagonal elements are $\rho$ with $0\leq \rho<1$.
 The parameter $\rho$ characterizes the correlations between variables.
-We set $\theta_1=\kappa (\textbf{1}_{p/2}^\top,-\textbf{1}_{p/2}^\top)^\top$ and $\theta_2=\mathbf{0}_p$, where $\kappa$ is selected such that SNR equals to $5$.
-Figure~\ref{figure1} plots the empirical power versus $\rho$, where empirical power is computed based on 1000 simulations.
+We take 
+$\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$
+and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected such that ${ \bC^\top \bTheta^\top \bTheta\bC}/(\sum_{i=2}^p\blambda_i^2)^{1/2}=5$.
+Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$, which is computed based on $5000$ simulations.
 We can see that the empirical power of LFD test holds nearly constant as $\rho$ varies while the empirical powers of~\cite{Chen2010A} and~\cite{Feng2014Two}'s tests decrease as $\rho$ increases.
 When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is larger than $0.1$, LFD test outperforms all other tests.
 
@@ -1452,46 +1461,6 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
-    \label{table2}
-    \centering
-    \begin{tabular}{*{11}{l}}
-    \toprule
-    \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $3$}&
-    \multicolumn{5}{c}{Model $4$} \\
-        \cmidrule(r){2-6}\cmidrule(r){7-11}
-& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
-    \midrule
-    \multicolumn{5}{l}{Non-sparse case}
-    \\
-    \midrule
-
-0 & 0.0724 & 0.0374 & 0.0728 & 0.0634 & 0.0430 & 0.0776 & 0.0352 & 0.0772 & 0.0706 & 0.0530 \\ 
-  0.2& 0.0906 & 0.2228 & 0.0902 & 0.0764 & 0.9990 & 0.0824 & 0.0426 & 0.0824 & 0.0760 & 0.0860 \\ 
-  0.4& 0.0920 & 0.5272 & 0.0938 & 0.0772 & 1.0000 & 0.0982 & 0.0596 & 0.0990 & 0.0910 & 0.1726 \\ 
-  0.8& 0.1214 & 0.9612 & 0.1202 & 0.1002 & 1.0000 & 0.1166 & 0.0932 & 0.1168 & 0.1084 & 0.4016 \\ 
-  1.6& 0.1900 & 1.0000 & 0.1884 & 0.1562 & 1.0000 & 0.1942 & 0.2238 & 0.1930 & 0.1784 & 0.8486 \\ 
-  3.2& 0.4050 & 1.0000 & 0.4078 & 0.3462 & 1.0000 & 0.4164 & 0.5358 & 0.4178 & 0.3826 & 1.0000 \\ 
-
-
-    \midrule
-    \multicolumn{5}{l}{Sparse case}
-    \\
-    \midrule
-
-  0 & 0.0680 & 0.0344 & 0.0688 & 0.0550 & 0.0466 & 0.0694 & 0.0360 & 0.0696 & 0.0636 & 0.0560 \\ 
-  0.2 & 0.0864 & 0.3582 & 0.0860 & 0.0700 & 0.9894 & 0.0876 & 0.0604 & 0.0882 & 0.0804 & 0.0912 \\ 
-  0.4 & 0.0930 & 0.8438 & 0.0932 & 0.0748 & 1.0000 & 0.0908 & 0.1280 & 0.0918 & 0.0840 & 0.1718 \\ 
-  0.8 & 0.1134 & 0.9998 & 0.1138 & 0.0910 & 1.0000 & 0.1200 & 0.3744 & 0.1204 & 0.1086 & 0.4450 \\ 
-  1.6 & 0.1828 & 1.0000 & 0.1818 & 0.1518 & 1.0000 & 0.1794 & 0.7412 & 0.1792 & 0.1628 & 0.9428 \\ 
-  3.2 & 0.4028 & 1.0000 & 0.4032 & 0.3426 & 1.0000 & 0.4104 & 0.9998 & 0.4110 & 0.3806 & 1.0000 \\ 
-
-
-
-\bottomrule
-\end{tabular}
-\end{table}
-\begin{table}[!hbp]
     \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
     \label{table3}
     \centering
@@ -1532,6 +1501,50 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \bottomrule
 \end{tabular}
 \end{table}
+
+\begin{table}[!hbp]
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
+    \label{table2}
+    \centering
+    \begin{tabular}{*{11}{l}}
+    \toprule
+    \multirow{2}{*}{SNR} &\multicolumn{5}{c}{Model $3$}&
+    \multicolumn{5}{c}{Model $4$} \\
+        \cmidrule(r){2-6}\cmidrule(r){7-11}
+& Sc & CX & HBWW & ZGZ & LFD & Sc & CX & HBWW & ZGZ & LFD \\ 
+    \midrule
+    \multicolumn{5}{l}{Non-sparse case}
+    \\
+    \midrule
+
+0 & 0.0724 & 0.0374 & 0.0728 & 0.0634 & 0.0430 & 0.0776 & 0.0352 & 0.0772 & 0.0706 & 0.0530 \\ 
+  0.2& 0.0906 & 0.2228 & 0.0902 & 0.0764 & 0.9990 & 0.0824 & 0.0426 & 0.0824 & 0.0760 & 0.0860 \\ 
+  0.4& 0.0920 & 0.5272 & 0.0938 & 0.0772 & 1.0000 & 0.0982 & 0.0596 & 0.0990 & 0.0910 & 0.1726 \\ 
+  0.8& 0.1214 & 0.9612 & 0.1202 & 0.1002 & 1.0000 & 0.1166 & 0.0932 & 0.1168 & 0.1084 & 0.4016 \\ 
+  1.6& 0.1900 & 1.0000 & 0.1884 & 0.1562 & 1.0000 & 0.1942 & 0.2238 & 0.1930 & 0.1784 & 0.8486 \\ 
+  3.2& 0.4050 & 1.0000 & 0.4078 & 0.3462 & 1.0000 & 0.4164 & 0.5358 & 0.4178 & 0.3826 & 1.0000 \\ 
+
+
+    \midrule
+    \multicolumn{5}{l}{Sparse case}
+    \\
+    \midrule
+
+  0 & 0.0680 & 0.0344 & 0.0688 & 0.0550 & 0.0466 & 0.0694 & 0.0360 & 0.0696 & 0.0636 & 0.0560 \\ 
+  0.2 & 0.0864 & 0.3582 & 0.0860 & 0.0700 & 0.9894 & 0.0876 & 0.0604 & 0.0882 & 0.0804 & 0.0912 \\ 
+  0.4 & 0.0930 & 0.8438 & 0.0932 & 0.0748 & 1.0000 & 0.0908 & 0.1280 & 0.0918 & 0.0840 & 0.1718 \\ 
+  0.8 & 0.1134 & 0.9998 & 0.1138 & 0.0910 & 1.0000 & 0.1200 & 0.3744 & 0.1204 & 0.1086 & 0.4450 \\ 
+  1.6 & 0.1828 & 1.0000 & 0.1818 & 0.1518 & 1.0000 & 0.1794 & 0.7412 & 0.1792 & 0.1628 & 0.9428 \\ 
+  3.2 & 0.4028 & 1.0000 & 0.4032 & 0.3426 & 1.0000 & 0.4104 & 0.9998 & 0.4110 & 0.3806 & 1.0000 \\ 
+
+
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
 \begin{table}[!hbp]
     \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
     \label{table4}
@@ -1578,7 +1591,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=12cm,height=12cm]{figure1}
-    \caption{Empirical powers of tests. $\alpha=0.05$, $k=2$, $n_1=n_2=20$, $p=150$.}\label{figure1}
+    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=35$, $p=1000$.}\label{figure1}
 \end{figure}
 
 
@@ -1658,16 +1671,16 @@ China under Grant Nos. 11471035, 11471030.
     \section{Technical details}\label{app}
 \begin{lemma}\label{optProp}
     Suppose $\bA$ is a $p\times r$ matrix with rank $r$ and $\bB$ is a $p\times p$  non-zero positive semi-definite matrix.
-    Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^\top$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrix, $\bD_\bA$ is a $r\times r$ diagonal matrix.
-    Let $\bP_\bA=\bU_\bA \bU_\bA^\top$ be the projection matrix on the column space of $\bA$.
+    Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^\top$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrices, respectively, and $\bD_\bA$ is a $r\times r$ diagonal matrix.
+    Let $\bP_\bA=\bU_\bA \bU_\bA^\top$ be the projection matrix onto the column space of $\bA$.
     Then
     \begin{equation}
         \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a=
-        \lambda_{\max}\big(\bB(\bI_p-\bP_\bA)\big).
+        \lambda_{1}\big(\bB(\bI_p-\bP_\bA)\big).
     \end{equation}
 \end{lemma}
 \begin{proof}
-    Note that $a^\top \bA \bA^\top a=0$ is equivalent to $\bP_\bA a=0$ which in turn is equivalent to $a= (\bI_p-\bP_\bA)a$.
+    It can be seen that $a^\top \bA \bA^\top a=0$ if and only if $a= (\bI_p-\bP_\bA)a$.
     Then
     \begin{equation}\label{eq:prop1eq1}
         \begin{aligned}
@@ -1676,13 +1689,13 @@ China under Grant Nos. 11471035, 11471030.
         \max_{a^\top a=1, \bP_\bA a=0}a^\top(\bI_p-\bP_\bA) \bB (\bI_p-\bP_\bA)a,
         \end{aligned}
     \end{equation}
-    which is obviously no greater than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
+    which is obviously no greater than $\lambda_1 \big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
     To prove that they are equal,  without loss of generality, we can assume $\lambda_{1}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)>0$.
     Let $\alpha_1$ be one eigenvector corresponding to the largest eigenvalue of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$.
     Since $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)\bP_\bA=(\bI-\bP_\bA)\bB(\bP_\bA-\bP_\bA)=\bO_{p\times p}$ and $\bP_\bA$ is symmetric, the rows of $\bP_\bA$ are eigenvetors of $(\bI-\bP_\bA)\bB(\bI-\bP_\bA)$ corresponding to eigenvalue $0$.
     It follows that $\bP_\bA\alpha_1=0$.
-    Therefore, $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1} and~\eqref{eq:prop1eq1} is no less than $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
-    The conclusion now follows by noting that $\lambda_{\max}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)=\lambda_{\max}\big( \bB(\bI-\bP_\bA)\big)$.
+    Therefore, $\alpha_1$ satisfies the constraint of~\eqref{eq:prop1eq1} and thus~\eqref{eq:prop1eq1} is no less than $\lambda_{1}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)$.
+    The conclusion now follows by noting that $\lambda_{1}\big((\bI-\bP_\bA)\bB(\bI-\bP_\bA)\big)=\lambda_{1}\big( \bB(\bI-\bP_\bA)\big)$.
     
 \end{proof}
 
