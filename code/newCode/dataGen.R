@@ -2,8 +2,9 @@
 dataGen <- function(n, p, mu, Sigma) {
     temp <- rnorm(n * p)
     dim(temp) <- c(n, p)
-    temp2 <- eigen(Sigma, symmetric = TRUE)
-    temp %*% diag(temp2$values ^ (1 / 2)) %*% t(temp2$vectors) + outer(rep(1,n),mu)
+    #temp2 <- eigen(Sigma, symmetric = TRUE)
+    #temp %*% diag(temp2$values ^ (1 / 2)) %*% t(temp2$vectors) + outer(rep(1,n),mu)
+    temp %*% diag(oSig$values ^ (1 / 2)) %*% t(oSig$vectors) + outer(rep(1,n),mu)
 }
 
 

@@ -1,36 +1,12 @@
 
 K <- 3
-repTime <- 2000
+repTime <- 5000
 
 
 source('./dataGen.R', echo = TRUE)
 source('./statistics.R', echo = TRUE)
 
 doit <- function() {
-    # J
-    tmp <- lapply(1:K,function(i){
-        tmp <- rep(0,n[i]*K)
-        dim(tmp) <- c(n[i],K)
-        tmp[,i] <- 1/sqrt(n[i])
-        tmp
-    })
-    NEW.J <- do.call(rbind,tmp)
-    # C
-    tmp <- t(NEW.J)%*%rep(1,sum(n))
-    C <- eigen(diag(K)-tmp%*%t(tmp)/sum(n))$vectors[,-K]
-   
-    #SNR 
-    tmpMu <- do.call(cbind,mu)
-    for(i in 1:K){
-        tmpMu[,i] <- tmpMu[,i]*sqrt(n[i])
-    }
-    tmpMuF <- tmpMu%*%C
-        
-    tmpSigEig <- eigen(Sigma)$values#[-c(1,2)]
-    tmpCon <- sqrt(SNR*sqrt(sum(tmpSigEig^2))/sum(tmpMuF^2))
-    for(i in 1:length(mu)){
-        mu[[i]] <- mu[[i]]*tmpCon
-    }
     
     
 

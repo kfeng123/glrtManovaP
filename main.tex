@@ -230,12 +230,13 @@ However, when $p\geq N$, the four classical test statistics are all not defined.
   $$
 Statistic $T_{Sc}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
 See~\cite{Srivastava2013},~\cite{Hu2017},~\cite{Yamada2015},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics.
+It is known that the sum-of-squares type tests are particularly powerful against dense alternatives.
 In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
   where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, it is substituted by an estimator.
-  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one.
+  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one and is powerful against sparse alternatives.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\theta_i,\bSigma)$ for $1\leq i\leq K$.
@@ -252,9 +253,10 @@ $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
 \end{equation}
 where $\blambda_1$ is the largest eigenvalue of $\bSigma$.
-If \eqref{nonSpikedC} holds, $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues, which ensures the asymptotic normality of sum-of-squares type statistics.
-However, in some important situations, variables are heavily correlated with common factors, then the covariance matrix $\bSigma$ is spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2008High,Cai2012Sparse,Shen2013Consistency,Ma2015A}.
-In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, most existing sum-of-squares test statistics do not have correct level.
+The condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
+%, which ensures the asymptotic normality of sum-of-squares type statistics.
+In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
+In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares test statistics may not have correct level.
 Some adjusted sum-of-squares tests have been proposed to solve the problem.
 See, e.g., \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
 However, the power behavior of these corrected tests may not be satisfied.
@@ -263,7 +265,7 @@ However, the power behavior of these corrected tests may not be satisfied.
 Recently, \cite{Aoshima2018} and \cite{WANG2018225} considered two sample mean testing problem under the spiked covariance model.
 Compared with sum-of-squares tests, their tests have good power behavior.
 However, they imposed strong conditions on the magnitude of $p$.
-In fact, \cite{WANG2018225} requires $p/n^2\to 0$, while under the factor model in \cite{Ma2015A}, \cite{Aoshima2018} requires $p/n \to 0$.
+In fact, under the approximate factor model in \cite{Fan2013Large}, the test in \cite{Aoshima2018} requires $p/n \to 0$, while the test in \cite{WANG2018225} requires that $p/n^2\to 0$ and the small eigenvalues of $\bSigma$ are equal.
 
    The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
     However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>N-k$.
@@ -1383,7 +1385,7 @@ We consider the following four models for $\bSigma$.
     \item Model $3$:
         $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
     \item Model $4$:
-        $\bSigma= \bSigma_1+\bSigma_2$ where $\bSigma_1= \bU \bLambda \bU^\top$, $\bU$ is an orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,0,\ldots,0)$, the diagonal elements of $\bSigma_2$ are independently generated from $\chi^2$ distribution with degrees of freedom $3$ and the upper diagonal elements of $\bSigma_2$ are independently generated from Bernoulli distribution with success probability $0.1$.
+        $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$ where $\bU$ is an orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$ and $\bA$ is a $p\times p$ matrix whose elements are independently generated from Bernoulli distribution with success probability $0.01$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
 Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
@@ -1425,18 +1427,27 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multicolumn{5}{l}{Non-sparse case}
     \\
     \midrule
-  0 & 0.0515 & 0.0165 & 0.0505 & 0.0515 & 0.0480 & 0.0585 & 0.0155 & 0.0585 & 0.0565 & 0.0685 \\ 
-      1 & 0.1215 & 0.0120 & 0.1220 & 0.1215 & 0.0950 & 0.1600 & 0.0155 & 0.1595 & 0.1580 & 0.1305 \\ 
-      2 & 0.2630 & 0.0275 & 0.2605 & 0.2620 & 0.2570 & 0.2660 & 0.0105 & 0.2655 & 0.2605 & 0.2140 \\ 
-      3 & 0.4275 & 0.0290 & 0.4245 & 0.4270 & 0.4100 & 0.4145 & 0.0130 & 0.4140 & 0.4100 & 0.3220 \\ 
+0 & 0.0544 & 0.0362 & 0.0554 & 0.0542 & 0.0446 & 0.0604 & 0.0316 & 0.0598 & 0.0578 & 0.0554 \\ 
+  0.2 & 0.0672 & 0.0350 & 0.0664 & 0.0670 & 0.0500 & 0.0710 & 0.0340 & 0.0704 & 0.0690 & 0.0640 \\ 
+  0.4 & 0.0828 & 0.0380 & 0.0820 & 0.0826 & 0.0610 & 0.0874 & 0.0364 & 0.0872 & 0.0858 & 0.0700 \\ 
+  0.8 & 0.1078 & 0.0420 & 0.1096 & 0.1078 & 0.0776 & 0.1254 & 0.0324 & 0.1250 & 0.1232 & 0.0930 \\ 
+  1.6 & 0.2070 & 0.0490 & 0.2064 & 0.2070 & 0.1594 & 0.2112 & 0.0316 & 0.2112 & 0.2074 & 0.1420 \\ 
+  3.2 & 0.4728 & 0.0628 & 0.4752 & 0.4720 & 0.4280 & 0.4668 & 0.0354 & 0.4666 & 0.4640 & 0.3098 \\ 
+
     \midrule
     \multicolumn{5}{l}{Sparse case}
     \\
     \midrule
-      0 & 0.0620 & 0.0155 & 0.0630 & 0.0615 & 0.0625 & 0.0585 & 0.0140 & 0.0585 & 0.0575 & 0.0730 \\ 
-      1 & 0.1360 & 0.0235 & 0.1350 & 0.1355 & 0.1070 & 0.1455 & 0.0105 & 0.1465 & 0.1430 & 0.1205 \\ 
-      2 & 0.2695 & 0.0250 & 0.2685 & 0.2690 & 0.2045 & 0.2710 & 0.0150 & 0.2710 & 0.2690 & 0.1790 \\ 
-      3 & 0.4340 & 0.0360 & 0.4340 & 0.4340 & 0.3385 & 0.4140 & 0.0140 & 0.4155 & 0.4105 & 0.2720 \\ 
+
+  0 & 0.0516 & 0.0308 & 0.0520 & 0.0516 & 0.0412 & 0.0570 & 0.0324 & 0.0566 & 0.0560 & 0.0544 \\ 
+  0.2 & 0.0662 & 0.0360 & 0.0652 & 0.0662 & 0.0478 & 0.0708 & 0.0340 & 0.0708 & 0.0684 & 0.0632 \\ 
+  0.4 & 0.0782 & 0.0418 & 0.0790 & 0.0780 & 0.0554 & 0.0972 & 0.0336 & 0.0968 & 0.0952 & 0.0714 \\ 
+  0.8 & 0.1042 & 0.0374 & 0.1032 & 0.1040 & 0.0726 & 0.1252 & 0.0322 & 0.1252 & 0.1234 & 0.0856 \\ 
+  1.6 & 0.2074 & 0.0460 & 0.2088 & 0.2072 & 0.1318 & 0.2148 & 0.0314 & 0.2150 & 0.2116 & 0.1378 \\ 
+  3.2 & 0.4670 & 0.0802 & 0.4650 & 0.4668 & 0.3214 & 0.4594 & 0.0318 & 0.4598 & 0.4558 & 0.2718 \\ 
+
+
+
 \bottomrule
 \end{tabular}
 \end{table}
@@ -1454,23 +1465,34 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multicolumn{5}{l}{Non-sparse case}
     \\
     \midrule
-  0 & 0.0725 & 0.0160 & 0.0730 & 0.0570 & 0.0465 & 0.0720 & 0.0110 & 0.0720 & 0.0605 & 0.0460 \\ 
-      1 & 0.1195 & 0.9410 & 0.1200 & 0.0965 & 1.0000 & 0.1230 & 0.9430 & 0.1210 & 0.0965 & 1.0000 \\ 
-      2 & 0.2280 & 1.0000 & 0.2285 & 0.1850 & 1.0000 & 0.2070 & 1.0000 & 0.2070 & 0.1675 & 1.0000 \\ 
-      3 & 0.3645 & 1.0000 & 0.3680 & 0.3100 & 1.0000 & 0.3645 & 1.0000 & 0.3675 & 0.3125 & 1.0000 \\ 
+
+0 & 0.0724 & 0.0374 & 0.0728 & 0.0634 & 0.0430 & 0.0776 & 0.0352 & 0.0772 & 0.0706 & 0.0530 \\ 
+  0.2& 0.0906 & 0.2228 & 0.0902 & 0.0764 & 0.9990 & 0.0824 & 0.0426 & 0.0824 & 0.0760 & 0.0860 \\ 
+  0.4& 0.0920 & 0.5272 & 0.0938 & 0.0772 & 1.0000 & 0.0982 & 0.0596 & 0.0990 & 0.0910 & 0.1726 \\ 
+  0.8& 0.1214 & 0.9612 & 0.1202 & 0.1002 & 1.0000 & 0.1166 & 0.0932 & 0.1168 & 0.1084 & 0.4016 \\ 
+  1.6& 0.1900 & 1.0000 & 0.1884 & 0.1562 & 1.0000 & 0.1942 & 0.2238 & 0.1930 & 0.1784 & 0.8486 \\ 
+  3.2& 0.4050 & 1.0000 & 0.4078 & 0.3462 & 1.0000 & 0.4164 & 0.5358 & 0.4178 & 0.3826 & 1.0000 \\ 
+
+
     \midrule
     \multicolumn{5}{l}{Sparse case}
     \\
     \midrule
-      0 & 0.0735 & 0.0140 & 0.0745 & 0.0620 & 0.0470 & 0.0710 & 0.0130 & 0.0705 & 0.0585 & 0.0515 \\ 
-      1 & 0.1325 & 1.0000 & 0.1315 & 0.1140 & 1.0000 & 0.1265 & 1.0000 & 0.1265 & 0.1005 & 1.0000 \\ 
-      2 & 0.2270 & 1.0000 & 0.2295 & 0.1940 & 1.0000 & 0.2170 & 1.0000 & 0.2180 & 0.1785 & 1.0000 \\ 
-      3 & 0.3880 & 1.0000 & 0.3885 & 0.3365 & 1.0000 & 0.3810 & 1.0000 & 0.3810 & 0.3215 & 1.0000 \\    
+
+  0 & 0.0680 & 0.0344 & 0.0688 & 0.0550 & 0.0466 & 0.0694 & 0.0360 & 0.0696 & 0.0636 & 0.0560 \\ 
+  0.2 & 0.0864 & 0.3582 & 0.0860 & 0.0700 & 0.9894 & 0.0876 & 0.0604 & 0.0882 & 0.0804 & 0.0912 \\ 
+  0.4 & 0.0930 & 0.8438 & 0.0932 & 0.0748 & 1.0000 & 0.0908 & 0.1280 & 0.0918 & 0.0840 & 0.1718 \\ 
+  0.8 & 0.1134 & 0.9998 & 0.1138 & 0.0910 & 1.0000 & 0.1200 & 0.3744 & 0.1204 & 0.1086 & 0.4450 \\ 
+  1.6 & 0.1828 & 1.0000 & 0.1818 & 0.1518 & 1.0000 & 0.1794 & 0.7412 & 0.1792 & 0.1628 & 0.9428 \\ 
+  3.2 & 0.4028 & 1.0000 & 0.4032 & 0.3426 & 1.0000 & 0.4104 & 0.9998 & 0.4110 & 0.3806 & 1.0000 \\ 
+
+
+
 \bottomrule
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
     \label{table3}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1483,22 +1505,26 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multicolumn{5}{l}{Non-sparse case}
     \\
     \midrule
+0 & 0.0522 & 0.0244 & 0.0530 & 0.0522 & 0.0460 & 0.0536 & 0.0268 & 0.0534 & 0.0512 & 0.0498 \\ 
+  0.2& 0.0624 & 0.0300 & 0.0626 & 0.0624 & 0.0546 & 0.0722 & 0.0250 & 0.0712 & 0.0704 & 0.0616 \\ 
+  0.4& 0.0792 & 0.0300 & 0.0782 & 0.0792 & 0.0686 & 0.0790 & 0.0286 & 0.0798 & 0.0774 & 0.0726 \\ 
+  0.8& 0.1142 & 0.0308 & 0.1152 & 0.1142 & 0.0962 & 0.1172 & 0.0278 & 0.1170 & 0.1154 & 0.0992 \\ 
+  1.6& 0.1990 & 0.0356 & 0.1984 & 0.1990 & 0.1882 & 0.2080 & 0.0228 & 0.2074 & 0.2058 & 0.1608 \\ 
+  3.2& 0.4710 & 0.0476 & 0.4710 & 0.4710 & 0.4954 & 0.4772 & 0.0328 & 0.4796 & 0.4754 & 0.3978 \\ 
 
- 0 & 0.0515 & 0.0090 & 0.0520 & 0.0515 & 0.0525 & 0.0600 & 0.0120 & 0.0610 & 0.0575 & 0.0750 \\ 
-      1 & 0.1370 & 0.0175 & 0.1375 & 0.1350 & 0.1285 & 0.1390 & 0.0115 & 0.1400 & 0.1370 & 0.1495 \\ 
-      2 & 0.2625 & 0.0165 & 0.2610 & 0.2610 & 0.2550 & 0.2610 & 0.0095 & 0.2605 & 0.2565 & 0.2590 \\ 
-      3 & 0.4225 & 0.0160 & 0.4210 & 0.4195 & 0.4575 & 0.4305 & 0.0120 & 0.4300 & 0.4255 & 0.3930 \\ 
 
     \midrule
     \multicolumn{5}{l}{Sparse case}
     \\
     \midrule
 
-      0 & 0.0475 & 0.0115 & 0.0470 & 0.0465 & 0.0565 & 0.0525 & 0.0085 & 0.0525 & 0.0515 & 0.0775 \\ 
-      1 & 0.1300 & 0.0175 & 0.1290 & 0.1280 & 0.1025 & 0.1375 & 0.0115 & 0.1370 & 0.1350 & 0.1385 \\ 
-      2 & 0.2590 & 0.0175 & 0.2600 & 0.2580 & 0.2150 & 0.2665 & 0.0140 & 0.2655 & 0.2625 & 0.2270 \\ 
-      3 & 0.4310 & 0.0180 & 0.4325 & 0.4305 & 0.3325 & 0.4165 & 0.0095 & 0.4175 & 0.4135 & 0.3130 \\ 
-
+    
+  0& 0.0502 & 0.0278 & 0.0498 & 0.0502 & 0.0448 & 0.0570 & 0.0302 & 0.0570 & 0.0556 & 0.0484 \\ 
+  0.2& 0.0652 & 0.0254 & 0.0662 & 0.0652 & 0.0612 & 0.0630 & 0.0236 & 0.0626 & 0.0626 & 0.0624 \\ 
+  0.4& 0.0712 & 0.0252 & 0.0714 & 0.0712 & 0.0636 & 0.0856 & 0.0232 & 0.0862 & 0.0854 & 0.0704 \\ 
+  0.8& 0.1096 & 0.0286 & 0.1104 & 0.1096 & 0.0848 & 0.1114 & 0.0250 & 0.1122 & 0.1104 & 0.0900 \\ 
+  1.6& 0.1992 & 0.0368 & 0.1992 & 0.1990 & 0.1550 & 0.2068 & 0.0294 & 0.2054 & 0.2038 & 0.1452 \\ 
+  3.2& 0.4822 & 0.0422 & 0.4828 & 0.4822 & 0.3836 & 0.4722 & 0.0246 & 0.4718 & 0.4696 & 0.3230 \\ 
 
 
 
@@ -1507,7 +1533,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 \end{tabular}
 \end{table}
 \begin{table}[!hbp]
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=40$, $p=800$. }
+    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
     \label{table4}
     \centering
     \begin{tabular}{*{11}{l}}
@@ -1520,21 +1546,27 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
     \multicolumn{5}{l}{Non-sparse case}
     \\
     \midrule
-   0 & 0.0730 & 0.0130 & 0.0740 & 0.0605 & 0.0540 & 0.0700 & 0.0105 & 0.0705 & 0.0545 & 0.0560 \\ 
-      1 & 0.1180 & 0.9690 & 0.1175 & 0.0910 & 1.0000 & 0.1205 & 0.9735 & 0.1210 & 0.0935 & 1.0000 \\ 
-      2 & 0.2475 & 1.0000 & 0.2485 & 0.1875 & 1.0000 & 0.2195 & 1.0000 & 0.2195 & 0.1800 & 1.0000 \\ 
-      3 & 0.3670 & 1.0000 & 0.3670 & 0.3015 & 1.0000 & 0.3680 & 1.0000 & 0.3675 & 0.2995 & 1.0000 \\ 
+
+0 & 0.0748 & 0.0250 & 0.0750 & 0.0566 & 0.0426 & 0.0756 & 0.0266 & 0.0750 & 0.0698 & 0.0528 \\ 
+  0.2 & 0.0872 & 0.1984 & 0.0874 & 0.0688 & 1.0000 & 0.0906 & 0.0310 & 0.0900 & 0.0824 & 0.0814 \\ 
+  0.4 & 0.0954 & 0.5260 & 0.0948 & 0.0768 & 1.0000 & 0.0884 & 0.0366 & 0.0886 & 0.0828 & 0.1118 \\ 
+  0.8 & 0.1096 & 0.9672 & 0.1106 & 0.0886 & 1.0000 & 0.1184 & 0.0390 & 0.1192 & 0.1098 & 0.2058 \\ 
+  1.6 & 0.1904 & 1.0000 & 0.1908 & 0.1560 & 1.0000 & 0.1844 & 0.0676 & 0.1838 & 0.1742 & 0.4970 \\ 
+  3.2 & 0.3982 & 1.0000 & 0.3986 & 0.3276 & 1.0000 & 0.4348 & 0.1470 & 0.4346 & 0.4178 & 0.9188 \\ 
+
+
 
     \midrule
     \multicolumn{5}{l}{Sparse case}
     \\
     \midrule
 
-      0 & 0.0705 & 0.0105 & 0.0700 & 0.0590 & 0.0545 & 0.0610 & 0.0095 & 0.0610 & 0.0450 & 0.0455 \\ 
-      1 & 0.1345 & 1.0000 & 0.1350 & 0.1115 & 1.0000 & 0.1225 & 1.0000 & 0.1210 & 0.0935 & 1.0000 \\ 
-      2 & 0.2185 & 1.0000 & 0.2180 & 0.1730 & 1.0000 & 0.2270 & 1.0000 & 0.2270 & 0.1815 & 1.0000 \\ 
-      3 & 0.3495 & 1.0000 & 0.3500 & 0.2760 & 1.0000 & 0.3640 & 1.0000 & 0.3645 & 0.2865 & 1.0000 \\ 
-
+  0 & 0.0764 & 0.0230 & 0.0770 & 0.0564 & 0.0478 & 0.0718 & 0.0264 & 0.0716 & 0.0688 & 0.0548 \\ 
+  0. & 0.0794 & 0.3896 & 0.0796 & 0.0604 & 1.0000 & 0.0816 & 0.0548 & 0.0802 & 0.0758 & 0.0802 \\ 
+  0.4 & 0.0936 & 0.9104 & 0.0934 & 0.0762 & 1.0000 & 0.0978 & 0.1120 & 0.0976 & 0.0918 & 0.1424 \\ 
+  0.8 & 0.1246 & 1.0000 & 0.1250 & 0.0990 & 1.0000 & 0.1072 & 0.3346 & 0.1080 & 0.1014 & 0.2820 \\ 
+  1.6 & 0.1812 & 1.0000 & 0.1806 & 0.1450 & 1.0000 & 0.1788 & 0.7834 & 0.1796 & 0.1702 & 0.7376 \\ 
+  3.2 & 0.4058 & 1.0000 & 0.4060 & 0.3324 & 1.0000 & 0.4212 & 0.9998 & 0.4208 & 0.4028 & 0.9992 \\ 
 
 
 
@@ -1552,55 +1584,6 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 
 
 
-%\begin{table}[!hbp]
-%    \caption{Empirical powers of tests under covariance structure II and non-sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
-%    \label{table5}
-%    \centering
-%\begin{tabular}{*{10}{c}}
-%\toprule
-%\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
-%    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-%        & CX & SC & LFD & CX &SC &LFD &CX & SC & LFD\\
-%\midrule
-%0 & 0.063 & 0.054 & 0.058 & 0.052 & 0.040 & 0.042 & 0.045 & 0.049 & 0.070 \\ 
-%1 & 0.141 & 0.120 & 0.115 & 0.126 & 0.120 & 0.112 & 0.103 & 0.110 & 0.102 \\ 
-%2 & 0.181 & 0.209 & 0.169 & 0.330 & 0.260 & 0.210 & 0.200 & 0.227 & 0.201 \\ 
-%3 & 0.692 & 0.367 & 0.244 & 0.759 & 0.385 & 0.341 & 0.468 & 0.413 & 0.394 \\ 
-%4 & 0.753 & 0.539 & 0.420 & 0.744 & 0.573 & 0.515 & 0.516 & 0.554 & 0.561 \\ 
-%5 & 0.828 & 0.690 & 0.509 & 0.871 & 0.697 & 0.693 & 0.556 & 0.724 & 0.727 \\ 
-%6 & 0.809 & 0.812 & 0.622 & 0.822 & 0.824 & 0.766 & 0.959 & 0.838 & 0.859 \\ 
-%7 & 1.000 & 0.882 & 0.780 & 0.979 & 0.916 & 0.903 & 0.990 & 0.923 & 0.947 \\ 
-%8 & 0.993 & 0.955 & 0.789 & 1.000 & 0.965 & 0.954 & 0.999 & 0.972 & 0.971 \\ 
-%9 & 1.000 & 0.979 & 0.911 & 0.999 & 0.981 & 0.979 & 0.964 & 0.986 & 0.987 \\ 
-%10 & 1.000 & 0.991 & 0.877 & 0.989 & 0.996 & 0.988 & 0.996 & 0.996 & 0.997 \\ 
-%\bottomrule
-%\end{tabular}
-%\end{table}
-
-%\begin{table}[!hbp]
-%    \caption{Empirical powers of tests under covariance structure II and sparse alternative. $\alpha=0.05$, $k=3$, $n_1=n_2=n_3=25$. }
-%    \label{table6}
-%    \centering
-%\begin{tabular}{*{10}{c}}
-%\toprule
-%\multirow{2}{*}{SNR} &\multicolumn{3}{c}{$p=100$}&\multicolumn{3}{c}{$p=150$}&\multicolumn{3}{c}{$p=200$} \\
-%    \cmidrule(r){2-4}\cmidrule(r){5-7}\cmidrule(r){8-10}
-%        & CX & SC & LFD & CX &SC &LFD &CX & SC & LFD\\
-%\midrule
-%0 & 0.052 & 0.055 & 0.047 & 0.055 & 0.057 & 0.053 & 0.044 & 0.055 & 0.057 \\ 
-%1 & 0.068 & 0.124 & 0.065 & 0.070 & 0.130 & 0.085 & 0.049 & 0.116 & 0.087 \\ 
-%2 & 0.085 & 0.233 & 0.112 & 0.076 & 0.239 & 0.149 & 0.067 & 0.241 & 0.161 \\ 
-%3 & 0.110 & 0.388 & 0.161 & 0.090 & 0.408 & 0.215 & 0.097 & 0.417 & 0.227 \\ 
-%4 & 0.120 & 0.530 & 0.184 & 0.112 & 0.552 & 0.282 & 0.103 & 0.556 & 0.309 \\ 
-%5 & 0.167 & 0.708 & 0.238 & 0.142 & 0.699 & 0.387 & 0.140 & 0.687 & 0.394 \\ 
-%6 & 0.196 & 0.807 & 0.261 & 0.168 & 0.820 & 0.472 & 0.162 & 0.823 & 0.547 \\ 
-%7 & 0.217 & 0.875 & 0.318 & 0.177 & 0.892 & 0.505 & 0.173 & 0.896 & 0.646 \\ 
-%8 & 0.234 & 0.935 & 0.378 & 0.220 & 0.951 & 0.625 & 0.195 & 0.948 & 0.749 \\ 
-%9 & 0.312 & 0.965 & 0.407 & 0.222 & 0.970 & 0.672 & 0.224 & 0.979 & 0.809 \\ 
-%10 & 0.334 & 0.976 & 0.505 & 0.292 & 0.987 & 0.773 & 0.254 & 0.989 & 0.881 \\ 
-%\bottomrule
-%\end{tabular}
-%\end{table}
 
 \section{Concluding remarks}\label{concluding}
 In this paper, using the idea of least favorable direction, we proposed the LFD test for MANOVA in high dimensional setting.

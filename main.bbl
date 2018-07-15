@@ -41,12 +41,6 @@ Cai, T.~T., W.~Liu, and Y.~Xia ({2014}).
 \newblock {\em {JOURNAL OF THE ROYAL STATISTICAL SOCIETY SERIES B-STATISTICAL
   METHODOLOGY}\/}~{\em {76}\/}({2}), {349--372}.
 
-\bibitem[\protect\citeauthoryear{Cai, Ma, and Wu}{Cai
-  et~al.}{2013}]{Cai2012Sparse}
-Cai, T.~T., Z.~Ma, and Y.~Wu ({2013}).
-\newblock Sparse pca: Optimal rates and adaptive estimation.
-\newblock {\em The Annals of Statistics\/}~{\em {41}\/}({6}), {3074--3110}.
-
 \bibitem[\protect\citeauthoryear{Cai and Xia}{Cai and Xia}{2014}]{Cai2014High}
 Cai, T.~T. and Y.~Xia ({2014}).
 \newblock {High-dimensional sparse MANOVA}.
@@ -72,17 +66,19 @@ Chen, S.~X., L.~Zhang, and P.~Zhong (2010).
 \newblock {\em Journal of the American Statistical Association\/}~{\em
   105\/}(490), 810--819.
 
-\bibitem[\protect\citeauthoryear{Fan, Fan, and Lv}{Fan
-  et~al.}{2008}]{Fan2008High}
-Fan, J., Y.~Fan, and J.~Lv ({2008}).
-\newblock {High dimensional covariance matrix estimation using a factor model}.
-\newblock {\em Journal of Econometrics\/}~{\em {147}\/}({1}), {186--197}.
-
 \bibitem[\protect\citeauthoryear{{Fan}, {Wang}, {Wang}, and {Zhu}}{{Fan}
   et~al.}{2017}]{fan2017Dist}
 {Fan}, J., D.~{Wang}, K.~{Wang}, and Z.~{Zhu} (2017, February).
 \newblock {Distributed Estimation of Principal Eigenspaces}.
 \newblock {\em ArXiv e-prints\/}.
+
+\bibitem[\protect\citeauthoryear{Fan, Yuan, and Mincheva}{Fan
+  et~al.}{2013}]{Fan2013Large}
+Fan, J., L.~Yuan, and M.~Mincheva (2013).
+\newblock Large covariance estimation by thresholding principal orthogonal
+  complements.
+\newblock {\em Journal of the Royal Statistical Society\/}~{\em 75\/}(4),
+  603--680.
 
 \bibitem[\protect\citeauthoryear{Feng, Zou, Wang, and Zhu}{Feng
   et~al.}{2015}]{Feng2014Two}
@@ -142,13 +138,6 @@ Schott, J.~R. ({2007}).
 \newblock {Some high-dimensional tests for a one-way MANOVA}.
 \newblock {\em Journal of Multivariate Analysis\/}~{\em {98}\/}({9}),
   {1825--1839}.
-
-\bibitem[\protect\citeauthoryear{Shen, Shen, and Marron}{Shen
-  et~al.}{2013}]{Shen2013Consistency}
-Shen, D., H.~Shen, and J.~S. Marron ({2013}).
-\newblock {Consistency of sparse PCA in High Dimension, Low Sample Size
-  contexts}.
-\newblock {\em Journal of Multivariate Analysis\/}~{\em {115}}, {317--333}.
 
 \bibitem[\protect\citeauthoryear{Shen, Shen, and Marron}{Shen
   et~al.}{2016}]{Shen2016A}
