@@ -101,6 +101,8 @@ myPlot <- ggplot(df,aes(rho,power,colour=method,linetype=method))+
     theme_bw()+
     guides(colour=g,linetype=g)+
     theme(
+        axis.title.y = element_text(size=rel(1.2)),
+        axis.title.x = element_text(size=rel(1.2)),
         legend.position= c(0.9,0.4),
         legend.margin = margin(3,3,3,3),
         legend.box.background = element_rect()
