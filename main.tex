@@ -157,7 +157,7 @@ This paper considers the problem of multivariate analysis of variance for normal
     %{\color{red}
     %These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
 %}
-    The asymptotic power function and simulations show that the proposed test has particular high power when variables are strongly correlated.
+    The asymptotic power function and simulations show that the proposed test is particularly powerful under spiked covariance.
 
 \vspace{9pt}
     \noindent {\it Key words and phrases:}
@@ -210,13 +210,14 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ b
 
 
 In some modern scientific applications, people would like to test hypotheses~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $N$.
-See, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
+See, e.g.,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
 However, when $p\geq N$, the four classical test statistics are all not defined.
   Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
- So far, most tests are designed for two-sample case, i.e., $k=2$.
-  See, for example,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
-  Recently, some tests have also been introduced for the case of general $k$.~\cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
+ So far, numerous tests have been proposed for the case $k=2$.
+ See, e.g.,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
+  Some tests have also been introduced for the case of general $k\geq 2$.
+ \cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
   %\frac{1}{k-1}\mytr\big(\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^\top-n\bar{X}\bar{X}^\top\big)-\frac{1}{n-k}\mytr\big(\sum_{i=1}^k \sum_{j=1}^{n_i}X_{ij}X_{ij}^\top-\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^\top\big)
@@ -229,14 +230,14 @@ However, when $p\geq N$, the four classical test statistics are all not defined.
   \Big).
   $$
 Statistic $T_{Sc}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
-See~\cite{Srivastava2013},~\cite{Hu2017},~\cite{Yamada2015},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics.
+See~\cite{Srivastava2013},~\cite{Hu2017},~\cite{Yamada2015},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics for general $k\geq 2$.
 It is known that the sum-of-squares type tests are particularly powerful against dense alternatives.
 In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
   where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, it is substituted by an estimator.
-  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one and is powerful against sparse alternatives.
+  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one and is very powerful against sparse alternatives.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\theta_i,\bSigma)$ for $1\leq i\leq K$.
@@ -247,7 +248,7 @@ In another work,~\cite{Cai2014High} proposed a test statistic
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
 
-Most existing sum-of-squares type tests assume the condition 
+Most existing sum-of-squares type test procedures require the condition 
 $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
 \begin{equation}\label{nonSpikedC}
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
@@ -256,17 +257,17 @@ where $\blambda_1$ is the largest eigenvalue of $\bSigma$.
 The condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
 In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
-In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type test statistics may not have correct level.
-Some adjusted sum-of-squares type tests have been proposed to solve the problem.
+In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type tests may not have correct level.
+Some adjusted sum-of-squares type test procedures have been proposed to solve the problem.
 See, e.g.,
 \cite{Katayama2013Asymptotic}, \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
 However, the power behavior of these corrected tests may not be satisfied.
 
 
 Recently, \cite{Aoshima2018} and \cite{WANG2018225} considered two sample mean testing problem under the spiked covariance model.
-Compared with sum-of-squares tests, their tests have good power behavior.
-However, they imposed strong conditions on the magnitude of $p$.
-In fact, under the approximate factor model in \cite{Fan2013Large}, the test in \cite{Aoshima2018} requires $p/n \to 0$, while the test in \cite{WANG2018225} requires that $p/n^2\to 0$ and the small eigenvalues of $\bSigma$ are equal.
+These tests have better power behavior compared with sum-of-squares type tests.
+However, both papers imposed strong conditions on the magnitude of $p$.
+For example, under the approximate factor model in \cite{Fan2013Large}, the test in \cite{Aoshima2018} requires $p/n \to 0$, while the test in \cite{WANG2018225} requires that $p/n^2\to 0$ and the small eigenvalues of $\bSigma$ are all equal.
 
    The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
     However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>N-k$.
@@ -1413,8 +1414,8 @@ We take
 $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$
 and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected such that ${ \bC^\top \bTheta^\top \bTheta\bC}/(\sum_{i=2}^p\blambda_i^2)^{1/2}=5$.
 Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$, which is computed based on $5000$ simulations.
-We can see that the empirical power of LFD test holds nearly constant as $\rho$ varies while the empirical powers of~\cite{Chen2010A} and~\cite{Feng2014Two}'s tests decrease as $\rho$ increases.
-When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is larger than $0.1$, LFD test outperforms all other tests.
+We can see that the empirical power of LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease as $\rho$ increases.
+When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 
 
 %$$
@@ -1590,7 +1591,7 @@ When $\rho$ is small,  LFD test has reasonable performance. When $\rho$ is large
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=12cm,height=12cm]{figure1}
+    \includegraphics[width=\textwidth]{figure1}
     \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=35$, $p=1000$.}\label{figure1}
 \end{figure}
 
