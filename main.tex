@@ -37,6 +37,8 @@
 \usepackage{enumerate}
 
 
+%\usepackage{refcheck}
+
 
 \DeclareMathOperator{\mytr}{tr}
 \DeclareMathOperator{\mydiag}{diag}
@@ -253,7 +255,7 @@ $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
 \begin{equation}\label{nonSpikedC}
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
 \end{equation}
-where $\blambda_1$ is the largest eigenvalue of $\bSigma$.
+where $\blambda_i$ is the $i$th largest eigenvalue of $\bSigma$, $i=1,\ldots, p$.
 The condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
 In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
@@ -283,16 +285,16 @@ For example, under the approximate factor model in \cite{Fan2013Large}, the test
 
 
     In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis} called least favorable direction (LFD) test statistic, which is a generalization of the test in \cite{Zhao2016A}.
-    We gives the asymptotic distributions of the test statistic under both nonspiked and spiked covariances.
+    We give the asymptotic distributions of the test statistic under both nonspiked and spiked covariances.
     An adaptive LFD test procedure is constructed by consistently detecting unknown covariance structure and estimating unknown parameters.
     The asymptotic local power function of the LFD test is also given.
     Our theoretical results show that the LFD test is particularly powerful under the spiked covariance.
-    This can explain the simulation results of~\cite{Zhao2016A}.
-    Compared with the work of \cite{Zhao2016A}, our main contribution is that we give a thoroughly theoretical analysis of LFD test.
+    This explains the simulation results of~\cite{Zhao2016A}.
+    Compared with the work of \cite{Zhao2016A}, our main contribution is that we give a thoroughly theoretical analysis of the LFD test.
     To prove of our main results, we carefully study the high-order asymptotic behavior of the eigenvalues and eigenspaces of the sample covariance matrix.
     These results are also of independent interests.
     We further compare the proposed test procedure with existing tests by simulations.
-    It is shown that the adaptive LFD test has similar behavior to existing sum-of-squares tests under the nonspiked covariance, while significantly outperforms competing tests under the spiked covariance.
+    It is shown that the LFD test has similar behavior to existing sum-of-squares tests under the nonspiked covariance, while significantly outperforms competing tests under the spiked covariance.
 
     The rest of the paper is organized  as follows.
     In Section~\ref{methodology}, we propose the LFD test statistic and derive its explicit forms.
@@ -383,8 +385,8 @@ Then $\bH$ can be written as
         \bH=\bX \bJ\bC \bC^\top \bJ^\top \bX^\top.
     \end{aligned}
 \end{equation*}
- Define $\bTheta=(\sqrt{n_1}\theta_1,\ldots,\sqrt{n_k}\theta_k)$
- and the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with all elements equal to $0$.
+Define $\bTheta=(\sqrt{n_1}\theta_1,\ldots,\sqrt{n_k}\theta_k)$.
+ Then the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with $0$ entries.
  Thus, the hypotheses~\eqref{hypothesis} are equivalent to
  $$
  H_0:\bTheta \bC=\bO_{p\times (k-1)}\quad \text{v.s.}\quad H_1: \bTheta \bC\neq \bO_{p\times (k-1)}.
@@ -510,7 +512,7 @@ Roy's maximum root is in fact the component LRT statistic along the least favora
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-Unfortunately, Roy's maximum root can only be defined when $n\geq p$, hence can not be used in the high dimensional setting.
+Unfortunately, Roy's maximum root can only be defined when $n\geq p$, hence can not be used in high dimensional setting.
 %While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
 In what follows, we assume $p>n$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
@@ -520,7 +522,7 @@ the set
 $$\mathcal{A}\overset{def}{=}\{a:L_1(a)=+\infty, \, a^\top a=1\}=\{a:a^\top \bG a=0, \, a^\top a=1\}$$
 is not empty since $\bG$ is singular. 
 Consequently, the right hand side of~\eqref{LFDdef1} is not well defined since the ratio involves infinity.
-Hence we need a new definition for LFD in the high dimensional setting.
+Hence we need a new definition for LFD in high dimensional setting.
 Define
 $$\mathcal{B}=\{a:L_0(a)=+\infty, \, a^\top a=1\}=\{a:a^\top (\bG+\bH)a= 0, \, a^\top a=1\}.$$
 It can be seen that $\mathcal{B}\subset \mathcal{A}$.
@@ -535,7 +537,7 @@ $$
     a^*&=\argmin_{a\in \mathcal{A}\cap\mathcal{B}^c} L_0(a) = \argmax_{a^\top a=1,a^\top Ga=0} {a^\top \bH a}.
 \end{aligned}
 $$
-Based on $a^*$ and likelihood $L_0(a)$, we propose a new test statistic
+Based on $a^*$ and the likelihood $L_0(a)$, we propose a new test statistic
 \begin{equation*}
     \begin{aligned}
         T(\bX)=a^{*T} \bH a^*
@@ -550,10 +552,10 @@ Since the least favorable direction $a^*$ is obtained from the component likelih
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
-Now we derive the explicit forms of LFD test statistic. 
+Now we derive the explicit forms of the LFD test statistic. 
 Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times \min(n,p)$ and $n \times \min(n,p)$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is a $\min(n,p)\times \min(n,p)$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
 If $p>n$, let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix onto the column space of $\bY$.
-Then Lemma~\ref{optProp} in Appendix implies that
+Then Lemma~\ref{optProp} in Appendix implies that for $p>n$,
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
     T(\bX)
@@ -566,8 +568,8 @@ Then Lemma~\ref{optProp} in Appendix implies that
 \end{aligned}
 \end{equation}
 
-%While~\eqref{statisticForm1} is convenient for theoretical analysis, it involves a projection matrix $\bP_{\bY}$ which is not easy to compute.
-Next, we derive another simple form of $T(\bX)$ when $p>N$.
+While~\eqref{statisticForm1} is convenient for theoretical analysis, it is not convenient for computation.
+When $p>N$, another simple form of $T(\bX)$ can be used for computation.
 %where $\bP_\bA=Z\tilde{J}{(\tilde{J}^\top Z^\top Z\tilde{J})}^{-1}\tilde{J}^\top Z^\top$.
 If $p>N$, then $\bX^\top \bX$ is invertible.
 By the relationship
@@ -598,7 +600,7 @@ By the relationship
 and matrix inverse formula, we have that
 \begin{equation*}
     \begin{aligned}
-        &{\big( \bJ^\top {(\bX^\top \bX)}^{-1}\bJ \big)}^{-1}
+        &\big( \bJ^\top {(\bX^\top \bX)}^{-1}\bJ \big)^{-1}
         =\bJ^\top \bX^\top \bX \bJ - \bJ^\top \bX^\top \bX\tilde{\bJ}{(\tilde{\bJ}^\top \bX^\top \bX \tilde{\bJ})}^{-1}
             \tilde{\bJ}^\top \bX^\top \bX\bJ 
         = \bJ^\top \bX^\top( \bI_p- \bP_{\bY}) \bX \bJ.
@@ -611,12 +613,12 @@ Thus,
         \lambda_1 \Big(\bC^\top\big( \bJ^\top (\bX^\top \bX)^{-1}\bJ \big)^{-1}\bC\Big).
     \end{aligned}
 \end{equation}
-Compared with~\eqref{statisticForm1},~\eqref{statisticForm2} doesn't involve $\bP_{\bY}$.
-Hence~\eqref{statisticForm2} is convenient for computation.
-In the case of $k=2$, the least favorable direction is proportional to
+Compared with~\eqref{statisticForm1}, the expression~\eqref{statisticForm2} doesn't involve $\bP_{\bY}$ and is more convenient for computation.
+
+In the case of $k=2$, it can be seen that the least favorable direction is proportional to
 $
 (\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)
-$ and LFD test statistic has expression
+$ and the LFD test statistic has expression
 $$
 T(\bX)=\frac{n_1 n_2}{n_1+n_2}\| (\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)\|^2.
 $$
@@ -624,7 +626,7 @@ In this case,
 the least favorable direction coincides with the maximal data piling direction proposed by~\cite{Ahn2010}.
 
 \section{Theoretical analysis}\label{THEO}
-We now turn to the analysis of the asymptotic distributions of LFD test statistic.
+We now turn to the analysis of the asymptotic distributions of the LFD test statistic.
 We shall give theoretical results under both nonspiked and spiked covariances.
 Based on these results, an adaptive test with asymptotically correct level can be constructed.
 Also, these results allow us to derive the local asymptotic power function of LFD test.
@@ -639,12 +641,13 @@ Also, these results allow us to derive the local asymptotic power function of LF
 
 \subsection{Nonspiked covariance}
 
-In this subsection, we establish the asymptotic distribution of $T(\bX)$ under the nonspiked covariance,
-Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ and the entries on the diagonal are iid $\mathcal{N}(0,2)$.
+In this subsection, we establish the asymptotic distribution of $T(\bX)$ under the nonspiked covariance.
+Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ random variables and the entries on the diagonal are iid $\mathcal{N}(0,2)$ random variables.
 The following theorem establishes the asymptotic distribution of the LFD test statistic.
 \begin{theorem}
     \label{fenTheorem1}
-    Suppose that $n\blambda_1/\mytr(\bSigma)\to 0$, $\blambda_1/\sqrt{\mytr(\bSigma^2)}\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\mytr^{1/2}(\bSigma^2))$.
+    Suppose as $n,p\to \infty$, the condition \eqref{nonSpikedC} holds.
+    Furthermore, suppose that $n\blambda_1/\mytr(\bSigma)\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$.
     Then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{\mytr(\bSigma^2)})$,
     \begin{equation*}
         \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)}}
@@ -657,20 +660,21 @@ The following theorem establishes the asymptotic distribution of the LFD test st
 \begin{remark}
     The condition $n\blambda_{1}/\mytr(\bSigma)\to 0$ implies $p/n \to \infty$.
     Hence $T(\bX)$ is well defined for large $n$.
+    The condition $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$ requires that the range of the eigenvalues of $\bSigma$ is not too large.
 \end{remark}
 To centralize $T(\bX)$ % formulate a test procedure with asymptotically correct level 
 under the conditions of Theorem \ref{fenTheorem1}, the parameters $\mytr(\bSigma)$ and $\mytr(\bSigma^2)$ should be estimated.
 Let $\hat{\bSigma}=n^{-1}\bG=n^{-1}\bY\bY^\top$ be the sample covariance matrix.
-Consider the following simple estimators,
+We use the following simple estimators,
 \begin{equation*}
     \widehat{\mytr(\bSigma)}=\mytr(\hat{\bSigma}),
     \quad
     \widehat{\mytr(\bSigma^2)}=\mytr ( \hat{\bSigma}^2 )-n^{-1}\mytr^2(\hat \bSigma).
 \end{equation*}
-Let 
+Define
 $$
 Q_1=
-\frac{T(\bX)-\left(\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}\right)}{\sqrt{\widehat{\mytr(\bSigma^2)}}}
+\frac{T(\bX)-\left(\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}\right)}{\sqrt{\widehat{\mytr(\bSigma^2)}}}.
 $$
 Let $F_1(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
 Then we reject the null hypothesis if $Q_1> F_1^{-1}(1-\alpha)$.
@@ -688,8 +692,8 @@ The following corollary gives the asymptotic local power function of the propose
     \right)+o(1).
     \end{equation*}
 \end{corollary}
-Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test has similar power behavior to existing tests.
-In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{kuCor1} equals the asymptotic local power function of the tests in~\citet{Bai1996Efiect} and~\citet{Chen2010A}.
+Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test has similar power behavior to existing sum-of-squares type tests.
+In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{kuCor1} is equal to the asymptotic local power function of the tests in~\citet{Bai1996Efiect} and~\citet{Chen2010A}.
 
 
 
@@ -698,8 +702,8 @@ In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{k
 
 
 Now we derive the asymptotic results under the spiked covariance, which are much more involved than the nonspiked case.
-Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
-Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$.
+%Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
+Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$ and $\bU$ is an orthogonal matrix.
 Suppose that $\bSigma$ has $r$ spiked eigenvalues, where $1\leq r\leq p$ can also vary as $n,p\to \infty$.
     We shall first assume the spiked number $r$ is known.
     Adaptation to unknown $r$ will be considered latter.
@@ -844,7 +848,7 @@ Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, wh
     Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
     Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
     Let $\tilde{\bV}_{\bZ_1}$ be a $n\times (n-r)$ column orthogonal matrix which satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
-    The following proposition gives the asymptotic properties of $\bP_{\bY,2}$.
+    The following proposition gives the asymptotic behavior of $\bP_{\bY,2}$.
 
 \begin{proposition}
     \label{eigenvectorprop3}
@@ -877,7 +881,7 @@ Let $\bW^*_{k-1}$ be a $(k-1)\times (k-1)$ symmetric random matrix distributed a
 The following theorem gives the asymptotic distribution of $T(\bX)$ under the null and the local alternative hypothesis.
 \begin{theorem}\label{thm1}
     Suppose that $r=o(\sqrt{n})$, $r\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$, $rn\blambda_{r+1} /\mytr(\bLambda_2)\to 0$,
-    $r\blambda_{r+1}/\sqrt{\mytr(\bLambda_2^2)}\to 0$ and $\blambda_{r+1}-\blambda_p=O(n^{-1}\mytr^{1/2}(\bLambda_2^2))$.
+    $r\blambda_{r+1}/\sqrt{\mytr(\bLambda_2^2)}\to 0$ and $\blambda_{r+1}-\blambda_p=O(n^{-1}\sqrt{\mytr(\bLambda_2^2)})$.
     Then
     \begin{enumerate}[(i)]
         \item 
@@ -976,11 +980,12 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    Suppose the factor model in \cite{Ma2015A} holds. That is, $\blambda_1,\ldots, \blambda_r$ are of order $p$, $\blambda_{r+1},\ldots, \blambda_p$ are bounded and $r$ is fixed.
+    Suppose the approximate factor model in \cite{Fan2013Large} holds.
+    That is, $r$ is fixed, $\blambda_1,\ldots, \blambda_r$ diverge at rate $O(p)$ and $\blambda_{r+1},\ldots, \blambda_p$ are bounded.
     Then the conditions of Theorem \ref{thm1} become $p/n\to \infty$ and $\blambda_{r+1}-\blambda_p=O(\sqrt p /n)$.
     Hence Theorem \ref{thm1} holds for ultra-high dimensional data.
     In contrast, recently proposed tests under the spiked covariance model can only be used for lower dimensional data.
-    In fact, \cite{Aoshima2018} requires $p/n \to 0$, and \cite{WANG2018225} requires $p/n^2\to 0$.   
+    In fact, under the approximate factor model in \cite{Fan2013Large}, \cite{Aoshima2018} requires $p/n \to 0$, while \cite{WANG2018225} requires $p/n^2\to 0$ and $\blambda_{r+1}=\cdots=\blambda_p$.   
     We note that if $k=2$ and $p/n^2 \to 0$, then the coefficient of $\bW_{k-1}^* - r\bI_{k-1}$ is negligible, and consequently, $T(\bX)$ is asymptotically normal distributed.
     Thus, Theorem \ref{thm1} gives the high-order behavior of $T(\bX)$.
 
@@ -1140,7 +1145,7 @@ and
 $
     \bC^\top \bTheta^\top \bTheta \bC
 $,
-we temporarily play a prior on $\bTheta$.
+we temporarily place a prior on $\bTheta$.
 Suppose that $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(0,\psi \bI_p)$, $i=1,2$.
 Then
 $
@@ -1163,11 +1168,10 @@ It is not hard to see that
         \mytr(\bSigma^2)
     }\to 0.
 \end{equation*}
-That is, the asymptotic variance of $T(\bX)$ is much smaller than the sum-of-squares tests.
-To appreciate this phenomenon,  we note that % in \ref{statisticForm1} 
-for $k=2$, 
+That is, the asymptotic variance of $T(\bX)$ is much smaller than the tests in \cite{Bai1996Efiect} and \cite{Chen2010A}.
+To appreciate this phenomenon,  we note that in the expression \eqref{statisticForm1},
 $(\bI_p-\bP_\bY)\bX \bJ \bC|\bP_{\bY}\sim \mathcal{N}_p(0,(\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY))$.
-But $\bI_p-\bP_\bY$ tends to be orthogonal to $\bU_1 \bU_1^\top$, the eigenspace corresponding to the leading eigenvalues of $\bSigma$.
+But $\bI_p-\bP_\bY$ tends to be orthogonal to $\bU_1 \bU_1^\top$ which is the projection matrix onto the eigenspace corresponding to the leading eigenvalues of $\bSigma$.
 Hence the projection by $\bI_p-\bP_\bY$ helps reduce the variance of $\bX \bJ \bC$.
 
 Thus, if $\bTheta$ satisfies
@@ -1191,7 +1195,7 @@ Thus, if $\bTheta$ satisfies
 =0,
 \end{equation*}
 the LFD test has nontrivial power while  the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} has trivial power.
-Hence LFD test tends to be more powerful than~\cite{Chen2010A}'s test.
+Hence the LFD test tends to be more powerful than the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
 
 
 In practice, one may not know weather the covariance matrix is spiked. Even if it is known that the covariance matrix is spiked, the spike number $r$ may be unknown.
@@ -1367,17 +1371,17 @@ So the proposed adaptive LFD test procedure can indeed adapt to the unknown cova
 \section{Numerical study}\label{numerical}
 
 In this section, we compare the numerical performance of the adaptive LFD test procedure with some existing tests, including the MANOVA tests in~\citet{Schott2007Some},~\citet{Cai2014High}, \cite{Hu2017} and \cite{ZHANG2017200}.
-The last four tests are denoted by Sc, CX, HBWW and ZGZ, respectively.
+These competing tests are denoted by Sc, CX, HBWW and ZGZ, respectively.
 In the simulations, we take $k=3$.
 For the adaptive LFD test, we take $\tau=5$.
 For CX, we use their oracle procedure.
 
 First, we simulate the empirical level and power under various models for $\bSigma$ and $\bTheta$.
-Define signal-to-noise ratio (SNR) as
+To characterize the signal strength,
+we define signal-to-noise ratio (SNR) as
 $$
 \textrm{SNR}=\frac{ \bC^\top \bTheta^\top \bTheta\bC}{\sqrt{\mytr(\bSigma^2)}}.
 $$
-We use SNR to characterize the signal strength.
 We consider the following four models for $\bSigma$.
 \begin{itemize}
     \item Model $1$:
@@ -1391,9 +1395,9 @@ We consider the following four models for $\bSigma$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
 Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
+In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make SNR equal to specific values.
 In the sparse case, we take $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
-Again, $\kappa$ is selected to make the SNR equal to specific values.
+Again, $\kappa$ is selected to make SNR equal to specific values.
 The empirical power is computed based on $5000$ simulations.
 The simulation results under Model $1$ and Model $2$ are summarized in Tables \ref{table1} and \ref{table3}.
 The covariance matrices are nonspiked under these two models.
@@ -1414,7 +1418,7 @@ We take
 $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$
 and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected such that ${ \bC^\top \bTheta^\top \bTheta\bC}/(\sum_{i=2}^p\blambda_i^2)^{1/2}=5$.
 Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$, which is computed based on $5000$ simulations.
-We can see that the empirical power of LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease as $\rho$ increases.
+We can see that the empirical power of the LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease as $\rho$ increases.
 When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 
 
@@ -1670,16 +1674,16 @@ China under Grant Nos. 11471035, 11471030.
 
 
 \begin{appendices}
-    \section{Technical details}\label{app}
+    \section{Technical lemmas}
 \begin{lemma}\label{optProp}
     Suppose $\bA$ is a $p\times r$ matrix with rank $r$ and $\bB$ is a $p\times p$  non-zero positive semi-definite matrix.
     Denote by $\bA=\bU_\bA \bD_\bA \bV_\bA^\top$ the singular value decomposition of $\bA$, where $\bU_\bA$ and $\bV_\bA$ are $p\times r$ and $r\times r$ column orthogonal matrices, respectively, and $\bD_\bA$ is a $r\times r$ diagonal matrix.
     Let $\bP_\bA=\bU_\bA \bU_\bA^\top$ be the projection matrix onto the column space of $\bA$.
     Then
-    \begin{equation}
+    \begin{equation*}
         \max_{a^\top a=1, a^\top \bA \bA^\top a=0}a^\top \bB a=
         \lambda_{1}\big(\bB(\bI_p-\bP_\bA)\big).
-    \end{equation}
+    \end{equation*}
 \end{lemma}
 \begin{proof}
     It can be seen that $a^\top \bA \bA^\top a=0$ if and only if $a= (\bI_p-\bP_\bA)a$.
@@ -1710,7 +1714,7 @@ China under Grant Nos. 11471035, 11471030.
     Then
     \begin{equation*}
     (\sum_{i=1}^n a_{n,i}^2)^{-1/2}\sum_{i=1}^n a_{n,i}\xi_{n,i} 
-    \xrightarrow{\mathcal{L}}\mathcal{N}_s(0,\bM).
+    \xrightarrow{\mathcal{L}}\mathcal{N}_s(\mathbf{0}_s,\bM).
     \end{equation*}
     \label{CLTLEMMA}
 \end{lemma}
@@ -1742,7 +1746,7 @@ China under Grant Nos. 11471035, 11471030.
     \exp\left(-\frac{1}{2} t^\top \bM t\right)
     \end{equation*}
     almost surely.
-    Then by dominated convergence theorem,
+    Then by dominated convergence theorem, we have
     \begin{equation*}
         \myE
        \left[ 
@@ -1753,7 +1757,7 @@ China under Grant Nos. 11471035, 11471030.
     \to
     \exp\left(-\frac{1}{2} t^\top \bM t\right)
     \end{equation*}
-    holds along this further subsequence. This implies the conclusion holds along this further subsequence, which completes the proof.
+    along this further subsequence. This implies the conclusion holds along this further subsequence, which completes the proof.
 
 
 
@@ -1800,7 +1804,7 @@ where $|\omega|_2=\sqrt{\sum_{i=1}^n \omega_i^2}$ and $|\omega|_{\infty}=\max_{1
     Our proof is adapted from the proof of Theorem 5.39 in~\cite{Vershynin2010Introduction}.
     By Lemma 5.2 and Lemma 5.4 of~\cite{Vershynin2010Introduction}, there exists a set $\mathcal{C}\subset \{x\in\mathbb{R}^m: |x|_2=1\}$ satisfying $\text{Card} (\mathcal{C})\leq 9^m$ such that for any $m\times m$ symmetric matrix $\bA$,
     \begin{equation}\label{eq:b1}
-    \|A\|\leq 2\max_{x\in\mathcal{C}} x^\top \bA x.
+    \|A\|\leq 2\max_{x\in\mathcal{C}} \left| x^\top \bA x \right|.
 \end{equation}
 Then for $t>4$, 
 \begin{equation*}
@@ -1812,7 +1816,7 @@ Then for $t>4$,
         \\
         \leq &
         \Pr\left(
-            2\sup_{x\in\mathcal{C}}\left|\sum_{i=1}^n \omega_i(x^\top Z_i Z_i^\top x - 1)\right|
+            2\max_{x\in\mathcal{C}}\left|\sum_{i=1}^n \omega_i(x^\top Z_i Z_i^\top x - 1)\right|
             > t (|\omega|_2 \sqrt{m}+|\omega|_{\infty} m)
         \right)
         \\
@@ -1834,7 +1838,7 @@ This completes the proof.
 \end{proof}
 
 
-
+\section{Proofs of Propositions \ref{eigenvalueProp}-\ref{eigenvectorprop3}}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{eigenvalueProp}}]
     We only need to deal with the matrix $n^{-1}\bZ^\top \bLambda \bZ$ since it shares the same non-zero eigenvalues as $\hat{\bSigma}$.
@@ -1870,8 +1874,8 @@ This completes the proof.
         \bI_n\right\|.
         \end{split}
     \end{equation}
-    Using Weyl's inequality, we can derive the following lower bound for $\lambda_i(n^{-1}\bZ_1^\top \bLambda_1 \bZ_1)$, $ i=1,\ldots, r$.
-\begin{equation*}\label{eq:DLower}
+    Using Weyl's inequality, we can derive the following lower bound for $\lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)$, $ i=1,\ldots, r$.
+\begin{equation*}
 \begin{aligned}
 \lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)
 \geq&
@@ -1887,7 +1891,7 @@ This completes the proof.
 \end{equation*}
 Similarly, we can derive the following upper bound for
 $\lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)$, $i=1,\ldots,r$.
-\begin{equation*}\label{eq:DUpper}
+\begin{equation*}
 \begin{aligned}
 &\lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)
 \\
@@ -2076,7 +2080,7 @@ Define
     \lambda_{i-r}\left(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n\right)\leq 0
 \right\}.
 \end{align*}
-It can be seen that $\mathcal{C}_1\cap \mathcal{C}_2 =\emptyset$ and $\text{Card}(\mathcal{C}_1\cup\mathcal{C}_2)= n - r$.
+It can be seen that $\mathcal{C}_1\cap \mathcal{C}_2 =\emptyset$ and $\text{Card}(\mathcal{C}_1\cup\mathcal{C}_2) \geq n - r$.
 For $i\geq r+1$ and $i\in \mathcal{C}_1$,
     \begin{equation*}
         \lambda_i^2(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n) \leq \lambda_i^2(\bY^\top \bY-\widehat{\mytr(\bLambda_2)}\bI_n)\leq \lambda_{i-r}^2(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n);
@@ -2127,7 +2131,7 @@ for $i\in \mathcal{C}_2$,
             .
         \end{split}
     \end{equation}
-    where the last equality follows from~\eqref{conB2B} and the first statement of the proposition.
+    where the last equality follows from~\eqref{conB2B} and the second statement of the proposition.
 
     Now we deal with $\mytr(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)^2$.
     Let $Z_{2,i}$ be the $i$th column of $\bZ_2$, $i=1,\ldots, n$.
@@ -2146,7 +2150,7 @@ for $i\in \mathcal{C}_2$,
         2\sum_{i=1}^n (Z_{2,i}^\top \bLambda_2 Z_{2,i}-\mytr(\bLambda_2))^2
         +2n(\widehat{\mytr(\bLambda_2)}-\mytr(\bLambda_2))^2.
     \end{equation*}
-    Then it follows from the first statement of the proposition and the fact $
+    Then it follows from the second statement of the proposition and the fact $
         \myE
         \sum_{i=1}^n (Z_{2,i}^\top \bLambda_2 Z_{2,i}-\mytr(\bLambda_2))^2
         =2n \mytr(\bLambda_2^2)
@@ -2845,7 +2849,7 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
         \right)
         =(1+o_P(1))n^{-1}\mytr(\bLambda_1).
     \end{equation}
-    As a result, the matrix $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top  \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top$ is of rank $n-r$.
+    %As a result, the matrix $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top  \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top$ is of rank $n-r$.
     It can be seen that the matrix $
     \bP_{\bY,2}^*
             $ is the projection matrix onto the rank $n-r$ principal subspace of $n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top  \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top$.
@@ -2922,7 +2926,7 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
 
 
 
-\section{Proofs of the main results}\label{app2}
+\section{Proofs of Theorems \ref{fenTheorem1} and \ref{thm1}}
 It can be seen that $\bX\bJ\bC$ is independent of $\bY$.
 We write
 $
@@ -2945,7 +2949,7 @@ Then
     \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}=
 \sum_{i=1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top,
 \end{equation*}
-where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random vectors and are independent of $\bP_{\bY}$.
+where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}_{k-1}(\mathbf{0}_{k-1},\bI_{k-1})$ random vectors and are independent of $\bP_{\bY}$.
 
 \begin{lemma}
     \label{fenLemma1}
@@ -2976,15 +2980,6 @@ where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}(0,\bI_{k-1})$ random 
         \left\|
         \bY (\bY^\top \bY)^{-1} \bY^\top
     -(\mytr(\bSigma))^{-1} \bY \bY^\top
-        \right\|
-        \\
-        =&
-        \left\|
-        \bY \left(
-            (\bY^\top \bY)^{-1}
-            -(\mytr(\bSigma))^{-1} \bI_n
-        \right)
-            \bY^\top
         \right\|
         \\
         =&
@@ -3102,7 +3097,7 @@ and
     \end{equation*}
     Thus,
     \begin{equation*}
-        \mytr \left(\bP_{\bY}\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\right)
+        \mytr \left(\left(\bSigma - \frac{\mytr(\bSigma^2)}{\mytr(\bSigma)} \bI_p \right)\bP_{\bY}\right)
         =
         O_P\left(
             n(\blambda_1-\blambda_p)\sqrt{\frac{n\blambda_1}{\mytr(\bSigma)}}
@@ -3216,65 +3211,75 @@ Next we consider the second term of~\eqref{eq:maindec}.
 Note that 
 \begin{equation*}
     \begin{split}
-    \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC=&
-    \bC^\top \bTheta^\top\bTheta \bC-\bC^\top \bTheta^\top \bY (\bY^\top \bY)^{-1} \bY^\top \bTheta \bC
-    \\
+    \left\|
+    \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC
+    -\bC^\top \bTheta^\top\bTheta \bC
+    \right\|
     =&
-    \bC^\top \bTheta^\top\bTheta \bC-
-    \bC^\top \bTheta^\top 
-    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
-    \bTheta \bC.
+    \left\|
+    \bC^\top \bTheta^\top \bY (\bY^\top \bY)^{-1} \bY^\top \bTheta \bC
+    \right\|
+    .
     \end{split}
 \end{equation*}
 We have
 \begin{equation*}
     \begin{split}
     &\left\|
-    \bC^\top \bTheta^\top 
-    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
-    \bTheta \bC
+    \bC^\top \bTheta^\top \bY (\bY^\top \bY)^{-1} \bY^\top \bTheta \bC
     -{\mytr(\bSigma)}^{-1}
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+\bY \bY^\top 
     \bTheta \bC
     \right\|
     \\
     \leq&
     \left\|
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+ \bY \bY^\top 
     \bTheta \bC
     \right\|
     \left\|
-   (\bZ^\top \bLambda \bZ)^{-1} -{\mytr(\bSigma)}^{-1}\bI_{n}
+   (\bY^\top \bY)^{-1} -{\mytr(\bSigma)}^{-1}\bI_{n}
     \right\|
     \\
     \leq&
     \left\|
 {\mytr(\bSigma)}^{-1}
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+\bY \bY^\top 
     \bTheta \bC
     \right\|
     \left\|
-(\bZ^\top \bLambda \bZ)^{-1}
+(\bY^\top \bY)^{-1}
     \right\|
     \left\|
-   \bZ^\top \bLambda \bZ -\mytr(\bSigma)\bI_{n}
+   \bY^\top \bY -\mytr(\bSigma)\bI_{n}
    \right\|.
     \end{split}
 \end{equation*}
 From Lemma \ref{lemma:con}, we have
-$
+\begin{equation*}
+    \begin{split}
+    \left\|
+   \bY^\top \bY -\mytr(\bSigma)\bI_{n}
+   \right\|
+   =&
     \left\|
    \bZ^\top \bLambda \bZ -\mytr(\bSigma)\bI_{n}
-   \right\|=
-   O_P(\sqrt{n\mytr(\bSigma^2)}+n\blambda_1)=o_P(\mytr(\bSigma))
-   $.
+   \right\|
+   \\
+   =&
+   O_P(\sqrt{n\mytr(\bSigma^2)}+n\blambda_1)
+   \\
+   =&o_P(\mytr(\bSigma))
+   .
+    \end{split}
+\end{equation*}
    Then
    $
     \left\|
-(\bZ^\top \bLambda \bZ)^{-1}
+(\bY^\top \bY)^{-1}
     \right\|
     =\lambda_n^{-1}
     (\bZ^\top \bLambda \bZ)=(1+o_P(1))\mytr(\bSigma)
@@ -3284,12 +3289,12 @@ $
     \begin{split}
     &\left\|
     \bC^\top \bTheta^\top 
-    \bU \bLambda^{1/2} \bZ (\bZ^\top \bLambda \bZ)^{-1}\bZ^\top \bLambda^{1/2}\bU^\top
+    \bY (\bY^\top \bY)^{-1}\bY^\top 
     \bTheta \bC
     -{\mytr(\bSigma)}^{-1}
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
-    \bTheta \bC
+\bY \bY^\top 
+\bTheta \bC
     \right\|
     \\
     =&
@@ -3297,23 +3302,27 @@ $
     \left\|
 {\mytr(\bSigma)}^{-1}
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
-    \bTheta \bC
+ \bY \bY^\top 
+ \bTheta \bC
     \right\|
 \right)
 .
     \end{split}
 \end{equation*}
-Since the columns of $\bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ$ are iid $\mathcal{N}(0,\bC^\top \bTheta^\top \bSigma \bTheta \bC)$ random vectors, we write
-$\bC^\top \bTheta^\top\bU \bLambda^{1/2} \bZ = (\bC^\top \bTheta^\top \bSigma \bTheta \bC)^{1/2}\bZ^*$, where $\bZ^*$ is a $(k-1)\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
+Note that the columns of $
+\bC^\top \bTheta^\top
+ \bY  =
+\bC^\top \bTheta^\top
+\bU \bLambda^{1/2} \bZ$ are iid $\mathcal{N}_{k-1}(\mathbf{0}_{k-1},\bC^\top \bTheta^\top \bSigma \bTheta \bC)$ random vectors.
+Hence we can write
+$\bC^\top \bTheta^\top \bY = (\bC^\top \bTheta^\top \bSigma \bTheta \bC)^{1/2}\bZ^*$, where $\bZ^*$ is a $(k-1)\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
 Then
 \begin{equation*}
     \begin{split}
     &\left\|
     {\mytr(\bSigma)}^{-1}
 \bC^\top \bTheta^\top
-\bU \bLambda^{1/2} \bZ \bZ^\top \bLambda^{1/2}\bU^\top
+\bY \bY^\top 
     \bTheta \bC
     -\frac{n}{\mytr(\bSigma)}
 \bC^\top \bTheta^\top \bSigma \bTheta \bC
@@ -3346,7 +3355,7 @@ Combine the above arguments, we have
     -
     \bC^\top \bTheta^\top \bTheta \bC
     \right\|
-    \leq &
+    = &
     \left(1+o_P\left(1\right)\right)
 \frac{n}{\mytr(\bSigma)}
 \left\|
@@ -3618,7 +3627,7 @@ We first deal with
          (\bI_p-\bP_{\bY,1})
          $.
 Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$, Proposition~\ref{newEigenvectorPropCor} implies that
-\begin{equation*}\label{rain1}
+\begin{equation*}
         \|\bU_{\bY,1}\bU_{\bY,1}^\top - 
 \bP^\dagger_{\bY,1}
         \|
@@ -4312,7 +4321,7 @@ Then the conclusion follows from~\eqref{jojo2} and the last display.
 
 \begin{lemma}\label{gg:Lemma2}
     Suppose $p>n$, we have
-    \begin{equation}\label{eq:spiketrace1}
+    \begin{equation*}
         \sum_{i=r+1}^{p}\lambda_i^2\left(
          (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
     \right)
@@ -4320,7 +4329,7 @@ Then the conclusion follows from~\eqref{jojo2} and the last display.
     \mytr(\bLambda_2^2)-\frac{n\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}
  +
 O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
-    \end{equation}
+    \end{equation*}
 \end{lemma}
 \begin{proof}
     From~\eqref{yanyan1} and~\eqref{yanyan2}, we have
