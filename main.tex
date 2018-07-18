@@ -3494,7 +3494,7 @@ This completes the proof.
 \begin{proof}[\textbf{Proof of Corollary \ref{kuCor1}}]
 It is straightforward to show that 
 $\myE \widehat{\mytr(\bSigma)}=\mytr(\bSigma)$ and 
-$\myVar \left(\widehat{\mytr(\bSigma)}\right)=2\mytr(\bSigma^2)$.
+$\myVar \left(\widehat{\mytr(\bSigma)}\right)=2n^{-1}\mytr(\bSigma^2)$.
 Then
 $\widehat{\mytr(\bSigma)}=\mytr(\bSigma)+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})$.
 Let $Z_1,\ldots, Z_n$ be the columns of $\bZ$.
@@ -3513,7 +3513,7 @@ n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bL
 It can be seen that
 $
 n^{-2} \sum_{i=1}^n (Z_{i}^\top \bLambda Z_i - n^{-1}\sum_{i=1}^n Z_{i}^\top \bLambda Z_i)^2
-=O_P(n^{-1}\mytr^2(\bSigma^2))
+=O_P(n^{-1}\mytr(\bSigma^2))
 $.
     On the other hand, we have $
 \myE 2 \sum_{1\leq i < j \leq n} (Z_i^\top \bLambda Z_i)^2
@@ -3521,47 +3521,35 @@ $.
 $.
     Furthermore, \cite{chen2010tests}, Proposition A.2 implies that
     \begin{equation*}
-        \begin{split}
         \myVar\left(
             2\sum_{1\leq i<j\leq n} (Z_{i}^\top \bLambda Z_{j})^2
         \right)
-        =& O\left(
+        = O\left(
             n^2 \mytr^2 (\bSigma^2) + n^3 \mytr(\bSigma^4)
         \right)
-        \\
-        =& O\left(
-            n^2 \mytr^2 (\bSigma^2) + n \mytr(\bSigma_{2}^2) n^2 \blambda_{1}^2
-        \right)
-        \\
-        =& O\left(
-            n^2 \mytr^2 (\bSigma^2) + n^4 \blambda_{1}^4
+        = O\left(
+            n^3 \mytr^2 (\bSigma^2) 
         \right)
         .
-        \end{split}
     \end{equation*}
-    Hence
-$
-\widehat{\mytr(\bSigma^2)}=\mytr(\bSigma^2)+O_P(n^{-1}\mytr(\bSigma^2)+\blambda_1^2).
-$
-
-
-Thus, we have $
+Hence $
 \widehat{\mytr(\bSigma^2)}
-= (1+o(1))\mytr(\bSigma^2) 
-$
-and
+= (1+O_P(n^{-1/2}))\mytr(\bSigma^2) 
+$.
+
+Thus, we have
 \begin{equation*}
     \begin{split}
     &\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}
     \\
     =
     &\mytr(\bSigma) +O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})
-    -\frac{n\mytr(\bSigma^2)(1+O_P(n^{-1}+\blambda_1^2/\mytr(\bSigma^2)))}{\mytr(\bSigma)(1+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)/\mytr^2(\bSigma)}))}
+    -\frac{n\mytr(\bSigma^2)(1+O_P(n^{-1/2}))}{\mytr(\bSigma)(1+O_P(\sqrt{n^{-1}\mytr(\bSigma^2)/\mytr^2(\bSigma)}))}
     \\
     =
     &\mytr(\bSigma) +O_P(\sqrt{n^{-1}\mytr(\bSigma^2)})
     -\frac{n\mytr(\bSigma^2)}{\mytr(\bSigma)}
-    \left(1+O_P \left(\frac{1}{n}+\frac{\blambda_1^2}{\mytr(\bSigma^2)}+\sqrt{\frac{\mytr(\bSigma^2)}{n\mytr^2(\bSigma)}}\right)\right)
+    \left(1+O_P \left(\frac{1}{\sqrt{n}}+\sqrt{\frac{\mytr(\bSigma^2)}{n\mytr^2(\bSigma)}}\right)\right)
     \\
     =
     &\mytr(\bSigma)
@@ -3735,7 +3723,7 @@ Note that
          \blambda_{r+1}\|\bQ^\top \bQ\|^{1/2}
          \\
          =&
-         O_P\left(\sqrt{\frac{\blambda_1\mytr(\bLambda_2)}{n}}\right),
+         O_P\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n}}\right),
     \end{split}
 \end{equation*}
 where the last equality follows from~\eqref{projCon},~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
@@ -3831,7 +3819,7 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
              =&
              O_P\left(
                  \left(
-                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r}}  
+                     \sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}  
                      +\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}
                      +\sqrt{\frac{r}{n}}
                  \right)
@@ -3995,28 +3983,30 @@ By some algebra, we have
         .
         \end{split}
     \end{equation*}
-    It is straightforward to show that
-    \begin{equation*}
+    Since
+    $
         \myE \mytr(
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1})
-            =(n-r)\mytr(\bLambda_2^2),
-            \quad
-        \myVar \left(
-            \mytr(
-            \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1})
-        \right)
-        =2(n-r)\mytr(\bLambda_2^4)
-        .
-    \end{equation*}
-Hence $\mytr(
-\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1})=(n-r)\mytr(\bLambda_2^2)+O_P(\sqrt{n}\mytr(\bLambda_2^2))$.
+            =(n-r)\mytr(\bLambda_2^2)
+            $,
+we have 
+\begin{equation*}
+\mytr(
+\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1})=
+O_P\left(n\mytr(\bLambda_2^2)\right)
+=
+O_P\left(n\blambda_{r+1}\mytr(\bLambda_2)\right)
+.
+\end{equation*}
 On the other hand, Lemma~\ref{lemma:con} implies that
-$
+\begin{equation*}
         \|
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1}
             \|
-            =O_P(\mytr(\bLambda_2^2)+n\blambda_{r+1}^2)
-            $.
+            =O_P\left(\mytr(\bLambda_2^2)+n\blambda_{r+1}^2\right)
+            =O_P\left(\blambda_{r+1}\mytr(\bLambda_2)\right)
+            .
+\end{equation*}
 Combine these bounds, we have
     \begin{equation*}
         \begin{split}
@@ -4265,7 +4255,7 @@ This completes the proof.
        and
        \begin{equation*}
            \begin{split}
-    &\myVar\left(
+    \myVar\left(
         \mytr\left(\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top 
  \left(
        \bLambda_2^2 
@@ -4273,7 +4263,6 @@ This completes the proof.
  \right)
 \bZ_2 \tilde{\bV}_{\bZ_1}\right)
 \right)
-\\
 =&2(n-r)\mytr
  \left(
        \bLambda_2^2 
@@ -4375,12 +4364,11 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
         \mytr\left(\left(\bLambda_2^2-\frac{\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}\bI_{p-r}\right)  \bU_2^\top \bP_\bY \bU_2\right)
  \right|
  \\
- \leq & n(\blambda_{r+1}^2-\blambda_p^2)\\
  \leq &
  n\blambda_{r+1}(\blambda_{r+1}-\blambda_p),
         \end{split}
     \end{equation*}
-    where the second last equality follows from von Neumann's trace theorem.
+    where the last equality follows from von Neumann's trace theorem.
     The last display, combined with~\eqref{ranklr}, implies that
     \begin{equation*}
  \mytr(\bLambda_2^2 \bU_2^\top \bP_\bY \bU_2)
@@ -4455,7 +4443,7 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top.
         \end{split}
     \end{equation*}
-    From Lemma~\ref{gg:Lemma1}, we have
+    From Lemma~\ref{gg:Lemma1}, the first term satisfies
     \begin{equation*}
 \sum_{i=1}^r \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
 =
@@ -4474,11 +4462,30 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     \end{equation}
 
 
-    Next we deal with
+    Next we deal with the term
     $
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
 $.
-By Weyl's inequality, 
+In the current context, Lemma \ref{gg:Lemmac} and Lemma \ref{gg:Lemma2} imply that
+\begin{align}
+        &\sum_{i=r+1}^{p}\lambda_i\left(
+         (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)
+    =\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
+    +
+    o_P\left(
+        \sqrt{\mytr(\bLambda_2^2)}
+    \right),
+    \label{final1}
+    \\
+        &\sum_{i=r+1}^{p}\lambda_i^2\left(
+         (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
+    \right)
+        =
+        (1+o_P(1))\mytr(\bLambda_2^2).
+        \label{final2}
+\end{align}
+By Weyl's inequality, we have
 \begin{equation*}
     \begin{split}
     &\lambda_{r+1} ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))
@@ -4494,18 +4501,18 @@ By Weyl's inequality,
      \leq& \blambda_{r+1}.
     \end{split}
 \end{equation*}
-The last display and Lemma~\ref{gg:Lemma2} imply that
+The last display and \eqref{final1} imply that
 $$
 \frac{\lambda_{r+1}^2\left((\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)}{\sum_{i=r+1}^p\lambda_{i}^2\left((\bI_p-\bP_{\bY})\bU_2 \bLambda_2 \bU_2^\top (\bI_p-\bP_{\bY})\right)}
 \leq
 \frac{
     \blambda_{r+1}^2
 }{
-    \mytr(\bLambda_2^2)
+    (1+o_P(1))\mytr(\bLambda_2^2)
 }
 \xrightarrow{P} 0.
 $$
-From Lemma \ref{CLTLEMMA}, we have
+Then Lemma \ref{CLTLEMMA} implies that
 \begin{equation*}
     \frac{
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
@@ -4516,7 +4523,7 @@ From Lemma \ref{CLTLEMMA}, we have
 }
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{equation*}
-Then it follows from Lemma \ref{gg:Lemmac} and Lemma \ref{gg:Lemma2} and Slutsky's theorem that
+The last display,  combined with \eqref{final1} and \eqref{final2}, leads to
 \begin{equation}\label{lushang2}
     \frac{
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
@@ -4528,9 +4535,10 @@ Then it follows from Lemma \ref{gg:Lemmac} and Lemma \ref{gg:Lemma2} and Slutsky
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
 \end{equation}
 
-Since $\sum_{i=1}^r \eta_i \eta_i^\top$ is independent of $
+Note that $\sum_{i=1}^r \eta_i \eta_i^\top$ is independent of $
 \sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
-$, \eqref{lushang1} and \eqref{lushang2} implies that
+$.
+Then\eqref{lushang1} and \eqref{lushang2} implies that
 \begin{equation}\label{lushang3}
     \begin{split}
 &
@@ -4545,7 +4553,7 @@ $, \eqref{lushang1} and \eqref{lushang2} implies that
     }
 }
 \\
-=&
+\sim&
 \frac{
     n^{-1} \mytr(\bLambda_2)
 }{
@@ -4572,7 +4580,12 @@ Now we prove the second statement.
 For the second term of~\eqref{eq:maindec}, we have
 $
     \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC=
-    \bC^\top \bTheta^\top\bTheta \bC-\bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC
+    \bC^\top \bTheta^\top\bTheta \bC -
+    \bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC
+    $.
+    We need to deal with
+    $
+    \bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC
     $.
     Note that Proposition \ref{newEigenvectorPropCor} implies that
     \begin{equation*}
@@ -4632,7 +4645,7 @@ o_P\left(
         \bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}  \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top   \bTheta \bC.
 \end{equation*}
 Note that $\bZ_{2} \tilde{\bV}_{\bZ_1}$ is a $(p-r) \times (n-r) $ matrix with iid $\mathcal{N}(0,1)$ entries.
-Then the columns of $\bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}$ are iid $\mathcal{N}(0,\bC^\top \bTheta^\top \bU_2 \bLambda_2 \bU_2^\top \bTheta \bC)$ random vectors.
+Then the columns of $\bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}$ are iid $\mathcal{N}_{k-1}(\mathbf{0}_{k-1},\bC^\top \bTheta^\top \bU_2 \bLambda_2 \bU_2^\top \bTheta \bC)$ random vectors.
 Write $\bC^\top \bTheta^\top \bU_2 \bLambda_2^{1/2} \bZ_{2} \tilde{\bV}_{\bZ_1}=(\bC^\top \bTheta^\top \bU_2 \bLambda_2 \bU_2^\top \bTheta \bC)^{1/2} \bZ^*$, where $\bZ^*$ is a $(k-1)\times (n-r)$ random matrix with iid $\mathcal{N}(0,1)$ entries. 
 Then
 \begin{equation*}
@@ -4685,7 +4698,16 @@ o_P\left(
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }
 \right)$.
-Combine the above arguments, we have
+Consequently, 
+$
+\left\|\bC^\top \bTheta^\top \bP_{\bY} \bTheta \bC-\bC^\top \bTheta^\top \bU_1\bU_1^\top \bTheta \bC\right\|=
+o_P\left(
+\sqrt{
+        rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
+}
+\right)
+$.
+Thus, the second term of~\eqref{eq:maindec} satisfies
 \begin{equation}\label{lushang5}
         \left\|
 \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC
@@ -4726,7 +4748,7 @@ Under the condition $r\to \infty$ or $\mytr(\bLambda_2)/(n \sqrt{\mytr(\bLambda_
 $n^{-1}\mytr(\bLambda_2)=o_P\left(\sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }\right)$.
-Therefore
+Therefore,
 \begin{equation*}
 \|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^\dagger\|=
 o_P\left(
@@ -4808,7 +4830,7 @@ Therefore,
     On the other hand,
     it is not hard to see that the ratio consistency of $\widehat{\mytr(\blambda_2)}$ and $\widehat{\mytr(\bLambda_2^2)}$ imply
      $F_2^{-1}(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)})=F_2^{-1}(1-\alpha;\mytr(\bLambda_2),\mytr(\bLambda_2^2))+o_P(1)$.
-     Then the conclusion follows Theorem \ref{thm1} and Slutsky's theorem.
+     Then the conclusion follows from Theorem \ref{thm1} and Slutsky's theorem.
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{numberConsistency}}]

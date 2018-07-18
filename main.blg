@@ -3,19 +3,19 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: chicago.bst
 Database file #1: mybibfile.bib
-Repeated entry---line 609 of file mybibfile.bib
+Repeated entry---line 603 of file mybibfile.bib
  : @article{Nadler2009Finite
  :                          ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 673 of file mybibfile.bib
+Repeated entry---line 665 of file mybibfile.bib
  : @article{2017arXiv171007878C
  :                             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 701 of file mybibfile.bib
+Repeated entry---line 692 of file mybibfile.bib
  : @article{Aoshima2018
  :                     ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 741 of file mybibfile.bib
+Repeated entry---line 732 of file mybibfile.bib
  : @article{Katayama2013Asymptotic
  :                                ,
 I'm skipping whatever remains of this entry
@@ -31,14 +31,14 @@ Warning--no number and no volume in WANG2018
 Warning--page numbers missing in WANG2018
 You've used 37 entries,
             2861 wiz_defined-function locations,
-            876 strings with 10925 characters,
-and the built_in function-call counts, 26759 in all, are:
+            871 strings with 10976 characters,
+and the built_in function-call counts, 26743 in all, are:
 = -- 2258
 > -- 2004
 < -- 0
 + -- 606
 - -- 686
-* -- 2539
+* -- 2523
 := -- 4826
 add.period$ -- 111
 call.type$ -- 37
