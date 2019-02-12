@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: chicago.bst
+Database file #1: mybibfile.bib
+Warning--no number and no volume in Cai2017Limiting
+Warning--page numbers missing in Cai2017Limiting
+Warning--no number and no volume in fan2017Dist
+Warning--page numbers missing in fan2017Dist
+Warning--no number and no volume in Vershynin2010Introduction
+Warning--page numbers missing in Vershynin2010Introduction
+You've used 37 entries,
+            2861 wiz_defined-function locations,
+            876 strings with 11055 characters,
+and the built_in function-call counts, 26990 in all, are:
+= -- 2282
+> -- 2014
+< -- 0
++ -- 610
+- -- 690
+* -- 2548
+:= -- 4860
+add.period$ -- 111
+call.type$ -- 37
+change.case$ -- 273
+chr.to.int$ -- 37
+cite$ -- 43
+duplicate$ -- 647
+empty$ -- 1622
+format.name$ -- 818
+if$ -- 5062
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 38
+newline$ -- 188
+num.names$ -- 370
+pop$ -- 166
+preamble$ -- 1
+purify$ -- 496
+quote$ -- 0
+skip$ -- 716
+stack$ -- 0
+substring$ -- 1587
+swap$ -- 205
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 730
+warning$ -- 6
+while$ -- 348
+width$ -- 0
+write$ -- 484
+(There were 6 warnings)
