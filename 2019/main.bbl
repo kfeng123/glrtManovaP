@@ -60,13 +60,6 @@ Chen, S.~X. and Y.-L. Qin ({2010}).
   gene-set testing.
 \newblock {\em The Annals of Statistics\/}~{\em {38}\/}({2}), {808--835}.
 
-\bibitem[\protect\citeauthoryear{Chen, Zhang, and Zhong}{Chen
-  et~al.}{2010}]{chen2010tests}
-Chen, S.~X., L.~Zhang, and P.~Zhong (2010).
-\newblock Tests for high-dimensional covariance matrices.
-\newblock {\em Journal of the American Statistical Association\/}~{\em
-  105\/}(490), 810--819.
-
 \bibitem[\protect\citeauthoryear{{Fan}, {Wang}, {Wang}, and {Zhu}}{{Fan}
   et~al.}{2019}]{fan2017Dist}
 {Fan}, J., D.~{Wang}, K.~{Wang}, and Z.~{Zhu} (2019).
@@ -86,12 +79,6 @@ Fan, J., L.~Yuan, and M.~Mincheva (2013).
 Feng, L., C.~Zou, Z.~Wang, and L.~Zhu ({2015}).
 \newblock Two-sample behrens-fisher problem for high-dimensional data.
 \newblock {\em Statistica Sinica\/}~{\em {25}\/}({4}), {1297--1312}.
-
-\bibitem[\protect\citeauthoryear{Horn and Johnson}{Horn and
-  Johnson}{2012}]{Horn1985Matrix}
-Horn, R.~A. and C.~R. Johnson (2012).
-\newblock {\em Matrix Analysis\/} (2nd ed.).
-\newblock New York: Cambridge University Press.
 
 \bibitem[\protect\citeauthoryear{Hu, Bai, Wang, and Wang}{Hu
   et~al.}{2017}]{Hu2017}
@@ -115,12 +102,6 @@ Koltchinskii, V. and K.~Lounici (2016).
   projectors of sample covariance.
 \newblock {\em Annales de l'Institut Henri Poincar\'{e}, Probabilit\'{e}s et
   Statistiques\/}~{\em 52\/}(4), 1976--2013.
-
-\bibitem[\protect\citeauthoryear{Laurent and Massart}{Laurent and
-  Massart}{2000}]{Laurent2000Adaptive}
-Laurent, B. and P.~Massart (2000).
-\newblock Adaptive estimation of a quadratic functional by model selection.
-\newblock {\em The Annals of Statistics\/}~{\em 28\/}(5), 1302--1338.
 
 \bibitem[\protect\citeauthoryear{Ma, Lan, and Wang}{Ma et~al.}{2015}]{Ma2015A}
 Ma, Y., W.~Lan, and H.~Wang ({2015}).
@@ -170,11 +151,6 @@ Srivastava, M.~S. and T.~Kubokawa ({2013}).
 Tsai, C.-A. and J.~J. Chen ({2009}).
 \newblock {Multivariate analysis of variance test for gene set analysis}.
 \newblock {\em Bioinformatics\/}~{\em {25}\/}({7}), {897--903}.
-
-\bibitem[\protect\citeauthoryear{Vershynin}{Vershynin}{2010}]{Vershynin2010Introduction}
-Vershynin, R. (2010).
-\newblock Introduction to the non-asymptotic analysis of random matrices.
-\newblock {\em arXiv preprint arXiv:1011.3027\/}.
 
 \bibitem[\protect\citeauthoryear{Verstynen, Diedrichsen, Albert, Aparicio, and
   Ivry}{Verstynen et~al.}{2005}]{Verstynen1209}
