@@ -257,10 +257,10 @@ $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
 \end{equation}
 where $\blambda_i$ is the $i$th largest eigenvalue of $\bSigma$, $i=1,\ldots, p$.
-The condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
+Condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
 In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
-In such cases, the condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type tests may not have correct level.
+In such cases, condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type tests may not have correct level.
 Some adjusted sum-of-squares type test procedures have been proposed to solve the problem.
 See, e.g.,
 \cite{Katayama2013Asymptotic}, \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
@@ -556,7 +556,7 @@ Since the least favorable direction $a^*$ is obtained from the component likelih
 Now we derive the explicit forms of the LFD test statistic. 
 Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times \min(n,p)$ and $n \times \min(n,p)$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is a $\min(n,p)\times \min(n,p)$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
 If $p>n$, let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix onto the column space of $\bY$.
-Then Lemma~\ref{optProp} in Appendix implies that for $p>n$,
+Then Lemma 1 in supplementary material implies that for $p>n$,
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
     T(\bX)
@@ -648,7 +648,7 @@ Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries ab
 The following theorem establishes the asymptotic distribution of the LFD test statistic.
 \begin{theorem}
     \label{fenTheorem1}
-    Suppose as $n,p\to \infty$, the condition \eqref{nonSpikedC} holds.
+    Suppose as $n,p\to \infty$, condition \eqref{nonSpikedC} holds.
     Furthermore, suppose that $n\blambda_1/\mytr(\bSigma)\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$.
     Then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{\mytr(\bSigma^2)})$,
     \begin{equation*}

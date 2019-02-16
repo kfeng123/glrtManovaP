@@ -5,7 +5,7 @@
 
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.8,1.6,3.2)){
+for(SNR in c(0,0.2,0.4,0.6,0.8)){
     K = 3
     n <- c(20, 20, 20)
     p = 300
@@ -59,7 +59,7 @@ theOut<-do.call(rbind,tmpList)
 write.csv(theOut,"t2l.csv",row.names=FALSE)
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.8,1.6,3.2)){
+for(SNR in c(0,0.2,0.4,0.6,0.8)){
     K = 3
     n <- c(20, 20, 20)
     p = 300
@@ -116,7 +116,7 @@ write.csv(theOut,"t2lb.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.8,1.6,3.2)){
+for(SNR in c(0,1,2,3,4)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
@@ -181,7 +181,7 @@ write.csv(theOut,"t2r.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.8,1.6,3.2)){
+for(SNR in c(0,1,2,3,4)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
