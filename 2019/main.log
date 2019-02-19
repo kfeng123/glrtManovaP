@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  15 FEB 2019 12:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  19 FEB 2019 16:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -420,47 +420,67 @@ Package: IEEEtrantools 2015/08/26 V1.5 by Michael Shell
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks32
 )
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip68
+\subfigcapskip=\skip69
+\subfigcaptopadj=\dimen152
+\subfigbottomskip=\skip70
+\subfigcapmargin=\dimen153
+\subfiglabelskip=\skip71
+\c@subfigure=\count132
+\c@lofdepth=\count133
+\c@subtable=\count134
+\c@lotdepth=\count135
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texlive/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip72
+\subfig@bottom=\skip73
+)
 (/usr/share/texlive/texmf-dist/tex/latex/tools/xr.sty
 Package: xr 1994/05/28 v5.02 eXternal References (DPC)
 )
-\c@assumption=\count132
-\c@theorem=\count133
-\c@lemma=\count134
-\c@corollary=\count135
-\c@proposition=\count136
-\c@definition=\count137
-\c@example=\count138
-\c@remark=\count139
+\c@assumption=\count136
+\c@theorem=\count137
+\c@lemma=\count138
+\c@corollary=\count139
+\c@proposition=\count140
+\c@definition=\count141
+\c@example=\count142
+\c@remark=\count143
  (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 117.
-LaTeX Font Info:    ... okay on input line 117.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 118.
+LaTeX Font Info:    ... okay on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count140
-\scratchdimen=\dimen152
+\scratchcounter=\count144
+\scratchdimen=\dimen154
 \scratchbox=\box31
-\nofMPsegments=\count141
-\nofMParguments=\count142
+\nofMPsegments=\count145
+\nofMParguments=\count146
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count143
-\MPscratchDim=\dimen153
-\MPnumerator=\count144
-\makeMPintoPDFobject=\count145
+\MPscratchCnt=\count147
+\MPscratchDim=\dimen155
+\MPnumerator=\count148
+\makeMPintoPDFobject=\count149
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -478,7 +498,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box32
-Package hyperref Info: Link coloring OFF on input line 117.
+Package hyperref Info: Link coloring OFF on input line 118.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -486,22 +506,22 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count146
+\c@section@level=\count150
 )
-LaTeX Info: Redefining \ref on input line 117.
-LaTeX Info: Redefining \pageref on input line 117.
-LaTeX Info: Redefining \nameref on input line 117.
+LaTeX Info: Redefining \ref on input line 118.
+LaTeX Info: Redefining \pageref on input line 118.
+LaTeX Info: Redefining \nameref on input line 118.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 135.
+LaTeX Font Info:    Try loading font information for U+msa on input line 136.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 135.
+LaTeX Font Info:    Try loading font information for U+msb on input line 136.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -520,23 +540,23 @@ Missing character: There is no € in font cmr12!
 Missing character: There is no € in font cmr12!
  [2] [3] [4] [5] [6]
 [7] [8] [9] [10] [11]
-Overfull \hbox (97.2846pt too wide) detected at line 600
+Overfull \hbox (97.2846pt too wide) detected at line 601
 [] []
  []
 
 
-Overfull \hbox (84.39421pt too wide) detected at line 609
+Overfull \hbox (84.39421pt too wide) detected at line 610
 [] []
  []
 
 [12] [13] [14]
-Overfull \hbox (20.66736pt too wide) detected at line 695
+Overfull \hbox (20.66736pt too wide) detected at line 696
 [] [] \OT1/cmr/m/n/12 = [] [] + \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 (1)\OML/cmm/m
 /it/12 :
  []
 
 [15] [16] [17]
-Overfull \hbox (20.55276pt too wide) in paragraph at lines 816--817
+Overfull \hbox (20.55276pt too wide) in paragraph at lines 817--818
 []\OT1/cmr/bx/n/12 Proposition 3. []\OT1/cmr/m/it/12 Sup-pose that $\OML/cmm/m/
 it/12 r \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n
 \OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , $[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^C[]
@@ -547,7 +567,7 @@ mr/m/n/12 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 !
  []
 
 [18] [19]
-Overfull \hbox (34.92337pt too wide) in paragraph at lines 857--858
+Overfull \hbox (34.92337pt too wide) in paragraph at lines 858--859
 []\OT1/cmr/bx/n/12 Proposition 4. []\OT1/cmr/m/it/12 Sup-pose that $\OML/cmm/m/
 it/12 r \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n
 \OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 , $[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^C[]
@@ -559,7 +579,7 @@ msy/m/n/12 !
  []
 
 
-Overfull \hbox (24.69225pt too wide) in paragraph at lines 885--888
+Overfull \hbox (24.69225pt too wide) in paragraph at lines 886--889
 []\OT1/cmr/bx/n/12 Theorem 2. []\OT1/cmr/m/it/12 Sup-pose that $\OML/cmm/m/it/1
 2 r \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o\OT1/cmr/m/n/12 ([])$\OT1/cmr/m/it/12 ,
  $\OML/cmm/m/it/12 r []\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 )
@@ -570,138 +590,486 @@ mr/m/it/12 , $\OML/cmm/m/it/12 rn\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 = []\OT
  []
 
 
-Overfull \hbox (78.54721pt too wide) in paragraph at lines 928--928
+Overfull \hbox (78.54721pt too wide) in paragraph at lines 929--929
 [] 
  []
 
 
-Overfull \hbox (28.07516pt too wide) detected at line 928
+Overfull \hbox (28.07516pt too wide) detected at line 929
 []
  []
 
 [20]
-Overfull \hbox (24.7795pt too wide) in paragraph at lines 981--981
+Overfull \hbox (24.7795pt too wide) in paragraph at lines 982--982
 [] 
  []
 
 
-Overfull \hbox (28.07516pt too wide) detected at line 981
+Overfull \hbox (28.07516pt too wide) detected at line 982
 []
  []
 
 [21]
-Overfull \hbox (29.01pt too wide) detected at line 1035
+Overfull \hbox (29.01pt too wide) detected at line 1036
 \OML/cmm/m/it/12 ^^U[] [] :
  []
 
 
-Overfull \hbox (51.84866pt too wide) in paragraph at lines 1111--1111
+Overfull \hbox (51.84866pt too wide) in paragraph at lines 1112--1112
 [] 
  []
 
 
-Overfull \hbox (28.07516pt too wide) detected at line 1111
+Overfull \hbox (28.07516pt too wide) detected at line 1112
 []
  []
 
 [22] [23] [24] [25]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1390
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 1391
 .
  (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1390.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 1391.
 
 
-[26] [27]
-Overfull \hbox (116.83812pt too wide) in paragraph at lines 1437--1470
- [][] 
+[26]
+
+LaTeX Warning: Reference `table1' on page 27 undefined on input line 1406.
+
+
+LaTeX Warning: Reference `table3' on page 27 undefined on input line 1406.
+
+
+LaTeX Warning: Reference `table2' on page 27 undefined on input line 1410.
+
+
+LaTeX Warning: Reference `table4' on page 27 undefined on input line 1410.
+
+[27]
+Package epstopdf Info: Source file: <t1l.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11661 bytes
+(epstopdf)             Output file: <t1l-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t1l-eps-converted-to.pdf t
+1l.eps>
+(epstopdf)             \includegraphics on input line 1432.
+runsystem(repstopdf --outfile=t1l-eps-converted-to.pdf t1l.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t1l-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:24
+(epstopdf)                    size: 12403 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t1l-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t1l-eps-converted-to.pdf, id=401, 505.89pt x 505.89pt>
+File: t1l-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t1l-eps-converted-to.pdf>
+Package pdftex.def Info: t1l-eps-converted-to.pdf used on input line 1432.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t1r.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11651 bytes
+(epstopdf)             Output file: <t1r-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t1r-eps-converted-to.pdf t
+1r.eps>
+(epstopdf)             \includegraphics on input line 1435.
+runsystem(repstopdf --outfile=t1r-eps-converted-to.pdf t1r.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t1r-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:24
+(epstopdf)                    size: 12409 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t1r-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t1r-eps-converted-to.pdf, id=402, 505.89pt x 505.89pt>
+File: t1r-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t1r-eps-converted-to.pdf>
+Package pdftex.def Info: t1r-eps-converted-to.pdf used on input line 1435.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t1lb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11661 bytes
+(epstopdf)             Output file: <t1lb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t1lb-eps-converted-to.pdf 
+t1lb.eps>
+(epstopdf)             \includegraphics on input line 1439.
+runsystem(repstopdf --outfile=t1lb-eps-converted-to.pdf t1lb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t1lb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:25
+(epstopdf)                    size: 12323 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t1lb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t1lb-eps-converted-to.pdf, id=403, 505.89pt x 505.89pt>
+File: t1lb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t1lb-eps-converted-to.pdf>
+Package pdftex.def Info: t1lb-eps-converted-to.pdf used on input line 1439.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t1rb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11738 bytes
+(epstopdf)             Output file: <t1rb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t1rb-eps-converted-to.pdf 
+t1rb.eps>
+(epstopdf)             \includegraphics on input line 1442.
+runsystem(repstopdf --outfile=t1rb-eps-converted-to.pdf t1rb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t1rb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:26
+(epstopdf)                    size: 12428 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t1rb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t1rb-eps-converted-to.pdf, id=404, 505.89pt x 505.89pt>
+File: t1rb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t1rb-eps-converted-to.pdf>
+Package pdftex.def Info: t1rb-eps-converted-to.pdf used on input line 1442.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t3l.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11744 bytes
+(epstopdf)             Output file: <t3l-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t3l-eps-converted-to.pdf t
+3l.eps>
+(epstopdf)             \includegraphics on input line 1450.
+runsystem(repstopdf --outfile=t3l-eps-converted-to.pdf t3l.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t3l-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:26
+(epstopdf)                    size: 12165 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t3l-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t3l-eps-converted-to.pdf, id=405, 505.89pt x 505.89pt>
+File: t3l-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t3l-eps-converted-to.pdf>
+Package pdftex.def Info: t3l-eps-converted-to.pdf used on input line 1450.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t3r.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11742 bytes
+(epstopdf)             Output file: <t3r-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t3r-eps-converted-to.pdf t
+3r.eps>
+(epstopdf)             \includegraphics on input line 1453.
+runsystem(repstopdf --outfile=t3r-eps-converted-to.pdf t3r.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t3r-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:27
+(epstopdf)                    size: 12419 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t3r-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t3r-eps-converted-to.pdf, id=406, 505.89pt x 505.89pt>
+File: t3r-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t3r-eps-converted-to.pdf>
+Package pdftex.def Info: t3r-eps-converted-to.pdf used on input line 1453.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t3lb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11742 bytes
+(epstopdf)             Output file: <t3lb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t3lb-eps-converted-to.pdf 
+t3lb.eps>
+(epstopdf)             \includegraphics on input line 1457.
+runsystem(repstopdf --outfile=t3lb-eps-converted-to.pdf t3lb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t3lb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:28
+(epstopdf)                    size: 12171 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t3lb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t3lb-eps-converted-to.pdf, id=407, 505.89pt x 505.89pt>
+File: t3lb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t3lb-eps-converted-to.pdf>
+Package pdftex.def Info: t3lb-eps-converted-to.pdf used on input line 1457.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t3rb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11741 bytes
+(epstopdf)             Output file: <t3rb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t3rb-eps-converted-to.pdf 
+t3rb.eps>
+(epstopdf)             \includegraphics on input line 1460.
+runsystem(repstopdf --outfile=t3rb-eps-converted-to.pdf t3rb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t3rb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:28
+(epstopdf)                    size: 12443 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t3rb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t3rb-eps-converted-to.pdf, id=408, 505.89pt x 505.89pt>
+File: t3rb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t3rb-eps-converted-to.pdf>
+Package pdftex.def Info: t3rb-eps-converted-to.pdf used on input line 1460.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t2l.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11859 bytes
+(epstopdf)             Output file: <t2l-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t2l-eps-converted-to.pdf t
+2l.eps>
+(epstopdf)             \includegraphics on input line 1468.
+runsystem(repstopdf --outfile=t2l-eps-converted-to.pdf t2l.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t2l-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:29
+(epstopdf)                    size: 12475 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t2l-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t2l-eps-converted-to.pdf, id=409, 505.89pt x 505.89pt>
+File: t2l-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t2l-eps-converted-to.pdf>
+Package pdftex.def Info: t2l-eps-converted-to.pdf used on input line 1468.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t2r.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11866 bytes
+(epstopdf)             Output file: <t2r-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t2r-eps-converted-to.pdf t
+2r.eps>
+(epstopdf)             \includegraphics on input line 1471.
+runsystem(repstopdf --outfile=t2r-eps-converted-to.pdf t2r.eps)...executed safe
+ly (allowed).
+
+Package epstopdf Info: Result file: <t2r-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:30
+(epstopdf)                    size: 12479 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t2r-eps-converted-to.pdf): PDF inclusion: foun
+d PDF version <1.7>, but at most version <1.5> allowed
+<t2r-eps-converted-to.pdf, id=410, 505.89pt x 505.89pt>
+File: t2r-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t2r-eps-converted-to.pdf>
+Package pdftex.def Info: t2r-eps-converted-to.pdf used on input line 1471.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t2lb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11856 bytes
+(epstopdf)             Output file: <t2lb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t2lb-eps-converted-to.pdf 
+t2lb.eps>
+(epstopdf)             \includegraphics on input line 1475.
+runsystem(repstopdf --outfile=t2lb-eps-converted-to.pdf t2lb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t2lb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:31
+(epstopdf)                    size: 12489 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t2lb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t2lb-eps-converted-to.pdf, id=411, 505.89pt x 505.89pt>
+File: t2lb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t2lb-eps-converted-to.pdf>
+Package pdftex.def Info: t2lb-eps-converted-to.pdf used on input line 1475.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+Package epstopdf Info: Source file: <t2rb.eps>
+(epstopdf)                    date: 2019-02-19 16:20:00
+(epstopdf)                    size: 11863 bytes
+(epstopdf)             Output file: <t2rb-eps-converted-to.pdf>
+(epstopdf)             Command: <repstopdf --outfile=t2rb-eps-converted-to.pdf 
+t2rb.eps>
+(epstopdf)             \includegraphics on input line 1478.
+runsystem(repstopdf --outfile=t2rb-eps-converted-to.pdf t2rb.eps)...executed sa
+fely (allowed).
+
+Package epstopdf Info: Result file: <t2rb-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:31
+(epstopdf)                    size: 12432 bytes.
+
+
+pdfTeX warning: pdflatex (file ./t2rb-eps-converted-to.pdf): PDF inclusion: fou
+nd PDF version <1.7>, but at most version <1.5> allowed
+<t2rb-eps-converted-to.pdf, id=412, 505.89pt x 505.89pt>
+File: t2rb-eps-converted-to.pdf Graphic file (type pdf)
+
+<use t2rb-eps-converted-to.pdf>
+Package pdftex.def Info: t2rb-eps-converted-to.pdf used on input line 1478.
+(pdftex.def)             Requested size: 172.25879pt x 172.26277pt.
+
+
+! LaTeX Error: File `t4l' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1487 }
+        
+? 
+
+Overfull \hbox (4.94456pt too wide) in paragraph at lines 1487--1487
+[]\OT1/cmr/m/n/10 (a) 
  []
 
 
-Overfull \hbox (116.83812pt too wide) in paragraph at lines 1475--1511
- [][] 
+! LaTeX Error: File `t4r' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1490 }
+        
+? 
+
+Overfull \hbox (5.50012pt too wide) in paragraph at lines 1490--1490
+[]\OT1/cmr/m/n/10 (b) 
  []
 
 
-Overfull \hbox (116.83812pt too wide) in paragraph at lines 1517--1552
- [][] 
+! LaTeX Error: File `t4lb' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1494 }
+        
+? 
+
+Overfull \hbox (4.38899pt too wide) in paragraph at lines 1494--1494
+[]\OT1/cmr/m/n/10 (c) 
  []
 
 
-Overfull \hbox (116.83812pt too wide) in paragraph at lines 1560--1596
- [][] 
+! LaTeX Error: File `t4rb' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1497 }
+        
+? 
+
+Overfull \hbox (5.50012pt too wide) in paragraph at lines 1497--1497
+[]\OT1/cmr/m/n/10 (d) 
  []
 
 Package epstopdf Info: Source file: <figure1.eps>
-(epstopdf)                    date: 2018-07-31 11:46:26
+(epstopdf)                    date: 2019-02-19 16:20:00
 (epstopdf)                    size: 12425 bytes
 (epstopdf)             Output file: <figure1-eps-converted-to.pdf>
-(epstopdf)                    date: 2018-07-31 11:46:26
-(epstopdf)                    size: 15611 bytes
 (epstopdf)             Command: <repstopdf --outfile=figure1-eps-converted-to.p
 df figure1.eps>
-(epstopdf)             \includegraphics on input line 1601.
-Package epstopdf Info: Output file is already uptodate.
-<figure1-eps-converted-to.pdf, id=409, 570.13pt x 347.2975pt>
+(epstopdf)             \includegraphics on input line 1677.
+runsystem(repstopdf --outfile=figure1-eps-converted-to.pdf figure1.eps)...execu
+ted safely (allowed).
+
+Package epstopdf Info: Result file: <figure1-eps-converted-to.pdf>
+(epstopdf)                    date: 2019-02-19 16:20:35
+(epstopdf)                    size: 15355 bytes.
+
+
+pdfTeX warning: pdflatex (file ./figure1-eps-converted-to.pdf): PDF inclusion: 
+found PDF version <1.7>, but at most version <1.5> allowed
+<figure1-eps-converted-to.pdf, id=413, 570.13pt x 347.2975pt>
 File: figure1-eps-converted-to.pdf Graphic file (type pdf)
 
 <use figure1-eps-converted-to.pdf>
-Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1601.
+Package pdftex.def Info: figure1-eps-converted-to.pdf used on input line 1677.
 (pdftex.def)             Requested size: 382.79993pt x 233.18095pt.
- [28] [29pdfTeX warning (ext4): destination with the same identifier (name{tabl
-e.1}) has been already used, duplicate ignored
+ [28] [29pdfTeX warning (ext4): destination with the same identifier (name{figu
+re.1}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1624 
-       ] [30pdfTeX warning (ext4): destination with the same identifier (name{t
-able.2}) has been already used, duplicate ignored
+l.1700 
+        <./t1l-eps-converted-to.pdf> <./t1r-eps-converted-to.pdf> <./t1lb-eps-c
+onverted-to.pdf> <./t1rb-eps-converted-to.pdf>] [30pdfTeX warning (ext4): desti
+nation with the same identifier (name{figure.2}) has been already used, duplica
+te ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1624 
-       ] [31pdfTeX warning (ext4): destination with the same identifier (name{t
-able.3}) has been already used, duplicate ignored
+l.1700 
+        <./t3l-eps-converted-to.pdf> <./t3r-eps-converted-to.pdf> <./t3lb-eps-c
+onverted-to.pdf> <./t3rb-eps-converted-to.pdf>] [31pdfTeX warning (ext4): desti
+nation with the same identifier (name{figure.3}) has been already used, duplica
+te ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1624 
-       ] [32pdfTeX warning (ext4): destination with the same identifier (name{t
-able.4}) has been already used, duplicate ignored
+l.1700 
+        <./t2l-eps-converted-to.pdf> <./t2r-eps-converted-to.pdf> <./t2lb-eps-c
+onverted-to.pdf> <./t2rb-eps-converted-to.pdf>] [32pdfTeX warning (ext4): desti
+nation with the same identifier (name{figure.4}) has been already used, duplica
+te ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1624 
-       ] [33pdfTeX warning (ext4): destination with the same identifier (name{f
-igure.1}) has been already used, duplicate ignored
+l.1700 
+       pdfTeX warning (ext4): destination with the same identifier (name{figure
+.5}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.1624 
-        <./figure1-eps-converted-to.pdf>] (./main.bbl [34]
+l.1700 
+        <./figure1-eps-converted-to.pdf>] (./main.bbl [33]
 Missing character: There is no â in font cmr9!
 Missing character: There is no € in font cmr9!
 Missing character: There is no “ in font cmr9!
- [35] [36] [37])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1718.
+ [34] [35] [36])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1794.
 
-[38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1718.
+[37]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1794.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1718.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1718.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1794.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1794.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 46272D39728507021216234332E5A6AA;358.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1718.
+
+
+LaTeX Warning: There were undefined references.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1794.
  ) 
 Here is how much of TeX's memory you used:
- 8075 strings out of 493029
- 115715 string characters out of 6136234
- 240941 words of memory out of 5000000
- 11336 multiletter control sequences out of 15000+600000
+ 8309 strings out of 493029
+ 119578 string characters out of 6136234
+ 219883 words of memory out of 5000000
+ 11533 multiletter control sequences out of 15000+600000
  16984 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  34i,19n,45p,417b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -724,10 +1092,10 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (38 pages, 332446 bytes).
+Output written on main.pdf (37 pages, 444564 bytes).
 PDF statistics:
- 562 PDF objects out of 1000 (max. 8388607)
- 493 compressed objects within 5 object streams
- 112 named destinations out of 1000 (max. 500000)
- 54 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 670 PDF objects out of 1000 (max. 8388607)
+ 565 compressed objects within 6 object streams
+ 127 named destinations out of 1000 (max. 500000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
