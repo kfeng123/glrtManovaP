@@ -1,9 +1,11 @@
+
+source("test.R")
     n <- c(30, 30, 30)
     p = 800
 
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.6,0.8)){
+for(SNR in seq(0,0.8,0.1)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
@@ -54,7 +56,7 @@ theOut<-do.call(rbind,tmpList)
 write.csv(theOut,"t4l.csv",row.names=FALSE)
 
 tmpList<-NULL
-for(SNR in c(0,0.2,0.4,0.6,0.8)){
+for(SNR in seq(0,0.8,0.1)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
@@ -106,7 +108,7 @@ write.csv(theOut,"t4lb.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,0.8,0.1)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
@@ -167,7 +169,7 @@ write.csv(theOut,"t4r.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,0.8,0.1)){
     
     
     tmp <- rnorm(p*p)

@@ -1,8 +1,11 @@
+
+source("test.R")
+
     n <- c(30, 30, 30)
     p = 800
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,4,0.5)){
     
     Sigma <- diag(p)
     mu <- list(rep(1, p), rep(-1, p), rep(0, p))
@@ -45,7 +48,7 @@ theOut<-do.call(rbind,tmpList)
 write.csv(theOut,"t3l.csv",row.names=FALSE)
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,4,0.5)){
     
     Sigma <- diag(p)
     #mu <- list(rep(1, p), rep(-1, p), rep(0, p))
@@ -91,7 +94,7 @@ write.csv(theOut,"t3lb.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,4,0.5)){
     
     Sigma <- diag(p)
     for(i in 1:p)for(j in 1:p){
@@ -139,7 +142,7 @@ write.csv(theOut,"t3r.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in c(0,1,2,3,4)){
+for(SNR in seq(0,4,0.5)){
     
     Sigma <- diag(p)
     for(i in 1:p)for(j in 1:p){
