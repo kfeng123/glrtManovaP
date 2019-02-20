@@ -1,7 +1,7 @@
 
 source("test.R")
 
-    n <- c(30, 30, 30)
+    n <- c(25, 25, 25)
     p = 800
 
 tmpList<-NULL

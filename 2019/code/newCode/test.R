@@ -1,6 +1,6 @@
 
 K <- 3
-repTime <- 5
+repTime <- 5000
 
 
 source('./dataGen.R', echo = TRUE)
