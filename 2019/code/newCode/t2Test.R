@@ -118,7 +118,7 @@ write.csv(theOut,"t2lb.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in seq(0,0.8,0.1)){
+for(SNR in seq(0,4,0.5)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)
@@ -183,7 +183,7 @@ write.csv(theOut,"t2r.csv",row.names=FALSE)
 
 
 tmpList<-NULL
-for(SNR in seq(0,0.8,0.1)){
+for(SNR in seq(0,4,0.5)){
     
     tmp <- rnorm(p*p)
     dim(tmp) <- c(p,p)

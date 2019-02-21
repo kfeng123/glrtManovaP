@@ -43,9 +43,10 @@ jiujiuPlot <- function( myFile = 't1l'){
         geom_line()+
         scale_linetype_manual(name="Methods",values=lineT,labels=Labels)+
         scale_colour_manual(name="Methods",values=cols,labels=Labels)+
+        geom_hline(yintercept = 0.05,linetype=2)+
         ylab("Empirical power")+
         xlab("SNR")+
-        #scale_x_continuous(breaks=seq(0,0.9,0.1))+
+        scale_y_continuous(breaks=c(seq(0,1,0.2),0.05))+
         theme_bw()+
         guides(colour=g,linetype=g)+
         theme(
