@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  13 FEB 2019 11:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  28 FEB 2019 21:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,37 +489,29 @@ Overfull \hbox (0.74078pt too wide) in paragraph at lines 328--330
 T1/cmr/bx/n/12 Z[]^^CZ$
  []
 
-
-Overfull \hbox (19.72879pt too wide) in paragraph at lines 360--360
-[] 
- []
-
 [5]
-Overfull \hbox (23.86272pt too wide) in paragraph at lines 360--362
+Overfull \hbox (23.86272pt too wide) in paragraph at lines 361--363
 \OT1/cmr/m/n/12 Using Weyl's in-equal-ity, we can de-rive the fol-low-ing lower
  bound for $\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Z[]^^C[]Z[]
 \OT1/cmr/m/n/12 )$,
  []
 
 
-Overfull \hbox (58.24117pt too wide) detected at line 405
-[] []
- []
+Underfull \vbox (badness 2269) has occurred while \output is active []
 
-[6] [7]
-Overfull \hbox (3.8206pt too wide) in paragraph at lines 538--547
+ [6]
+Underfull \vbox (badness 1874) has occurred while \output is active []
+
+ [7]
+Overfull \hbox (3.8206pt too wide) in paragraph at lines 546--555
 []\OT1/cmr/m/n/12 The first two state-ments are di-rect con-se-quences
  []
 
 [8]
-Overfull \hbox (34.90982pt too wide) detected at line 585
-\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Y[]Y \OMS/cmsy/m/n/12 ^
-^@ []\OT1/cmr/bx/n/12 I[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ^^T [] [] \OML/cmm/
-m/it/12 :
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9]
-Overfull \hbox (1.16689pt too wide) detected at line 636
+ [9]
+Overfull \hbox (1.16689pt too wide) detected at line 649
 []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Z[]\OT1/cmr/bx/n/12 ^^C[]\OML/cmm/m/it/12 Z
 [] \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr/m/n/12 )[] \OMS/cmsy/m/n/12 ^^T \OT1/cmr/m/n
 /12 2 [](\OML/cmm/m/it/12 Z[]\OT1/cmr/bx/n/12 ^^C[]\OML/cmm/m/it/12 Z[] \OMS/cm
@@ -528,44 +520,37 @@ sy/m/n/12 ^^@ []\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ))[] + 2
 OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ))[]\OML/cmm/m/it/12 :
  []
 
-
-Overfull \hbox (34.81354pt too wide) in paragraph at lines 645--649
+[10]
+Overfull \hbox (34.81354pt too wide) in paragraph at lines 658--662
 \OT1/cmr/m/n/12 For the sec-ond term, it is straight-for-ward to show that $[] 
 2 [][](\OML/cmm/m/it/12 Z[]\OT1/cmr/bx/n/12 ^^C[]\OML/cmm/m/it/12 Z[]\OT1/cmr/m
 /n/12 )[] =
  []
 
 
-Overfull \hbox (2.2006pt too wide) detected at line 680
+Overfull \hbox (2.2006pt too wide) detected at line 693
 []\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Z[]^^C[]Z[] \OMS/cmsy/m/n/12 ^^@ []\OT1/cmr
 /bx/n/12 I[]\OT1/cmr/m/n/12 )[] = \OML/cmm/m/it/12 n[] []\OT1/cmr/m/n/12 (\OT1/
 cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 O[] [] :
  []
 
-[10]
-Overfull \hbox (47.32698pt too wide) in paragraph at lines 728--728
-[] 
- []
-
 [11]
-Overfull \hbox (13.03546pt too wide) in paragraph at lines 848--848
-[] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
-[13]
-Overfull \hbox (14.4791pt too wide) in paragraph at lines 1031--1034
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [13]
+[14]
+Overfull \hbox (14.4791pt too wide) in paragraph at lines 1046--1049
 \OT1/cmr/m/n/12 where the sec-ond last equal-ity fol-lows from the fact $\OMS/c
 msy/m/n/12 k\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 Z[]Z[]\OT1/cmr/m/n/12 )[]\OMS/cms
 y/m/n/12 k \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx
 /n/12 Z[]Z[]\OT1/cmr/m/n/12 )[]$,
  []
 
-[14]
-Overfull \hbox (6.1487pt too wide) in paragraph at lines 1099--1102
+[15]
+Overfull \hbox (6.1487pt too wide) in paragraph at lines 1114--1117
 []\OT1/cmr/m/n/12 Note that $\OT1/cmr/bx/n/12 U[]$ \OT1/cmr/m/n/12 is in fact t
 he lead-ing $\OML/cmm/m/it/12 n \OMS/cmsy/m/n/12 ^^@ \OML/cmm/m/it/12 r$ \OT1/c
 mr/m/n/12 eigen-vec-tors of $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cm
@@ -573,98 +558,46 @@ r/bx/n/12 P[]\OT1/cmr/m/n/12 )[](\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@
  []
 
 
-Overfull \hbox (32.04544pt too wide) detected at line 1137
-\OMS/cmsy/m/n/12 k[]k \OT1/cmr/m/n/12 = \OML/cmm/b/it/12 ^^U[] [] \OT1/cmr/m/n/
-12 = \OML/cmm/b/it/12 ^^U[]\OT1/cmr/m/n/12 (1 + \OML/cmm/m/it/12 o[]\OT1/cmr/m/
-n/12 (1))\OML/cmm/m/it/12 :
- []
+Underfull \vbox (badness 3019) has occurred while \output is active []
 
-
-Overfull \hbox (15.33893pt too wide) in paragraph at lines 1155--1155
-[] 
- []
-
-[15]
-Overfull \hbox (4.19205pt too wide) detected at line 1185
-\OT1/cmr/bx/n/12 Z[]^^C[]U[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n
-/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 ) = [][]\OT1/cmr/bx/n/12 Z[]^^C[]U[
-] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 Z[]^^C[]Z[]Z[]\OT1/cmr/m/n/12 (\OT1/cmr
-/bx/n/12 Z[]Z[]\OT1/cmr/m/n/12 )[]\OT1/cmr/bx/n/12 ^^C[]U[]\OML/cmm/m/it/12 :
- []
-
-
-Overfull \hbox (6.4309pt too wide) detected at line 1196
-[] \OMS/cmsy/m/n/12 ^^T [][] \OT1/cmr/m/n/12 + \OML/cmm/b/it/12 ^^U[] [] [][] \
-OML/cmm/m/it/12 :
- []
-
-
-Overfull \hbox (15.12115pt too wide) in paragraph at lines 1219--1219
-[] 
- []
-
-[16]
-Overfull \hbox (3.49022pt too wide) in paragraph at lines 1308--1312
+ [16]
+[17] [18]
+Overfull \hbox (3.49022pt too wide) in paragraph at lines 1334--1338
 \OT1/cmr/m/n/12 The ma-trix $\OML/cmm/m/it/12 n[]\OT1/cmr/bx/n/12 U[]^^C[]Z[][]
 []Z[]^^C[]U[]$ \OT1/cmr/m/n/12 shares the same non-zero eigen-
  []
 
-[17]
-Overfull \hbox (1.68626pt too wide) in paragraph at lines 1324--1324
-[] 
- []
 
-[18]
-Overfull \hbox (51.5578pt too wide) detected at line 1432
-[] []
- []
-
-[19]
-Overfull \hbox (14.24326pt too wide) detected at line 1454
-[] []
- []
-
-
-Overfull \hbox (5.64781pt too wide) in paragraph at lines 1525--1525
-[] 
- []
-
-
-Underfull \vbox (badness 3713) has occurred while \output is active []
-
- [20]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [21]
-Overfull \hbox (13.97775pt too wide) in paragraph at lines 1637--1637
-[] 
+ [19]
+Underfull \vbox (badness 1137) has occurred while \output is active []
+
+ [20]
+Overfull \hbox (14.24326pt too wide) detected at line 1482
+[] []
  []
 
-[22] [23]
-Overfull \hbox (44.52704pt too wide) in paragraph at lines 1798--1807
+[21] [22]
+Underfull \vbox (badness 7869) has occurred while \output is active []
+
+ [23]
+[24]
+Overfull \hbox (44.52704pt too wide) in paragraph at lines 1828--1837
 \OT1/cmr/m/n/12 Note that the columns of $\OT1/cmr/bx/n/12 C[]^^B[]Y \OT1/cmr/m
 /n/12 = \OT1/cmr/bx/n/12 C[]^^B[]U^^C[]Z$ \OT1/cmr/m/n/12 are iid $\OMS/cmsy/m/
 n/12 N[]\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 0[]\OML/cmm/m/it/12 ; \OT1/cmr/bx/n/1
 2 C[]^^B[]^^F^^BC\OT1/cmr/m/n/12 )$
  []
 
-
-Overfull \hbox (36.86559pt too wide) detected at line 1880
-[] []
- []
-
-[24]
-Overfull \hbox (107.43307pt too wide) in paragraph at lines 1942--1942
-[] 
- []
-
-
-Overfull \hbox (54.22795pt too wide) in paragraph at lines 1976--1976
-[] 
- []
-
 [25]
-Overfull \hbox (2.93091pt too wide) in paragraph at lines 1999--2010
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+Underfull \vbox (badness 3417) has occurred while \output is active []
+
+ [27]
+Overfull \hbox (2.93091pt too wide) in paragraph at lines 2039--2050
 \OT1/cmr/m/n/12 It can be seen that $\OML/cmm/m/it/12 n[] [][]\OT1/cmr/m/n/12 (
 \OML/cmm/m/it/12 Z[]\OT1/cmr/bx/n/12 ^^C\OML/cmm/m/it/12 Z[] \OMS/cmsy/m/n/12 ^
 ^@ \OML/cmm/m/it/12 n[] [][] Z[]\OT1/cmr/bx/n/12 ^^C\OML/cmm/m/it/12 Z[]\OT1/cm
@@ -672,14 +605,8 @@ r/m/n/12 )[] = \OML/cmm/m/it/12 O[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[] []\OT1
 /cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^F[]\OT1/cmr/m/n/12 ))$.
  []
 
-[26]
-Overfull \hbox (59.46558pt too wide) detected at line 2084
-\OML/cmm/m/it/12 ^^U[] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 n[] []\OT1/cmr/m/n
-/12 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) [] \OML/cmm/m/it/12 :
- []
-
-
-Overfull \hbox (19.9043pt too wide) in paragraph at lines 2097--2105
+[28]
+Overfull \hbox (19.9043pt too wide) in paragraph at lines 2140--2148
 \OT1/cmr/m/n/12 We first deal with $(\OT1/cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ 
 \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/n/12 ^^F\OT1/cmr/m/n/12 (\OT1/
 cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )$. Un
@@ -688,134 +615,38 @@ cmr/bx/n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )$. Un
 
  []
 
-
-Overfull \hbox (78.98845pt too wide) in paragraph at lines 2135--2135
-[] 
- []
-
-
-Overfull \hbox (45.70726pt too wide) in paragraph at lines 2215--2215
-[] 
- []
-
-
-Underfull \vbox (badness 6741) has occurred while \output is active []
-
- [27]
-Overfull \hbox (49.47641pt too wide) in paragraph at lines 2215--2218
+[29]
+Overfull \hbox (49.47641pt too wide) in paragraph at lines 2260--2263
 \OT1/cmr/m/n/12 where the last equal-ity fol-lows from [], [] and the con-di-ti
 on $\OML/cmm/m/it/12 n\OML/cmm/b/it/12 ^^U[]\OML/cmm/m/it/12 = []\OT1/cmr/m/n/1
 2 (\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 !
  []
 
 
-Overfull \hbox (22.51366pt too wide) detected at line 2231
-[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[] [] :
- []
-
-
-Overfull \hbox (4.07588pt too wide) in paragraph at lines 2247--2247
+Overfull \hbox (4.07588pt too wide) in paragraph at lines 2295--2295
 [] 
  []
 
-
-Overfull \hbox (22.2918pt too wide) in paragraph at lines 2265--2265
-[] 
- []
-
-[28]
-Overfull \hbox (49.57611pt too wide) in paragraph at lines 2315--2315
-[] 
- []
-
-
-Overfull \hbox (20.28227pt too wide) in paragraph at lines 2336--2336
-[] 
- []
-
-
+[30]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29]
-Overfull \hbox (10.0784pt too wide) in paragraph at lines 2472--2472
-[] 
- []
+ [31]
+Underfull \vbox (badness 3646) has occurred while \output is active []
 
+ [32]
+[33] [34]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Underfull \vbox (badness 4341) has occurred while \output is active []
-
- [30]
-Overfull \hbox (28.8723pt too wide) in paragraph at lines 2566--2566
-[] 
- []
-
-[31] [32]
-Overfull \hbox (79.68094pt too wide) in paragraph at lines 2682--2682
-[] 
- []
-
-[33]
-Overfull \hbox (21.87231pt too wide) in paragraph at lines 2764--2764
-[] 
- []
-
-
-Overfull \hbox (28.33186pt too wide) detected at line 2772
-[] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[] [] :
- []
-
-
-Overfull \hbox (67.11707pt too wide) detected at line 2780
-[] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 O[] [] :
- []
-
-
-Overfull \hbox (28.8723pt too wide) in paragraph at lines 2794--2794
-[] 
- []
-
-
-Overfull \hbox (61.93428pt too wide) detected at line 2808
-[] \OML/cmm/m/it/12 ^^U[] [] \OT1/cmr/m/n/12 = [](\OT1/cmr/bx/n/12 ^^C[]\OT1/cm
-r/m/n/12 ) \OMS/cmsy/m/n/12 ^^@ [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 O[] [] :
- []
-
-[34]
-Overfull \hbox (40.30406pt too wide) detected at line 2841
-[] [][] \OT1/cmr/m/n/12 = [](\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/
-m/n/12 ^^@ \OT1/cmr/m/n/12 2 [](\OT1/cmr/bx/n/12 ^^C[]U[]P[]U[]\OT1/cmr/m/n/12 
-) + [](\OT1/cmr/bx/n/12 ^^C[]U[]P[]U[]\OT1/cmr/m/n/12 )[]\OML/cmm/m/it/12 :
- []
-
-
-Overfull \hbox (42.02461pt too wide) in paragraph at lines 2857--2857
-[] 
- []
-
-[35]
-Overfull \hbox (76.69785pt too wide) detected at line 2917
-[] [][] \OT1/cmr/m/n/12 = [](\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 ) \OMS/cmsy/
-m/n/12 ^^@ [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 O[] [] :
- []
-
-
-Overfull \hbox (47.37387pt too wide) detected at line 2949
-[] \OT1/cmr/m/n/12 = [] + \OML/cmm/m/it/12 o[]\OT1/cmr/m/n/12 (1)\OML/cmm/m/it/
-12 :
- []
-
+ [35]
 [36]
-Overfull \hbox (71.46812pt too wide) detected at line 3012
-[] [] \OT1/cmr/bx/n/12 W[]\OML/cmm/m/it/12 :
- []
+Underfull \vbox (badness 6220) has occurred while \output is active []
 
+ [37]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-Overfull \hbox (40.92271pt too wide) detected at line 3023
-[] [] \OT1/cmr/bx/n/12 W[]\OML/cmm/m/it/12 :
- []
-
-
-Overfull \hbox (16.54753pt too wide) in paragraph at lines 3025--3029
+ [38]
+[39] [40]
+Overfull \hbox (16.54753pt too wide) in paragraph at lines 3121--3125
 []\OT1/cmr/m/n/12 Note that $[][] \OML/cmm/m/it/12 ^^Q[]^^Q[]$ \OT1/cmr/m/n/12 
 is in-de-pen-dent of $[][] \OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 ((\OT1/cmr/bx/
 n/12 I[] \OMS/cmsy/m/n/12 ^^@ \OT1/cmr/bx/n/12 P[]\OT1/cmr/m/n/12 )\OT1/cmr/bx/
@@ -824,76 +655,56 @@ n/12 P[]\OT1/cmr/m/n/12 ))\OML/cmm/m/it/12 ^^Q[]^^Q[]$\OT1/cmr/m/n/12 .
  []
 
 
-Overfull \hbox (45.94302pt too wide) in paragraph at lines 3063--3063
+Overfull \hbox (10.6087pt too wide) in paragraph at lines 3160--3160
 [] 
  []
 
-[37]
-Overfull \hbox (22.37512pt too wide) in paragraph at lines 3126--3126
-[] 
- []
+[41]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[38]
-Overfull \hbox (65.47827pt too wide) detected at line 3180
-[] [] \OMS/cmsy/m/n/12 ^^T [] [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o[] [] :
- []
-
-
-Overfull \hbox (8.78525pt too wide) in paragraph at lines 3180--3198
+ [42]
+Overfull \hbox (8.78525pt too wide) in paragraph at lines 3281--3299
 [] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o[] []$\OT1/cmr/m/n/12 . Thus,
  []
 
 
-Overfull \hbox (13.82997pt too wide) detected at line 3210
-[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12 o[] [] :
- []
-
-
-Overfull \hbox (24.81276pt too wide) in paragraph at lines 3232--3239
+Overfull \hbox (24.81276pt too wide) in paragraph at lines 3336--3343
 \OT1/cmr/m/n/12 or $[](\OT1/cmr/bx/n/12 ^^C[]\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 
 =\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 n[]\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 ! \OT1
 /cmr/m/n/12 0$, we have $\OML/cmm/m/it/12 n[] []\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/
 12 ^^C[]\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 o[] []$\OT1/cmr/m/n/12 .
  []
 
-[39]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [40]
-Overfull \hbox (39.87392pt too wide) detected at line 3336
-\OML/cmm/m/it/12 ^^U[]\OT1/cmr/m/n/12 ([]) = \OML/cmm/m/it/12 n[]^^U[]\OT1/cmr/
-m/n/12 (\OT1/cmr/bx/n/12 Z[]^^CZ\OT1/cmr/m/n/12 ) = \OML/cmm/m/it/12 n[] []\OT1
-/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^F\OT1/cmr/m/n/12 ) + \OML/cmm/m/it/12 O[] [] \O
-T1/cmr/m/n/12 = (1 + \OML/cmm/m/it/12 o[]\OT1/cmr/m/n/12 (1))\OML/cmm/m/it/12 n
-[] []\OT1/cmr/m/n/12 (\OT1/cmr/bx/n/12 ^^F\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :
- []
+Underfull \vbox (badness 1789) has occurred while \output is active []
 
-[41] [42] (./supp.bbl
+ [43]
+[44] [45] (./supp.bbl [46]
 Underfull \hbox (badness 1072) in paragraph at lines 13--17
 \OT1/cmr/m/n/12 co-vari-ance ma-tri-ces.  \OT1/cmr/m/it/12 Jour-nal of the Amer
 -i-can Sta-tis-ti-cal As-so-ci-a-
  []
 
-[43])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3484.
- [44]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3484.
+)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3594.
+ [47]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3594.
  (./supp.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3484.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3484.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3594.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3594.
 
 Package rerunfilecheck Info: File `supp.out' has not changed.
 (rerunfilecheck)             Checksum: A3AB49D57F1B3C4A59ECA371CD379AAF;179.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3484.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3594.
  ) 
 Here is how much of TeX's memory you used:
- 7747 strings out of 493029
- 110195 string characters out of 6136234
- 214173 words of memory out of 5000000
+ 7750 strings out of 493029
+ 110232 string characters out of 6136233
+ 215241 words of memory out of 5000000
  11036 multiletter control sequences out of 15000+600000
  17120 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 34i,25n,45p,298b,430s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 34i,25n,45p,298b,431s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{proposition.5} has been referenced but does not e
 xist, replaced by a fixed one
 
@@ -938,10 +749,10 @@ exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on supp.pdf (44 pages, 319435 bytes).
+Output written on supp.pdf (47 pages, 322538 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 448 compressed objects within 5 object streams
- 122 named destinations out of 1000 (max. 500000)
+ 531 PDF objects out of 1000 (max. 8388607)
+ 459 compressed objects within 5 object streams
+ 125 named destinations out of 1000 (max. 500000)
  25 words of extra memory for PDF output out of 10000 (max. 10000000)
 

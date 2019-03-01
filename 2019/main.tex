@@ -153,7 +153,7 @@ Beijing Institute of Technology
 
 \begin{quotation}
 \noindent {\it Abstract:}
-This paper considers the problem of multivariate analysis of variance for normal samples.
+This paper considers the problem of multivariate analysis of variance for normal samples in the high dimension medium sample size setting.
     When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
     Based on the unboundedness of the likelihood function, we propose a new test called least favorable direction test.
     The asymptotic distributions of the test statistic are derived under both nonspiked and spiked covariances.
@@ -234,7 +234,7 @@ However, when $p\geq N$, the four classical test statistics are all not defined.
   \Big).
   $$
 Statistic $T_{Sc}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
-See~\cite{Srivastava2013},~\cite{Hu2017},~\cite{Yamada2015},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics for general $k\geq 2$.
+See~\cite{Srivastava2013},~\cite{Yamada2015},~\cite{Hu2017},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics for general $k\geq 2$.
 It is known that the sum-of-squares type tests are particularly powerful against dense alternatives.
 In another work,~\cite{Cai2014High} proposed a test statistic 
   $$
@@ -252,12 +252,20 @@ In another work,~\cite{Cai2014High} proposed a test statistic
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
 
-Most existing sum-of-squares type test procedures require the condition 
-$\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
+Most existing sum-of-squares type test procedures require the condition  $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
 \begin{equation}\label{nonSpikedC}
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
 \end{equation}
 where $\blambda_i$ is the $i$th largest eigenvalue of $\bSigma$, $i=1,\ldots, p$.
+In fact, the equivalence of these two conditions can be seen from the inequalities,
+\begin{equation*}
+    \frac{\blambda_1^4}{\mytr^2(\bSigma^2)} 
+    \leq
+    \frac{\mytr(\bSigma^4)}{\mytr^2(\bSigma^2)}
+    \leq
+    \frac{\blambda_1^2 \mytr(\bSigma^2)}{\mytr^2(\bSigma^2)}
+    =\frac{\blambda_1^2}{\mytr(\bSigma^2)}.
+\end{equation*}
 Condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
 In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
@@ -293,10 +301,11 @@ For example, under the approximate factor model in \cite{Fan2013Large}, the test
     Our theoretical results show that the LFD test is particularly powerful under the spiked covariance.
     This explains the simulation results of~\cite{Zhao2016A}.
     Compared with the work of \cite{Zhao2016A}, our main contribution is that we give a thorough theoretical analysis of the LFD test.
+    Our theoretical analysis fall into the high dimension medium sample size setting, where both $n,p\to \infty$, but $p/n\to \infty$ (see \cite{aoshima2018A}, Section 5).
     To prove our main results, we carefully study the high-order asymptotic behavior of the eigenvalues and eigenspaces of the sample covariance matrix.
     These results are also of independent interests.
     We further compare the proposed test procedure with existing tests by simulations.
-    It is shown that the LFD test has similar behavior to existing sum-of-squares tests under the nonspiked covariance, while significantly outperforms competing tests under the spiked covariance.
+    It is shown that the LFD test has comparable behavior to existing sum-of-squares tests under the nonspiked covariance, while significantly outperforms competing tests under the spiked covariance.
 
     The rest of the paper is organized  as follows.
     In Section~\ref{methodology}, we propose the LFD test statistic and derive its explicit forms.
@@ -581,7 +590,7 @@ By the relationship
             \bJ^\top \bX^\top \bX\bJ & \bJ^\top \bX^\top \bX\tilde{\bJ}\\
             \tilde{\bJ}^\top \bX^\top \bX \bJ & \tilde{\bJ}^\top \bX^\top \bX \tilde{\bJ}
         \end{pmatrix}^{-1}
-        =
+        =&
         \Big(
         \begin{pmatrix}
             \bJ^\top\\
@@ -592,7 +601,8 @@ By the relationship
             \bJ &\tilde{\bJ}
         \end{pmatrix}
         \Big)^{-1}
-        =
+        \\
+        =&
         \begin{pmatrix}
             \bJ^\top {(\bX^\top \bX)}^{-1}\bJ & \bJ^\top {(\bX^\top \bX)}^{-1}\tilde{\bJ}\\
             \tilde{\bJ}^\top {(\bX^\top \bX)}^{-1}\bJ & \tilde{\bJ}^\top {(\bX^\top \bX)}^{-1} \tilde{\bJ}
@@ -602,10 +612,11 @@ By the relationship
 and matrix inverse formula, we have that
 \begin{equation*}
     \begin{aligned}
-        &\big( \bJ^\top {(\bX^\top \bX)}^{-1}\bJ \big)^{-1}
-        =\bJ^\top \bX^\top \bX \bJ - \bJ^\top \bX^\top \bX\tilde{\bJ}{(\tilde{\bJ}^\top \bX^\top \bX \tilde{\bJ})}^{-1}
+        \big( \bJ^\top {(\bX^\top \bX)}^{-1}\bJ \big)^{-1}
+        =&\bJ^\top \bX^\top \bX \bJ - \bJ^\top \bX^\top \bX\tilde{\bJ}{(\tilde{\bJ}^\top \bX^\top \bX \tilde{\bJ})}^{-1}
             \tilde{\bJ}^\top \bX^\top \bX\bJ 
-        = \bJ^\top \bX^\top( \bI_p- \bP_{\bY}) \bX \bJ.
+            \\
+        =& \bJ^\top \bX^\top( \bI_p- \bP_{\bY}) \bX \bJ.
     \end{aligned}
 \end{equation*}
 Thus, 
@@ -630,6 +641,7 @@ the least favorable direction coincides with the maximal data piling direction p
 \section{Theoretical analysis}\label{THEO}
 \setcounter{equation}{0} %-1
 We now turn to the analysis of the asymptotic distributions of the LFD test statistic.
+The normality of the observations is an important assumption for our results and will be assumed throughout this section.
 We shall give theoretical results under both nonspiked and spiked covariances.
 Based on these results, an adaptive test with asymptotically correct level can be constructed.
 Also, these results allow us to derive the local asymptotic power function of LFD test.
@@ -685,14 +697,17 @@ The following corollary gives the asymptotic local power function of the propose
 \begin{corollary}\label{kuCor1}
     Under the conditions of Theorem \ref{fenTheorem1}, 
     \begin{equation*}
-        \Pr\left(
+        \begin{split}
+        &\Pr\left(
             Q_1>F_1^{-1}(1-\alpha)
         \right) 
-        =
+        \\
+        =&
         \Pr\left(
         \lambda_1\left(\bW_{k-1}+\frac{\bC^\top \bTheta^\top \bTheta \bC}{\sqrt{\mytr(\bSigma^2)} }\right)
         >F_1^{-1}(1-\alpha)
     \right)+o(1).
+        \end{split}
     \end{equation*}
 \end{corollary}
 Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test has similar power behavior to existing sum-of-squares type tests.
@@ -914,7 +929,10 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     }
 }
 (\bW_{k-1}^* - r\bI_{k-1})
-+
+\right.
+\\
+&\quad\quad+
+\left.
 \frac{
     \sqrt{\mytr(\bLambda_2^2)}
 }{
@@ -956,6 +974,10 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     }
 }
 (\bW_{k-1}^* - r\bI_{k-1})
+\right.
+\\
+&
+\quad\quad
 +
 \frac{
     \sqrt{\mytr(\bLambda_2^2)}
@@ -965,9 +987,9 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
     }
 }
 \bW_{k-1}
-\right.
 \\
 &
+\quad\quad
 +\left.
 \frac{
     \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
@@ -1013,7 +1035,8 @@ Let $
 F_2(x;\mytr(\bLambda_2),\mytr(\bLambda_2^2))
 $ be the cumulative distribution function of
 \begin{equation*}
-\lambda_1
+    \begin{split}
+&\lambda_1
 \left(
 \frac{
     n^{-1} \mytr(\bLambda_2)
@@ -1023,7 +1046,12 @@ $ be the cumulative distribution function of
     }
 }
 (\bW_{k-1}^* - r\bI_{k-1})
+\right.
+\\
+&
+\quad \quad
 +
+\left.
 \frac{
     \sqrt{\mytr(\bLambda_2^2)}
 }{
@@ -1033,6 +1061,7 @@ $ be the cumulative distribution function of
 }
 \bW_{k-1}
 \right).
+    \end{split}
 \end{equation*}
 Then we reject the null hypothesis if
 \begin{equation*}
@@ -1071,7 +1100,7 @@ The following corollary shows that this test procedure has asymptotically correc
 \\
 =
     &\Pr
-    \left(
+    \Bigg(
 \lambda_1
 \left(
 \frac{
@@ -1082,7 +1111,9 @@ The following corollary shows that this test procedure has asymptotically correc
     }
 }
 (\bW_{k-1}^* - r\bI_{k-1})
-+
+\right.
+\\
+&\quad\quad\quad\quad+
 \frac{
     \sqrt{\mytr(\bLambda_2^2)}
 }{
@@ -1091,10 +1122,10 @@ The following corollary shows that this test procedure has asymptotically correc
     }
 }
 \bW_{k-1}
-\right.\right.
 \\
-&
-+\left.\left.
+&\left.
+\quad\quad\quad\quad
++
 \frac{
     \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
 }{
@@ -1103,9 +1134,10 @@ The following corollary shows that this test procedure has asymptotically correc
     }
 }
 \right)
-    >
+\\
+    &\quad\quad>
     F_2^{-1}\left(1-\alpha;\mytr(\bLambda_2),\mytr(\bLambda_2^2)\right)
-\right)
+\Bigg)
 +o(1)
 .
 \end{split}
@@ -1376,25 +1408,26 @@ So the proposed adaptive LFD test procedure can indeed adapt to the unknown cova
 
 In this section, we compare the numerical performance of the adaptive LFD test procedure with some existing tests, including the MANOVA tests in~\citet{Schott2007Some},~\citet{Cai2014High}, \cite{Hu2017} and \cite{ZHANG2017200}.
 These competing tests are denoted by Sc, CX, HBWW and ZGZ, respectively.
-In the simulations, we take $k=3$.
+Throughout the simulations, we take the nominal test level $\alpha =0.05$ and the group number $k=3$.
 For the adaptive LFD test, we take $\tau=5$.
 For CX, we use their oracle procedure.
+All the simulation results are based on $5000$ replications.
 
-First, we simulate the empirical level and power under various models for $\bSigma$ and $\bTheta$.
+First, we simulate the empirical level and power under various models of $\bSigma$ and $\bTheta$.
 To characterize the signal strength,
 we define signal-to-noise ratio (SNR) as
 $$
 \textrm{SNR}=\frac{ \bC^\top \bTheta^\top \bTheta\bC}{\sqrt{\mytr(\bSigma^2)}}.
 $$
-We consider the following four models for $\bSigma$.
+We consider four models for $\bSigma$ where the first two of them are nonspiked and the last two of them are spiked.
 \begin{itemize}
-    \item Model $1$:
+    \item Model I:
         $\bSigma= \bI_p$.
-    \item Model $2$:
+    \item Model II:
         $\bSigma = (\sigma_{ij})$ where $\sigma_{ij}=0.6^{|i-j|}$.
-    \item Model $3$:
+    \item Model III:
         $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
-    \item Model $4$:
+    \item Model IV:
         $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$ and $\bA$ is a $p\times p$ matrix whose elements are independently generated from Bernoulli distribution with success probability $0.01$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
@@ -1402,15 +1435,13 @@ Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathb
 In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make SNR equal to specific values.
 In the sparse case, we take $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
 Again, $\kappa$ is selected to make SNR equal to specific values.
-The empirical power is computed based on $5000$ simulations.
-The simulation results under Model $1$ and Model $2$ are summarized in Tables \ref{table1} and \ref{table3}.
-The covariance matrices are nonspiked under these two models.
-It can be seen that the LFD test is less powerful than the sum-of-squares type tests under the nonspiked covariances.
-Nevertheless, the power performance of the LFD test improves as $n$ and $p$ increase.
-The simulation results under Model $3$ and Model $4$ are summarized in Tables \ref{table2} and \ref{table4}.
-The covariance matrices are spiked under these two models.
-It can be seen that the LFD test outperforms the competing tests significantly in most cases.
-This verifies our theoretical results that the LFD test is particularly powerful under the spiked covariance.
+The simulation results are summarized in Figures \ref{newfigure1}-\ref{newfigure4}.
+It can be seen that in all scenarios, the empirical sizes of the LFD test are reasonably close to the nominal level $0.05$.
+Under model I and model II, where the covariance matrices are nonspiked, the empirical power of the LFD test is slightly lower than the sum-of-squares type tests, but is higher than the CX test.
+%Nevertheless, the power performance of the LFD test improves as $n$ and $p$ increase.
+Under model III and model IV, where the covariance matrices are spiked, the empirical power of the LFD test is significantly higher than the sum-of-squares type tests.
+Also, the LFD test offers higher empirical power than the CX test in most cases, except for model IV with sparse means.
+These simulation results verify our theoretical results that the LFD test is particularly powerful under the spiked covariance.
 
 In our second simulation study, we would like to investigate the effect of correlations between variables.
 %We take $k=2$ so that we can compare our test with some existing two sample tests.
@@ -1421,81 +1452,80 @@ The parameter $\rho$ characterizes the correlations between variables.
 We take 
 $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$
 and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected such that ${ \bC^\top \bTheta^\top \bTheta\bC}/(\sum_{i=2}^p\blambda_i^2)^{1/2}=5$.
-Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$, which is computed based on $5000$ simulations.
-We can see that the empirical power of the LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease as $\rho$ increases.
+Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$.
+We can see that the empirical power of the LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease rapidly as $\rho$ increases.
 When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 
 \begin{figure}[htbp]
     \centering
-    \subfigure[]{
+    \subfigure[Model I, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t1l}
 }
-    \subfigure[]{
+    \subfigure[Model II, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t1r}
 }
     \\
-    \subfigure[]{
+    \subfigure[Model I, sparse case]{
         \includegraphics[width=0.45\textwidth]{t1lb}
 }
-    \subfigure[]{
+    \subfigure[Model II, sparse case]{
         \includegraphics[width=0.45\textwidth]{t1rb}
 }
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical sizes and powers of tests under model I and model II. $n_1=n_2=n_3=20$, $p=300$. }
     \label{newfigure1}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \subfigure[]{
+    \subfigure[Model I, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t3l}
 }
-    \subfigure[]{
+    \subfigure[Model II, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t3r}
 }
     \\
-    \subfigure[]{
+    \subfigure[Model I, sparse case]{
         \includegraphics[width=0.45\textwidth]{t3lb}
 }
-    \subfigure[]{
+    \subfigure[Model II, sparse case]{
         \includegraphics[width=0.45\textwidth]{t3rb}
 }
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
+    \caption{Empirical sizes and powers of tests under model I and model II. $n_1=n_2=n_3=25$, $p=800$. }
     \label{newfigure2}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \subfigure[]{
+    \subfigure[Model III, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t2l}
 }
-    \subfigure[]{
+    \subfigure[Model IV, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t2r}
 }
     \\
-    \subfigure[]{
+    \subfigure[Model III, sparse case]{
         \includegraphics[width=0.45\textwidth]{t2lb}
 }
-    \subfigure[]{
+    \subfigure[Model IV, sparse case]{
         \includegraphics[width=0.45\textwidth]{t2rb}
 }
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical sizes and powers of tests under model III and model IV. $n_1=n_2=n_3=20$, $p=300$. }
     \label{newfigure3}
 \end{figure}
-
 \begin{figure}[htbp]
     \centering
-    \subfigure[]{
+    \subfigure[Model III, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t4l}
 }
-    \subfigure[]{
+    \subfigure[Model IV, non-sparse case]{
         \includegraphics[width=0.45\textwidth]{t4r}
 }
     \\
-    \subfigure[]{
+    \subfigure[Model III, sparse case]{
         \includegraphics[width=0.45\textwidth]{t4lb}
 }
-    \subfigure[]{
+    \subfigure[Model IV, sparse case]{
         \includegraphics[width=0.45\textwidth]{t4rb}
 }
-    \caption{Empirical sizes and powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=30$, $p=800$. }
+    \caption{Empirical sizes and powers of tests under model III and model IV. $n_1=n_2=n_3=25$, $p=800$. }
     \label{newfigure4}
 \end{figure}
 
@@ -1674,8 +1704,8 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=\textwidth]{figure1}
-    \caption{Empirical powers of tests. $\alpha=0.05$, $n_1=n_2=n_3=35$, $p=1000$.}
+    \includegraphics[width=0.98\textwidth]{figure1}
+    \caption{Empirical powers of tests. $n_1=n_2=n_3=35$, $p=1000$.}
     \label{figure1}
 \end{figure}
 
@@ -1688,14 +1718,22 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 In this paper, using the idea of least favorable direction, we proposed the LFD test for MANOVA in high dimensional setting.
 We derived the asymptotic distribution of the LFD test statistic under both nonspiked and spiked covariances.
 The asymptotic local power functions are also given.
-From our theoretic results and simulation studies, it is seen that the LFD test has similar power behavior to existing tests when the covariance matrix is nonspiked, while tends to be much more powerful than existing tests when the covariance matrix is spiked.
+From our theoretic results and simulation studies, it is seen that the LFD test has comparable power behavior to existing tests when the covariance matrix is nonspiked, while tends to be much more powerful than existing tests when the covariance matrix is spiked.
 
-For the case where the covariance structure is unknown,
+There are several interesting but challenging problems yet to be solved.
+First, for the case where the covariance structure is unknown,
 we proposed an adaptive LFD test procedure by consistently detecting unknown covariance structure and estimating the unknown $r$.
 However, this procedure relies on a hyperparameter $\tau$. 
-How to choose an optimal $\tau$ is an interesting problem.
-In addition, our proof relies on the normality of the observations.
-It is unclear whether the same results hold without normal assumption.
+How to choose an optimal $\tau$ remains an interesting problem.
+Second, our theoretical results rely on the normality of the observations.
+In fact, our proofs utilize the independence of $\bX \bJ \bC$ and $\bY$.
+Note that $\bX \bJ \bC$ and $\bY =\bX \tilde{\bJ}$ are both the linear combinations of indepedent random vectors $X_{ij}$.
+It is known that the independence of linear combinations of independent random variables essentially characterizes the normality of the variables (see, e.g., \cite{KAGAN}, Section 3.1).
+Hence our strategy is not feasible without the normality assumption.
+It is unclear whether the conclutions of our theorems hold without normal assumption.
+Third, our theoretical results require $p/n \to \infty$.
+In fact, the asymptotic behavior of $T(\bX)$ will be different in the regime where $p/n \to$ constant.
+Random matrix theory may be useful to investigate the asymptotic behavior of $T(\bX)$ in this regime.
 We leave these topics for future research.
 
 

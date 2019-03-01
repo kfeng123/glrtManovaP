@@ -352,7 +352,8 @@ This completes the proof.
         n^{-1}
         \mytr(\bLambda_2)
         \right|
-        \leq
+        \\
+        \leq&
         n^{-1}\left\|\bZ_2^\top \bLambda_2 \bZ_2-
         \mytr(\bLambda_2)
         \bI_n\right\|.
@@ -380,35 +381,42 @@ $\lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)$, $i=1,\ldots,r$.
 &\lambda_i(\bZ_1^\top \bLambda_1 \bZ_1)
 \\
 =&\lambda_i\Big(
-\bZ_1^\top \big(
-\mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})+
+\bZ_1^\top 
+\mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})
+\bZ_1
+\\
+&\quad +
+\bZ_1^\top
 \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i,\ldots,\blambda_r)
-\big)
 \bZ_1
 \Big)\\
 \leq&\lambda_i\Big(
-\bZ_1^\top \big(
+\bZ_1^\top 
 \mydiag(\blambda_1,\ldots,\blambda_{i-1},\bO_{(r-i+1)\times(r-i+1)})
+\bZ_1
 \Big)
-+
+\\
+&\quad +
 \lambda_1\Big(
+\bZ_1^\top
 \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i,\ldots,\blambda_r)
-\big)
 \bZ_1
 \Big)\\
 %\leq&
 %\lambda_1(\bZ_{1[1:r,:]}^\top \mydiag(\bO_{(i-1)\times(i-1)},\lambda_i,\ldots,\lambda_r) \bZ_{1[1:r,:]})
     \leq&
 \lambda_1(\bZ_1^\top \mydiag(\bO_{(i-1)\times(i-1)},\blambda_i \bI_{r-i+1}) \bZ_1)
-\leq  \blambda_i \lambda_1(\bZ_1\bZ_1^\top).
+\\
+\leq&  \blambda_i \lambda_1(\bZ_1\bZ_1^\top).
 \end{aligned}
 \end{equation*}
 The above lower bound and upper bound imply
 \begin{equation}\label{eigenBoundForA}
     \begin{aligned}
-\left|
+&\left|
 \lambda_i(n^{-1}\bZ_1^\top \bLambda_1 \bZ_1)-\blambda_i
 \right|
+\\
 \leq&
 \blambda_i 
 \max\left(
@@ -575,13 +583,18 @@ for $i\in \mathcal{C}_2$,
     \end{equation*}
     for $i\geq r+1$ and $i\notin \mathcal{C}_1\cup \mathcal{C}_2$,
     \begin{equation*}
-        \lambda_i^2(\bY^\top \bY-\widehat{\mytr(\bLambda_2)}\bI_n)\leq
+        \begin{split}
+        &\lambda_i^2(\bY^\top \bY-\widehat{\mytr(\bLambda_2)}\bI_n)
+        \\
+        \leq
+        &
         \max
         \left(
             \lambda_{i-r}^2(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n) 
         ,
         \lambda_{i}^2(\bZ_2^\top \bLambda_2 \bZ_2-\widehat{\mytr(\bLambda_2)}\bI_n)
     \right).
+        \end{split}
     \end{equation*}
     Therefore,
     \begin{equation}\label{abcd0}
@@ -720,9 +733,9 @@ for $i\in \mathcal{C}_2$,
     \hat{\bSigma}_0 =&
     n^{-1}\bU_1 \bLambda_1^{1/2} \bZ_1 \bZ_1^\top \bLambda_1^{1/2}\bU_1^\top
     +n^{-1}\bU_1 \bLambda_1^{1/2} \bZ_1 \bZ_2^\top \bLambda_2^{1/2}\bU_2^\top
-    +n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^\top \bLambda_1^{1/2}\bU_1^\top
     \\
-    &+n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}\bV_{\bZ_1}^\top
+    &+n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \bZ_1^\top \bLambda_1^{1/2}\bU_1^\top
+    +n^{-1}\bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}\bV_{\bZ_1}^\top
     \bZ_2^\top \bLambda_2^{1/2}\bU_2^\top
         \end{split}
     \end{equation*}
@@ -754,7 +767,8 @@ for $i\in \mathcal{C}_2$,
     We have the following upper bound for $\|\hat{\bSigma}-\hat{\bSigma}_0\|$.
     \begin{equation}\label{asd2}
         \begin{split}
-            \|\hat{\bSigma}-\hat{\bSigma}_0\|
+            &\|\hat{\bSigma}-\hat{\bSigma}_0\|
+            \\
             =&
     n^{-1}\left\|\bU_2 \bLambda_2^{1/2} \bZ_2  
     \bZ_2^\top \bLambda_2^{1/2}\bU_2^\top
@@ -827,9 +841,10 @@ It can be seen that $\bZ_2 \bV_{\bZ_1}$ is a $(p-r)\times r$ random matrix with 
 Then Lemma~\ref{lemma:con} implies that
 \begin{equation}\label{projCon}
         \begin{split}
-        \left\|n^{-1}  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1} 
+        &\left\|n^{-1}  \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2 \bZ_2 \bV_{\bZ_1} 
         -n^{-1} \mytr(\bLambda_2) \bI_r
         \right\|
+        \\
         =&
         O_P\left(
             n^{-1}\sqrt{r\mytr\left(\bLambda_2^2\right)}
@@ -1129,24 +1144,28 @@ $
     \end{equation*}
     Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$, Proposition~\ref{eigenvalueProp} implies that
     \begin{equation*}
+        \begin{split}
         \|\hat{\bSigma}\|
-        =\blambda_1\left(
+        =&\blambda_1\left(
             1+\frac{\mytr(\bLambda_2)}{n\blambda_1}+O_P\left(\sqrt{\frac{r}{n}}+\sqrt{\frac{\blambda_{r+1}}{\blambda_1}\frac{\mytr(\bLambda_2)}{n\blambda_1}}+\frac{\blambda_{r+1}}{\blambda_1}\right)
         \right)
-        =\blambda_1(1+o_P(1)).
+        \\
+        =&\blambda_1(1+o_P(1)).
+        \end{split}
     \end{equation*}
      Then
      \begin{equation}\label{aiBound1}
         \begin{split}
-             &\left\|
+             \left\|
              (\bP^\dagger_{\bY,1}-\bP_{\bY,1})\hat{\bSigma}(\bP^\dagger_{\bY,1}-\bP_{\bY,1})
              \right\|
-             \leq
+             \leq &
              \|\hat{\bSigma}\|
              \left\|
              \bP^\dagger_{\bY,1}-\bP_{\bY,1}
              \right\|^2
-                 =
+             \\
+                 = &
             O_P
                 \left(
                     \frac{\mytr^2(\bLambda_2)\blambda_1}{n^2 \blambda_r^2}
@@ -1179,20 +1198,26 @@ $
     \end{equation*}
     It is straightforward to show that
     \begin{equation}\label{straightforwardHaha}
-        \bZ^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP^\dagger_{\bY,1})  
-        =\tilde\bV_{\bZ_1} \tilde\bV_{\bZ_1}^\top\bZ_2^\top \bLambda_2^{1/2}\bU_2^\top   
+        \begin{split}
+        &\bZ^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP^\dagger_{\bY,1})  
+        \\
+        =&\tilde\bV_{\bZ_1} \tilde\bV_{\bZ_1}^\top\bZ_2^\top \bLambda_2^{1/2}\bU_2^\top   
         - \bZ_2^\top \bLambda_2 \bZ_2  \bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bLambda_1^{-1/2} \bU_1^\top.
+        \end{split}
     \end{equation}
     Then
     \begin{equation*}
-        \left\|
+        \begin{split}
+        & \left\|
         \bZ^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP^\dagger_{\bY,1})  
         \right\|
-        \leq 
+        \\
+        \leq &
          \left\|\bZ_2^\top \bLambda_2 \bZ_2\right\|^{1/2}
          +
          \blambda_r^{-1/2}  \left\|\bZ_2^\top \bLambda_2 \bZ_2\right\|  \left\|(\bZ_1\bZ_1^\top)^{-1}\right\|^{1/2}
          .
+        \end{split}
     \end{equation*}
     It follows from~\eqref{conB2B} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ that
     \begin{equation}\label{Z2exactL}
@@ -1204,14 +1229,15 @@ $
         \left\|
         \bZ^\top \bLambda^{1/2}\bU^\top (\bI_p-\bP^\dagger_{\bY,1})  
         \right\|
-         = 
+         = &
          O_P\left(
              \mytr^{1/2}(\bLambda_2)
          \right)
          +O_P\left(
              \frac{\mytr(\bLambda_2)}{\sqrt{n\blambda_r}}
          \right)
-         = 
+         \\
+         = &
          O_P\left(
              \mytr^{1/2}(\bLambda_2)
          \right).
@@ -1311,9 +1337,10 @@ n^{-1} \|\bZ_2^\top \bLambda_2 \bZ_2\| \|\bQ^\top \bQ\|^{1/2}
     Then it follows from Lemma~\ref{lemma:con} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$ that
     \begin{equation}\label{choc8}
         \begin{split}
-        \left\|
+        &\left\|
         n^{-1} \tilde{\bV}_{\bZ_1}^\top\bZ_2^\top\bLambda_2 \bZ_2 \tilde{\bV}_{\bZ_1}-n^{-1}\mytr(\bLambda_2)\bI_{n-r}
         \right\|
+        \\
         =&O_P\left(n^{-1/2}\sqrt{\mytr(\bLambda_2^2)}+\blambda_{r+1}\right)
         \\
         = &
@@ -1422,7 +1449,8 @@ where $\bZ^{\dagger}$ is a $p\times (k-1)$ matrix with iid $\mathcal{N}(0,1)$ en
 Then 
 \begin{equation}\label{eq:maindec}
 \begin{aligned}
-\bC^\top\bJ^\top \bX^\top(\bI_p-\bP_{\bY}) \bX\bJ\bC
+&\bC^\top\bJ^\top \bX^\top(\bI_p-\bP_{\bY}) \bX\bJ\bC
+\\
 =&
 \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
  \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC\\
@@ -1511,7 +1539,8 @@ where $\eta_1,\ldots, \eta_p$ are independent $\mathcal{N}_{k-1}(\mathbf{0}_{k-1
         It can be seen that
         \begin{equation}\label{fenEq2}
         \begin{split}
-        \mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)
+        &\mytr \left( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})\right)
+        \\
         =&
         \mytr \left(\bSigma \right)-
         \mytr \left(\bSigma\bP_{\bY}\right)
@@ -1621,10 +1650,11 @@ and
     and the third term satisfies
     \begin{equation*}
         \begin{split}
-        \left|
+        &\left|
         \mytr((\bSigma \bP_\bY)^2)
         -\frac{n\mytr^2(\bSigma^2)}{\mytr^2(\bSigma)}
         \right|
+        \\
         =&
         \left|
         \mytr\left(\left(\bSigma +\frac{\mytr(\bSigma^2)}{\mytr(\bSigma)}\bI_p\right)\bP_\bY
@@ -1870,7 +1900,8 @@ o_P\left(
 Now we deal with the cross term of~\eqref{eq:maindec}. Note that
 $$
 \begin{aligned}
-    \myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}\|_F^2|\bY]
+    & \myE [\|\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}\|_F^2|\bY]
+    \\
     = &
     (k-1)\mytr\left(\bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bSigma (\bI_p -\bP_{\bY})\bTheta \bC\right)\\
     \leq &
@@ -1918,7 +1949,11 @@ It follows from \eqref{bufenEq2}, \eqref{bufenEq3} and Weyl's inequality that
  \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bTheta \bC
  -
  \bC^\top \bTheta^\top \bTheta \bC
- +
+ \right.
+ \\
+ &
+ \,\,
+ +\left.
   \bC^\top \bTheta^\top (\bI_p -\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
  \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bTheta \bC
  \right\|
@@ -1943,15 +1978,17 @@ It follows from \eqref{bufenEq2}, \eqref{bufenEq3} and Weyl's inequality that
 But \eqref{bufenEq1} implies that
 \begin{equation*}
     \begin{split}
-&\frac{
+&
+\frac{1}{\sqrt{\mytr(\bSigma^2)}}
+\left(
         \lambda_1\left(
 \bZ^{\dagger \top} \bLambda^{1/2}\bU^\top (\bI_p-\bP_{\bY})\bU\bLambda^{1/2}\bZ^{\dagger}+
  \bC^\top \bTheta^\top \bTheta \bC
  \right)
- -\left(\mytr(\bSigma)-{n\mytr(\bSigma^2)}/{\mytr(\bSigma)}\right)
- }{
-     \sqrt{\mytr(\bSigma^2)}
- }
+ \right.
+ \\
+ &\quad \quad \quad \quad \,\, \left.-\left(\mytr(\bSigma)-{n\mytr(\bSigma^2)}/{\mytr(\bSigma)}\right)
+ \right)
  \\
     =&
     \lambda_1\left(
@@ -1961,7 +1998,10 @@ But \eqref{bufenEq1} implies that
  }{
      \sqrt{\mytr(\bSigma^2)}
  }
- +
+ \right.
+ \\
+ &\quad\quad+
+ \left.
  \frac{\bC^\top \bTheta^\top \bTheta \bC}{
      \sqrt{\mytr(\bSigma^2)}
  }
@@ -2068,10 +2108,12 @@ Then the conclusion follows from Theorem \ref{fenTheorem1}.
     $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
     Then uniformly for $i=1,\ldots, r$,
 \begin{equation*}
-    \lambda_i\left(
+    \begin{split}
+    &\lambda_i\left(
              (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
          \right)
-         =
+         \\
+         =&
              n^{-1}\mytr(\bLambda_2)
              \left(1
              +O_P\left(
@@ -2081,6 +2123,7 @@ Then the conclusion follows from Theorem \ref{fenTheorem1}.
              \right)
          \right)
              .
+    \end{split}
 \end{equation*}
 
 \end{lemma}
@@ -2111,9 +2154,10 @@ Under the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$, Proposition~\ref{n
     From the decomposition
          \begin{equation*}
          \begin{split}
-         (\bI_p-\bP_{\bY,1})
+         &(\bI_p-\bP_{\bY,1})
          \bSigma 
          (\bI_p-\bP_{\bY,1})
+         \\
          =&
          (\bI_p-\bP_{\bY,1}^{\dagger})
          \bSigma 
@@ -2166,8 +2210,9 @@ we have
 Note that
 \begin{equation*}
     \begin{split}
-         \left\|\bSigma 
+         &\left\|\bSigma 
          (\bI_p-\bP_{\bY,1}^{\dagger})\right\|
+         \\
          =&
          \left\|
          \bU_2 \bLambda_2 \bU_2^\top
@@ -2216,7 +2261,8 @@ Note that
 where the last equality follows from~\eqref{projCon},~\eqref{UpperBoundQ} and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
 Thus,
 \begin{equation}\label{choc1}
-         \left\|
+    \begin{split}
+         &\left\|
          (\bI_p-\bP_{\bY,1})
          \bSigma 
          (\bI_p-\bP_{\bY,1})
@@ -2225,9 +2271,11 @@ Thus,
          \bSigma 
          (\bI_p-\bP_{\bY,1}^{\dagger})
          \right\|
-         = 
+         \\
+         =& 
          O_P\left(\frac{\mytr^{3/2}(\bLambda_2)\blambda_1^{1/2}}{n^{3/2}\blambda_r}\right)
          .
+    \end{split}
          \end{equation}
 
          From the decomposition
@@ -2248,13 +2296,14 @@ Thus,
          we have
          \begin{equation}\label{choc2}
              \begin{split}
-         \left\|
+         &\left\|
          (\bI_p-\bP_{\bY,1}^{\dagger})
          \bSigma 
          (\bI_p-\bP_{\bY,1}^{\dagger})
              -
              \bU_2 \bQ \bLambda_1 \bQ^\top  \bU_2^\top
              \right\|
+             \\
              \leq &
              \blambda_{r+1}(1+2\|\bQ^\top \bQ\|^{1/2}+\|\bQ^\top \bQ\|)
              \\
@@ -2296,7 +2345,10 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
              \begin{split}
              &\left\|
              (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
-             -
+         \right.
+         \\
+         &\,\,-
+             \left.
              n^{-1}
              (\bI_p -\bP_{\bY,2})
               \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1} \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top
@@ -2317,9 +2369,10 @@ From \eqref{cho111}, \eqref{choc1}, \eqref{choc2} and \eqref{choc6}, we obtain t
          Thus, the last display, together with Weyl's inequality, implies that uniformly for $i=1,\ldots, r$,
 \begin{equation*}
     \begin{split}
-    \lambda_i\left(
+    &\lambda_i\left(
              (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
          \right)
+         \\
              =&
              n^{-1}\lambda_i\left(
                   \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2^{1/2} \bU_2^\top (\bI-\bP_{\bY,2}) \bU_2 \bLambda_2^{1/2} \bZ_2 \bV_{\bZ_1}
@@ -2384,7 +2437,8 @@ Then it follows from Weyl's inequality that uniformly for $i=1,\ldots, r$,
          \\
              =&
              n^{-1}\mytr(\bLambda_2)
-             -
+             \\
+             &-
              \left(n\mytr(\bLambda_2)\right)^{-1}
                  \lambda_{r+1-i}\left(
             \bV_{\bZ_1}^\top \bZ_2^\top \bLambda_2\bZ_{2} \tilde{\bV}_{\bZ_1}
@@ -2461,12 +2515,15 @@ By some algebra, we have
             \mytr(
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2\bZ_{2} \tilde{\bV}_{\bZ_1})
                 }
+            \right.
+            \\
+            &\quad\quad 
                 +r
             \left\|
             \tilde{\bV}_{\bZ_1}^\top \bZ_2^\top \bLambda_2^2
             \bZ_{2} \tilde{\bV}_{\bZ_1}
             \right\|
-        \right)
+        \Bigg)
         .
         \end{split}
     \end{equation*}
@@ -2558,7 +2615,8 @@ This completes the proof.
     \right)
     \\
     =&\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
-    +
+    \\
+    &+
     O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)
     +r\blambda_{r+1}
     \right).
@@ -2667,7 +2725,9 @@ This completes the proof.
         \mytr\left(
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \bP_{\bY} \bU_2 
     \right)
-    -
+\right.
+\\
+&-\left.
         \mytr\left(
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \left(\bP_{\bY,1}^\dagger+\bP_{\bY,2}^\dagger\right) \bU_2 
     \right)
@@ -2742,7 +2802,7 @@ This completes the proof.
        and
        \begin{equation*}
            \begin{split}
-    \myVar\left(
+    &\myVar\left(
         \mytr\left(\tilde{\bV}_{\bZ_1}^\top \bZ_2^\top 
  \left(
        \bLambda_2^2 
@@ -2750,6 +2810,7 @@ This completes the proof.
  \right)
 \bZ_2 \tilde{\bV}_{\bZ_1}\right)
 \right)
+\\
 =&2(n-r)\mytr
  \left(
        \bLambda_2^2 
@@ -2764,19 +2825,25 @@ This completes the proof.
        \end{equation*}
        Thus,
        \begin{equation*}
-        \mytr\left(
+           \begin{split}
+        &\mytr\left(
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \left(\bP_{\bY,1}^\dagger+\bP_{\bY,2}^\dagger\right) \bU_2 
     \right)
     %=O_P\left(\frac{\sqrt{n\mytr(\bLambda_2^2)}(\blambda_{r+1}-\blambda_p)}{\mytr(\bLambda_2)}\right)
-    =O_P\left((\blambda_{r+1}-\blambda_p)\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right).
+    \\
+    =&O_P\left((\blambda_{r+1}-\blambda_p)\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right).
+           \end{split}
        \end{equation*}
        The last display, combined with~\eqref{jojo1}, leads to
 \begin{equation*}
-        \mytr\left(
+    \begin{split}
+        &\mytr\left(
             \left(\bLambda_2-\frac{\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}\bI_{p-r}\right) \bU_2^\top \bP_{\bY} \bU_2 
     \right)
-    =
+    \\
+    =&
     O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)\right).
+    \end{split}
 \end{equation*}
 It then follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
 \begin{equation*}
@@ -2786,7 +2853,8 @@ It then follows from~\eqref{jojoa}, \eqref{ranklr} and the last display that
     \right)
     \\
     =&\mytr(\bLambda_2)-\frac{n\mytr(\bLambda_2^2)}{\mytr(\bLambda_2)}
-    +
+    \\
+    &+
     O_P\left(n(\blambda_{r+1}-\blambda_p)\left(\sqrt{\frac{\mytr(\bLambda_2)\blambda_1}{n\blambda_r^2}}+\sqrt{\frac{n\blambda_{r+1}}{\mytr(\bLambda_2)}}\right)
     +r\blambda_{r+1}
     \right).
@@ -2798,13 +2866,16 @@ Then the conclusion follows from~\eqref{jojo2} and the last display.
 \begin{lemma}\label{gg:Lemma2}
     Suppose $p>n$, we have
     \begin{equation*}
-        \sum_{i=r+1}^{p}\lambda_i^2\left(
+        \begin{split}
+        &\sum_{i=r+1}^{p}\lambda_i^2\left(
          (\bI_p -\bP_\bY)\bSigma (\bI_p- \bP_{\bY})
     \right)
-        =
+    \\
+        =&
     \mytr(\bLambda_2^2)-\frac{n\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}
  +
 O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
+        \end{split}
     \end{equation*}
 \end{lemma}
 \begin{proof}
@@ -2831,22 +2902,26 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     \end{equation}
     It is straightforward to show that
     \begin{equation*}
-        \mytr\left(
+        \begin{split}
+        &\mytr\left(
          (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^\top (\bI_p- \bP_{\bY})
     \right)^2
-    =
+    \\
+    =&
     \mytr(\bLambda_2^2)
     -2\mytr(\bLambda_2^2 \bU_2^\top \bP_\bY \bU_2)
     + \mytr(\bLambda_2 \bU_2^\top \bP_\bY \bU_2)^2.
+        \end{split}
     \end{equation*}
     For the second term, we have
     \begin{equation*}
         \begin{split}
-        \left|
+        &\left|
  \mytr(\bLambda_2^2 \bU_2^\top \bP_\bY \bU_2)
  -
  \frac{\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}\mytr( \bU_2^\top \bP_\bY \bU_2)
  \right|
+ \\
         =&\left|
         \mytr\left(\left(\bLambda_2^2-\frac{\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}\bI_{p-r}\right)  \bU_2^\top \bP_\bY \bU_2\right)
  \right|
@@ -2907,13 +2982,16 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     \end{equation*}
     Thus,
     \begin{equation*}
-        \mytr\left(
+        \begin{split}
+        &\mytr\left(
          (\bI_p -\bP_\bY)\bU_2 \bLambda_2 \bU_2^\top (\bI_p- \bP_{\bY})
     \right)^2
-    =
+    \\
+    =&
     \mytr(\bLambda_2^2)-\frac{n\mytr^2(\bLambda_2^2)}{\mytr^2(\bLambda_2)}
  +
 O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
+        \end{split}
     \end{equation*}
     Then the conclusion follows from the last display and~\eqref{jojo100}.
 \end{proof}
@@ -2938,14 +3016,17 @@ O_P\left(n\blambda_{r+1}(\blambda_{r+1}-\blambda_p)+r \blambda_{r+1}^2\right).
     \end{equation*}
     Then
     \begin{equation}\label{lushang1}
-        \frac{
+        \begin{split}
+        &\frac{
 \sum_{i=1}^r \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
 -rn^{-1}\mytr(\bLambda_2)\bI_{k-1}
 }{
     \sqrt r n^{-1}\mytr(\bLambda_2)
 }
-=\frac{\sum_{i=1}^r \eta_i \eta_i^\top- r\bI_{k-1}}{\sqrt r}
+\\
+=&\frac{\sum_{i=1}^r \eta_i \eta_i^\top- r\bI_{k-1}}{\sqrt r}
 +o_P(1).
+        \end{split}
     \end{equation}
 
 
@@ -3001,25 +3082,40 @@ $$
 $$
 Then Lemma \ref{CLTLEMMA} implies that
 \begin{equation*}
-    \frac{
-\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
--
-\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})) \bI_{k-1}
-}{
+    \begin{split}
+    &
+    \frac{1}{
     \sqrt{\sum_{i=r+1}^p \lambda_i^2 ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))}
 }
+\left( 
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+\right.
+\\
+&\left.
+    \quad\quad\quad\quad\quad\quad
+\quad\quad\quad\quad
+    -
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY})) \bI_{k-1}
+\right)
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
+    \end{split}
 \end{equation*}
 The last display,  combined with \eqref{final1} and \eqref{final2}, leads to
 \begin{equation}\label{lushang2}
-    \frac{
-\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
--
-\left(\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)\bI_{k-1}
-}{
+    \begin{split}
+    \frac{1}{
     \sqrt{\mytr(\bLambda_2^2)}
 }
+&
+\Bigg( 
+\sum_{i=r+1}^p \lambda_i ( (\bI_p-\bP_{\bY})\bSigma (\bI_p-\bP_{\bY}))\eta_i \eta_i^\top
+\\
+&
+\quad -
+\left(\mytr(\bLambda_2)-n\mytr(\bLambda_2^2)/\mytr(\bLambda_2)\right)\bI_{k-1}
+\Bigg)
 \xrightarrow{\mathcal{L}} \bW_{k-1}.
+    \end{split}
 \end{equation}
 
 Note that $\sum_{i=1}^r \eta_i \eta_i^\top$ is independent of $
@@ -3058,7 +3154,8 @@ Then\eqref{lushang1} and \eqref{lushang2} implies that
     }
 }
 \bW_{k-1}
-+o_P(1).
+\\
+&+o_P(1).
     \end{split}
 \end{equation}
 This completes the proof of the first statement.
@@ -3099,7 +3196,8 @@ $
         -
         \bC^\top \bTheta^\top \bU_1 \bU_1^\top  \bTheta \bC
         \right\|
-        +
+        \\
+        &+
         \left\|
         \bC^\top \bTheta^\top \bP_{\bY,2} \bTheta \bC
         -
@@ -3162,21 +3260,24 @@ o_P\left(
 where the last equality follows from the law of large numbers, the local alternative condition and the condition $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
 But
 \begin{equation*}
+    \begin{split}
 \frac{n}{\mytr(\bLambda_2)}
         \left\|
         \bC^\top \bTheta^\top \bU_{2}\bLambda_2\bU_{2}^\top \bTheta \bC
         \right\|
-        \leq
+        \leq &
 \frac{n\blambda_2}{\mytr(\bLambda_2)}
         \left\|
         \bC^\top \bTheta^\top  \bTheta \bC
         \right\|
-        =
+        \\
+        = &
 o_P\left(
 \sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }
 \right).
+    \end{split}
 \end{equation*}
 Hence
         $\left\|\bC^\top \bTheta^\top \bP_{\bY,2}^\dagger \bTheta \bC\right\|=
@@ -3196,17 +3297,20 @@ o_P\left(
 $.
 Thus, the second term of~\eqref{eq:maindec} satisfies
 \begin{equation}\label{lushang5}
-        \left\|
+    \begin{split}
+        &\left\|
 \bC^\top \bTheta^\top (\bI_p-\bP_\bY)\bTheta \bC
         -
         \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
         \right\|
-        =
+        \\
+        =&
 o_P\left(
 \sqrt{
         rn^{-2} \mytr^2 (\bLambda_2) + \mytr(\bLambda_2^2)
 }
 \right).
+    \end{split}
 \end{equation}
 
 
@@ -3325,14 +3429,20 @@ Therefore,
     $n\blambda_1/\mytr(\bSigma)\to 0$.
     From Lemma \ref{lemma:con} and Weyl's inequality, we have
     \begin{equation*}
+        \begin{split}
         \lambda_1(\hat \bSigma) 
         =
+        &
         n^{-1}\lambda_1(\bZ^\top \bLambda \bZ) 
+        \\
         =
+        &
         n^{-1}\mytr( \bSigma ) +O_P\left(\sqrt{\frac{\mytr(\bSigma^2)}{n}}+\blambda_1\right)
-        =
+        \\
+        =&
         (1+o_P(1)) n^{-1}\mytr( \bSigma ) 
         .
+        \end{split}
     \end{equation*}
     From the proof of Corollary \ref{kuCor1}, we have $\mytr(\hat{\bSigma})=(1+o_P(1))\mytr(\bSigma)$.
     Therefore,

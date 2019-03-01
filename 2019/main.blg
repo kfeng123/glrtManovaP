@@ -7,45 +7,45 @@ Warning--no number and no volume in Cai2017Limiting
 Warning--page numbers missing in Cai2017Limiting
 Warning--no number and no volume in fan2017Dist
 Warning--page numbers missing in fan2017Dist
-You've used 33 entries,
+You've used 35 entries,
             2861 wiz_defined-function locations,
-            850 strings with 10467 characters,
-and the built_in function-call counts, 24352 in all, are:
-= -- 2062
-> -- 1823
+            865 strings with 10819 characters,
+and the built_in function-call counts, 25969 in all, are:
+= -- 2170
+> -- 1996
 < -- 0
-+ -- 554
-- -- 622
-* -- 2312
-:= -- 4372
-add.period$ -- 99
-call.type$ -- 33
-change.case$ -- 246
-chr.to.int$ -- 33
-cite$ -- 37
-duplicate$ -- 578
-empty$ -- 1461
-format.name$ -- 738
-if$ -- 4578
++ -- 610
+- -- 676
+* -- 2489
+:= -- 4680
+add.period$ -- 105
+call.type$ -- 35
+change.case$ -- 264
+chr.to.int$ -- 35
+cite$ -- 39
+duplicate$ -- 613
+empty$ -- 1537
+format.name$ -- 800
+if$ -- 4873
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 33
-newline$ -- 168
-num.names$ -- 330
-pop$ -- 147
+missing$ -- 36
+newline$ -- 178
+num.names$ -- 350
+pop$ -- 163
 preamble$ -- 1
-purify$ -- 444
+purify$ -- 475
 quote$ -- 0
-skip$ -- 637
+skip$ -- 672
 stack$ -- 0
-substring$ -- 1455
-swap$ -- 184
+substring$ -- 1503
+swap$ -- 194
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 660
+type$ -- 690
 warning$ -- 4
-while$ -- 309
+while$ -- 322
 width$ -- 0
-write$ -- 431
+write$ -- 458
 (There were 4 warnings)

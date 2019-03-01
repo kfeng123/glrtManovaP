@@ -6,6 +6,13 @@ Ahn, J. and J.~S. Marron ({2010}).
 \newblock {The maximal data piling direction for discrimination}.
 \newblock {\em Biometrika\/}~{\em {97}\/}({1}), {254--259}.
 
+\bibitem[\protect\citeauthoryear{Aoshima, Shen, Shen, Yata, Zhou, and
+  Marron}{Aoshima et~al.}{2018}]{aoshima2018A}
+Aoshima, M., D.~Shen, H.~Shen, K.~Yata, Y.-H. Zhou, and J.~S. Marron (2018).
+\newblock A survey of high dimension low sample size asymptotics.
+\newblock {\em Australian \& New Zealand Journal of Statistics\/}~{\em
+  60\/}(1), 4--19.
+
 \bibitem[\protect\citeauthoryear{Aoshima and Yata}{Aoshima and
   Yata}{2018}]{Aoshima2018}
 Aoshima, M. and K.~Yata (2018).
@@ -51,8 +58,8 @@ Cai, T.~T. and Y.~Xia ({2014}).
 Cao, M.-X., J.~Park, and D.-J. He (2019).
 \newblock A test for the $k$ sample behrens–fisher problem in high
   dimensional data.
-\newblock {\em Journal of Statistical Planning and Inference\/}~{\em 201}, 86
-  -- 102.
+\newblock {\em Journal of Statistical Planning and Inference\/}~{\em 201},
+  86--102.
 
 \bibitem[\protect\citeauthoryear{Chen and Qin}{Chen and Qin}{2010}]{Chen2010A}
 Chen, S.~X. and Y.-L. Qin ({2010}).
@@ -87,6 +94,13 @@ Hu, J., Z.~Bai, C.~Wang, and W.~Wang (2017).
   covariance matrices.
 \newblock {\em Annals of the Institute of Statistical Mathematics\/}~{\em
   69\/}(2), 365--387.
+
+\bibitem[\protect\citeauthoryear{Kagan, Linnik, and Rao}{Kagan
+  et~al.}{1973}]{KAGAN}
+Kagan, A., Y.~Linnik, and C.~Rao (1973).
+\newblock {\em Characterization Problems in Mathematical Statistics\/} (1st
+  ed.).
+\newblock New York: Wiley.
 
 \bibitem[\protect\citeauthoryear{Katayama, Kano, and Srivastava}{Katayama
   et~al.}{2013}]{Katayama2013Asymptotic}
