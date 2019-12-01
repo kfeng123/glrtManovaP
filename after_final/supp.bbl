@@ -1,0 +1,35 @@
+\begin{thebibliography}{}
+
+\bibitem[\protect\citeauthoryear{Cai, Ma, and Wu}{Cai
+  et~al.}{2015}]{Cai2015Optimal}
+Cai, T., Z.~Ma, and Y.~Wu (2015).
+\newblock Optimal estimation and rank detection for sparse spiked covariance
+  matrices.
+\newblock {\em Probability Theory \& Related Fields\/}~{\em 161\/}(3-4),
+  781--815.
+
+\bibitem[\protect\citeauthoryear{Chen, Zhang, and Zhong}{Chen
+  et~al.}{2010}]{chen2010tests}
+Chen, S.~X., L.~Zhang, and P.~Zhong (2010).
+\newblock Tests for high-dimensional covariance matrices.
+\newblock {\em Journal of the American Statistical Association\/}~{\em
+  105\/}(490), 810--819.
+
+\bibitem[\protect\citeauthoryear{Horn and Johnson}{Horn and
+  Johnson}{2012}]{Horn1985Matrix}
+Horn, R.~A. and C.~R. Johnson (2012).
+\newblock {\em Matrix Analysis\/} (2nd ed.).
+\newblock New York: Cambridge University Press.
+
+\bibitem[\protect\citeauthoryear{Laurent and Massart}{Laurent and
+  Massart}{2000}]{Laurent2000Adaptive}
+Laurent, B. and P.~Massart (2000).
+\newblock Adaptive estimation of a quadratic functional by model selection.
+\newblock {\em The Annals of Statistics\/}~{\em 28\/}(5), 1302--1338.
+
+\bibitem[\protect\citeauthoryear{Vershynin}{Vershynin}{2010}]{Vershynin2010Introduction}
+Vershynin, R. (2010).
+\newblock Introduction to the non-asymptotic analysis of random matrices.
+\newblock {\em arXiv preprint arXiv:1011.3027\/}.
+
+\end{thebibliography}
