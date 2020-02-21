@@ -153,19 +153,19 @@ Beijing Institute of Technology
 
 \begin{quotation}
 \noindent {\it Abstract:}
-This paper considers the problem of multivariate analysis of variance for normal samples in the high dimension medium sample size setting.
-    When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined since the likelihood function is unbounded.
-    Based on the unboundedness of the likelihood function, we propose a new test called the least favorable direction test.
+This study considers multivariate analysis of variance for normal samples in a high-dimensional medium sample size setting.
+    When the sample dimension is larger than the sample size, the classical likelihood ratio test is not defined, because the likelihood function is unbounded.
+    Based on this unboundedness, we propose a new test called the least favorable direction test.
     The asymptotic distributions of the test statistic are derived under both nonspiked and spiked covariances.
     The local asymptotic power function of the test is also given.
     %{\color{red}
     %These asymptotic results also hold under spiked covariance matrix which can characterize the strong correlations between variables.
 %}
-    The asymptotic power function and simulations show that the proposed test is particularly powerful under spiked covariance.
+    The results for the asymptotic power function and simulations show that the proposed test is particularly powerful under the spiked covariance.
 
 \vspace{9pt}
     \noindent {\it Key words and phrases:}
-    High dimensional data, least favorable direction test, multivariate analysis of variance, principal component analysis, spiked covariance.
+    High-dimensional data, least favorable direction test, multivariate analysis of variance, principal component analysis, spiked covariance.
 %Balanced incomplete block design, Hadamard matrix, nearly balanced incomplete block design, orthogonal array.
 \par
 \end{quotation}\par
@@ -185,18 +185,18 @@ This paper considers the problem of multivariate analysis of variance for normal
 \noindent {\bf 1. Introduction}
 
 Suppose there are $k$ ($k\geq 2$) independent samples of $p$-dimensional data.
-Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (iid) as $\mathcal{N}_p(\theta_i,\bSigma)$, the $p$-dimensional normal distribution with mean vector $\theta_i$ and common variance matrix $\bSigma$.
+Within the $i$th sample ($1\leq i\leq k$), the observations $\{X_{ij}\}_{j=1}^{n_i}$ are independent and identically distributed (i.i.d.) as $\mathcal{N}_p(\theta_i,\bSigma)$, which is a $p$-dimensional normal distribution with mean vector $\theta_i$ and common variance matrix $\bSigma$.
 %Suppose there are $k$ normal populations with possibly different means $\theta_1,\ldots,\theta_k$, but all with the same variance $\bSigma$.
 %Suppose we observe $k$ independent random samples, each from the distribution $\mathcal{N}_p(\theta_i,\bSigma)$, where $1\leq i\leq k$, $k\geq 2$ is a fixed constant, $\theta_i$ and $\bSigma$ are unknown parameters.
 %Denote by $X_{ij}\in \mathbb{R}^p$ the $j$th observation in group $i$, $j=1,\ldots,n_i$, $i=1,\ldots, k$,  where $n_i$ is the samples size of group $i$, $1\leq i \leq k$.
-We would like to test the hypotheses
+We test the following hypotheses:
 \begin{equation}\label{hypothesis}
-    H_0: \theta_1=\theta_2=\cdots=\theta_k\quad \text{v.s.}\quad　H_1: \text{$\theta_i\neq \theta_j$ for some $i\neq j$}.
+    H_0: \theta_1=\theta_2=\cdots=\theta_k\quad \text{vs.}\quad　H_1: \text{$\theta_i\neq \theta_j$, for some $i\neq j$}.
 \end{equation}
-This testing problem is known as one-way multivariate analysis of variance (MANOVA) and has been well studied when $p$ is small compared with $N$, where $N=\sum_{i=1}^k n_i$ is the total sample size.
+This testing problem is known as the one-way multivariate analysis of variance (MANOVA), and has been well studied when $p$ is small relative to $N$, where $N=\sum_{i=1}^k n_i$ is the total sample size.
 
-Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ be the sum-of-squares between groups and $\bG=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^\top$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$ and $\bar{\bX}=N^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
-   There are four classical test statistics for hypotheses~\eqref{hypothesis}, which are all based on the eigenvalues of $\bH\bG^{-1}$. 
+Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ be the sum-of-squares between groups, and let $\bG=\sum_{i=1}^k \sum_{j=1}^{n_i}(X_{ij}-\bar{\bX}_i)(X_{ij}-\bar{\bX}_i)^\top$ be the sum-of-squares within groups, where $\bar{\bX}_i=n_i^{-1}\sum_{j=1}^{n_i}X_{ij}$ is the sample mean of group $i$, and $\bar{\bX}=N^{-1}\sum_{i=1}^k\sum_{j=1}^{n_i}X_{ij}$ is the pooled sample mean.
+   There are four classical test statistics for hypotheses~\eqref{hypothesis}, all of which are based on the eigenvalues of $\bH\bG^{-1}$. 
 
 
        \begin{center}
@@ -204,7 +204,7 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ b
            \hline
        {Wilks' Lambda:} & $|\bG+\bH|/|\bG|$\\
        {Pillai trace:} & $\mytr[\bH(\bG+\bH)^{-1}]$\\
-       {Hotelling-Lawley trace:} & $\mytr[\bH \bG^{-1}]$\\
+       {Hotelling--Lawley trace:} & $\mytr[\bH \bG^{-1}]$\\
        {Roy's maximum root:} & $\lambda_{1}(\bH \bG^{-1})$\\
            \hline
            \end{tabular}
@@ -213,15 +213,15 @@ Let $\bH=\sum_{i=1}^k n_i (\bar{\bX}_i-\bar{\bX})(\bar{\bX}_i-\bar{\bX})^\top$ b
 %There are four classical tests for hypothesis~\eqref{hypothesis}: Wilks' Lambda (which is also the LRT), Hotelling-Lawley trace, Pillai Trace and Roy's maximum root.
 
 
-In some modern scientific applications, people would like to test hypotheses~\eqref{hypothesis} in high dimensional setting, i.e., $p$ is greater than $N$.
-See, e.g.,~\citet{Verstynen1209} and~\citet{Tsai2009}.
+In some modern scientific applications, researchers would like to test hypotheses~\eqref{hypothesis} in the high-dimensional setting, that is, where $p$ is greater than $N$;
+see, for example,~\citet{Verstynen1209} and~\citet{Tsai2009}.
 %However, when $p>n-k$, the LRT for hypothesis~\eqref{hypothesis} is not well defined.
-However, when $p\geq N$, the four classical test statistics are all not defined.
-  Researchers have done extensive work to study the testing problem~\eqref{hypothesis} in high dimensional setting.
- So far, numerous tests have been proposed for the case $k=2$.
- See, e.g.,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013} and \citet{Feng2014Two}.
-  Some tests have also been introduced for the case of general $k\geq 2$.
- \cite{Schott2007Some} modified Hotelling-Lawley trace and proposed the test statistic
+However, none of the four classical test statistics are defined when $p\geq N$.
+As a result, extensive research has been done on the testing problem~\eqref{hypothesis} in high-dimensional settings.
+ Thus far, numerous tests have been proposed for the case $k=2$;
+ see, for example,~\citet{Bai1996Efiect},~\cite{Srivastava2007Multivariate},~\citet{Chen2010A},~\citet{Tony2013}, and \citet{Feng2014Two}.
+  Tests have also been proposed for the general case of $k\geq 2$.
+ \cite{Schott2007Some} modified the Hotelling--Lawley trace and proposed the following test statistic:
   %$$
   %T_{SC}=\frac{1}{\sqrt{n-1}}\big(
   %\frac{1}{k-1}\mytr\big(\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^\top-n\bar{X}\bar{X}^\top\big)-\frac{1}{n-k}\mytr\big(\sum_{i=1}^k \sum_{j=1}^{n_i}X_{ij}X_{ij}^\top-\sum_{i=1}^k n_i\bar{X}_i\bar{X}_i^\top\big)
@@ -233,15 +233,15 @@ However, when $p\geq N$, the four classical test statistics are all not defined.
   \frac{1}{k-1}\mytr\big(\bH\big)-\frac{1}{N-k}\mytr\big(\bG\big)
   \Big).
   $$
-Statistic $T_{Sc}$ is a representative of the so-called sum-of-squares type statistics as it is based on an estimation of squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
-See~\cite{Srivastava2013},~\cite{Yamada2015},~\cite{Hu2017},~\cite{ZHANG2017200},~\cite{Chang2017} and~\cite{2017arXiv171007878C} for some other sum-of-squares type test statistics for general $k\geq 2$.
-It is known that the sum-of-squares type tests are particularly powerful against dense alternatives.
-In another work,~\cite{Cai2014High} proposed a test statistic 
+  Here, $T_{Sc}$ is a member of the so-called sum-of-squares statistics, because it is based on an estimation of the squared Euclidean norm $\sum_{i=1}^k n_i\|\theta_i-\bar{\theta}\|^2$, where $\bar{\theta}=N^{-1}\sum_{i=1}^k n_i \theta_i$.
+  See~\cite{Srivastava2013},~\cite{Yamada2015},~\cite{Hu2017},~\cite{ZHANG2017200},~\cite{Chang2017}, and~\cite{2017arXiv171007878C} for other sum-of-squares test statistics for $k\geq 2$.
+Sum-of-squares tests are known to be particularly powerful in the case of dense alternatives.
+In another work,~\cite{Cai2014High} proposed the test statistic 
   $$
   T_{CX}=\max_{1\leq i\leq p} \sum_{1\leq j<l\leq k}\frac{n_j n_l}{n_j+n_l}\frac{(\Omega(\bar{\bX}_j-\bar{\bX}_l))_i^2}{\omega_{ii}},
   $$
   where $\Omega=(\omega)_{ij}=\bSigma^{-1}$ is the precision matrix. When $\Omega$ is unknown, it is substituted by an estimator.
-  Unlike $T_{Sc}$, the test statistic $T_{CX}$ is an extreme value type one and is very powerful against sparse alternatives.
+  Unlike $T_{Sc}$, $T_{CX}$ is an extreme-value test statistic, and is powerful in the case of sparse alternatives.
   %Statistics $T_{CX}$ and $T_{SC}$ are the representatives of two popular methodologies for high dimensional tests.
   
   %Suppose $\{X_{i1},\ldots, X_{in_i}\}$ are iid\ distributed as $\mathcal{N}(\theta_i,\bSigma)$ for $1\leq i\leq K$.
@@ -252,12 +252,12 @@ In another work,~\cite{Cai2014High} proposed a test statistic
 %\end{equation}
 %The likelihood ratio test (LRT) has a dominated position in classical multivariate analysis.
 
-Most existing sum-of-squares type test procedures require the condition  $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
+Most existing sum-of-squares test procedures require the condition  $\mytr(\bSigma^4)/\mytr^2(\bSigma^2)\to 0$, which is equivalent to
 \begin{equation}\label{nonSpikedC}
     \frac{\blambda_1}{\sqrt{\mytr(\bSigma^2)}}\to 0,
 \end{equation}
-where $\blambda_i$ is the $i$th largest eigenvalue of $\bSigma$, $i=1,\ldots, p$.
-In fact, the equivalence of these two conditions can be seen from the inequalities,
+where $\blambda_i$ is the $i$th largest eigenvalue of $\bSigma$, for $i=1,\ldots, p$.
+In fact, the equivalence of these two conditions can be seen from the following inequalities:
 \begin{equation*}
     \frac{\blambda_1^4}{\mytr^2(\bSigma^2)} 
     \leq
@@ -266,54 +266,53 @@ In fact, the equivalence of these two conditions can be seen from the inequaliti
     \frac{\blambda_1^2 \mytr(\bSigma^2)}{\mytr^2(\bSigma^2)}
     =\frac{\blambda_1^2}{\mytr(\bSigma^2)}.
 \end{equation*}
-Condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked in the sense that it does not have significantly large eigenvalues.
+Condition \eqref{nonSpikedC} is reasonable if $\bSigma$ is nonspiked, in the sense that it does not have significantly large eigenvalues.
 %, which ensures the asymptotic normality of sum-of-squares type statistics.
-In some important situations, however, variables are heavily correlated with common factors, and the covariance matrix $\bSigma$ is thus spiked in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
-In such cases, condition \eqref{nonSpikedC} can be violated, and consequently, existing sum-of-squares type tests may not have correct level.
-Some adjusted sum-of-squares type test procedures have been proposed to solve the problem.
-See, e.g.,
-\cite{Katayama2013Asymptotic}, \cite{Ma2015A}, \cite{ZHANG2017200} and \cite{WANG2018}.
+However, in practice, variables may be heavily correlated with common factors, in which case, the covariance matrix $\bSigma$ is spiked, in the sense that a few eigenvalues of $\bSigma$ are significantly larger than the others~\citep{Fan2013Large,Cai2015Optimal,wang2017As}.
+In such cases, condition \eqref{nonSpikedC} can be violated and, consequently, existing sum-of-squares tests may not have the correct level.
+Adjusted sum-of-squares test procedures have been proposed to solve this problem;
+see, for example,
+\cite{Katayama2013Asymptotic}, \cite{Ma2015A}, \cite{ZHANG2017200}, and \cite{WANG2018}.
 However, the power behavior of these corrected tests may not be satisfactory.
 
-
-Recently, \cite{Aoshima2018} and \cite{WANG2018225} considered two sample mean testing problem under the spiked covariance model.
-These tests have better power behavior compared with sum-of-squares type tests.
-However, both papers imposed strong conditions on the magnitude of $p$.
-For example, under the approximate factor model in \cite{Fan2013Large}, the test in \cite{Aoshima2018} requires $p/N \to 0$, while the test in \cite{WANG2018225} requires that $p/N^2\to 0$ and the small eigenvalues of $\bSigma$ are all equal.
+Recently, \cite{Aoshima2018} and \cite{WANG2018225} considered a two-sample mean testing problem under the spiked covariance model.
+These tests have better power behavior than that of sum-of-squares tests.
+However, both studies imposed strong conditions on the magnitude of $p$.
+For example, under the approximate factor model in \cite{Fan2013Large}, the test in \cite{Aoshima2018} requires $p/N \to 0$, whereas the test in \cite{WANG2018225} requires that $p/N^2\to 0$ and that the small eigenvalues of $\bSigma$ are all equal.
 
    The likelihood ratio test (LRT) method has been very successful in leading to satisfactory procedures in many specific problems.
-    However, the LRT statistic for hypotheses~\eqref{hypothesis}, i.e. Wilks' Lambda statistic, is not defined for $p>N-k$.
-   In high dimensional setting, both sum-of-squares type statistics and extreme value type statistics are not based on likelihood function.
-    This motivates us to construct a likelihood-based test in high dimensional setting.
+    However, the LRT statistic for hypotheses~\eqref{hypothesis}, that is, Wilks' Lambda statistic, is not defined for $p>N-k$.
+   In the high-dimensional setting, neither the sum-of-squares nor the extreme-value statistics are based on the likelihood function.
+    This motivates us to construct a likelihood-based test in the high-dimensional setting.
     %Note that Roy's maximum root, one of the four classic test statistics, is derived by Roy's union intersection principle.
-    In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of one sample mean vector test.
+    In a recent work,~\cite{Zhao2016A} proposed a generalized likelihood ratio test in the context of the one-sample mean vector test.
     They used a least favorable argument to construct a generalized likelihood ratio test statistic.
     %They wrote the null hypothesis as the intersection of a class of component hypotheses.
     %For each component hypotheses, the likelihood ratio test is constructed.
-    Their simulation results showed that their test has good power performance, especially when the variables are correlated.
-    However, this phenomenon is not theoretically proved.
+    Their simulation results showed that their test exhibits good power performance, especially when the variables are correlated.
+    However, they do not provide a theoretical proof.
 
 
-    In this paper, we propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis} called least favorable direction (LFD) test statistic, which is a generalization of the test in \cite{Zhao2016A}.
+    We propose a generalized likelihood ratio test statistic for hypotheses~\eqref{hypothesis}, called the least favorable direction (LFD) test statistic, which is a generalization of the test in \cite{Zhao2016A}.
     We give the asymptotic distributions of the test statistic under both nonspiked and spiked covariances.
-    An adaptive LFD test procedure is constructed by consistently detecting unknown covariance structure and estimating unknown parameters.
+    An adaptive LFD test procedure is constructed by consistently detecting the unknown covariance structure and estimating the unknown parameters.
     The asymptotic local power function of the LFD test is also given.
     Our theoretical results show that the LFD test is particularly powerful under the spiked covariance.
     This explains the simulation results of~\cite{Zhao2016A}.
-    Compared with the work of \cite{Zhao2016A}, our main contribution is that we give a thorough theoretical analysis of the LFD test.
-    Our theoretical analysis fall into the high dimension medium sample size setting, where both $N,p\to \infty$, but $p/N\to \infty$ (see \cite{aoshima2018A}, Section 5).
+    Extending the work of \cite{Zhao2016A}, our main contribution is that we provide a thorough theoretical analysis of the LFD test.
+    This analysis falls within the high-dimensional medium sample size setting, where both $N,p\to \infty$, but $p/N\to \infty$ (see \cite{aoshima2018A}, Section 5).
     To prove our main results, we carefully study the high-order asymptotic behavior of the eigenvalues and eigenspaces of the sample covariance matrix.
-    These results are also of independent interests.
-    We further compare the proposed test procedure with existing tests by simulations.
-    It is shown that the LFD test has comparable behavior to existing sum-of-squares tests under the nonspiked covariance, while significantly outperforms competing tests under the spiked covariance.
+    These results are also of independent interest.
+    We further compare the proposed test procedure with existing tests using simulations.
+    Here, we show that the LFD test exhibits behavior comparable with that of existing sum-of-squares tests under the nonspiked covariance, while significantly outperforming competing tests under the spiked covariance.
 
     The rest of the paper is organized  as follows.
     In Section~\ref{methodology}, we propose the LFD test statistic and derive its explicit forms.
-    The asymptotic distributions of the LFD test statistic under both nonspiked and spiked covariances are given in Section \ref{THEO}.
+    The asymptotic distributions of the LFD test statistic under nonspiked and spiked covariances are given in Section \ref{THEO}.
     Based on these theoretical results, an adaptive LFD test procedure is proposed.
      Section~\ref{numerical} complements our study with numerical simulations.
-     In Section~\ref{concluding}, we give a short discussion.
-     Finally, the proofs are gathered in the supplementary material.
+     Section~\ref{concluding} concludes the paper.
+     Finally, the proofs are gathered in the Supplementary Material.
 
 
 
@@ -325,10 +324,10 @@ For example, under the approximate factor model in \cite{Fan2013Large}, the test
  
 \section{Least favorable direction test}\label{methodology}
 \setcounter{equation}{0} %-1
-We introduce some notations.
+We first introduce some necessary notation.
  Define the $p\times N$ pooled sample matrix $\bX$ as
  $$\bX=(X_{11},X_{12},\ldots,X_{1n_1},X_{21},X_{22},\ldots,X_{2n_2},\ldots,X_{k1},X_{k2},\ldots,X_{kn_k}).$$
- The sum-of-squares within groups $\bG$ can be written as $\bG=\bX(\bI_N-\bJ\bJ^\top)\bX^\top$ where
+ The sum-of-squares within groups $\bG$ can be written as $\bG=\bX(\bI_N-\bJ\bJ^\top)\bX^\top$, where
  $$
  \bJ=\begin{pmatrix}
      \frac{1}{\sqrt{n_1}}\mathbf{1}_{n_1}&\mathbf{0} & \mathbf{0}\\
@@ -337,8 +336,8 @@ We introduce some notations.
      \mathbf{0}&\mathbf{0}&\frac{1}{\sqrt{n_k}}\mathbf{1}_{n_k}
  \end{pmatrix}
  $$
- is an $N\times k$ matrix
- and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to $1$, $i=1,\ldots, k$.
+ is an $N\times k$ matrix,
+ and $\mathbf{1}_{n_i}$ is an $n_i$-dimensional vector with all elements equal to one, for $i=1,\ldots, k$.
  Let $n=N-k$ be the degrees of freedom of $\bG$.
  Construct an $N\times n$ matrix $\tilde{\bJ}$ as 
  $$
@@ -361,7 +360,7 @@ We introduce some notations.
  $$
 The matrix $\tilde{\bJ}$ is a column orthogonal matrix  satisfying $\tilde{\bJ}^\top\tilde{\bJ}=\bI_{n}$ and $\tilde{\bJ}\tilde{\bJ}^\top =\bI_N-\bJ\bJ^\top$.
 Define $\bY=\bX\tilde{\bJ}$.
-Then $\bG$ can be written as
+Then, $\bG$ can be written as
 $$\bG=
 \bY \bY^\top.
 $$
@@ -371,7 +370,7 @@ $$
         \bH=\bX(\bJ\bJ^\top-\frac{1}{N}\mathbf{1}_N\mathbf{1}_N^\top)\bX^\top
 =\bX \bJ(\bI_k-\frac{1}{N}\bJ^\top\mathbf{1}_N \mathbf{1}_N^\top \bJ)\bJ^\top \bX^\top.
 $$
-By some matrix algebra, we have $\bI_k-N^{-1}\bJ^\top\mathbf{1}_N \mathbf{1}_N^\top \bJ=\bC\bC^\top$
+By some matrix algebra, we have $\bI_k-N^{-1}\bJ^\top\mathbf{1}_N \mathbf{1}_N^\top \bJ=\bC\bC^\top$,
 where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
  $$
 \bC_1=\begin{pmatrix}
@@ -390,27 +389,27 @@ where $\bC$ is a $k\times (k-1)$ matrix defined as $\bC=\bC_1\bC_2$, and
     0&0&\cdots&\frac{(\sum_{i=1}^{k-1} n_i)(\sum_{i=1}^k n_i)}{n_{k}}\\
 \end{pmatrix}^{-\frac{1}{2}}.
 $$
-Then $\bH$ can be written as
+Then, $\bH$ can be written as
 \begin{equation*}
     \begin{aligned}
         \bH=\bX \bJ\bC \bC^\top \bJ^\top \bX^\top.
     \end{aligned}
 \end{equation*}
 Define $\bTheta=(\sqrt{n_1}\theta_1,\ldots,\sqrt{n_k}\theta_k)$.
- Then the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with $0$ entries.
+Then, the null hypothesis $H_0$ is equivalent to $\bTheta \bC=\bO_{p\times (k-1)}$, where $\bO_{p\times (k-1)}$ is a $p\times (k-1)$ matrix with all entries zero.
  Thus, the hypotheses~\eqref{hypothesis} are equivalent to
  $$
- H_0:\bTheta \bC=\bO_{p\times (k-1)}\quad \text{v.s.}\quad H_1: \bTheta \bC\neq \bO_{p\times (k-1)}.
+ H_0:\bTheta \bC=\bO_{p\times (k-1)}\quad \text{vs.}\quad H_1: \bTheta \bC\neq \bO_{p\times (k-1)}.
  $$
 
-In low dimensional setting, the testing problem~\eqref{hypothesis} is well studied.
-A classical test statistic is Roy's maximum root which is constructed by~\cite{Roy1953} using his well-known union intersection principle.
+The testing problem~\eqref{hypothesis} is well studied for low-dimensional settings.
+A classical test statistic is Roy's maximum root, constructed by~\cite{Roy1953} using his well-known union intersection principle.
 %The difficulty occurs when $p\geq n$, where the four classical test statistics can not be defined.
 %To construct test statistic in high dimensional setting, a simple idea is to reduce the problem~\eqref{hypothesis} to a class of univariate problems.
-        The key idea is to decompose data $\bX$ into a set of univariate data $\{\bX_{a}=a^\top \bX:\, a\in \mathbb{R}^p, a^\top a=1\}$.
-        This induces a decomposition of the null hypothesis and the alternative hypothesis:
+        The key idea is to decompose $\bX$ into a set of univariate data $\{\bX_{a}=a^\top \bX:\, a\in \mathbb{R}^p, a^\top a=1\}$.
+        This induces the following decompositions of the null and alternative hypotheses:
         $$
-        H_0=\bigcap_{a\in\mathbb{R}^p, a^\top a=1} H_{0a} \quad \text{v.s.} \quad 
+        H_0=\bigcap_{a\in\mathbb{R}^p, a^\top a=1} H_{0a} \quad \text{vs.} \quad 
         H_1=\bigcup_{a\in\mathbb{R}^p, a^\top a=1} H_{1a},
         $$
         where 
@@ -418,12 +417,12 @@ A classical test statistic is Roy's maximum root which is constructed by~\cite{R
 Let $L_0(a)$ and $L_1(a)$ be the maximum likelihood of $\bX_a$ under $H_{0a}$ and $H_{1a}$, respectively.
 For each $a$ satisfying $a^\top a=1$, the component LRT statistic
 $$ \frac{L_1(a)}{L_0(a)}=\Big(\frac{a^\top(\bG+\bH) a}{a^\top \bG a}\Big)^{N/2}$$
-can be used to test $H_{0a}$ v.s. $H_{1a}$. 
-Using union intersection principle, Roy proposed the test statistic
+can be used to test $H_{0a}$ versus $H_{1a}$. 
+Using the union intersection principle, Roy proposed the test statistic
 $
 \max_{a^\top a=1}  {L_1(a)}/{L_0(a)}=(1+\lambda_{1}(\bH\bG^{-1}))^{N/2},
 $
-where $\lambda_{i}(\cdot)$ means the $i$th largest eigenvalue.
+where $\lambda_{i}(\cdot)$ denotes the $i$th largest eigenvalue.
 This statistic is an increasing function of Roy's maximum root.
 %It turns out that many tests in the literature can be derived by the above strategy.
 %While the LRT may be the best choice of univariate problems in step 2,
@@ -483,18 +482,18 @@ This statistic is an increasing function of Roy's maximum root.
 %In fact, if $p>n-k$, $G$ is not invertible and $T_a$ is not defined for some $a$. 
 %We will follow~\citet{Zhao2016A}'s idea and propose a new test statistic for $p>n-k$.
 
-From a likelihood point of view, log likelihood ratio is an estimator of the Kullback-Leibler divergence between the true distribution and the null distribution.
-Hence the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true distribution and the null distribution along the direction $a$.
+From a likelihood point of view, the log likelihood ratio is an estimator of the Kullback--Leibler divergence between the true distribution and the null distribution.
+Hence, the component LRT statistic $L_1(a)/L_0(a)$ characterizes the discrepancy between  the true and the null distribution along the direction $a$.
 %By maximizing $ (L_1(a)/L_0 (a))$, 
 %one obtains component hypothesis $H_{0a^*}$, where $a^*=\argmax_{a^\top a=1}(L_1(a)/L_0(a))$. 
 This motivates us to consider the direction 
 \begin{equation}\label{LFDdef1}
-    a^*=\argmax_{a^\top a=1}\frac{L_1(a)}{L_0(a)}
+    a^*=\argmax_{a^\top a=1}\frac{L_1(a)}{L_0(a)},
 \end{equation}
-which can hopefully achieve the largest discrepancy between the true distribution and the null distribution.
-Thus, $H_{0a^*}$ is the component null hypothesis most likely to be not true.
-We shall call $a^*$ the least favorable direction. %and $H_{0a^*}$ the least favorable hypothesis
-Roy's maximum root is in fact the component LRT statistic along the least favorable direction.
+which hopefully yields the largest discrepancy between the true and the null distribution.
+Thus, $H_{0a^*}$ is the component null hypothesis least likely to be true.
+We call $a^*$ the least favorable direction. %and $H_{0a^*}$ the least favorable hypothesis
+Note that Roy's maximum root is the component LRT statistic along the least favorable direction.
 
 
 
@@ -523,7 +522,7 @@ Roy's maximum root is in fact the component LRT statistic along the least favora
 %Since $a^{*T}G a^*=0$, we propose the following test statistic for $H$:
 
 
-Unfortunately, Roy's maximum root can only be defined when $n\geq p$, hence can not be used in high dimensional setting.
+Unfortunately, Roy's maximum root can only be defined when $n\geq p$, and hence cannot be used in the high-dimensional setting.
 %While it is hard to generalize Roy's maximum root to high dimensional setting, the least favorable hypothesis $a^*$ can be formally generalized to high dimensional setting.
 In what follows, we assume $p>n$.
 %The essence of Roy's union intersection principle is to find a direction $a$ along which $\text{LRT}_a$ is maximized.
@@ -531,15 +530,15 @@ In what follows, we assume $p>n$.
 In this case,
 the set
 $$\mathcal{A}\overset{def}{=}\{a:L_1(a)=+\infty, \, a^\top a=1\}=\{a:a^\top \bG a=0, \, a^\top a=1\}$$
-is not empty since $\bG$ is singular. 
-Consequently, the right hand side of~\eqref{LFDdef1} is not well defined since the ratio involves infinity.
-Hence we need a new definition for LFD in high dimensional setting.
+is not empty because $\bG$ is singular. 
+Consequently, the right-hand side of~\eqref{LFDdef1} is not well defined because the ratio involves infinity.
+Hence, we need a new definition for the LFD in the high-dimensional setting.
 Define
 $$\mathcal{B}=\{a:L_0(a)=+\infty, \, a^\top a=1\}=\{a:a^\top (\bG+\bH)a= 0, \, a^\top a=1\}.$$
-It can be seen that $\mathcal{B}\subset \mathcal{A}$.
-Moreover, by the independence of $\bG$ and $\bH$, with probability $1$, we have $\mathcal{A}\cap \mathcal{B}^c\neq \emptyset$.
-Then for any direction $a$, there are three possible scenarios: $L_1(a)<+\infty$ and $L_0(a)<+\infty$; $L_1(a)=+\infty$ and $L_0(a)<+\infty$; $L_1(a)=+\infty$ and $L_0(a)=+\infty$.
-To maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, one may consider the direction $a$ such that $L_1(a)=+\infty$ and $L_0(a)<+\infty$.
+Note that $\mathcal{B}\subset \mathcal{A}$.
+Moreover, by the independence of $\bG$ and $\bH$, with probability one, we have $\mathcal{A}\cap \mathcal{B}^c\neq \emptyset$.
+Then, for any direction $a$, there are three possible scenarios: $L_1(a)<+\infty$ and $L_0(a)<+\infty$; $L_1(a)=+\infty$ and $L_0(a)<+\infty$; and $L_1(a)=+\infty$ and $L_0(a)=+\infty$.
+To maximize the discrepancy between $L_1(a)$ and $L_0(a)$, one may consider the direction $a$ such that $L_1(a)=+\infty$ and $L_0(a)<+\infty$.
 This suggests that the least favorable direction $a^*$, which hopefully maximizes the discrepancy between $L_1(a)$ and $L_0(a)$, should be defined as $a^* = \argmin_{a\in\mathcal{A}\cap\mathcal{B}^c} L_0 (a)$.
 %and take $H_{a^*}$ as the least favorable hypothesis.
 Equivalently,
@@ -548,7 +547,7 @@ $$
     a^*&=\argmin_{a\in \mathcal{A}\cap\mathcal{B}^c} L_0(a) = \argmax_{a^\top a=1,a^\top Ga=0} {a^\top \bH a}.
 \end{aligned}
 $$
-Based on $a^*$ and the likelihood $L_0(a)$, we propose a new test statistic
+Based on $a^*$ and the likelihood $L_0(a)$, we propose a new test statistic,
 \begin{equation*}
     \begin{aligned}
         T(\bX)=a^{*T} \bH a^*
@@ -557,16 +556,16 @@ Based on $a^*$ and the likelihood $L_0(a)$, we propose a new test statistic
         a^\top \bH a.
     \end{aligned}
 \end{equation*}
-The null hypothesis is rejected when $T(\bX)$ is large enough.
-We shall call $T(\bX)$ the LFD test statistic.
-Since the least favorable direction $a^*$ is obtained from the component likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
+The null hypothesis is rejected when $T(\bX)$ is sufficiently large.
+We call $T(\bX)$ the LFD test statistic.
+Because the least favorable direction $a^*$ is obtained from the component likelihood function, the statistic $T(\bX)$ is also a generalized likelihood ratio test statistic.
 %The above method is first proposed by~\cite{Zhao2016A} in the context of testing one sample mean vector.
 %The idea of generalized likelihood ratio test is first proposed by~\citet{Zhao2016A}.
 
-Now we derive the explicit forms of the LFD test statistic. 
-Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times \min(n,p)$ and $n \times \min(n,p)$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is a $\min(n,p)\times \min(n,p)$ diagonal matrix whose diagonal elements are the non-increasingly ordered singular values of $\bY$.
+Now, we derive the explicit forms of the LFD test statistic. 
+Let $\bY=\bU_{\bY}\bD_{\bY}\bV_{\bY}^\top$ be the singular value decomposition of $\bY$, where $\bU_{\bY}$ and $\bV_{\bY}$ are $p\times \min(n,p)$ and $n \times \min(n,p)$ column orthogonal matrices, respectively, and $\bD_{\bY}$ is a $\min(n,p)\times \min(n,p)$ diagonal matrix, with diagonal elements comprising the non-increasingly ordered singular values of $\bY$.
 If $p>n$, let $\bP_{\bY}=\bU_{\bY}\bU_{\bY}^\top$ be the projection matrix onto the column space of $\bY$.
-Then Lemma 1 in supplementary material implies that for $p>n$,
+Then, Lemma $1$ in the Supplementary Material implies that, for $p>n$,
 \begin{equation}\label{statisticForm1}
 \begin{aligned}
     T(\bX)
@@ -579,7 +578,7 @@ Then Lemma 1 in supplementary material implies that for $p>n$,
 \end{aligned}
 \end{equation}
 
-While~\eqref{statisticForm1} is convenient for theoretical analysis, it is not convenient for computation.
+Although~\eqref{statisticForm1} is convenient for the theoretical analysis, it is not convenient for computation.
 When $p>N$, another simple form of $T(\bX)$ can be used for computation.
 %where $\bP_\bA=Z\tilde{J}{(\tilde{J}^\top Z^\top Z\tilde{J})}^{-1}\tilde{J}^\top Z^\top$.
 If $p>N$, then $\bX^\top \bX$ is invertible.
@@ -609,7 +608,7 @@ By the relationship
         \end{pmatrix}
     \end{aligned}
 \end{equation*}
-and matrix inverse formula, we have that
+and the matrix inverse formula, we have that
 \begin{equation*}
     \begin{aligned}
         \big( \bJ^\top {(\bX^\top \bX)}^{-1}\bJ \big)^{-1}
@@ -626,12 +625,12 @@ Thus,
         \lambda_1 \Big(\bC^\top\big( \bJ^\top (\bX^\top \bX)^{-1}\bJ \big)^{-1}\bC\Big).
     \end{aligned}
 \end{equation}
-Compared with~\eqref{statisticForm1}, the expression~\eqref{statisticForm2} doesn't involve $\bP_{\bY}$ and is more convenient for computation.
+Compared with~\eqref{statisticForm1}, the expression in~\eqref{statisticForm2} does not involve $\bP_{\bY}$ and, thus, is more convenient for computation.
 
 In the case of $k=2$, it can be seen that the least favorable direction is proportional to
 $
 (\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)
-$ and the LFD test statistic has expression
+$, and the LFD test statistic has expression
 $$
 T(\bX)=\frac{n_1 n_2}{n_1+n_2}\| (\bI_p-\bP_{\bY}) (\bar{\bX}_1-\bar{\bX}_2)\|^2.
 $$
@@ -640,11 +639,11 @@ the least favorable direction coincides with the maximal data piling direction p
 
 \section{Theoretical analysis}\label{THEO}
 \setcounter{equation}{0} %-1
-We now turn to the analysis of the asymptotic distributions of the LFD test statistic.
-The normality of the observations is an important assumption for our results and will be assumed throughout this section.
-We shall give theoretical results under both nonspiked and spiked covariances.
-Based on these results, an adaptive test with asymptotically correct level can be constructed.
-Also, these results allow us to derive the local asymptotic power function of LFD test.
+We now analyze the asymptotic distributions of the LFD test statistic.
+The normality of the observations is an important assumption for our results, and is assumed throughout this section.
+We present theoretical results under both nonspiked and spiked covariances.
+Based on these results, we construct an adaptive test with an asymptotically correct level.
+In addition, these results allow us to derive the local asymptotic power function of the LFD test.
 
 
 
@@ -657,13 +656,13 @@ Also, these results allow us to derive the local asymptotic power function of LF
 \subsection{Nonspiked covariance}
 
 In this subsection, we establish the asymptotic distribution of $T(\bX)$ under the nonspiked covariance.
-Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix whose entries above the main diagonal are iid $\mathcal{N}(0,1)$ random variables and the entries on the diagonal are iid $\mathcal{N}(0,2)$ random variables.
+Let $\bW_{k-1}$ be a $(k-1)\times(k-1)$ symmetric random matrix in which the entries above the main diagonal are i.i.d. $\mathcal{N}(0,1)$ random variables, and the entries on the diagonal are i.i.d. $\mathcal{N}(0,2)$ random variables.
 The following theorem establishes the asymptotic distribution of the LFD test statistic.
 \begin{theorem}
     \label{fenTheorem1}
     Suppose as $n,p\to \infty$, condition \eqref{nonSpikedC} holds.
-    Furthermore, suppose that $n\blambda_1/\mytr(\bSigma)\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$.
-    Then under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{\mytr(\bSigma^2)})$,
+    Furthermore, suppose $n\blambda_1/\mytr(\bSigma)\to 0$ and $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$.
+    Then, under the local alternative hypothesis $\|\bC^\top \bTheta^\top \bTheta \bC\|=O(\sqrt{\mytr(\bSigma^2)})$,
     \begin{equation*}
         \frac{T(\bX)-\left(\mytr(\bSigma)-n\mytr(\bSigma^2)/\mytr(\bSigma)\right)}{\sqrt{\mytr(\bSigma^2)}}
         \sim
@@ -674,13 +673,13 @@ The following theorem establishes the asymptotic distribution of the LFD test st
 \end{theorem}
 \begin{remark}
     The condition $n\blambda_{1}/\mytr(\bSigma)\to 0$ implies $p/n \to \infty$.
-    Hence $T(\bX)$ is well defined for large $n$.
-    The condition $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$ requires that the range of the eigenvalues of $\bSigma$ is not too large.
+    Hence, $T(\bX)$ is well defined for large $n$.
+    The condition $\blambda_1-\blambda_p=O(n^{-1}\sqrt{\mytr(\bSigma^2)})$ requires that the range of the eigenvalues of $\bSigma$ not be too large.
 \end{remark}
 To centralize $T(\bX)$ % formulate a test procedure with asymptotically correct level 
-under the conditions of Theorem \ref{fenTheorem1}, the parameters $\mytr(\bSigma)$ and $\mytr(\bSigma^2)$ should be estimated.
+under the conditions of Theorem \ref{fenTheorem1}, we need to estimate the parameters $\mytr(\bSigma)$ and $\mytr(\bSigma^2)$.
 Let $\hat{\bSigma}=n^{-1}\bG=n^{-1}\bY\bY^\top$ be the sample covariance matrix.
-We use the following simple estimators,
+We use the following simple estimators:
 \begin{equation*}
     \widehat{\mytr(\bSigma)}=\mytr(\hat{\bSigma}),
     \quad
@@ -692,7 +691,7 @@ Q_1=
 \frac{T(\bX)-\left(\widehat{\mytr(\bSigma)}-n\widehat{\mytr(\bSigma^2)}/\widehat{\mytr(\bSigma)}\right)}{\sqrt{\widehat{\mytr(\bSigma^2)}}}.
 $$
 Let $F_1(x)$ be the cumulative distribution function of $\lambda_{1}(\bW_{k-1})$.
-Then we reject the null hypothesis if $Q_1> F_1^{-1}(1-\alpha)$.
+Then, we reject the null hypothesis if $Q_1> F_1^{-1}(1-\alpha)$.
 The following corollary gives the asymptotic local power function of the proposed test under the nonspiked covariance.
 \begin{corollary}\label{kuCor1}
     Under the conditions of Theorem \ref{fenTheorem1}, 
@@ -710,7 +709,7 @@ The following corollary gives the asymptotic local power function of the propose
         \end{split}
     \end{equation*}
 \end{corollary}
-Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test has similar power behavior to existing sum-of-squares type tests.
+Corollary \ref{kuCor1} shows that under the nonspiked covariance, the LFD test exhibits power behavior similar to that of existing sum-of-squares tests.
 In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{kuCor1} is equal to the asymptotic local power function of the tests in~\citet{Bai1996Efiect} and~\citet{Chen2010A}.
 
 
@@ -719,25 +718,22 @@ In fact, if $k=2$, the asymptotic local power function given by Corollary \ref{k
 \subsection{Spiked covariance}
 
 
-Now we derive the asymptotic results under the spiked covariance, which are much more involved than the nonspiked case.
+Now, we derive the asymptotic results under the spiked covariance, which is more involved than the nonspiked case.
 %Let $\blambda_1\geq\cdots \geq \blambda_p$ denote the non-increasingly ordered eigenvalues of $\bSigma$.
 Let $\bSigma= \bU\bLambda \bU^\top$ denote the eigenvalue decomposition of $\bSigma$, where $\bLambda =\mydiag (\blambda_1,\ldots,\blambda_p)$ and $\bU$ is an orthogonal matrix.
 Suppose that $\bSigma$ has $r$ spiked eigenvalues, where $1\leq r\leq p$ can also vary as $n,p\to \infty$.
-    We shall first assume the spiked number $r$ is known.
-    Adaptation to unknown $r$ will be considered latter.
+    We first assume the spiked number $r$ is known.
+    We latter consider the adaptation to unknown $r$.
 Denote $\bLambda_1=\mydiag(\blambda_1,\ldots,\blambda_r)$ and $\bLambda_2=\mydiag(\blambda_{r+1},\ldots,\blambda_p)$.
-Correspondingly, we denote $\bU=(\bU_1,\bU_2)$ where $\bU_1$ and $\bU_2$ are the first $r$ columns and the last $p-r$ columns of $\bU$.
-Then $\bSigma=\bU_1\bLambda_1 \bU_1^\top+\bU_2\bLambda_2 \bU_2^\top$.
+Correspondingly, we denote $\bU=(\bU_1,\bU_2)$, where $\bU_1$ and $\bU_2$ are the first $r$ columns and the last $p-r$ columns, respectively, of $\bU$.
+Then, $\bSigma=\bU_1\bLambda_1 \bU_1^\top+\bU_2\bLambda_2 \bU_2^\top$.
 
-
-
-
-First we shall derive the asymptotic properties of the eigenvalues and eigenspaces of the sample covariance matrix $\hat{\bSigma}$ since they play a key role in our latter analysis.
+First, we derive the asymptotic properties of the eigenvalues and eigenspaces of the sample covariance matrix $\hat{\bSigma}$, because these play a key role in our later analysis.
     The following proposition gives the asymptotic behavior of $\lambda_1(\hat{\bSigma}),\ldots, \lambda_r(\hat{\bSigma})$ and $\sum_{i=r+1}^n\lambda_i(\hat{\bSigma})$.
 \begin{proposition}
     \label{eigenvalueProp}
-    Suppose that $r\leq n$.
-    Then uniformly for $i=1,\ldots, r$, 
+    Suppose $r\leq n$.
+    Then, uniformly for $i=1,\ldots, r$, 
 \begin{equation*}
         %\lambda_i\left(n^{-1}\bZ^\top \bLambda \bZ\right)
     \lambda_i(\hat{\bSigma})
@@ -745,7 +741,7 @@ First we shall derive the asymptotic properties of the eigenvalues and eigenspac
         \blambda_i
         +
         n^{-1}\mytr(\bLambda_2)
-        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right);
+        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right)
     \end{equation*}
         and
 \begin{equation*}
@@ -758,33 +754,31 @@ First we shall derive the asymptotic properties of the eigenvalues and eigenspac
 \end{proposition}
 
 \begin{remark}
-    Recently, the asymptotic behavior of the spiked eigenvalues of the sample covariance matrix is actively studied.
-    See, e.g., \cite{Yata2013PCA,Shen2016A,wang2017As,Cai2017Limiting}.
-    An important improvement of Proposition~\ref{eigenvalueProp} over existing results is that Proposition~\ref{eigenvalueProp} does not impose any condition for the structure of $\bSigma$ while still gives the correct convergence rate.
+Recent works have examined the asymptotic behavior of the spiked eigenvalues of the sample covariance matrix; see, for example, \cite{Yata2013PCA}, \cite{Shen2016A}, \cite{wang2017As}, and \cite{Cai2017Limiting}.
+An important improvement of Proposition~\ref{eigenvalueProp} over existing results is that Proposition~\ref{eigenvalueProp} does not impose any conditions on the structure of $\bSigma$, but still gives the correct convergence rate.
 \end{remark}
 
-Based on Proposition~\ref{eigenvalueProp}, we propose the following estimators of  $\mytr(\bLambda_2)$ and $\blambda_1,\ldots,\blambda_r$,
+Based on Proposition~\ref{eigenvalueProp}, we propose the following estimators of  $\mytr(\bLambda_2)$ and $\blambda_1,\ldots,\blambda_r$:
 \begin{equation*}
     \widehat{\mytr(\bLambda_2)}=\left(1-\frac{r}{n}\right)^{-1}\sum_{i=r+1}^n \lambda_i (\hat{\bSigma})
     ,\quad
     \hat{\blambda}_i=\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)},\quad i=1,\ldots,r.
 \end{equation*}
-Moreover, our latter analysis requires an estimator of $\mytr(\bLambda_2^2)$.
-We propose the following estimator of $\mytr(\bLambda_2^2)$,
+Moreover, we propose the following estimator of $\mytr(\bLambda_2^2)$, which we use in our later analysis:
 \begin{equation*}
     \widehat{\mytr(\bLambda_2^2)}=\sum_{i=r+1}^n \left(\lambda_i(\hat{\bSigma})-n^{-1}\widehat{\mytr(\bLambda_2)}\right)^2.
 \end{equation*}
 The following proposition gives the convergence rate of these estimators.
 \begin{proposition}
     \label{eigenvalueProp:R3}
-    Suppose that $r=o(n)$.
-    Then uniformly for $i=1,\ldots, r$, 
+    Suppose $r=o(n)$.
+    Then, uniformly for $i=1,\ldots, r$, 
 \begin{equation*}
         %\lambda_i\left(n^{-1}\bZ^\top \bLambda \bZ\right)
     \hat{\blambda}_i
         =
         \blambda_i
-        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right);
+        +O_P\left(\blambda_i \sqrt{\frac{r}{n}}+\sqrt{\frac{\mytr(\bLambda_2^2)}{ n}}+\blambda_{r+1}\right)
 \end{equation*}
 and
 \begin{align*}
@@ -798,38 +792,39 @@ and
 \end{align*}
 \end{proposition}
 \begin{remark}
-    Our estimators of $\blambda_1,\ldots, \blambda_r$ and $\mytr(\bLambda_2)$ are similar to some existing estimators, e.g., the noise-reduction estimators in~\cite{YATA2012193} and the estimators in~\cite{wang2017As}.
-    However, their theoretical results require that $r$ is fixed, $p$ is not large and $\bSigma$ satisfies certain spiked covariance models.
+    Our estimators of $\blambda_1,\ldots, \blambda_r$ and $\mytr(\bLambda_2)$ are similar to some existing estimators, including the noise-reduction estimators of~\cite{YATA2012193} and the estimators of~\cite{wang2017As}.
+    However, their theoretical results require that $r$ is fixed, $p$ is not large, and $\bSigma$ satisfies certain spiked covariance models.
 \end{remark}
 
 \begin{remark}
     The estimation of $\mytr(\bLambda_2^2)$ is relatively unexplored.
-    Recently, \cite{Aoshima2018} proposed an estimator of $\mytr(\bLambda_2^2)$ by using the cross-data-matrix methodology.
+    Recently, \cite{Aoshima2018} proposed an estimator of $\mytr(\bLambda_2^2)$ based on the cross-data-matrix methodology.
     They also proved the consistency of their estimator.
-    Their method relies, however,  on an arbitrary split of the data into two samples of equal size.
+    However, their method relies on an arbitrary split of the data into two samples of equal size.
     %In comparison, our estimator does not suffer from this problem.
     %Moreover, we give the consistency rate of our estimator.
 \end{remark}
 
-Next we consider the asymptotic behavior of the eigenspaces of $\hat{\bSigma}$.
+Next, we consider the asymptotic behavior of the eigenspaces of $\hat{\bSigma}$.
 Let $\bU_{\bY,1}$ denote the first $r$ columns of $\bU_{\bY}$.
-Then the columns of $\bU_{\bY,1}$ are the principal eigenvectors of $\hat{\bSigma}$, and $\bP_{\bY,1}=\bU_{\bY,1}\bU_{\bY,1}^\top$ is the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
-The properties of $\bP_{\bY,1}$ and individual principal eigenvectors have been extensively studied.
-See \cite{Cai2015Optimal}, \cite{Shen2016A}, \cite{wang2017As} and the references therein.
-The existing results include the consistency of the principal subspace and the high-order asymptotic behavior of the individual principal eigenvectors.
-However, these results are not enough for our latter analysis.
+Then, the columns of $\bU_{\bY,1}$ are the principal eigenvectors of $\hat{\bSigma}$, and $\bP_{\bY,1}=\bU_{\bY,1}\bU_{\bY,1}^\top$ is the projection matrix onto the rank $r$ principal subspace of $\hat{\bSigma}$.
+The properties of $\bP_{\bY,1}$ and the individual principal eigenvectors have been studied extensively.
+See \cite{Cai2015Optimal}, \cite{Shen2016A}, and \cite{wang2017As}, and the references therein.
+Existing results include the consistency of the principal subspace and the high-order asymptotic behavior of the individual principal eigenvectors.
+However, these results are not sufficient for our analysis.
 The following proposition gives the high-order asymptotic behavior of $\bP_{\bY,1}$.
-To the best of our knowledge, such result has never appeared in the literature before.
+To the best of our knowledge, this is a novel result in the literature.
 
 
 
-Write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ is a $p\times n$ random matrix with iid $\mathcal{N}(0,1)$ entries.
-    Then $\bY=\bU_1 \bLambda_1^{1/2} \bZ_1 +\bU_2 \bLambda_2^{1/2} \bZ_2$, where $\bZ_1$ and $\bZ_2$ are the first $r$ rows and last $p-r$ rows of $\bZ$.
+Write $\bY=\bU\bLambda^{1/2}\bZ$, where $\bZ$ is a $p\times n$ random matrix with i.i.d. $\mathcal{N}(0,1)$ entries.
+Then, $\bY=\bU_1 \bLambda_1^{1/2} \bZ_1 +\bU_2 \bLambda_2^{1/2} \bZ_2$, where $\bZ_1$ and $\bZ_2$ are the first $r$ rows and the last $p-r$ rows, respectively, of $\bZ$.
 
 
 
 \begin{proposition}\label{newEigenvectorPropCor}
-    Suppose that $r=o(n)$, $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ and $r \blambda_{r+1}/\mytr(\bLambda_2)\to 0$. Then
+    Suppose $r=o(n)$, $\mytr(\bLambda_2)/(n\blambda_r)\to 0$, and $r \blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+    Then,
     \begin{equation*}
         \left\|\bP_{\bY,1} - 
         \bP_{\bY,1}^{\dagger}\right\|
@@ -841,36 +836,35 @@ $
 \bP_{\bY,1}^{\dagger}
 =\bU_1 \bU_1^\top + \bU_1 \bQ^\top \bU_2^\top
             +\bU_2 \bQ \bU_1^\top
-            $ and 
+            $, and 
 $\bQ
        =
        \bLambda_2^{1/2} \bZ_2 \bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1} \bLambda_1^{-1/2}
        $.
 \end{proposition}
 \begin{remark}
-    The condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ is commonly adopted in the study of the principal subspaces.
-    In fact, when this condition is violated, the principal subspace will lose its relation to the rank $r$ eigenspace of $\bSigma$. See, e.g., \cite{Nadler2009Finite}.
+    The condition $\mytr(\bLambda_2)/(n\blambda_r)\to 0$ is commonly adopted in studies on principal subspaces.
+    In fact, when this condition is violated, the principal subspace loses its relation to the rank-$r$ eigenspace of $\bSigma$; see, for example, \cite{Nadler2009Finite}.
 \end{remark}
 \begin{remark}
-    Recently, some high-order Davis-Kahan theorems are established, e.g., Lemma 2 in \cite{koltchinskii2016} and Lemma 2 in \cite{fan2017Dist}.
-    These general results explicitly characterizes the linear term and high-order error on rank $r$ eigenspace due to matrix perturbation.
-    By applying these results to $\hat{\bSigma}$ and $\bSigma$, one can obtain similar results to Proposition \ref{newEigenvectorPropCor}.
-    Compared with Proposition \ref{newEigenvectorPropCor},
-    however, the results so obtained are slightly weaker and requires stronger conditions. 
+    Several high-order Davis--Kahan theorems have been established, for example, Lemma 2 in \cite{koltchinskii2016} and Lemma 2 in \cite{fan2017Dist}.
+    These general results explicitly characterize the linear term and the high-order error on the rank-$r$ eigenspace due to matrix perturbation.
+    Applying these results to $\hat{\bSigma}$ and $\bSigma$, we can obtain similar results to that given in Proposition \ref{newEigenvectorPropCor};
+    however, the above results are slightly weaker and require stronger conditions. 
     %Lemma 2 in \cite{fan2017Dist} uses Frobenius norm and Lemma 2 in \cite{koltchinskii2016} contains an extra factor.
 \end{remark}
 
 If $p>n$, let $\bU_{\bY,2}$ be the $r+1$ to $n$th columns of $\bU_{\bY}$.
-Then $\bP_{\bY,2}=\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the $r+1$ to $n$th eigenvectors of $\hat{\bSigma}$.
-Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, which has not been considered in the literature.
+Then, $\bP_{\bY,2}=\bU_{\bY,2}\bU_{\bY,2}^\top$ is the projection matrix onto the eigenspace spanned by the $r+1$ to $n$th eigenvectors of $\hat{\bSigma}$.
+Our later analysis also requires the asymptotic properties of $\bP_{\bY,2}$, which have not been considered in the literature.
     Let $\bV_{\bZ_1}=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1/2}$.
-    Then $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
-    Let $\tilde{\bV}_{\bZ_1}$ be a $n\times (n-r)$ column orthogonal matrix which satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
+    Then, $\bV_{\bZ_1}\bV_{\bZ_1}^\top=\bZ_1^\top (\bZ_1 \bZ_1^\top)^{-1}\bZ_1$ is the projection matrix onto the row space of $\bZ_1$.
+    Let $\tilde{\bV}_{\bZ_1}$ be an $n\times (n-r)$ column orthogonal matrix that satisfies $\tilde{\bV}_{\bZ_1}\tilde{\bV}_{\bZ_1}^\top= \bI_{n}-\bV_{\bZ_1}\bV_{\bZ_1}^\top$.
     The following proposition gives the asymptotic behavior of $\bP_{\bY,2}$.
 
 \begin{proposition}
     \label{eigenvectorprop3}
-    Suppose that $r=o(n)$, $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$ and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then
+    Suppose $r=o(n)$, $\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$, and $n\blambda_{r+1} /\mytr(\bLambda_2)\to 0$. Then,
     \begin{equation*}
             \left\|\bP_{\bY,2}-
             \bP_{\bY,2}^{\dagger}
@@ -894,13 +888,13 @@ Our latter analysis also requires the asymptotic properties of $\bP_{\bY,2}$, wh
 \end{remark}
 
 
-Now we are ready to derive the asymptotic properties of $T(\bX)$ under the spiked covariance.
-Let $\bW^*_{k-1}$ be a $(k-1)\times (k-1)$ symmetric random matrix distributed as $\textrm{Wishart}(r,\bI_{k-1})$ and is independent of $\bW_{k-1}$, where $\textrm{Wishart}(m,\bPsi)$ is the Wishart distribution with parameter $\bPsi$ and $m$ degrees of freedom.
-The following theorem gives the asymptotic distribution of $T(\bX)$ under the null and the local alternative hypothesis.
+Now, we are ready to derive the asymptotic properties of $T(\bX)$ under the spiked covariance.
+Let $\bW^*_{k-1}$ be a $(k-1)\times (k-1)$ symmetric random matrix, distributed as $\textrm{Wishart}(r,\bI_{k-1})$ and independent of $\bW_{k-1}$, where $\textrm{Wishart}(m,\bPsi)$ is the Wishart distribution with parameter $\bPsi$ and $m$ degrees of freedom.
+The following theorem gives the asymptotic distribution of $T(\bX)$ under the null and local alternative hypotheses.
 \begin{theorem}\label{thm1}
-    Suppose that $r=o(\sqrt{n})$, $r\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$, $rn\blambda_{r+1} /\mytr(\bLambda_2)\to 0$,
-    $r\blambda_{r+1}/\sqrt{\mytr(\bLambda_2^2)}\to 0$ and $\blambda_{r+1}-\blambda_p=O(n^{-1}\sqrt{\mytr(\bLambda_2^2)})$.
-    Then
+    Suppose $r=o(\sqrt{n})$, $r\mytr(\bLambda_2)\blambda_1/(n\blambda_r^2)\to 0$, $rn\blambda_{r+1} /\mytr(\bLambda_2)\to 0$,
+    $r\blambda_{r+1}/\sqrt{\mytr(\bLambda_2^2)}\to 0$, and $\blambda_{r+1}-\blambda_p=O(n^{-1}\sqrt{\mytr(\bLambda_2^2)})$.
+    Then,
     \begin{enumerate}[(i)]
         \item 
             under the null hypothesis $\bTheta \bC=\bO_{p\times (k-1)}$,
@@ -1006,17 +1000,17 @@ The following theorem gives the asymptotic distribution of $T(\bX)$ under the nu
 \end{theorem}
 \begin{remark}
     Suppose the approximate factor model in \cite{Fan2013Large} holds.
-    That is, $r$ is fixed, $\blambda_1,\ldots, \blambda_r$ diverge at rate $O(p)$ and $\blambda_{r+1},\ldots, \blambda_p$ are bounded.
-    Then the conditions of Theorem \ref{thm1} become $p/n\to \infty$ and $\blambda_{r+1}-\blambda_p=O(\sqrt p /n)$.
-    Hence Theorem \ref{thm1} holds for ultra-high dimensional data.
-    In contrast, recently proposed tests under the spiked covariance model can only be used for lower dimensional data.
-    In fact, under the approximate factor model in \cite{Fan2013Large}, \cite{Aoshima2018} requires $p/n \to 0$, while \cite{WANG2018225} requires $p/n^2\to 0$ and $\blambda_{r+1}=\cdots=\blambda_p$.   
-    We note that if $k=2$ and $p/n^2 \to 0$, then the coefficient of $\bW_{k-1}^* - r\bI_{k-1}$ is negligible, and consequently, $T(\bX)$ is asymptotically normal distributed.
+    That is, $r$ is fixed, $\blambda_1,\ldots, \blambda_r$ diverge at rate $O(p)$, and $\blambda_{r+1},\ldots, \blambda_p$ are bounded.
+    Then, the conditions of Theorem \ref{thm1} become $p/n\to \infty$ and $\blambda_{r+1}-\blambda_p=O(\sqrt p /n)$.
+    Hence, Theorem \ref{thm1} holds for ultrahigh-dimensional data.
+    In contrast, recent tests under the spiked covariance model can only be used for lower-dimensional data.
+    In fact, under the approximate factor model in \cite{Fan2013Large}, \cite{Aoshima2018} requires $p/n \to 0$, and \cite{WANG2018225} requires $p/n^2\to 0$ and $\blambda_{r+1}=\cdots=\blambda_p$.   
+    Note that if $k=2$ and $p/n^2 \to 0$, then the coefficient of $\bW_{k-1}^* - r\bI_{k-1}$ is negligible, and, as a result, $T(\bX)$ is asymptotically normally distributed.
     Thus, Theorem \ref{thm1} gives the high-order behavior of $T(\bX)$.
 
 \end{remark}
 
-Now we formulate a test procedure with asymptotically correct level.
+Now, we formulate a test procedure with an asymptotically correct level.
 Define the standardized statistic as
 \begin{equation*}
     Q_2=
@@ -1063,16 +1057,16 @@ $ be the cumulative distribution function of
 \right).
     \end{split}
 \end{equation*}
-Then we reject the null hypothesis if
+Then, we reject the null hypothesis if
 \begin{equation*}
     Q_2
     >
     F_2^{-1}\left(1-\alpha;\widehat{\mytr(\bLambda_2)},\widehat{\mytr(\bLambda_2^2)}\right).
 \end{equation*}
-The following corollary shows that this test procedure has asymptotically correct level, and also gives the asymptotic local power function.
+The following corollary shows that this test procedure has an asymptotically correct level, as well as giving the asymptotic local power function.
 \begin{corollary}
     Suppose the conditions of Theorem \ref{thm1} hold.
-    Then
+    Then,
     \begin{enumerate}[(i)]
         \item 
             under the null hypothesis $\bTheta \bC=\bO_{p\times (k-1)}$,
@@ -1147,7 +1141,7 @@ The following corollary shows that this test procedure has asymptotically correc
 \end{corollary}
 
 
-To gain some insight into the asymptotic behavior of $T(\bX)$, we consider $k=2$ and compare the LFD test with the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
+To gain some insight into the asymptotic behavior of $T(\bX)$, we consider $k=2$ and compare the power of the LFD test with that of~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
 Corollary \ref{kuCor2} implies that if
 \begin{equation*}
     \liminf_{n\to \infty}\frac{
@@ -1159,7 +1153,7 @@ Corollary \ref{kuCor2} implies that if
 }
 >0,
 \end{equation*}
-then the LFD test has nontrivial power asymptotically.
+then the LFD test has nontrivial power, asymptotically.
 In contrast, if
 \begin{equation*}
     \limsup_{n\to \infty}\frac{
@@ -1171,7 +1165,7 @@ In contrast, if
 }
 =0,
 \end{equation*}
-then the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} has trivial power asymptotically.
+then the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} exhibit trivial power, asymptotically.
 To compare 
 $
     \bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC
@@ -1181,38 +1175,38 @@ $
     \bC^\top \bTheta^\top \bTheta \bC
 $,
 we temporarily place a prior on $\bTheta$.
-Suppose that $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(\mathbf{0}_p,\psi \bI_p)$, $i=1,2$.
-Then
+Suppose $\sqrt{n_i} \theta_i$ has prior distribution $\mathcal{N}_p(\mathbf{0}_p,\psi \bI_p)$, for $i=1,2$.
+Then,
 $
 \psi^{-1}\bC^\top \bTheta^\top \bTheta \bC$
-is distributed as $\chi^2$ distribution with $p$ degrees of freedom.
+follows a $\chi^2$ distribution with $p$ degrees of freedom.
 %$ \text{Wishart}_{k-1}(p,\bI_{k-1})$, the $(k-1)$-dimensional Wishart distribution with degree of freedom $p$ and parameter $\bI_{k-1}$.
 On the other hand,
-$\psi^{-1}\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC$  is distributed as 
+$\psi^{-1}\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC$ follows a 
 %$\text{Wishart}_{k-1}(p-n+k,\bI_{k-1})$.
 $\chi^2$ distribution with $p-r$ degrees of freedom.
-Then we have
+Thus, we have
 $$
 \frac{\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC}{\bC^\top \bTheta^\top \bTheta \bC}\xrightarrow{P}1.
 $$
-So in average, the signal contained in $\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC$ is roughly the same as that in $\bC^\top \bTheta^\top \bTheta \bC$.
-Now we compare the asymptotic variance.
+Therefore, on average, the signal contained in $\bC^\top \bTheta^\top \bU_2 \bU_2^\top \bTheta \bC$ is roughly the same as that in $\bC^\top \bTheta^\top \bTheta \bC$.
+Now, we compare the asymptotic variance.
 It is not hard to see that under the conditions of Theorem \ref{thm1}, we have
     ${rn^{-2} \mytr^2 (\bLambda_2)}/{
         \mytr(\bSigma^2)
     }\to 0$.
     Also, if $\blambda_1, \dots, \blambda_r$ are sufficiently large, then $\mytr(\bLambda_2^2)/\mytr(\bSigma^2) \to 0$.
-Hence it can be expected that
+    Hence, it can be expected that
 \begin{equation*}
     \frac{rn^{-2} \mytr^2 (\bLambda_2)  + \mytr(\bLambda_2^2)}{
         \mytr(\bSigma^2)
     }\to 0.
 \end{equation*}
-That is, the asymptotic variance of $T(\bX)$ is typically much smaller than the tests in \cite{Bai1996Efiect} and \cite{Chen2010A}.
-To appreciate this phenomenon,  we note that in the expression \eqref{statisticForm1},
+That is, the asymptotic variance of $T(\bX)$ is typically much smaller than those of the tests in \cite{Bai1996Efiect} and \cite{Chen2010A}.
+To appreciate this, note that in the expression \eqref{statisticForm1},
 $(\bI_p-\bP_\bY)\bX \bJ \bC|\bP_{\bY}\sim \mathcal{N}_p(\mathbf{0}_p,(\bI_p-\bP_\bY)\bSigma(\bI_p-\bP_\bY))$.
-But $\bI_p-\bP_\bY$ tends to be orthogonal to $\bU_1 \bU_1^\top$ which is the projection matrix onto the eigenspace corresponding to the leading eigenvalues of $\bSigma$.
-Hence the projection by $\bI_p-\bP_\bY$ helps reduce the variance of $\bX \bJ \bC$.
+However, $\bI_p-\bP_\bY$ tends to be orthogonal to $\bU_1 \bU_1^\top$, which is the projection matrix onto the eigenspace corresponding to the leading eigenvalues of $\bSigma$.
+Hence, the projection by $\bI_p-\bP_\bY$ helps reduce the variance of $\bX \bJ \bC$.
 
 Thus, if $\bTheta$ satisfies
 \begin{equation*}
@@ -1234,14 +1228,14 @@ Thus, if $\bTheta$ satisfies
 }
 =0,
 \end{equation*}
-the LFD test has nontrivial power while  the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} has trivial power.
-Hence the LFD test tends to be more powerful than the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
+then the LFD test has nontrivial power, whereas the tests in~\cite{Bai1996Efiect} and~\cite{Chen2010A} exhibit trivial power.
+Hence, the LFD test tends to be more powerful than those of~\cite{Bai1996Efiect} and~\cite{Chen2010A}.
 
 
-In practice, one may not know weather the covariance matrix is spiked. Even if it is known that the covariance matrix is spiked, the spike number $r$ may be unknown.
-So we would like to propose an adaptive test procedure.
+In practice, we may not know whether the covariance matrix is spiked. Furthermore, even if we know that it is spiked, the spike number $r$ may be unknown.
+Therefore, we propose an adaptive test procedure.
 %Now we consider the detection of the spiked covariance and the estimation of $r$.
-Note that Theorem \ref{fenTheorem1} requires $n\blambda_1/\mytr(\bSigma)\to 0$ while Theorem \ref{thm1} requires $\mytr(\bLambda_2)/n\blambda_r\to 0$ and $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
+Note that Theorem \ref{fenTheorem1} requires $n\blambda_1/\mytr(\bSigma)\to 0$, and Theorem \ref{thm1} requires $\mytr(\bLambda_2)/n\blambda_r\to 0$ and $n\blambda_{r+1}/\mytr(\bLambda_2)\to 0$.
 This motivates us to consider the following adaptive test procedure.
 Let $\tau>1$ be a hyperparameter.
 If
@@ -1253,7 +1247,7 @@ If
 <\tau,
 \end{equation*}
 then we reject the null hypothesis if $Q_1 > F^{-1}(1-\alpha)$.
-Otherwise, we reject the null hypothesis if $Q_2> F_2^{-1}(1-\alpha;\widehat{\mytr(\bLambda_2,)},\widehat{\mytr(\bLambda_2^2)})$ where the unknown $r$ is substituted by the estimator
+Otherwise, we reject the null hypothesis if $Q_2> F_2^{-1}(1-\alpha;\widehat{\mytr(\bLambda_2,)},\widehat{\mytr(\bLambda_2^2)})$, where the unknown $r$ is substituted by the estimator
 \begin{equation*}
     \hat{r}=\min
     \left\{
@@ -1300,8 +1294,8 @@ We have the following proposition.
     \end{equation*}
     \end{enumerate}
 \end{proposition}
-Proposition \ref{numberConsistency} implies that the spiked covariance structure can be consistently detected.
-So the proposed adaptive LFD test procedure can indeed adapt to the unknown covariance structure.
+Proposition \ref{numberConsistency} implies that the spiked covariance structure can be detected consistently.
+Therefore, the proposed adaptive LFD test procedure can indeed adapt to the unknown covariance structure.
 
 
 %\section{Schott's method}
@@ -1411,62 +1405,62 @@ So the proposed adaptive LFD test procedure can indeed adapt to the unknown cova
 \section{Numerical study}\label{numerical}
 \setcounter{equation}{0} %-1
 
-In this section, we compare the numerical performance of the adaptive LFD test procedure with some existing tests, including the MANOVA tests in~\citet{Schott2007Some},~\citet{Cai2014High}, \cite{Hu2017} and \cite{ZHANG2017200}.
-These competing tests are denoted by Sc, CX, HBWW and ZGZ, respectively.
+In this section, we compare the numerical performance of the adaptive LFD test procedure with that of the MANOVA tests in~\citet{Schott2007Some},~\citet{Cai2014High}, \cite{Hu2017}, and \cite{ZHANG2017200}.
+These competing tests are denoted by Sc, CX, HBWW, and ZGZ, respectively.
 Throughout the simulations, we take the nominal test level $\alpha =0.05$ and the group number $k=3$.
 For the adaptive LFD test, we take $\tau=5$.
 For CX, we use their oracle procedure.
-All the simulation results are based on $5000$ replications.
+All simulation results are based on $5000$ replications.
 
 First, we simulate the empirical level and power under various models of $\bSigma$ and $\bTheta$.
 To characterize the signal strength,
-we define signal-to-noise ratio (SNR) as
+we define the signal-to-noise ratio (SNR) as
 $$
 \textrm{SNR}=\frac{ \bC^\top \bTheta^\top \bTheta\bC}{\sqrt{\mytr(\bSigma^2)}}.
 $$
-We consider four models for $\bSigma$ where the first two of them are nonspiked and the last two of them are spiked.
+We consider four models for $\bSigma$, where the first two are nonspiked, and the last two are spiked.
 \begin{itemize}
     \item Model I:
         $\bSigma= \bI_p$.
     \item Model II:
-        $\bSigma = (\sigma_{ij})$ where $\sigma_{ij}=0.6^{|i-j|}$.
+        $\bSigma = (\sigma_{ij})$, where $\sigma_{ij}=0.6^{|i-j|}$.
     \item Model III:
-        $\bSigma= \bU \bLambda \bU^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
+        $\bSigma= \bU \bLambda \bU^\top$, where $\bU$ is a $p\times p$ orthogonal matrix generated from the Haar distribution and $\bLambda=\mydiag(3p,2p,p,1,\ldots,1)$.
     \item Model IV:
-        $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$ where $\bU$ is a $p\times p$ orthogonal matrix generated from Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$ and $\bA$ is a $p\times p$ matrix whose elements are independently generated from Bernoulli distribution with success probability $0.01$.
+        $\bSigma=  \bU \bLambda \bU^\top+\bA \bA^\top$, where $\bU$ is a $p\times p$ orthogonal matrix generated from the Haar distribution, $\bLambda=\mydiag(p,p,1,\ldots,1)$, and $\bA$ is a $p\times p$ matrix, the elements of which are independently generated from the Bernoulli distribution with success probability $0.01$.
 \end{itemize}
 %and the two sample tests of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
-Under the null hypothesis, we shall always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$. We consider two different structures of alternative hypotheses: the non-sparse alternative and the sparse alternative.
-In the non-sparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$ and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make SNR equal to specific values.
-In the sparse case, we take $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$ and $\theta_3=\mathbf{0}_p$.
-Again, $\kappa$ is selected to make SNR equal to specific values.
-The simulation results are summarized in Figures \ref{newfigure1}-\ref{newfigure4}.
-It can be seen that in all scenarios, the empirical sizes of the LFD test are reasonably close to the nominal level $0.05$.
-Under model I and model II, where the covariance matrices are nonspiked, the empirical power of the LFD test is slightly lower than the sum-of-squares type tests, but is higher than the CX test.
+Under the null hypothesis, we always take $\theta_1=\cdots=\theta_k=\mathbf{0}_p$.
+We consider two structures for the alternative hypotheses: the nonsparse alternative, and the sparse alternative.
+In the nonsparse case, we take $\theta_1=\kappa \mathbf 1_p$, $\theta_2=-\kappa \mathbf 1_p$, and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected to make the SNR equal to specific values.
+In the sparse case, we take $\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$, and $\theta_3=\mathbf{0}_p$.
+Again, $\kappa$ is selected to make the SNR equal to specific values.
+The simulation results are summarized in Figures \ref{newfigure1}--\ref{newfigure4}, and show that in all scenarios, the empirical sizes of the LFD test are reasonably close to the nominal level $0.05$.
+Under model I and model II, where the covariance matrices are nonspiked, the empirical power of the LFD test is slightly lower than that of the sum-of-squares tests, but is higher than that of the CX test.
 %Nevertheless, the power performance of the LFD test improves as $n$ and $p$ increase.
-Under model III and model IV, where the covariance matrices are spiked, the empirical power of the LFD test is significantly higher than the sum-of-squares type tests.
-Also, the LFD test offers higher empirical power than the CX test in most cases, except for model IV with sparse means.
+Under model III and model IV, where the covariance matrices are spiked, the empirical power of the LFD test is significantly higher than that of the sum-of-squares tests.
+In addition, the LFD test exhibits higher empirical power than that of the CX test in most cases, except for model IV with sparse means.
 These simulation results verify our theoretical results that the LFD test is particularly powerful under the spiked covariance.
 
-In our second simulation study, we would like to investigate the effect of correlations between variables.
+In our second simulation study, we investigate the effect of correlations between the variables.
 %We take $k=2$ so that we can compare our test with some existing two sample tests.
 %For comparison, we carry out simulations for the test of~\cite{Srivastava2007Multivariate},~\cite{Chen2010A},~\cite{Tony2013} and~\cite{Feng2014Two}.
 %We denote these tests by Sr, CQ, CLX and FZWZ, respectively.
-We consider the compound symmetry structure, that is, the diagonal elements of $\bSigma$ are $1$ and the off-diagonal elements are $\rho$ with $0\leq \rho<1$.
-The parameter $\rho$ characterizes the correlations between variables.
+We consider the compound symmetry structure; that is, the diagonal elements of $\bSigma$ are one, and the off-diagonal elements are $\rho$, with $0\leq \rho<1$.
+The parameter $\rho$ characterizes the correlations between the variables.
 We take 
-$\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$
+$\theta_1=\kappa (\mathbf 1_{p/5}^\top,\mathbf{0}_{4p/5}^\top)^\top$, $\theta_2=\kappa (\mathbf{0}_{p/5}^\top, \mathbf 1_{p/5}^\top,\mathbf{0}_{3p/5}^\top)^\top$,
 and $\theta_3=\mathbf{0}_p$, where $\kappa$ is selected such that ${ \bC^\top \bTheta^\top \bTheta\bC}/(\sum_{i=2}^p\blambda_i^2)^{1/2}=5$.
-Figure~\ref{figure1} plots the empirical powers of various tests versus $\rho$.
-We can see that the empirical power of the LFD test holds nearly constant as $\rho$ varies while the empirical powers of competing sum-of-squares type tests decrease rapidly as $\rho$ increases.
-When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
+Figure~\ref{figure1} plots the empirical power for various tests versus $\rho$.
+We can see that the empirical power of the LFD test remains nearly constant as $\rho$ varies, whereas the empirical power of the competing sum-of-squares tests decreases rapidly as $\rho$ increases.
+When $\rho$ is nonzero, the LFD test outperforms the competing tests significantly.
 
 \begin{figure}[htbp]
     \centering
-    \subfigure[Model I, non-sparse case]{
+    \subfigure[Model I, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t1l}
 }
-    \subfigure[Model II, non-sparse case]{
+    \subfigure[Model II, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t1r}
 }
     \\
@@ -1476,15 +1470,15 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
     \subfigure[Model II, sparse case]{
         \includegraphics[width=0.45\textwidth]{t1rb}
 }
-    \caption{Empirical sizes and powers of tests under model I and model II. $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical size and power of tests under model I and model II; $n_1=n_2=n_3=20$, $p=300$. }
     \label{newfigure1}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \subfigure[Model I, non-sparse case]{
+    \subfigure[Model I, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t3l}
 }
-    \subfigure[Model II, non-sparse case]{
+    \subfigure[Model II, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t3r}
 }
     \\
@@ -1494,15 +1488,15 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
     \subfigure[Model II, sparse case]{
         \includegraphics[width=0.45\textwidth]{t3rb}
 }
-    \caption{Empirical sizes and powers of tests under model I and model II. $n_1=n_2=n_3=25$, $p=800$. }
+    \caption{Empirical size and power of tests under model I and model II; $n_1=n_2=n_3=25$, $p=800$. }
     \label{newfigure2}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \subfigure[Model III, non-sparse case]{
+    \subfigure[Model III, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t2l}
 }
-    \subfigure[Model IV, non-sparse case]{
+    \subfigure[Model IV, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t2r}
 }
     \\
@@ -1512,15 +1506,15 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
     \subfigure[Model IV, sparse case]{
         \includegraphics[width=0.45\textwidth]{t2rb}
 }
-    \caption{Empirical sizes and powers of tests under model III and model IV. $n_1=n_2=n_3=20$, $p=300$. }
+    \caption{Empirical size and power of tests under model III and model IV; $n_1=n_2=n_3=20$, $p=300$. }
     \label{newfigure3}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \subfigure[Model III, non-sparse case]{
+    \subfigure[Model III, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t4l}
 }
-    \subfigure[Model IV, non-sparse case]{
+    \subfigure[Model IV, nonsparse case]{
         \includegraphics[width=0.45\textwidth]{t4r}
 }
     \\
@@ -1530,7 +1524,7 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
     \subfigure[Model IV, sparse case]{
         \includegraphics[width=0.45\textwidth]{t4rb}
 }
-    \caption{Empirical sizes and powers of tests under model III and model IV. $n_1=n_2=n_3=25$, $p=800$. }
+    \caption{Empirical size and power of tests under model III and model IV; $n_1=n_2=n_3=25$, $p=800$. }
     \label{newfigure4}
 \end{figure}
 
@@ -1710,7 +1704,7 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.98\textwidth]{figure1}
-    \caption{Empirical powers of tests. $n_1=n_2=n_3=35$, $p=1000$.}
+    \caption{Empirical power of tests; $n_1=n_2=n_3=35$, $p=1000$.}
     \label{figure1}
 \end{figure}
 
@@ -1720,22 +1714,22 @@ When $\rho$ is non-zero, the LFD test outperforms competing tests significantly.
 
 \section{Concluding remarks}\label{concluding}
 \setcounter{equation}{0} %-1
-In this paper, using the idea of least favorable direction, we proposed the LFD test for MANOVA in high dimensional setting.
-We derived the asymptotic distribution of the LFD test statistic under both nonspiked and spiked covariances.
+Using the idea of the least favorable direction, we have proposed an LFD test for MANOVA in the high-dimensional setting.
+We have derived the asymptotic distribution of the LFD test statistic under both nonspiked and spiked covariances.
 The asymptotic local power functions are also given.
-From our theoretic results and simulation studies, it is seen that the LFD test has comparable power behavior to existing tests when the covariance matrix is nonspiked, while tends to be much more powerful than existing tests when the covariance matrix is spiked.
+Our theoretical results and simulation studies show that the LFD test exhibits power behavior comparable with that of existing tests when the covariance matrix is nonspiked, and tends to be much more powerful than existing tests when the covariance matrix is spiked.
 
-There are several interesting but challenging problems yet to be solved.
-First, for the case where the covariance structure is unknown,
-we proposed an adaptive LFD test procedure by consistently detecting unknown covariance structure and estimating the unknown $r$.
+Several interesting, but challenging problems remain.
+First, for the case of an unknown covariance structure,
+we proposed an adaptive LFD test procedure by consistently detecting the unknown covariance structure and estimating the unknown $r$.
 However, this procedure relies on a hyperparameter $\tau$. 
-How to choose an optimal $\tau$ remains an interesting problem.
+Determining an optimal $\tau$ remains an interesting problem.
 Second, our theoretical results rely on the normality of the observations.
-In fact, our proofs utilize the independence of $\bX \bJ \bC$ and $\bY$.
-Note that $\bX \bJ \bC$ and $\bY =\bX \tilde{\bJ}$ are both the linear combinations of indepedent random vectors $X_{ij}$.
-It is known that the independence of linear combinations of independent random variables essentially characterizes the normality of the variables (see, e.g., \cite{KAGAN}, Section 3.1).
+In fact, our proofs use the independence of $\bX \bJ \bC$ and $\bY$.
+Note that $\bX \bJ \bC$ and $\bY =\bX \tilde{\bJ}$ are both linear combinations of independent random vectors $X_{ij}$.
+It is known that the independence of linear combinations of independent random variables essentially characterizes the normality of the variables; see, for example, \cite{KAGAN}, Section 3.1.
 Hence our strategy is not feasible without the normality assumption.
-It is unclear whether the conclutions of our theorems hold without normal assumption.
+It is unclear whether the conclusions of our theorems hold without this assumption.
 Third, our theoretical results require $p/n \to \infty$.
 In fact, the asymptotic behavior of $T(\bX)$ will be different in the regime where $p/n \to$ constant.
 Random matrix theory may be useful to investigate the asymptotic behavior of $T(\bX)$ in this regime.
@@ -1781,16 +1775,16 @@ We leave these topics for future research.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip 14pt
-\noindent {\large\bf Supplementary Materials}
+\noindent {\large\bf Supplementary Material}
 
-The online supplementary material presents proofs of the propositions and theorems.
+The online Supplementary Material presents proofs of the propositions and theorems.
 \par
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vskip 14pt
-\noindent {\large\bf Acknowledgements}
-We would like to thank the associate editor and two anonymous reviewers for their helpful comments and suggestions that improve the paper significantly.
+\noindent {\large\bf Acknowledgments}
+We thank the associate editor and two anonymous reviewers for their helpful comments and suggestions.
 This work was supported by the National Natural Science Foundation of
-China under Grant Nos. 11471035, 11471030.
+China under Grant Nos. 11471035 and 11471030.
 \par
 
 
